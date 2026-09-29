@@ -1,0 +1,198 @@
+\section{Geometria della Formazione delle Immagini e Ricostruzione 3D}
+
+La formazione di un'immagine digitale può essere modellata analizzando diversi aspetti fondamentali: geometrici, ottici e radiometrici. 
+
+Dal punto di vista geometrico, la formazione dell'immagine rappresenta una trasformazione dallo spazio tridimensionale reale ($3\text{D}$) al piano bidimensionale dell'immagine ($2\text{D}$). Tale proiezione comporta inevitabilmente una \textbf{perdita di informazione}, in particolare per quanto riguarda la profondità. Di conseguenza, risulta impossibile ricostruire la geometria tridimensionale complessa di una scena a partire da una singola fotografia bidimensionale. Oggetti di dimensioni diverse posti a distanze differenti possono infatti produrre esattamente la medesima proiezione sul piano dell'immagine.
+
+\subsection{Recupero della Tridimensionalità}
+Per recuperare l'informazione sulla profondità e ricostruire la geometria $3\text{D}$ della scena è necessario disporre di \textbf{più immagini acquisite da prospettive/posizioni differenti}. 
+\begin{itemize}
+    \item \textbf{Visione Binoculare:} Gli esseri umani percepiscono il mondo in tre dimensioni grazie alla presenza di due occhi, che catturano la scena da due punti di vista leggermente sfalsati.
+    \item \textbf{Visione Monoculare e Movimento:} Con un solo occhio la tridimensionalità non viene del tutto persa. Il cervello umano compensa sia mediante la conoscenza a priori del mondo (interpretazione del contesto e della scala degli oggetti), sia attraverso minimi movimenti della testa. Il movimento cambia il punto di vista e permette al sistema visivo di stimare le distanze dinamiche.
+\end{itemize}
+
+---
+
+\section{Ottica e Ruolo delle Lenti}
+
+L'ottica disciplina il comportamento fisico della luce durante il tragitto dalla scena al sensore.
+
+\subsection{Funzione della Lente}
+Se si tenta di acquisire un'immagine senza un elemento di selezione (come un foro o una lente), i raggi luminosi provenienti da ogni punto della scena vengono proiettati indistintamente su tutta la superficie del sensore, generando un'immagine completamente sfocata e priva di struttura. 
+
+In un modello a foro stenopeico (\textit{pinhole}), la luce passa per un singolo punto. Tuttavia, per raccogliere una quantità di luce sufficiente, si utilizzano le \textbf{lenti}. La funzione primaria della lente è quella di deviare (rifrangere) i raggi ottici divergenti provenienti da un medesimo punto della scena, facendoli convergere in un unico punto sul sensore.
+
+\subsection{Campo di Vista e Profondità di Campo}
+La lente risolve il problema della messa a fuoco solo \textbf{localmente} e non universalmente. Esiste soltanto una specifica regione dello spazio (piano di messa a fuoco e relativa profondità di campo) per la quale la lente garantisce immagini nitide. Tutto ciò che si trova al di fuori di questo intervallo focalizzato risulta sfocato nell'immagine finale.
+
+---
+
+\section{Radiometria, Modelli di Riflettanza e Computer Graphics}
+
+La \textbf{radiometria} è la branca della fisica che modella quantitativamente la propagazione, il trasporto e la misurazione dell'energia trasportata dalla luce nello spazio.
+
+\subsection{Grandezze Radiometriche Fondamentali}
+La luce emessa da una sorgente si propaga, colpisce gli oggetti della scena e viene da essi riflessa verso il sensore o l'occhio umano. La radiometria descrive questi fenomeni attraverso concetti quali:
+\begin{itemize}
+    \item \textbf{Flusso Luminoso:} Quantità di energia luminosa emessa o ricevuta per unità di tempo.
+    \item \textbf{Angolo Solido:} Estensione tridimensionale dell'angolo nel piano. Se nel piano l'angolo individua un arco di circonferenza, nello spazio $3\text{D}$ l'angolo solido individua una superficie su una sfera (definendo un cono spaziale).
+    \item \textbf{Radianza ed Irradianza:} Quantità di energia che attraversa o colpisce una superficie per unità di area e di angolo solido. Il loro formalismo matematico prevede l'uso di derivate seconde ed equazioni differenziali.
+\end{itemize}
+
+\subsection{Computer Vision vs. Computer Graphics}
+Sebbene la radiometria descriva la formazione fisica dell'immagine, la sua applicazione differisce tra visione artificiale e grafica al calcolatore:
+\begin{itemize}
+    \item \textbf{Computer Vision:} Parte da immagini acquisite dal mondo reale per invertire il processo di formazione e ricostruire un'interpretazione della scena (geometria $3\text{D}$, riconoscimento, semantica).
+    \item \textbf{Computer Graphics:} Parte da un modello sintetico $3\text{D}$ e applica leggi fisiche e radiometriche per generare immagini sintetiche il più possibile realistiche.
+\end{itemize}
+
+\subsection{Evoluzione dei Modelli di Riflettanza dei Materiali}
+Per sintetizzare immagini fotorealistiche occorre modellare accuratamente come i diversi materiali riflettono la luce incidenti:
+
+\begin{enumerate}
+    \item \textbf{Modello Lambertiano (Diffuso Perfetto):} È il modello più semplice ed approssimativo. Assume che la quantità di luce riflessa da un punto della superficie sia la stessa in tutte le direzioni, indipendentemente dalla posizione dell'osservatore. Risulta poco realistico per la maggior parte delle superfici reali (ad esempio, la pelle umana varia luminosità visibile al variare dell'angolo di visione a causa del sudore e dell'idratazione).
+    \item \textbf{Modello Speculare Perfetto:} Assume che la superficie si comporti come uno specchio perfetto, riflettendo la luce in un'unica direzione privilegiata (dove l'angolo di incidenza è uguale all'angolo di riflessione).
+    \item \textbf{Modello di Torrance-Sparrow:} Introduce una modellazione più vicina alla realtà per superfici rugose. Considera la superficie composta da un insieme di microscopiche faccette riflettenti (\textit{micro-facets}), ciascuna delle quali si comporta come un piccolo specchio. L'orientamento casuale o distribuito di tali micro-specchi simula la rugosità naturale del materiale.
+    \item \textbf{BRDF (Bidirectional Reflectance Distribution Function):} Funzione di distribuzione della riflettanza bidirezionale. Misura e modella le proprietà riflettenti di materiali reali campionando la luce riflessa al variare delle direzioni di incidenza e di osservazione. I dati misurati vengono poi interpolati per consentire il rendering di materiali complessi (es. riflessioni interne, metalli, vernici).
+\end{enumerate}
+
+---
+
+\section{Machine Learning nella Grafica e Neural Rendering}
+
+L'IA e il Machine Learning sono ampiamente usati nei processi di rendering e sintesi d'immagine:
+
+\begin{itemize}
+    \item \textbf{Ray Tracing accelerato (Super-Resolution \& Denoising):} Il \textit{Ray Tracing} traccia i raggi luminosi partendo dalla fotocamera sintetica verso la scena per calcolare visibilità ed ombreggiamento. Essendo computazionalmente molto oneroso produrre milioni di raggi per alta risoluzione, un approccio moderno consiste nell'eseguire il Ray Tracing a bassa risoluzione e applicare modelli di ML per rimuovere il rumore (\textit{denoising}) e aumentare la risoluzione (\textit{super-resolution}).
+    \item \textbf{Regressione della BRDF:} Modelli di regressione addestrati su campionamenti reali vengono utilizzati per apprendere in modo continuo la funzione BRDF di materiali complessi.
+    \item \textbf{Image-Based Rendering (IBR):} Approccio nato nei primi anni 2000 per bypassare la modellazione $3\text{D}$ complessa. Catturando molteplici immagini reali della scena da vari punti di vista, l'informazione geometrica e radiometrica rimane codificata (\textit{embedded}) nelle immagini stesse. È possibile proiettare o interpolare direttamente i pixel da un'immagine all'altra per generare nuove viste sintetiche senza dover ricalcolare la risposta luminosa. 
+    
+    Un esempio celebre di applicazione di interpolazione di viste da fotocamere multiple è l'effetto \textit{bullet-time} nel film \textit{Matrix}.
+    \item \textbf{Neural Rendering:} Reti neurali profonde addestrate su collezioni di immagini imparano a generare direttamente nuovi fotogrammi coerenti di una scena da punti di vista arbitrari.
+\end{itemize}
+
+---
+
+\section{Sensori Digitali di Acquisizione: CCD e CMOS}
+
+Dalla fotografia chimica (dagherrotipi e pellicole) si è passati all'acquisizione elettronica tramite sensori a semiconduttore.
+
+\subsection{Principio Fisico di Trasduzione}
+Il sensore è una matrice di elementi fotosensibili (photosites). Quando i fotoni trasportati dalla luce colpiscono la superficie del photosite, generano una carica elettrica per effetto fotoelettrico. 
+
+Al termine del tempo di esposizione (regolato dallo shutter/otturatore), si misura la \textbf{differenza di potenziale} ($V$) accumulata rispetto a un livello di riferimento. Una maggiore quantità di fotoni incidenti produce una maggiore carica e quindi una maggiore differenza di potenziale, che corrisponde a una maggiore luminosità misurata. Successivamente, il sensore viene resettato riportando gli elementi al potenziale di base.
+
+\subsection{Confronto Tecnologico: CCD vs. CMOS}
+\begin{table}[h!]
+\centering
+\small
+\begin{tabular}{|l|p{6cm}|p{6cm}|}
+\hline
+\textbf{Caratteristica} & \textbf{CCD (Charge-Coupled Device)} & \textbf{CMOS (Complementary Metal-Oxide)} \\ \hline
+\textbf{Lettura Dati} & Trasferimento di carica riga per riga verso un unico bus/amplificatore di uscita. & Misurazione ed elaborazione indipendente integrata in ciascun photosite. \\ \hline
+\textbf{Rumore} & Molto basso, grazie alla minima elettronica presente sul singolo elemento fotosensibile. & Storicamente più alto, a causa dell'interferenza elettromagnetica dell'elettronica locale. \\ \hline
+\textbf{Velocità / Frame Rate} & Più lento nel processo di lettura sequenziale. & Molto elevato; consente acquisizioni video veloci. \\ \hline
+\textbf{Costo e Utilizzo} & Più costoso. Usato storicamente in ambito scientifico/astrofotografia. & Economico da produrre, oggi dominante su smartphone e camere digitali. \\ \hline
+\end{tabular}
+\caption{Confronto tra architetture di sensori CCD e CMOS.}
+\end{table}
+
+\subsection{Corsa ai Megapixel e Sottrazione del Fotogramma Nero}
+L'aumento sconsiderato della risoluzione (es. 40--60 Megapixel su sensori minuscoli da smartphone) riduce l'area del singolo photosite. La maggiore densità di componentistica elettronica per unità di superficie incrementa le correnti parassite e l'interferenza, mantenendo alti i livelli di rumore.
+
+Per mitigare il rumore termico ed elettronico nelle \textbf{lunghe esposizioni} (es. scatti da 30 secondi), si utilizza la tecnica della \textbf{Sottrazione del Fotogramma Nero (\textit{Dark Frame Subtraction}):}
+\begin{enumerate}
+    \item Si effettua uno scatto a diaframma/otturatore completamente chiuso per un tempo pari al tempo di esposizione desiderato (es. 30 secondi).
+    \item Il sensore misura la carica elettrica generata esclusivamente dal rumore termico e di fondo di ciascun pixel.
+    \item Si acquisisce l'immagine reale e si sottrae punto per punto la mappa del rumore precedentemente misurata.
+\end{enumerate}
+
+---
+
+\section{Percezione del Colore, Filtro di Bayer e Demosaicing}
+
+Un singolo photosite misura unicamente l'intensità complessiva della luce (numero di fotoni), producendo un segnale monocromatico in scala di grigi.
+
+\subsection{La Maschera di Bayer}
+Per catturare informazioni sul colore (RGB) senza triplicare il numero di sensori fisici, si applica una matrice di filtri colorati (filtro di Bayer) sopra i singoli photositi:
+\begin{itemize}
+    \item Ogni elemento fotosensibile viene coperto da un filtro che lascia passare solo una specifica banda spettrale: Rosso ($R$), Verde ($G$) o Blu ($B$).
+    \item La griglia alterna i tre colori in un pattern a scacchiera in cui **il canale Verde occupa il 50\% degli elementi**, mentre il Rosso e il Blu occupano ciascuno il 25\%.
+    \item \textbf{Motivazione Biologica:} L'occhio umano possiede una sensibilità spettrale molto più elevata alle lunghezze d'onda corrispondenti al verde. Allocare più campioni al verde migliora la percezione della nitidezza visiva dell'immagine finale.
+\end{itemize}
+
+\subsection{Demosaicing e Interpolazione Edge-Aware}
+L'immagine grezza uscente dal sensore è detta \textbf{mosaicata} (\textit{RAW mosaic image}), poiché ogni pixel possiede solo uno dei tre canali cromatici necessari. 
+
+Il \textbf{Demosaicing} è il processo algoritmico che ricostruisce i due canali cromatici mancanti per ogni pixel:
+\begin{itemize}
+    \item \textbf{Interpolazione Bilineare:} Metodo rapido che stima il valore mancante mediando i valori dei pixel adiacenti dello stesso colore lungo le direzioni della matrice.
+    \item \textbf{Interpolazione Edge-Aware (Sensibile ai Bordi):} L'interpolazione cieca sui contorni degli oggetti può mescolare i colori del soggetto con quelli dello sfondo, creando artefatti cromatici (\textit{color bleeding}). Gli algoritmi \textit{edge-aware} individuano preventivamente i bordi (\textit{edges}) e guidano l'interpolazione pesando maggiormente i pixel appartenenti alla stessa regione omogenea.
+\end{itemize}
+
+---
+
+\section{Frequenza Spaziale, Campionamento e Quantizzazione}
+
+\subsection{Frequenza Spaziale nelle Immagini}
+In ambito di elaborazione delle immagini, la \textbf{frequenza spaziale} misura la velocità con cui l'intensità luminosa o il colore variano nello spazio del piano dell'immagine:
+\begin{itemize}
+    \item \textbf{Basse Frequenze Spaziali:} Regioni in cui la luminosità varia lentamente o resta uniforme (es. canti di sfondi sfumati, cielo).
+    \item \textbf{Alte Frequenze Spaziali:} Regioni in cui l'intensità varia rapidamente a breve distanza spaziale (es. trame fitte, dettagli fini, bordi netti, righe alternate bianche e nere).
+\end{itemize}
+
+\subsection{Teorema del Campionamento di Nyquist-Shannon}
+La scena reale rappresenta un segnale spaziale continuo, mentre la matrice del sensore costituisce una griglia di campionamento discreta.
+
+Secondo il \textbf{Teorema del Campionamento di Nyquist-Shannon}, per poter ricostruire fedelmente un segnale senza perdita di informazione, la frequenza di campionamento $f_s$ deve essere almeno il doppio della massima frequenza $f_{max}$ presente nel segnale:
+\begin{equation}
+    f_s \ge 2 \cdot f_{max}
+\end{equation}
+
+In termini pratici visivi, per rappresentare una variazione di frequenza (es. l'alternanza di una riga nera e una riga bianca), occorrono almeno \textbf{due pixel}. Se la frequenza spaziale dell'immagine supera il limite di Nyquist per quel sensore (sottocampionamento), si verifica il fenomeno del \textbf{Moiré} (\textit{aliasing spaziale}), che genera falsi pattern geometrici e colori illusori.
+
+\subsection{Quantizzazione e Dithering}
+La differenza di potenziale misurata è una grandezza analogica continua. Il processo di \textbf{quantizzazione} converte tale segnale continuo in un valore discreto rappresentabile con un numero finito di bit (es. $8\text{ bit} \rightarrow 256$ livelli di grigio; $10$ o $16\text{ bit}$).
+
+La quantizzazione introduce un'approssimazione a scalini. Se i bit a disposizione sono pochissimi (es. immagini binarie a $1\text{ bit}$), si verifica una marcata perdita di dettaglio e la comparsa di bande nette (\textit{banding}).
+
+\paragraph{Tecnica del Dithering:}
+Il \textit{Dithering} è una tecnica usata durante la quantizzazione in cui viene intenzionalmente aggiunto un piccolo quantitativo di \textbf{rumore controllato} al segnale analogico prima della quantizzazione. 
+\begin{itemize}
+    \item L'aggiunta di rumore fa sì che i pixel vicini oscillino casualmente tra due livelli di quantizzazione adiacenti.
+    \item \textbf{Inganno Percettivo:} L'occhio umano integra spazialmente le variazioni ad alta frequenza dei pixel adiacenti, percependo una gradazione continua di sfumature di grigio o di colore anche se l'immagine è quantizzata a pochissimi livelli (es. ritratto della \textit{Ragazza con l'orecchino di perla} reso in $1\text{ bit}$ RGB).
+\end{itemize}
+
+---
+
+\section{Modellazione del Rumore nelle Immagini Digitali}
+
+In visione artificiale si distinguono principalmente due sorgenti fisiche di rumore:
+
+\subsection{Shot Noise (Rumore di Fotonica / Poissoniano)}
+Lo \textit{Shot Noise} è dovuto alla natura quantistica discreta dei fotoni che colpiscono il sensore. L'arrivo dei fotoni è un processo casuale modellabile mediante una \textbf{Distribuzione di Poisson}.
+
+Se $n$ è il numero medio di fotoni attesi, la deviazione standard del rumore poissoniano è pari a:
+\begin{equation}
+    \sigma = \sqrt{n}
+\end{equation}
+
+Il rapporto segnale-rumore (\textit{Signal-to-Noise Ratio}, SNR) relativo allo Shot Noise è espresso da:
+\begin{equation}
+    \text{SNR} = \frac{n}{\sigma} = \frac{n}{\sqrt{n}} = \sqrt{n}
+\end{equation}
+
+\textbf{Conseguenza visiva:}
+\begin{itemize}
+    \item Quando la regione è molto luminosa ($n$ elevato), l'SNR è alto ($\sqrt{n}$ grande): il segnale prevale sul rumore e lo Shot Noise è trascurabile.
+    \item Quando la regione è scura ($n$ piccolo), l'SNR è ridotto: le fluttuazioni casuali diventano rilevanti. Questo spiega perché \textbf{il rumore visivo è nettamente più percepibile nelle zone scure o in ombra dell'immagine}.
+\end{itemize}
+
+\subsection{Readout Noise (Rumore di Lettura / Gaussiano)}
+Il \textit{Readout Noise} è generato dalla circuitazione elettronica del sensore (amplificatori, correnti parassite, conversione A/D). 
+
+A differenza dello Shot Noise, il rumore di lettura è indipendente dal segnale luminoso ed è comunemente modellato nella teoria dell'elaborazione delle immagini come \textbf{Rumore Gaussiano Additivo} con media nulla:
+\begin{equation}
+    N \sim \mathcal{N}(0, \sigma_g^2)
+\end{equation}
+Questo è il tipo di rumore principale che gli algoritmi di filtraggio e ripristino dell'immagine (\textit{denoising}) si occupano di rimuovere in Computer Vision.

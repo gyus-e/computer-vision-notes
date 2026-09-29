@@ -1,0 +1,176 @@
+\section{Introduzione al Corso e alla Formazione delle Immagini}
+Il corso di Computer Vision inizia affrontando il problema classico dell'acquisizione e della formazione delle immagini.Trattandosi di una disciplina incentrata sull'elaborazione visiva tramite elaboratore, è indispensabile comprendere prima di tutto i meccanismi fisici e geometrici attraverso cui si generano le immagini.
+
+La formazione delle immagini è un processo fortemente multidisciplinare che coinvolge:
+\begin{itemize}
+    \item \textbf{Matematica}: in particolare la geometria dello spazio e delle proiezioni.
+    \item \textbf{Fisica e Ottica}: studio della propagazione della luce e del comportamento delle lenti.
+    \item \textbf{Ingegneria Elettronica}: funzionamento dei sensori e conversione del segnale luminoso in potenziale elettrico.
+\end{itemize}
+
+Nell'ambito della Computer Vision non è necessario approfondire eccessivamente la fisica quantistica o l'ingegneria elettronica dei sensori, ma è essenziale possedere un modello geometrico e concettuale chiaro di come il mondo reale tridimensionale si trasformi in un'immagine bidimensionale. L'obiettivo primario del corso è infatti imparare ad rielaborare ed estrarre informazioni geometriche e strutturali dalla scena a partire dalle immagini acquisite.
+
+Lo strumento di acquisizione universale è la macchina fotografica (o fotocamera digitale, come quelle integrate nei moderni smartphone).
+
+\section{Componenti Principali di un Sistema di Acquisizione Ottico}
+Un generico sistema di acquisizione ottica si compone dei seguenti elementi geometrici e fisici fondamentali:
+\begin{itemize}
+    \item \textbf{Piano Immagine / Schermo}: È l'elemento reale e fisico su cui si forma l'immagine. Può consistere in una pellicola chimica (fotografia analogica) o in un sensore elettronico CCD/CMOS (fotografia digitale).
+    \item \textbf{Asse Ottico}: È un'entità teorica e geometrica ortogonale al piano dello schermo. Definisce l'orientamento della telecamera rispetto alla scena tridimensionale.
+    \item \textbf{Lente / Sistema Ottico}: Posizionata tra la scena e il piano immagine, è generalmente costituita da un insieme complesso di lenti in vetro progettate per focalizzare la luce in diverse condizioni operative.
+    \item \textbf{Apertura / Diaframma}: Un meccanismo di regolazione del passaggio della luce. Senza un vincolo sull'apertura, l'eccesso di luce sovraesporrebbe l'immagine (rendendola "completamente bianca"). L'ampiezza dell'apertura è strettamente bilanciata con il tempo di scatto o tempo di esposizione.
+\end{itemize}
+
+\section{Geometria della Proiezione: Riduzione di Dimensione $3\text{D} \to 2\text{D}$}
+Il processo di formazione dell'immagine si basa su una proiezione geometrica: la luce colpisce gli oggetti della scena $3\text{D}$, viene riflessa e proiettata sullo schermo $2\text{D}$.
+
+\begin{equation}
+    \text{Scena } 3\text{D} \; (X, Y, Z) \longrightarrow \text{Immagine } 2\text{D} \; (u, v)
+\end{equation}
+
+In questa trasformazione si verifica una \textbf{perdita irreversibile di informazione}, ovvero la coordinata di profondità $Z$. La ricostruzione della profondità da un'unica immagine è matematicamente mal posta; la percezione della terza dimensione nell'essere umano avviene grazie alla conoscenza a priori della struttura del mondo reale e non direttamente dalla singola proiezione.
+
+I quattro aspetti principali coinvolti nella formazione delle immagini sono:
+\begin{enumerate}
+    \item \textbf{Geometria}: Modellazione geometrica dei raggi e dei piani di proiezione.
+    \item \textbf{Ottica}: Comportamento e deviazione della luce attraverso i vetri della lente.
+    \item \textbf{Radiometria}: Misurazione della quantità di energia luminosa irradiata e riflessa.
+    \item \textbf{Sensori}: Conversione dell'energia luminosa in carica o differenza di potenziale elettrico.
+\end{enumerate}
+Nel corso ci si focalizzerà quasi esclusivamente sulla \textbf{Geometria}, costruendo modelli matematici e sintetici di telecamera.
+
+\section{Tipologie di Proiezione: Ortografica vs. Prospettica}
+Confrontando due immagini reali, ad esempio la foto del Pentagono dall'alto e la foto di un ponte visto dal basso, si notano differenze geometriche sostanziali:
+
+\subsection{Proiezione Ortografica}
+Nella proiezione ortografica, i raggi di proiezione sono tutti paralleli tra loro e ortogonali al piano immagine. 
+\begin{itemize}
+    \item Conserva le dimensioni e le proporzioni reali degli oggetti senza distorsione prospettica.
+    \item È un'approssimazione valida quando la distanza dell'osservatore dalla scena è molto grande rispetto all'estensione/profondità dell'oggetto stesso (es. vista aerea o satellitare di un edificio di $10\text{ m}$ acquisita da $2\text{--}3\text{ km}$ di altezza).
+    \item Le equazioni di proiezione semplificate sono:
+    \begin{equation}
+        u = X, \quad v = Y
+    \end{equation}
+    poiché le variazioni di profondità $\Delta Z$ sono considerate trascurabili.
+\end{itemize}
+
+\subsection{Proiezione Prospettica}
+È il modello più naturale e realistico, corrispondente alla visione umana e alla resa pittorica (sviluppata dal Rinascimento e favorita dall'uso della camera oscura/stenopeica).
+\begin{itemize}
+    \item I raggi di proiezione non sono paralleli, ma convergono tutti in un singolo punto dello spazio detto \textbf{Centro Ottico} o \textbf{Centro di Proiezione} ($C$).
+    \item Gli oggetti paralleli e le linee parallele nello spazio convergono visivamente verso un punto dell'immagine.
+    \item Introduce una proporzionalità inversa rispetto alla profondità $Z$: man mano che un oggetto si allontana, la sua proiezione sull'immagine diminuisce di dimensione.
+\end{itemize}
+
+\section{Il Modello Geometrico Pinhole (Punto di Spillo)}
+Il modello \textit{Pinhole} (o foro stenopeico / punta di spillo) rappresenta il modello matematico ideale di telecamera.
+
+\subsection{Assunzioni del Modello}
+Si assume che l'apertura della telecamera sia ridotta a un singolo **punto geometrico** $C$ (Centro di Proiezione).
+\begin{itemize}
+    \item Per ogni punto della scena $3\text{D}$ passa **un unico raggio ottico** che attraversa il centro di proiezione $C$ e colpisce il piano immagine.
+    \item Questo modello astratto elimina ogni problema di aberrazione o sfocatura: **tutti i punti della scena sono sempre perfettamente a fuoco**, indipendentemente dalla loro distanza $Z$.
+\end{itemize}
+
+\subsection{Geometria e Triangoli Simili}
+Fissiamo un sistema di riferimento tridimensionale cartesiano centrato in $C$:
+\begin{itemize}
+    \item Origine $(0,0,0)$ coincide con il Centro di Proiezione $C$.
+    \item L'asse $Z$ coincide con l'Asse Ottico ed è ortogonale al piano immagine.
+    \item Gli assi $X$ e $Y$ sono paralleli al piano immagine.
+    \item Il piano immagine si trova a una distanza $f$ (distanza focale) dal punto $C$ lungo l'asse $Z$.
+\end{itemize}
+
+Considerando un punto nello spazio $P = (X, Y, Z)^T$ e la sua proiezione $p = (u, v)^T$ sul piano immagine, si formano due triangoli rettangoli simili opposti al vertice $C$. Sfruttando la proporzionalità tra i lati dei triangoli simili si ricava:
+
+\begin{equation}
+    \frac{u}{X} = -\frac{f}{Z} \implies u = -f \frac{X}{Z}
+\end{equation}
+\begin{equation}
+    \frac{v}{Y} = -\frac{f}{Z} \implies v = -f \frac{Y}{Z}
+\end{equation}
+
+Il segno meno ($-$) indica matematicamente che l'immagine proiettata sul piano reale dietro al centro di proiezione è **capovolta** sia in senso verticale che orizzontale.
+
+\subsection{Modello Virtuale Equivalentemente Non Invertito}
+Per comodità algebrica ed evitare di gestire il segno meno, si definisce spesso un piano immagine virtuale posto \textbf{davanti} al centro di proiezione ad una distanza $+f$. Geometria e regole rimangono identiche, ma le equazioni di proiezione diventano:
+\begin{equation}
+    u = f \frac{X}{Z}, \quad v = f \frac{Y}{Z}
+\end{equation}
+
+\subsection{Modello Debolmente Prospettico (Weak Perspective)}
+Quando la variazione di profondità dei punti della scena $\Delta Z$ è molto piccola rispetto alla distanza media $Z_0$ dall'osservatore, si può approssimare $Z \approx Z_0 = \text{costante}$. La proiezione equivale a una proiezione ortografica seguita da un ridimensionamento globale (scaling) in funzione della profondità media $Z_0$.
+
+\section{Sistemi di Riferimento: Mondo vs. Telecamera e Parametri}
+In uno scenario reale, non è possibile misurare la posizione dei punti $3\text{D}$ direttamente rispetto al sistema di riferimento interno della telecamera (poiché l'origine $C$ si trova all'interno dell'ottica). 
+
+Occorre quindi definire un **Sistema di Riferimento Mondo** esterno arbitrario. La trasformazione dal Sistema Mondo al Sistema Telecamera è una trasformazione rigida $3\text{D}$ (isometria) composta da:
+\begin{itemize}
+    \item Una \textbf{Rotazione} espressa da una matrice $R \in \mathbb{R}^{3 \times 3}$.
+    \item Una \textbf{Traslazione} espressa da un vettore $T \in \mathbb{R}^{3 \times 1}$.
+\end{itemize}
+
+I parametri di un sistema di acquisizione si dividono in due categorie:
+\begin{itemize}
+    \item \textbf{Parametri Estrinseci}: Definiscono la posizione e l'orientamento della telecamera nello spazio rispetto al sistema di riferimento Mondo ($R$ e $T$). Non dipendono dalla struttura interna della fotocamera.
+    \item \textbf{Parametri Intrinseci}: Parametri propri della struttura interna del dispositivo (distanza focale $f$, coordinate del punto principale, fattori di scala dei pixel, eventuale sbieco/skew).
+\end{itemize}
+
+Il processo di determinazione sperimentale di questi parametri è detto \textbf{Calibrazione della Telecamera}.
+
+\section{Punti di Fuga, Non-Linearità e Coordinate Omogenee}
+
+\subsection{Non-Linearità e Punti di Fuga}
+Nelle trasformazioni euclidee e affini le rette parallele rimangono parallele. Al contrario, le equazioni della proiezione prospettica dividono le coordinate spaziali per la profondità $Z$:
+\begin{equation}
+    (X, Y, Z) \longmapsto \left(f\frac{X}{Z}, \, f\frac{Y}{Z}\right)
+\end{equation}
+Questa divisione rende la proiezione prospettica una **trasformazione non lineare** nello spazio euclideo $\mathbb{R}^3$.
+
+Di conseguenza, insiemi di rette parallele nello spazio $3\text{D}$ (non parallele al piano immagine) proiettate sull'immagine perdono il loro parallelismo e convergono in un punto comune chiamato **Punto di Fuga** (\textit{Vanishing Point}). Ogni direzione nello spazio $3\text{D}$ individua un punto di fuga distinto sul piano immagine.
+
+\subsection{Coordinate Omogenee e Spazio Proiettivo}
+Per poter trattare la proiezione prospettica in forma algebrica lineare e sfruttare il calcolo matriciale, si introducono le **Coordinate Omogenee** estendendo lo spazio euclideo allo spazio proiettivo ($\mathbb{P}^3$ e $\mathbb{P}^2$).
+
+Un punto $3\text{D}$ di coordinate euclidee $(X, Y, Z)^T$ viene rappresentato in coordinate omogenee aggiungendo una quarta coordinata strumentale:
+\begin{equation}
+    \mathbf{\tilde{M}} = \begin{pmatrix} X \\ Y \\ Z \\ 1 \end{pmatrix} \sim \begin{pmatrix} \alpha X \\ \alpha Y \\ \alpha Z \\ \alpha \end{pmatrix}, \quad \alpha \neq 0
+\end{equation}
+Le coordinate omogenee definiscono classi di equivalenza a meno di un fattore di scala non nullo $\alpha$.
+
+Grazie alle coordinate omogenee, la proiezione prospettica completa (comprensiva di parametri intrinseci ed estrinseci) si esprime mediante una semplice moltiplicazione matriciale lineare:
+\begin{equation}
+    \mathbf{\tilde{m}} = P \mathbf{\tilde{M}} = K [R \mid T] \mathbf{\tilde{M}}
+\end{equation}
+dove $P \in \mathbb{R}^{3 \times 4}$ è la matrice di proiezione prospettica e $K$ è la matrice dei parametri intrinseci.
+
+\section{Effetti Reali della Lente e Imperfezioni Ottiche}
+
+\subsection{Distorsione Radiale}
+Le lenti reali (specialmente quelle economiche o di bassa qualità) introducono deformazioni geometriche note come **distorsione radiale**. La distorsione cresce allontanandosi dal centro dell'ottica verso i bordi esterni dell'immagine. Le coordinate misurate sul piano immagine reale deviano da quelle teoriche del modello pinhole e devono essere corrette analiticamente in fase di calibrazione.
+
+\subsection{Modello della Lente Sottile e Messa a Fuoco}
+In una fotocamera reale, l'apertura non è un punto infinitesimo ma possiede un'area finita. Per raccogliere luce sufficiente si utilizza una lente.
+
+Nel modello teorico della **Lente Sottile**:
+\begin{itemize}
+    \item Un raggio parallelo all'asse ottico viene deviato passando per il fuoco.
+    \item Un raggio che passa per il centro della lente prosegue privo di deviazione.
+    \item Un raggio che attraversa il fuoco esce dalla lente in direzione parallela all'asse ottico.
+\end{itemize}
+
+Una lente fa convergere i raggi riflessi da un punto $P$ della scena su un preciso punto del sensore solo se $P$ si trova ad una specifica distanza (piano di messa a fuoco). Se il punto si trova più avanti o più indietro, i suoi raggi intercettano il piano del sensore formando un'area circolare detta **cerchio di confusione** (\textit{circle of confusion}), generando un effetto di \textbf{sfocatura} (\textit{blur}).
+
+L'intervallo di distanze nello spazio entro il quale gli oggetti mantengono una sfocatura impercettibile ed appaiono nitidi è definito **Profondità di Campo** (\textit{Depth of Field}).
+
+\section{Compromesso Fotografico: Apertura, Esposizione e Rumore ISO}
+Nell'uso pratico della telecamera si presenta un compromesso fondamentale tra geometria ed esposizione luminosa:
+\begin{enumerate}
+    \item Per aumentare la profondità di campo (ad esempio per avere un panorama tutto perfettamente a fuoco), occorre **chiudere il diaframma** (ridurre il diametro dell'apertura).
+    \item Riducendo l'apertura, la quantità di luce che attraversa l'ottica e raggiunge il sensore diminuisce drasticamente.
+    \item Per compensare la scarsità di luce e ottenere un'immagine sufficientemente luminosa vi sono due soluzioni:
+    \begin{itemize}
+        \item \textbf{Aumentare la sensibilità ISO}: Si amplifica il segnale elettrico generato dal sensore. Tuttavia, poiché i sensori elettronici reali presentano imperfezioni e rumore di fondo, amplificare il segnale significa **amplificare anche il rumore**, producendo immagini sgranate, con colori alterati e degradati.
+        \item \textbf{Aumentare il Tempo di Esposizione / Scatto}: Se la scena è statica, è preferibile prolungare la durata dell'acquisizione mantenendo i valori ISO al minimo. In questo modo il sensore accumula sufficiente energia luminosa garantendo un'immagine nitida, ben esposta e priva di rumore.
+    \end{itemize}
+\end{enumerate}
