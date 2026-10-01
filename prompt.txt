@@ -1,0 +1,6 @@
+Il file allegato é una trascrizione generata automaticamente di una lezione di Computer Vision per il corso di laurea magistrale in informatica.
+Leggi attentamente tutta la trascrizione.
+Genera un file .tex contenente un chapter intitolato lezione 4, da integrare in un documento latex di tipo report.
+Riporta il contenuto integrale della lezione, senza omettere alcuna informazione utile, suddividendola opportunamente in sezioni in base all'argomento.
+
+Genera anche un main.tex di prova che importa solo il capitolo che hai realizzato.

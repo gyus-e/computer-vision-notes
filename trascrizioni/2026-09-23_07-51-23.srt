@@ -1,0 +1,6092 @@
+1
+00:00:42,640 --> 00:00:45,760
+Va bene.
+
+2
+00:00:50,559 --> 00:00:55,000
+Allora ragazzi,
+
+3
+00:00:52,760 --> 00:00:57,239
+iniziamo ufficialmente con solo una
+
+4
+00:00:55,000 --> 00:01:00,000
+settimana di ritardo, ma questo è
+
+5
+00:00:57,239 --> 00:01:02,920
+normale, il corso di Computer Vision e
+
+6
+00:01:00,000 --> 00:01:04,479
+iniziamo
+
+7
+00:01:02,920 --> 00:01:07,080
+con
+
+8
+00:01:04,479 --> 00:01:08,920
+una cosa un po' classica, cioè dobbiamo
+
+9
+00:01:07,080 --> 00:01:10,400
+avere a che fare con le immagini,
+
+10
+00:01:08,920 --> 00:01:12,600
+essendo computer PC avremo a che fare
+
+11
+00:01:10,400 --> 00:01:14,720
+con le immagini
+
+12
+00:01:12,600 --> 00:01:16,840
+e quindi ci poniamo il problema, cioè
+
+13
+00:01:14,720 --> 00:01:19,640
+com'è che si formano queste immagini?
+
+14
+00:01:16,840 --> 00:01:23,079
+Ora, questa è una cosa che coinvolge
+
+15
+00:01:19,640 --> 00:01:25,840
+vari eh settori. Coinvolge la
+
+16
+00:01:23,079 --> 00:01:27,560
+matematica, particolare la geometria,
+
+17
+00:01:25,840 --> 00:01:32,520
+coinvolge la fisica, coinvolge
+
+18
+00:01:27,560 --> 00:01:34,159
+l'ingegneria elettronica, coinvolge
+
+19
+00:01:32,520 --> 00:01:37,720
+Basta.
+
+20
+00:01:34,159 --> 00:01:39,439
+Ah, l'ottica, vabbè, la fisica. Eh, cose
+
+21
+00:01:37,720 --> 00:01:40,880
+di cui io ne capisco un pochettino di
+
+22
+00:01:39,439 --> 00:01:42,720
+matematica, ma delle altre non ne so
+
+23
+00:01:40,880 --> 00:01:46,320
+assolutamente nulla. Sono assolutamente
+
+24
+00:01:42,720 --> 00:01:47,640
+un, cioè uno che si sparaccia per a dire
+
+25
+00:01:46,320 --> 00:01:51,719
+cose che finge di avere capito.
+
+26
+00:01:47,640 --> 00:01:53,719
+Fondamentalmente l'idea qual è? Eh, a
+
+27
+00:01:51,719 --> 00:01:55,759
+noi interessa avere un'idea
+
+28
+00:01:53,719 --> 00:01:58,000
+fondamentalmente di quali sono i
+
+29
+00:01:55,759 --> 00:01:59,119
+meccanismi che entrano in gioco nell,
+
+30
+00:01:58,000 --> 00:02:00,719
+diciamo, nella formazione delle
+
+31
+00:01:59,119 --> 00:02:02,360
+immagini, sapere che esistono altre
+
+32
+00:02:00,719 --> 00:02:04,159
+cose, avere una vaga idea di quello che
+
+33
+00:02:02,360 --> 00:02:06,039
+succede, ma non ci interessa molto di
+
+34
+00:02:04,159 --> 00:02:08,440
+più. A noi quello che interessa è
+
+35
+00:02:06,039 --> 00:02:10,239
+fondamentalmente come si fanno cose a
+
+36
+00:02:08,440 --> 00:02:12,599
+partire da immagini. però dobbiamo dire
+
+37
+00:02:10,239 --> 00:02:15,560
+un pochettino qualcosa.
+
+38
+00:02:12,599 --> 00:02:18,040
+Ehm,
+
+39
+00:02:15,560 --> 00:02:21,640
+quindi
+
+40
+00:02:18,040 --> 00:02:24,360
+come si formavano immagini? A partire da
+
+41
+00:02:21,640 --> 00:02:26,640
+uno strumento che acquisisce immagini
+
+42
+00:02:24,360 --> 00:02:29,599
+essenzialmente che è tipicamente una
+
+43
+00:02:26,640 --> 00:02:32,680
+macchina, una cosa di questo tipo che è
+
+44
+00:02:29,599 --> 00:02:35,000
+una macchina fotografica, cosa che
+
+45
+00:02:32,680 --> 00:02:37,239
+usiamo tutti, c'abbiamo il cellulare,
+
+46
+00:02:35,000 --> 00:02:39,760
+non ci divertiamo un pochettino e
+
+47
+00:02:37,239 --> 00:02:43,200
+facciamo cose.
+
+48
+00:02:39,760 --> 00:02:46,599
+Cosa succede all'interno di questo robo?
+
+49
+00:02:43,200 --> 00:02:49,040
+Allora, dal punto di vista, diciamo, eh
+
+50
+00:02:46,599 --> 00:02:51,239
+cioè questo è quello
+
+51
+00:02:49,040 --> 00:02:53,480
+che usiamo tutti i giorni, diciamo, in
+
+52
+00:02:51,239 --> 00:02:56,280
+varie geometri, diciamo, in varie varie
+
+53
+00:02:53,480 --> 00:02:57,519
+versioni, vari vari prodotti e così via,
+
+54
+00:02:56,280 --> 00:02:59,040
+però i meccanismi sono sempre gli
+
+55
+00:02:57,519 --> 00:03:01,040
+stessi.
+
+56
+00:02:59,040 --> 00:03:03,440
+Allora, tipicamente quello che abbiamo
+
+57
+00:03:01,040 --> 00:03:08,360
+abbiamo una cosa che si chiama
+
+58
+00:03:03,440 --> 00:03:08,360
+eh asse ottico.
+
+59
+00:03:09,799 --> 00:03:15,120
+Abbiamo qualcosa che si chiama schermo,
+
+60
+00:03:12,400 --> 00:03:16,959
+dove schermo non è quello dove andiamo a
+
+61
+00:03:15,120 --> 00:03:19,879
+guardare le immagini, ma lo schermo è
+
+62
+00:03:16,959 --> 00:03:22,640
+dove si formano le immagini.
+
+63
+00:03:19,879 --> 00:03:23,480
+Quello che avviene nel meccanismo di
+
+64
+00:03:22,640 --> 00:03:25,239
+informazione delle immagini è un
+
+65
+00:03:23,480 --> 00:03:28,920
+processo di proiezione, no? La luce
+
+66
+00:03:25,239 --> 00:03:31,040
+arriva su un oggetto, viene riflessa e
+
+67
+00:03:28,920 --> 00:03:34,560
+quindi proiettata su uno schermo e
+
+68
+00:03:31,040 --> 00:03:36,519
+acquisita in qualche maniera. Vedremo
+
+69
+00:03:34,560 --> 00:03:39,799
+sono varie maniere
+
+70
+00:03:36,519 --> 00:03:41,799
+o chimiche o elettroniche, no?
+
+71
+00:03:39,799 --> 00:03:44,000
+Quindi ci serve questo schermo. L'asse
+
+72
+00:03:41,799 --> 00:03:48,680
+ottico, mentre lo schermo è qualcosa di
+
+73
+00:03:44,000 --> 00:03:52,000
+reale, l'asse ottico è qualcosa di eh
+
+74
+00:03:48,680 --> 00:03:54,680
+costruito e teorico ed è qualcosa che ci
+
+75
+00:03:52,000 --> 00:03:56,879
+dice
+
+76
+00:03:54,680 --> 00:03:58,760
+dov'è la scena rispetto allo schermo.
+
+77
+00:03:56,879 --> 00:04:02,360
+Fondamentalmente l'asse occhio è
+
+78
+00:03:58,760 --> 00:04:07,840
+qualcosa che è ortogonale
+
+79
+00:04:02,360 --> 00:04:12,079
+rispetto al piano dello schermo. Ok?
+
+80
+00:04:07,840 --> 00:04:14,360
+Eh, cosa c'abbiamo in mezzo? Fra qua ci
+
+81
+00:04:12,079 --> 00:04:15,879
+sono,
+
+82
+00:04:14,360 --> 00:04:18,879
+diciamo, la scena che dobbiamo
+
+83
+00:04:15,879 --> 00:04:18,879
+acquisire.
+
+84
+00:04:19,239 --> 00:04:24,720
+Ok, i miei disegni saranno sempre di
+
+85
+00:04:21,880 --> 00:04:26,360
+questo livello, non migliori. Abo,
+
+86
+00:04:24,720 --> 00:04:28,880
+abbiamo la scena, ci possiamo fare gli
+
+87
+00:04:26,360 --> 00:04:30,720
+occhietti se volete, eh, il naso, ma
+
+88
+00:04:28,880 --> 00:04:32,639
+niente di più. Abbiamo la scena che
+
+89
+00:04:30,720 --> 00:04:34,919
+vogliamo acquisire
+
+90
+00:04:32,639 --> 00:04:36,600
+che è questa roba di qua. C'abbiamo
+
+91
+00:04:34,919 --> 00:04:38,080
+questo schermo. In mezzo sappiamo
+
+92
+00:04:36,600 --> 00:04:42,680
+benissimo che c'è una cosa che si chiama
+
+93
+00:04:38,080 --> 00:04:45,800
+lente, ok? ed è il sistema ottico che
+
+94
+00:04:42,680 --> 00:04:47,240
+noi diciamo lente, ma solitamente è
+
+95
+00:04:45,800 --> 00:04:49,600
+qualcosa di molto più complesso che ha
+
+96
+00:04:47,240 --> 00:04:51,120
+una una serie di vetri, uno cioè vetri
+
+97
+00:04:49,600 --> 00:04:53,400
+cosini che sono varie lenti un presso
+
+98
+00:04:51,120 --> 00:04:55,600
+l'altro che fanno diciamo eh ci
+
+99
+00:04:53,400 --> 00:04:59,120
+permettono di acquisire immagini a div
+
+100
+00:04:55,600 --> 00:04:59,120
+in diverse condizioni.
+
+101
+00:05:03,280 --> 00:05:09,280
+Serve anche un'altra cosa.
+
+102
+00:05:06,000 --> 00:05:11,080
+Allora, se ci metto soltanto la lente,
+
+103
+00:05:09,280 --> 00:05:13,160
+le cose non vanno benissimo. Ho bisogno
+
+104
+00:05:11,080 --> 00:05:16,720
+di qualcosa
+
+105
+00:05:13,160 --> 00:05:19,440
+che mi vincoli la luce che deve passare,
+
+106
+00:05:16,720 --> 00:05:21,400
+perché se lascio tutto aperto arriva un
+
+107
+00:05:19,440 --> 00:05:26,520
+sacco di luce. Quello che ottengo è
+
+108
+00:05:21,400 --> 00:05:26,520
+un'immagine fondamentalmente bianzata,
+
+109
+00:05:26,560 --> 00:05:29,360
+come si diceva una volta quando,
+
+110
+00:05:27,720 --> 00:05:31,800
+diciamo, si si acquisivano immagini con
+
+111
+00:05:29,360 --> 00:05:35,160
+le pellicole.
+
+112
+00:05:31,800 --> 00:05:37,560
+Quello che facciamo. Allora, mettiamo un
+
+113
+00:05:35,160 --> 00:05:39,440
+sistema di apertura
+
+114
+00:05:37,560 --> 00:05:41,199
+al secondo fare passare secondo il tipo
+
+115
+00:05:39,440 --> 00:05:44,319
+di immagineamo quiere eccetera eccetera.
+
+116
+00:05:41,199 --> 00:05:47,919
+Dispare un ma credo che siete avete
+
+117
+00:05:44,319 --> 00:05:51,080
+tutti sentito parlare di
+
+118
+00:05:47,919 --> 00:05:52,800
+eh apertura proprio, diciamo,
+
+119
+00:05:51,080 --> 00:05:54,759
+di quanto
+
+120
+00:05:52,800 --> 00:05:57,759
+come opposto al tempo di acquisizione,
+
+121
+00:05:54,759 --> 00:06:00,759
+no? Due cose vanno in una maniera o un
+
+122
+00:05:57,759 --> 00:06:00,759
+altra.
+
+123
+00:06:01,319 --> 00:06:06,199
+Allora, quello che ci poniamo adesso,
+
+124
+00:06:03,160 --> 00:06:08,199
+questo, diciamo, è gli ingredienti di un
+
+125
+00:06:06,199 --> 00:06:10,160
+sistema di acquisizione. Questo non
+
+126
+00:06:08,199 --> 00:06:12,919
+basta. Noi quello che vogliamo sapere è
+
+127
+00:06:10,160 --> 00:06:17,560
+come fa una scena
+
+128
+00:06:12,919 --> 00:06:17,560
+che fondamentalmente è qualcosa di
+
+129
+00:06:17,720 --> 00:06:21,960
+tridimensionale
+
+130
+00:06:19,560 --> 00:06:25,120
+a diventare qualcosa che è un'immagine
+
+131
+00:06:21,960 --> 00:06:27,120
+che è 2D 2D. Noi ogni volta che ci siamo
+
+132
+00:06:25,120 --> 00:06:29,319
+dell'immagine in una scena passiamo da
+
+133
+00:06:27,120 --> 00:06:30,720
+qualcosa di tridimensionale a qualcosa
+
+134
+00:06:29,319 --> 00:06:32,520
+che invece è su un piano, quindi
+
+135
+00:06:30,720 --> 00:06:34,599
+bidimensionale.
+
+136
+00:06:32,520 --> 00:06:37,639
+Quindi perdiamo qualcosa, no? Perdiamo
+
+137
+00:06:34,599 --> 00:06:39,720
+un un po' di informazione
+
+138
+00:06:37,639 --> 00:06:42,400
+che è proprio la profondità della scena.
+
+139
+00:06:39,720 --> 00:06:44,440
+Noi possiamo percepirla la profondità
+
+140
+00:06:42,400 --> 00:06:47,120
+della scena
+
+141
+00:06:44,440 --> 00:06:48,400
+perché conosciamo il mondo. Possiamo
+
+142
+00:06:47,120 --> 00:06:50,120
+anche delle ricostruire delle immagini
+
+143
+00:06:48,400 --> 00:06:51,800
+mentalmente possiamo capire delle cose
+
+144
+00:06:50,120 --> 00:06:53,599
+guardando un'immagine, ma questo è
+
+145
+00:06:51,800 --> 00:06:56,639
+soltanto perché noi abbiamo una
+
+146
+00:06:53,599 --> 00:07:00,039
+conoscenza del mondo. La formazione
+
+147
+00:06:56,639 --> 00:07:02,080
+dell'immagine non ci permette da sola di
+
+148
+00:07:00,039 --> 00:07:04,919
+tornare indietro, di partire tornare da
+
+149
+00:07:02,080 --> 00:07:06,840
+un'immagine in un mondo tridimensionale.
+
+150
+00:07:04,919 --> 00:07:09,840
+Ok? Quindi perdiamo definitivamente
+
+151
+00:07:06,840 --> 00:07:09,840
+l'informazione.
+
+152
+00:07:10,440 --> 00:07:13,840
+Allora, gli aspetti che vengono sono in
+
+153
+00:07:12,560 --> 00:07:17,720
+gioco, come vi avevo accennato
+
+154
+00:07:13,840 --> 00:07:19,639
+velocemente sono quattro. Una cosa è
+
+155
+00:07:17,720 --> 00:07:21,039
+proprio la geometria, che è quello un
+
+156
+00:07:19,639 --> 00:07:23,319
+pochettino che abbiamo visto, no? Noi
+
+157
+00:07:21,039 --> 00:07:25,800
+abbiamo eh abbiamo scritto qualcosa che
+
+158
+00:07:23,319 --> 00:07:27,120
+ortogonale, abbiamo un piano, avete
+
+159
+00:07:25,800 --> 00:07:28,400
+sentito parlare sicuramente di ragi
+
+160
+00:07:27,120 --> 00:07:29,879
+ottici che sono delle rette, quindi
+
+161
+00:07:28,400 --> 00:07:31,120
+diciamo la geometria un pochettino al
+
+162
+00:07:29,879 --> 00:07:32,479
+centro e quello che useremo noi
+
+163
+00:07:31,120 --> 00:07:36,160
+principalmente per quanto riguarda il
+
+164
+00:07:32,479 --> 00:07:38,240
+corso è soltanto,
+
+165
+00:07:36,160 --> 00:07:41,240
+se soltanto vedessi dove sto mettendo.
+
+166
+00:07:38,240 --> 00:07:43,840
+Ok, è soltanto questa roba di qua, la
+
+167
+00:07:41,240 --> 00:07:45,840
+parte geometrica. costruiremo un modello
+
+168
+00:07:43,840 --> 00:07:47,199
+sintetico di telecamera che è puramente
+
+169
+00:07:45,840 --> 00:07:49,080
+geometrico, che è quello che ci
+
+170
+00:07:47,199 --> 00:07:50,639
+interessa perché a noi interesserà poi
+
+171
+00:07:49,080 --> 00:07:53,840
+fare una ricostruzione geometrica di un
+
+172
+00:07:50,639 --> 00:07:53,840
+mondo tridimensionale.
+
+173
+00:07:54,080 --> 00:07:57,560
+Tutto questo,
+
+174
+00:07:57,599 --> 00:08:02,240
+tranne un minimo di questa roba di qua
+
+175
+00:07:59,879 --> 00:08:04,639
+dell'occhio, quando ci porremo il
+
+176
+00:08:02,240 --> 00:08:05,960
+problema di correggere
+
+177
+00:08:04,639 --> 00:08:08,599
+dei problemi che vengono all'uso delle
+
+178
+00:08:05,960 --> 00:08:10,680
+lenti, tutto il resto lo ignoreremo per
+
+179
+00:08:08,599 --> 00:08:12,840
+la mente. ci interessa mettere questa
+
+180
+00:08:10,680 --> 00:08:13,919
+cosa,
+
+181
+00:08:12,840 --> 00:08:15,280
+però è qualcosa del centra. Quindi
+
+182
+00:08:13,919 --> 00:08:17,599
+sappiamo c'è l'ottica, quindi c'abbiamo
+
+183
+00:08:15,280 --> 00:08:20,080
+ci sono le lenti, c'è la radiometria. La
+
+184
+00:08:17,599 --> 00:08:22,000
+radiometria perché radiometria
+
+185
+00:08:20,080 --> 00:08:23,479
+misura gli effetti della luce
+
+186
+00:08:22,000 --> 00:08:26,360
+fondamentalmente l'abbiamo visto,
+
+187
+00:08:23,479 --> 00:08:28,720
+l'abbiamo già accennato prima, noi
+
+188
+00:08:26,360 --> 00:08:31,080
+riusciamo a formare delle scene, delle
+
+189
+00:08:28,720 --> 00:08:33,479
+immagini, scusate, perché c'è la luce.
+
+190
+00:08:31,080 --> 00:08:35,080
+senza la luce non ci sarebbe luce
+
+191
+00:08:33,479 --> 00:08:37,599
+riflessa,
+
+192
+00:08:35,080 --> 00:08:38,959
+non ci sarebbe luce che arriva sul
+
+193
+00:08:37,599 --> 00:08:41,039
+sensore, non ci sarebbe quindi
+
+194
+00:08:38,959 --> 00:08:42,640
+trasformazione in differenza di
+
+195
+00:08:41,039 --> 00:08:44,720
+potenziale, quindi noi potremmo
+
+196
+00:08:42,640 --> 00:08:47,880
+acquisire immagini digitali come per le
+
+197
+00:08:44,720 --> 00:08:48,959
+tele, come per le pellicano, non ci s
+
+198
+00:08:47,880 --> 00:08:50,600
+arriverebbe la luce, quindi non ci
+
+199
+00:08:48,959 --> 00:08:56,600
+sarebbe reazione chimica e quindi non ci
+
+200
+00:08:50,600 --> 00:08:56,600
+sarebbe si forma elettri in quel caso.
+
+201
+00:08:58,200 --> 00:09:02,880
+Quindi serve questo e serve chiaramente
+
+202
+00:09:00,000 --> 00:09:05,399
+il sensore capire come funziona o in
+
+203
+00:09:02,880 --> 00:09:07,079
+quale che maniera si forma l'immagine,
+
+204
+00:09:05,399 --> 00:09:11,000
+come funzionano i sensori che abbiamo n
+
+205
+00:09:07,079 --> 00:09:14,320
+nostre camere. Una vaga idea.
+
+206
+00:09:11,000 --> 00:09:16,720
+Niente di più. Allora, iniziamo dalla
+
+207
+00:09:14,320 --> 00:09:20,959
+geometria e allora incominciamo a
+
+208
+00:09:16,720 --> 00:09:23,480
+guardare queste due immagini.
+
+209
+00:09:20,959 --> 00:09:26,640
+Sono due scene, eh, una sicuramente
+
+210
+00:09:23,480 --> 00:09:30,480
+nota, il Pentagono visto dall'alto
+
+211
+00:09:26,640 --> 00:09:32,640
+e un'altra e invece è un ponte visto dal
+
+212
+00:09:30,480 --> 00:09:34,880
+basso.
+
+213
+00:09:32,640 --> 00:09:36,680
+Eh,
+
+214
+00:09:34,880 --> 00:09:38,959
+secondo voi l'effetto di queste foto è
+
+215
+00:09:36,680 --> 00:09:40,760
+lo stesso?
+
+216
+00:09:38,959 --> 00:09:43,920
+La percezione che si ha essenzialmente
+
+217
+00:09:40,760 --> 00:09:43,920
+la stessa?
+
+218
+00:09:50,959 --> 00:09:56,720
+Allora, qui che cosa vedete? Vedete il
+
+219
+00:09:53,920 --> 00:09:58,480
+vete il pentagono,
+
+220
+00:09:56,720 --> 00:10:01,040
+mentre qua vedete il ponte. Il ponte
+
+221
+00:09:58,480 --> 00:10:02,600
+come lo vedete? Esattamente come nel
+
+222
+00:10:01,040 --> 00:10:05,800
+nella sua rappresentazione, cioè come
+
+223
+00:10:02,600 --> 00:10:05,800
+nel mondo.
+
+224
+00:10:09,399 --> 00:10:11,079
+Prego. Non ho sentito.
+
+225
+00:10:10,440 --> 00:10:13,040
+Basso,
+
+226
+00:10:11,079 --> 00:10:15,480
+lo vediamo dal basso. Ma in particolare
+
+227
+00:10:13,040 --> 00:10:18,760
+cosa succede di questo ponte? Che
+
+228
+00:10:15,480 --> 00:10:22,760
+impressione! Se voi non capiste niente
+
+229
+00:10:18,760 --> 00:10:27,200
+di non capiste la scena,
+
+230
+00:10:22,760 --> 00:10:31,240
+cosa vedreste? Vedreste qualcosa che
+
+231
+00:10:27,200 --> 00:10:33,360
+che si rimpicciolisce sempre di più.
+
+232
+00:10:31,240 --> 00:10:36,680
+Sì, queste due i due bordi del ponte,
+
+233
+00:10:33,360 --> 00:10:39,279
+come dovrebbero essere nel mondo reale,
+
+234
+00:10:36,680 --> 00:10:41,880
+dovrebbero essere per
+
+235
+00:10:39,279 --> 00:10:44,079
+qui. Vedete la stessa cosa?
+
+236
+00:10:41,880 --> 00:10:46,240
+Qui no.
+
+237
+00:10:44,079 --> 00:10:50,240
+Quindi qua abbiamo un effetto di
+
+238
+00:10:46,240 --> 00:10:50,240
+distorsione della geometria.
+
+239
+00:10:50,720 --> 00:10:55,680
+Distorsione non è una parola esatta,
+
+240
+00:10:53,480 --> 00:10:57,760
+però usiamola per il momento, mentre qua
+
+241
+00:10:55,680 --> 00:10:59,720
+non avviene, non è la parola corretta,
+
+242
+00:10:57,760 --> 00:11:02,560
+scusate. No, non esatto. Usiamola per il
+
+243
+00:10:59,720 --> 00:11:04,079
+momento, mentre qua non avviene. Ma naso
+
+244
+00:11:02,560 --> 00:11:06,240
+perché secondo me non avviene?
+
+245
+00:11:04,079 --> 00:11:07,920
+Intuitivamente, perché dove sta la
+
+246
+00:11:06,240 --> 00:11:10,920
+differenza fondamentale tra le due
+
+247
+00:11:07,920 --> 00:11:10,920
+acquisizioni?
+
+248
+00:11:12,000 --> 00:11:17,399
+Il punto di vista è diverso. In che
+
+249
+00:11:14,000 --> 00:11:17,399
+senso è diverso?
+
+250
+00:11:20,920 --> 00:11:28,120
+Ha una curvatura questa questo.
+
+251
+00:11:24,959 --> 00:11:28,120
+Sta guardando
+
+252
+00:11:28,560 --> 00:11:32,160
+No, no, no. All'orizzonte no. Il fatto
+
+253
+00:11:30,279 --> 00:11:35,079
+che ci sia la curvatura della Terra non
+
+254
+00:11:32,160 --> 00:11:37,320
+c'entra niente in questo caso perché in
+
+255
+00:11:35,079 --> 00:11:38,839
+realtà noi stiamo guardando
+
+256
+00:11:37,320 --> 00:11:40,200
+non c'entra niente perché noi stiamo
+
+257
+00:11:38,839 --> 00:11:44,560
+guardando una porzione piccola del
+
+258
+00:11:40,200 --> 00:11:46,120
+motto, quindi localmente è piatto. Ok,
+
+259
+00:11:44,560 --> 00:11:49,120
+non lo dite un terra piattista, però va
+
+260
+00:11:46,120 --> 00:11:49,120
+bene.
+
+261
+00:11:57,959 --> 00:12:00,959
+Ok.
+
+262
+00:12:06,680 --> 00:12:10,639
+da molto lontano, fondamentalmente, ok?
+
+263
+00:12:09,399 --> 00:12:12,560
+Mentre questo lo stiamo guardando
+
+264
+00:12:10,639 --> 00:12:15,519
+abbastanza da vicino ed è una geometria
+
+265
+00:12:12,560 --> 00:12:18,639
+particolare. Ok? Allora, questo che
+
+266
+00:12:15,519 --> 00:12:20,560
+significa? Però che a volte si possono
+
+267
+00:12:18,639 --> 00:12:21,800
+fare delle semplificazioni e questa è
+
+268
+00:12:20,560 --> 00:12:23,120
+una cosa che probabilmente avete già
+
+269
+00:12:21,800 --> 00:12:24,519
+visto a scuola se qualcuno ha fatto
+
+270
+00:12:23,120 --> 00:12:27,920
+disegno tecnico. Qualcuno ha fatto
+
+271
+00:12:24,519 --> 00:12:30,440
+disegno tecnico a scuola?
+
+272
+00:12:27,920 --> 00:12:30,440
+Ok.
+
+273
+00:12:31,240 --> 00:12:36,760
+E sicuramente avete sentito parlare di
+
+274
+00:12:34,560 --> 00:12:37,959
+proiezioni ortografiche. Reazione
+
+275
+00:12:36,760 --> 00:12:39,959
+ortografiche cos'era? Quando
+
+276
+00:12:37,959 --> 00:12:41,760
+proiettavate qualcosa e i raggi di
+
+277
+00:12:39,959 --> 00:12:44,800
+proiezione
+
+278
+00:12:41,760 --> 00:12:46,560
+erano tutti paralleli uno all'altro.
+
+279
+00:12:44,800 --> 00:12:48,880
+Ok?
+
+280
+00:12:46,560 --> 00:12:50,720
+Questo che significa? che un oggetto lo
+
+281
+00:12:48,880 --> 00:12:55,040
+vedi nelle sue dimensioni esattamente
+
+282
+00:12:50,720 --> 00:12:58,360
+com'è nel mondo reale.
+
+283
+00:12:55,040 --> 00:13:01,560
+Qua, siccome l'oggetto è molto lontano,
+
+284
+00:12:58,360 --> 00:13:04,079
+possiamo pensare che stiamo
+
+285
+00:13:01,560 --> 00:13:06,639
+facendo una
+
+286
+00:13:04,079 --> 00:13:07,959
+eh trasformazione, una proiezione
+
+287
+00:13:06,639 --> 00:13:11,959
+ortografica, quindi significa che
+
+288
+00:13:07,959 --> 00:13:15,560
+c'abbiamo prendiamo per ogni punto
+
+289
+00:13:11,959 --> 00:13:15,560
+c'abbiamo il piano
+
+290
+00:13:20,279 --> 00:13:26,959
+qua con tutta sta luce non vedo niente.
+
+291
+00:13:24,320 --> 00:13:29,600
+Ok. Quindi c'abbiamo un piano di
+
+292
+00:13:26,959 --> 00:13:32,440
+proiezione che dovrebbe essere dritto
+
+293
+00:13:29,600 --> 00:13:36,279
+fin c'abbiamo questa
+
+294
+00:13:32,440 --> 00:13:38,639
+costruzione qui e i raggi di proiezione
+
+295
+00:13:36,279 --> 00:13:41,680
+sono tutti
+
+296
+00:13:38,639 --> 00:13:43,240
+paralleli. Ok? E quindi arriva a
+
+297
+00:13:41,680 --> 00:13:45,160
+prendere un punto qui, un punto qui, un
+
+298
+00:13:43,240 --> 00:13:48,399
+punto qui. Ok? la pressione avviene in
+
+299
+00:13:45,160 --> 00:13:48,399
+questa maniera.
+
+300
+00:13:49,160 --> 00:13:53,160
+L'effetto è quindi che non c'è nessun
+
+301
+00:13:51,000 --> 00:13:55,560
+tipo di distorsione
+
+302
+00:13:53,160 --> 00:13:57,639
+perché riporti la geometria esattamente
+
+303
+00:13:55,560 --> 00:13:59,240
+com'è.
+
+304
+00:13:57,639 --> 00:14:03,480
+E questa è un'approssimazione che puoi
+
+305
+00:13:59,240 --> 00:14:06,480
+fare se la distanza è molto alta. E in
+
+306
+00:14:03,480 --> 00:14:11,560
+particolare cosa succede qui?
+
+307
+00:14:06,480 --> 00:14:15,399
+l'altezza dell l'edificio, il pentagono
+
+308
+00:14:11,560 --> 00:14:19,240
+rispetto alla distanza è molto bassa,
+
+309
+00:14:15,399 --> 00:14:20,480
+l'edificio sarà 10 m, supponiamo. Sì, mi
+
+310
+00:14:19,240 --> 00:14:23,959
+sembra che non sia molto alto nella
+
+311
+00:14:20,480 --> 00:14:26,279
+realtà. E
+
+312
+00:14:23,959 --> 00:14:28,920
+la acquisizione la stiamo facendo da 2
+
+313
+00:14:26,279 --> 00:14:30,720
+km 3 km, relativamente piccola la
+
+314
+00:14:28,920 --> 00:14:32,279
+differenza rispetto, quindi possiamo
+
+315
+00:14:30,720 --> 00:14:34,480
+considerarla trascurabile, quindi
+
+316
+00:14:32,279 --> 00:14:36,279
+possiamo andare benissimo in questa
+
+317
+00:14:34,480 --> 00:14:38,079
+maniera. Qua le cose invece non sono
+
+318
+00:14:36,279 --> 00:14:40,199
+altrettanto uguali. Stiamo guardando un
+
+319
+00:14:38,079 --> 00:14:45,199
+ponte di
+
+320
+00:14:40,199 --> 00:14:45,199
+500 m, anche meno
+
+321
+00:14:45,240 --> 00:14:50,680
+da 20 m sotto
+
+322
+00:14:48,600 --> 00:14:52,440
+le cose non sono non è qualcosa di
+
+323
+00:14:50,680 --> 00:14:54,000
+totalmente trascurabile. La dimensione
+
+324
+00:14:52,440 --> 00:14:56,120
+dell'oggetto è molto grande rispetto
+
+325
+00:14:54,000 --> 00:15:00,800
+alla distanza di quindi non possiamo
+
+326
+00:14:56,120 --> 00:15:00,800
+fare una trasformazione di questi temi.
+
+327
+00:15:01,440 --> 00:15:04,680
+E questa è quella che in realtà è la
+
+328
+00:15:03,000 --> 00:15:06,759
+trasformazione
+
+329
+00:15:04,680 --> 00:15:09,160
+più naturale, quella che vediamo sempre,
+
+330
+00:15:06,759 --> 00:15:13,120
+quella che abbiamo, vedete nei quadri,
+
+331
+00:15:09,160 --> 00:15:15,360
+usate nella pittura, che è la tipo di
+
+332
+00:15:13,120 --> 00:15:17,000
+effetto che vediamo anche noi quando
+
+333
+00:15:15,360 --> 00:15:19,959
+guardiamo, ad esempio, i binari, no?
+
+334
+00:15:17,000 --> 00:15:21,639
+Vediamo questi binari che si uniscono,
+
+335
+00:15:19,959 --> 00:15:23,320
+diciamo, anche proprio perché l'immagine
+
+336
+00:15:21,639 --> 00:15:25,800
+si forma il nostro occhio usando un tipo
+
+337
+00:15:23,320 --> 00:15:28,759
+di proiezione che è simile, quella
+
+338
+00:15:25,800 --> 00:15:30,440
+uguale a quello che si usa per tirare la
+
+339
+00:15:28,759 --> 00:15:31,720
+eh creare le immagine. È un tipo di
+
+340
+00:15:30,440 --> 00:15:34,839
+trasformazione che si chiama
+
+341
+00:15:31,720 --> 00:15:37,519
+trasformazione prospettica,
+
+342
+00:15:34,839 --> 00:15:39,160
+da cui la parola prospettiva
+
+343
+00:15:37,519 --> 00:15:41,120
+che è quella, diciamo, che è entrata
+
+344
+00:15:39,160 --> 00:15:44,040
+nella pittura,
+
+345
+00:15:41,120 --> 00:15:47,279
+se non ricordo male, intorno al 500
+
+346
+00:15:44,040 --> 00:15:49,560
+e creava immagini realistiche.
+
+347
+00:15:47,279 --> 00:15:51,160
+proprio con una geometria coerente
+
+348
+00:15:49,560 --> 00:15:55,920
+rispetto a quella a cui siamo abituati
+
+349
+00:15:51,160 --> 00:15:55,920
+nell'acquisizione. E se vi ricordate
+
+350
+00:15:57,240 --> 00:16:03,720
+molta gente non creava immagini in
+
+351
+00:16:00,639 --> 00:16:07,199
+prospettiva, quadri in prospettiva
+
+352
+00:16:03,720 --> 00:16:09,519
+diingento, ma usava un trucchetto che
+
+353
+00:16:07,199 --> 00:16:11,800
+era quello della camera, come si
+
+354
+00:16:09,519 --> 00:16:14,880
+chiamava? Stenop che non mi ricordo
+
+355
+00:16:11,800 --> 00:16:16,720
+bene. Vi ricordate? C'avevi si mettevano
+
+356
+00:16:14,880 --> 00:16:20,120
+all'interno di questa camera dove c'era
+
+357
+00:16:16,720 --> 00:16:22,360
+un un buco da cui passava la luce,
+
+358
+00:16:20,120 --> 00:16:23,880
+minimo di lente e questa immagine si
+
+359
+00:16:22,360 --> 00:16:25,319
+formava,
+
+360
+00:16:23,880 --> 00:16:28,120
+l'immagine della scena che volevo
+
+361
+00:16:25,319 --> 00:16:30,279
+dipingere si formava sul sulla parete e
+
+362
+00:16:28,120 --> 00:16:33,000
+loro dipingevano sulla parete seguendo
+
+363
+00:16:30,279 --> 00:16:35,079
+un'immagine correttamente prospettica.
+
+364
+00:16:33,000 --> 00:16:38,079
+Ok? Non avete mai sentito parlare di ste
+
+365
+00:16:35,079 --> 00:16:38,079
+cose?
+
+366
+00:16:39,120 --> 00:16:42,120
+Ehm,
+
+367
+00:16:45,360 --> 00:16:49,240
+non entrare, riesce a entrare.
+
+368
+00:16:50,000 --> 00:16:55,279
+Ma lui ha iscritto al team?
+
+369
+00:16:51,560 --> 00:16:55,279
+Sì, l'ha scritto. Ciao.
+
+370
+00:17:02,240 --> 00:17:06,240
+Eh, non so che dire, ragazzi.
+
+371
+00:17:15,520 --> 00:17:19,120
+Allora, Teams,
+
+372
+00:17:22,839 --> 00:17:29,959
+in quale chat l'ha scritto?
+
+373
+00:17:25,199 --> 00:17:29,959
+Ah, sì, qua eh
+
+374
+00:17:30,919 --> 00:17:34,360
+aggiungo io.
+
+375
+00:17:53,039 --> 00:17:57,760
+Ok, è entrata.
+
+376
+00:17:54,760 --> 00:17:57,760
+Ehm
+
+377
+00:18:02,120 --> 00:18:07,520
+sen mi dice che non entrare altro,
+
+378
+00:18:05,640 --> 00:18:10,559
+ma lui ha iscritto al gruppo?
+
+379
+00:18:07,520 --> 00:18:14,559
+Ah, scusate, stavo facendo il nome
+
+380
+00:18:10,559 --> 00:18:14,559
+eh, come si fa?
+
+381
+00:18:21,360 --> 00:18:26,880
+Ah, qua no, il fatto è che non vedo
+
+382
+00:18:23,559 --> 00:18:28,520
+proprio il coso del mouse.
+
+383
+00:18:26,880 --> 00:18:31,520
+Come hai detto che si chiama? Francesco,
+
+384
+00:18:28,520 --> 00:18:31,520
+grazie.
+
+385
+00:18:38,520 --> 00:18:41,520
+Ok,
+
+386
+00:18:50,799 --> 00:18:54,799
+va bene. eh
+
+387
+00:18:55,039 --> 00:19:00,280
+dove l'effetto principale, diciamo, che
+
+388
+00:18:57,600 --> 00:19:03,200
+abbiamo
+
+389
+00:19:00,280 --> 00:19:04,720
+della nostra trasformazione prospettica
+
+390
+00:19:03,200 --> 00:19:07,760
+è che i raggi, quindi, non sono più
+
+391
+00:19:04,720 --> 00:19:10,720
+paralleli, ma convergono verso qualcosa
+
+392
+00:19:07,760 --> 00:19:13,960
+che si chiama centro ottico.
+
+393
+00:19:10,720 --> 00:19:15,679
+Allora, eh ve le faccio vedere un
+
+394
+00:19:13,960 --> 00:19:17,080
+attimo, poi diciamo ci ragioniamo un
+
+395
+00:19:15,679 --> 00:19:19,240
+pochettino quando costruiremo il
+
+396
+00:19:17,080 --> 00:19:21,720
+modello.
+
+397
+00:19:19,240 --> 00:19:23,600
+Essendo modelli geometrici diversi, la
+
+398
+00:19:21,720 --> 00:19:25,320
+le equazioni di proiezione, cioè quelle
+
+399
+00:19:23,600 --> 00:19:30,200
+che legano quelle che sono le coordinate
+
+400
+00:19:25,320 --> 00:19:32,960
+del mondo X, Y e Z a quelle che sono le
+
+401
+00:19:30,200 --> 00:19:36,200
+coordinate sull'immagine che sono
+
+402
+00:19:32,960 --> 00:19:37,400
+indichiamo con U e V.
+
+403
+00:19:36,200 --> 00:19:39,840
+Vi stupisce il fatto che usiamo
+
+404
+00:19:37,400 --> 00:19:41,760
+coordinate?
+
+405
+00:19:39,840 --> 00:19:46,000
+Qualcosa? Non vi aspettavate potessimo
+
+406
+00:19:41,760 --> 00:19:46,000
+usare coordinate parlando di immagini?
+
+407
+00:19:46,039 --> 00:19:52,039
+Una risposta binaria, sì o no?
+
+408
+00:19:49,760 --> 00:19:54,640
+Non vi stupisce, giusto? Siamo in pixel,
+
+409
+00:19:52,039 --> 00:19:56,080
+usiamo le coordinate. Va bene, ha senso.
+
+410
+00:19:54,640 --> 00:19:58,559
+Ok.
+
+411
+00:19:56,080 --> 00:20:02,280
+Ehm,
+
+412
+00:19:58,559 --> 00:20:05,240
+va bene. Banalmente la u e la V saranno
+
+413
+00:20:02,280 --> 00:20:06,840
+la x e la Y, perché ovviamente stiamo
+
+414
+00:20:05,240 --> 00:20:08,000
+facendo una proiezione parallela, quindi
+
+415
+00:20:06,840 --> 00:20:09,360
+pigliamo esattamente gli stessi
+
+416
+00:20:08,000 --> 00:20:10,880
+numerini, quella che trascorriamo le
+
+417
+00:20:09,360 --> 00:20:13,520
+profondità. Ovviamente questo l'abbiamo
+
+418
+00:20:10,880 --> 00:20:15,000
+già detto, la Z è la profondità. Abbiamo
+
+419
+00:20:13,520 --> 00:20:17,240
+detto che quello che perdiamo nella
+
+420
+00:20:15,000 --> 00:20:18,559
+scena quando facciamo acquisiamo
+
+421
+00:20:17,240 --> 00:20:20,880
+un'immagine è che perdiamo la
+
+422
+00:20:18,559 --> 00:20:23,280
+profondità, quindi la Zeta la perdiamo
+
+423
+00:20:20,880 --> 00:20:25,159
+totalmente, ma non è vero che non la
+
+424
+00:20:23,280 --> 00:20:26,440
+ignoriamo totalmente, la ignoriamo nella
+
+425
+00:20:25,159 --> 00:20:28,799
+proiezione ortografica, perché avvo
+
+426
+00:20:26,440 --> 00:20:30,880
+detto ce ne freghiamo della profondità,
+
+427
+00:20:28,799 --> 00:20:32,440
+la consideriamo questo è tutto la stessa
+
+428
+00:20:30,880 --> 00:20:34,679
+cosa.
+
+429
+00:20:32,440 --> 00:20:36,520
+nell'equazione prosp nellaequazione di
+
+430
+00:20:34,679 --> 00:20:40,760
+trasformazione prospettica entrano in
+
+431
+00:20:36,520 --> 00:20:42,679
+gioco la profondità e ovviamente
+
+432
+00:20:40,760 --> 00:20:45,240
+viene fuori
+
+433
+00:20:42,679 --> 00:20:48,559
+che c'è una proporzionalità inversa
+
+434
+00:20:45,240 --> 00:20:50,320
+rispetto alla profondità. Che significa?
+
+435
+00:20:48,559 --> 00:20:52,240
+Significa che se noi prendiamo due
+
+436
+00:20:50,320 --> 00:20:54,720
+punti,
+
+437
+00:20:52,240 --> 00:20:57,039
+fatto che dividiamo per Z, pigliamo due
+
+438
+00:20:54,720 --> 00:21:01,039
+punti nello spazio
+
+439
+00:20:57,039 --> 00:21:04,039
+che sono alla stessa distanza,
+
+440
+00:21:01,039 --> 00:21:05,840
+mano che noi ci allontaniamo
+
+441
+00:21:04,039 --> 00:21:09,000
+dal mio sensore, siccome dividiamo per
+
+442
+00:21:05,840 --> 00:21:09,000
+la profondità,
+
+443
+00:21:09,039 --> 00:21:12,840
+man mano che si allontanano, questa
+
+444
+00:21:10,520 --> 00:21:14,559
+distanza dovrebbe diminuire. Ed è quello
+
+445
+00:21:12,840 --> 00:21:16,440
+che vediamo nella realtà. vediamo un
+
+446
+00:21:14,559 --> 00:21:18,440
+oggetto lontano, lo vediamo piccolo, se
+
+447
+00:21:16,440 --> 00:21:21,000
+lo vediamo più vicino lo vediamo
+
+448
+00:21:18,440 --> 00:21:22,200
+abbastanza più grande. E quindi questo è
+
+449
+00:21:21,000 --> 00:21:25,400
+realmente quello che la nostra
+
+450
+00:21:22,200 --> 00:21:29,720
+esperienza ci dice. Entra però in gioco
+
+451
+00:21:25,400 --> 00:21:33,559
+un altro parametro, una lettera F.
+
+452
+00:21:29,720 --> 00:21:35,520
+Una lettera F. ce la posso fare una
+
+453
+00:21:33,559 --> 00:21:38,640
+lettera F
+
+454
+00:21:35,520 --> 00:21:41,120
+che è quella che viene chiamata distanza
+
+455
+00:21:38,640 --> 00:21:42,880
+focale che penso che è una qualcosa di
+
+456
+00:21:41,120 --> 00:21:44,640
+cui avete un pochettino sentito parlare
+
+457
+00:21:42,880 --> 00:21:47,080
+delle lenti, si parla della focale, ad
+
+458
+00:21:44,640 --> 00:21:51,440
+esempio, no? Ora vediamo geometricamente
+
+459
+00:21:47,080 --> 00:21:51,440
+che cosa significa nel nostro contesto.
+
+460
+00:21:51,720 --> 00:21:57,080
+Allora,
+
+461
+00:21:53,880 --> 00:21:58,960
+quello che noi interessa
+
+462
+00:21:57,080 --> 00:22:00,679
+è, siccome ci interessa la parte
+
+463
+00:21:58,960 --> 00:22:03,400
+matematica,
+
+464
+00:22:00,679 --> 00:22:06,320
+noi costruiamo quello che è un modello
+
+465
+00:22:03,400 --> 00:22:08,960
+matematico di telecamera.
+
+466
+00:22:06,320 --> 00:22:11,120
+Modello matematico di telecamera che si
+
+467
+00:22:08,960 --> 00:22:14,679
+chiama modello pinol, dove pinol
+
+468
+00:22:11,120 --> 00:22:18,120
+significa punta di spillo. Ok?
+
+469
+00:22:14,679 --> 00:22:20,159
+e c'è fatto una punta di spirito.
+
+470
+00:22:18,120 --> 00:22:22,840
+Cosa che assunzione fondamentale stiamo
+
+471
+00:22:20,159 --> 00:22:24,440
+facendo? Abbiamo detto, noi sappiamo che
+
+472
+00:22:22,840 --> 00:22:26,200
+nei modelli di acquisizione, nelle
+
+473
+00:22:24,440 --> 00:22:28,159
+telecamere c'abbiamo l'apertura dove
+
+474
+00:22:26,200 --> 00:22:32,559
+passa la luce che arriva sulla lente e
+
+475
+00:22:28,159 --> 00:22:35,840
+così via e così via e così via. Ok?
+
+476
+00:22:32,559 --> 00:22:35,840
+Noi assumiamo
+
+477
+00:22:37,279 --> 00:22:41,960
+che
+
+478
+00:22:39,720 --> 00:22:45,200
+questa apertura sia assimilabile a un
+
+479
+00:22:41,960 --> 00:22:45,200
+punto geometrico.
+
+480
+00:22:45,400 --> 00:22:48,400
+Ok?
+
+481
+00:22:48,760 --> 00:22:53,480
+Cosa vuol dire che è assimilabile a un
+
+482
+00:22:50,279 --> 00:22:53,480
+punto geometrico?
+
+483
+00:22:57,960 --> 00:23:01,520
+Io dico un'espressione, non capite che
+
+484
+00:22:59,520 --> 00:23:03,440
+vuol dire e non mi chiedete cosa sto
+
+485
+00:23:01,520 --> 00:23:05,279
+dicendo.
+
+486
+00:23:03,440 --> 00:23:06,760
+Va bene così, ragazzi. Eh, a questo
+
+487
+00:23:05,279 --> 00:23:08,159
+punto è inutile che facciamo lezione,
+
+488
+00:23:06,760 --> 00:23:11,000
+giusto?
+
+489
+00:23:08,159 --> 00:23:12,919
+che se io dico cose che non capite e non
+
+490
+00:23:11,000 --> 00:23:16,480
+mi chiedete, significa che non serve a
+
+491
+00:23:12,919 --> 00:23:16,480
+niente fare lezione.
+
+492
+00:23:19,480 --> 00:23:23,360
+Bene, allora assimilabile a un punto
+
+493
+00:23:21,960 --> 00:23:25,559
+geometrico significa che io lo posso
+
+494
+00:23:23,360 --> 00:23:26,880
+rappresentare come un punto geometrico.
+
+495
+00:23:25,559 --> 00:23:28,360
+Assimilabile a un punto materiale,
+
+496
+00:23:26,880 --> 00:23:30,120
+quando facevate fisica non l'avete mai
+
+497
+00:23:28,360 --> 00:23:32,520
+sentito.
+
+498
+00:23:30,120 --> 00:23:34,400
+Io c'ho un oggetto
+
+499
+00:23:32,520 --> 00:23:36,320
+e in fisica lo assimilo a un punto
+
+500
+00:23:34,400 --> 00:23:38,720
+materiale. massa con l'assa tutto in un
+
+501
+00:23:36,320 --> 00:23:40,799
+unico punto geometrico. Perché mi
+
+502
+00:23:38,720 --> 00:23:42,480
+conviene? Mi conviene perché lo è un
+
+503
+00:23:40,799 --> 00:23:45,559
+punto che devo seguire, non un corpo
+
+504
+00:23:42,480 --> 00:23:48,600
+complicato, no? Qua perché mi conviene
+
+505
+00:23:45,559 --> 00:23:51,720
+dal punto di vista geometrico modellar
+
+506
+00:23:48,600 --> 00:23:54,440
+come un punto unico. Come si forma
+
+507
+00:23:51,720 --> 00:23:56,039
+l'immagine? Abbiamo detto l'immagine si
+
+508
+00:23:54,440 --> 00:23:58,600
+forma se supponiamo che io c'ho un
+
+509
+00:23:56,039 --> 00:24:00,520
+punto.
+
+510
+00:23:58,600 --> 00:24:02,080
+L'immagine come si forma? i raggi
+
+511
+00:24:00,520 --> 00:24:04,720
+arrivano su quel punto e vengono
+
+512
+00:24:02,080 --> 00:24:07,159
+riflessi.
+
+513
+00:24:04,720 --> 00:24:08,919
+Io acquisisco
+
+514
+00:24:07,159 --> 00:24:10,919
+dalla mia telec la mia macchina
+
+515
+00:24:08,919 --> 00:24:15,080
+fotografica tutti i raggi che vengono
+
+516
+00:24:10,919 --> 00:24:19,400
+riflessi e passano attraverso quel buco.
+
+517
+00:24:15,080 --> 00:24:19,400
+Ok? Questo vi convince?
+
+518
+00:24:20,480 --> 00:24:25,760
+per ogni punto, quindi, passano più
+
+519
+00:24:23,159 --> 00:24:28,120
+raggi
+
+520
+00:24:25,760 --> 00:24:32,720
+e genera degli effetti che discuteremo
+
+521
+00:24:28,120 --> 00:24:35,880
+con diciamo fra fra breve. Se invece
+
+522
+00:24:32,720 --> 00:24:39,039
+il buco è modellato come un unico punto,
+
+523
+00:24:35,880 --> 00:24:41,600
+quanti raggi passano?
+
+524
+00:24:39,039 --> 00:24:45,279
+E passa uno solo perché ho il punto da
+
+525
+00:24:41,600 --> 00:24:47,279
+cui rifletto la luce, un punto
+
+526
+00:24:45,279 --> 00:24:49,240
+che è da dove deve passare il, diciamo,
+
+527
+00:24:47,279 --> 00:24:52,480
+l' quello che mi identifica da dove deve
+
+528
+00:24:49,240 --> 00:24:55,559
+passare il il raggio ottico. Per due
+
+529
+00:24:52,480 --> 00:24:57,320
+punti geometria passa uno in una sola
+
+530
+00:24:55,559 --> 00:25:00,760
+retta, quindi abbiamo un solo raggio
+
+531
+00:24:57,320 --> 00:25:02,240
+ottico. Ok?
+
+532
+00:25:00,760 --> 00:25:05,399
+E questo vi semplifica molto la vita
+
+533
+00:25:02,240 --> 00:25:07,679
+nella costruzione del in particolare
+
+534
+00:25:05,399 --> 00:25:10,480
+questo significa
+
+535
+00:25:07,679 --> 00:25:13,799
+che io non ho problem sto trascurando
+
+536
+00:25:10,480 --> 00:25:15,480
+tutti gli effetti di geometria
+
+537
+00:25:13,799 --> 00:25:17,799
+introdotti sia dalla lente che dal fatto
+
+538
+00:25:15,480 --> 00:25:19,840
+di avere più più energi ottici che
+
+539
+00:25:17,799 --> 00:25:22,320
+fondamentalmente confluiscono nell'avere
+
+540
+00:25:19,840 --> 00:25:24,799
+immagini stocate. Le mie immagini quindi
+
+541
+00:25:22,320 --> 00:25:28,120
+io le modello e sono sempre a fuoco.
+
+542
+00:25:24,799 --> 00:25:29,600
+Qualsiasi sia il punto che sto si Ok?
+
+543
+00:25:28,120 --> 00:25:31,480
+Almeno ed è un modello geometrico
+
+544
+00:25:29,600 --> 00:25:33,679
+sensato, mi permette di fare un bel po'
+
+545
+00:25:31,480 --> 00:25:36,200
+di cose. Quindi, va bene. Cosa
+
+546
+00:25:33,679 --> 00:25:39,200
+c'abbiamo? C'abbiamo
+
+547
+00:25:36,200 --> 00:25:40,919
+il nostro eh
+
+548
+00:25:39,200 --> 00:25:42,600
+eh
+
+549
+00:25:40,919 --> 00:25:44,840
+piano immagine, che è dove si forma
+
+550
+00:25:42,600 --> 00:25:48,240
+l'immagine e c'abbiamo un sistema di
+
+551
+00:25:44,840 --> 00:25:51,360
+riferimento tridimensionale, ok? Dove
+
+552
+00:25:48,240 --> 00:25:54,520
+c'abbiamo questo punto C che è il nostro
+
+553
+00:25:51,360 --> 00:25:58,279
+eh il nostro come si chiama? all'origine
+
+554
+00:25:54,520 --> 00:26:02,720
+nel nostro sistema di riferimento.
+
+555
+00:25:58,279 --> 00:26:05,120
+Z lo prendiamo ortogonale a piano
+
+556
+00:26:02,720 --> 00:26:06,960
+immagine
+
+557
+00:26:05,120 --> 00:26:09,000
+e sarà quello che noi abbiamo chiamato
+
+558
+00:26:06,960 --> 00:26:12,440
+asse ottico.
+
+559
+00:26:09,000 --> 00:26:14,279
+X e Y invece se Z è ortogonale al piano
+
+560
+00:26:12,440 --> 00:26:17,520
+immagine, X e Y come saranno rispetto al
+
+561
+00:26:14,279 --> 00:26:17,520
+piano immagine?
+
+562
+00:26:20,399 --> 00:26:25,279
+Sistema di riferimento ortogonale. Z
+
+563
+00:26:23,320 --> 00:26:29,840
+ortogonale al piano immagine. X il piano
+
+564
+00:26:25,279 --> 00:26:29,840
+X Y con rispetto al piano immagine
+
+565
+00:26:32,000 --> 00:26:36,520
+sarà parallelo. Cioè non ci vuole unare
+
+566
+00:26:34,679 --> 00:26:38,559
+in matematica per dirlo. Potevate dire
+
+567
+00:26:36,520 --> 00:26:40,799
+anche subito, no?
+
+568
+00:26:38,559 --> 00:26:43,039
+Va bene? Quindi sarà parallelo. Lo
+
+569
+00:26:40,799 --> 00:26:46,960
+modelliamo in questa maniera perché ci
+
+570
+00:26:43,039 --> 00:26:46,960
+conviene la cosa più semplice.
+
+571
+00:26:48,080 --> 00:26:51,919
+Allora, quindi abbiamo questo punticino
+
+572
+00:26:49,960 --> 00:26:53,600
+qui, questo coso nero che non riesco a
+
+573
+00:26:51,919 --> 00:26:57,159
+indicare.
+
+574
+00:26:53,600 --> 00:27:00,159
+Questa retta che va fino a UV è il
+
+575
+00:26:57,159 --> 00:27:02,640
+centro, il raggio di proiezione C.
+
+576
+00:27:00,159 --> 00:27:04,240
+Quindi, che cos'è?
+
+577
+00:27:02,640 --> 00:27:06,480
+Il mio puntino dove passano tutti i
+
+578
+00:27:04,240 --> 00:27:09,679
+raggi ottici. Ok? Perché è quello che
+
+579
+00:27:06,480 --> 00:27:13,640
+chiamiamo centro di proiezione. C
+
+580
+00:27:09,679 --> 00:27:13,640
+significa centro di proiezione.
+
+581
+00:27:14,520 --> 00:27:19,039
+Ora
+
+582
+00:27:16,120 --> 00:27:22,279
+questo piano immagine può coincidere con
+
+583
+00:27:19,039 --> 00:27:22,279
+x y?
+
+584
+00:27:24,640 --> 00:27:29,399
+No, perché altrimenti collassa tutto in
+
+585
+00:27:26,200 --> 00:27:32,360
+un punto, no? Quindi ci sarà una il
+
+586
+00:27:29,399 --> 00:27:37,120
+piano il piano immagine sarà un piano
+
+587
+00:27:32,360 --> 00:27:39,600
+diverso dal piano x y parallelo a esso
+
+588
+00:27:37,120 --> 00:27:41,960
+e quindi ci sarà
+
+589
+00:27:39,600 --> 00:27:44,960
+una distanza.
+
+590
+00:27:41,960 --> 00:27:44,960
+Ok?
+
+591
+00:27:45,440 --> 00:27:52,039
+Questa distanza è quella che si chiama
+
+592
+00:27:48,399 --> 00:27:52,039
+distanza focale
+
+593
+00:27:53,039 --> 00:27:58,440
+e dà un pochettino implicazioni su
+
+594
+00:27:55,720 --> 00:28:02,200
+quello che è la dimensione dell'immagine
+
+595
+00:27:58,440 --> 00:28:02,200
+che riusciamo a costruire.
+
+596
+00:28:02,440 --> 00:28:05,440
+Allora,
+
+597
+00:28:06,279 --> 00:28:12,039
+UV invece che cos'è? sono le coordinate
+
+598
+00:28:09,159 --> 00:28:15,679
+sul piano
+
+599
+00:28:12,039 --> 00:28:15,679
+eh immagine
+
+600
+00:28:16,440 --> 00:28:20,600
+del punto di proiezione.
+
+601
+00:28:18,640 --> 00:28:23,799
+A questo punto però voi mi dovreste dire
+
+602
+00:28:20,600 --> 00:28:26,519
+"Ma manca qualcosa?" Allora,
+
+603
+00:28:23,799 --> 00:28:28,320
+io sto parlando di coordinate UV, ma per
+
+604
+00:28:26,519 --> 00:28:31,240
+parlare di coordinate di un punto di
+
+605
+00:28:28,320 --> 00:28:32,480
+cosa ho bisogno?
+
+606
+00:28:31,240 --> 00:28:33,960
+Di un sistema di riferimento. Vi ho
+
+607
+00:28:32,480 --> 00:28:35,880
+definito il sistema di riferimento su
+
+608
+00:28:33,960 --> 00:28:37,880
+immagine, non quello ancora definito.
+
+609
+00:28:35,880 --> 00:28:39,000
+Qual è la cosa migliore? Posso definirlo
+
+610
+00:28:37,880 --> 00:28:41,880
+come voglio. Ad esempio, se parliamo,
+
+611
+00:28:39,000 --> 00:28:43,600
+abbiamo parlato di coordinate immagine
+
+612
+00:28:41,880 --> 00:28:46,840
+come le coordinate pixel, allora noi ci
+
+613
+00:28:43,600 --> 00:28:48,480
+pigliamo un primo punto in sinistra
+
+614
+00:28:46,840 --> 00:28:51,720
+quello che cavolo dell'immagine che
+
+615
+00:28:48,480 --> 00:28:55,080
+significa posare queste parti, no? Sì,
+
+616
+00:28:51,720 --> 00:28:57,559
+ce la possibilità tipo qualcosa qui, no?
+
+617
+00:28:55,080 --> 00:28:59,919
+Ma può anche significare, ma non è la
+
+618
+00:28:57,559 --> 00:29:01,279
+cosa più migliore dal punto di vista
+
+619
+00:28:59,919 --> 00:29:03,880
+delle equazioni perché c'abbiamo delle
+
+620
+00:29:01,279 --> 00:29:06,159
+traslazioni, cose. La cosa più semplice
+
+621
+00:29:03,880 --> 00:29:09,159
+che posso fare qual è? mi piglio gli
+
+622
+00:29:06,159 --> 00:29:09,159
+assiattamente
+
+623
+00:29:10,279 --> 00:29:17,559
+ortogonali paralleli a x e y e mi piglio
+
+624
+00:29:14,399 --> 00:29:19,640
+come origine l'intersezione dell'asse
+
+625
+00:29:17,559 --> 00:29:23,519
+ottico
+
+626
+00:29:19,640 --> 00:29:26,399
+con con il con il piano immagine. Quindi
+
+627
+00:29:23,519 --> 00:29:28,000
+fondamentalmente sto traslando
+
+628
+00:29:26,399 --> 00:29:30,000
+ortogonalmente sto prendendo la
+
+629
+00:29:28,000 --> 00:29:32,159
+proiezione ortogonale al piano per
+
+630
+00:29:30,000 --> 00:29:33,760
+centro di proiezione e quello che vio
+
+631
+00:29:32,159 --> 00:29:35,360
+come origine è abbastanza ragionevole
+
+632
+00:29:33,760 --> 00:29:39,159
+come come assunzione. La cosa più
+
+633
+00:29:35,360 --> 00:29:39,159
+semplice che posso fare.
+
+634
+00:29:39,640 --> 00:29:42,640
+Ok.
+
+635
+00:29:43,120 --> 00:29:46,120
+Ora,
+
+636
+00:29:48,200 --> 00:29:56,240
+a questo punto noi abbiamo bisogno di
+
+637
+00:29:51,440 --> 00:29:58,760
+capire com'è che si quali sono
+
+638
+00:29:56,240 --> 00:30:01,600
+da dove vengono quelle equazioni di
+
+639
+00:29:58,760 --> 00:30:04,519
+prozione che
+
+640
+00:30:01,600 --> 00:30:07,240
+e queste equazioni le utilizziamo, sono
+
+641
+00:30:04,519 --> 00:30:08,600
+valide fin quando i sistemi di
+
+642
+00:30:07,240 --> 00:30:10,600
+riferimento sono quelli che abbiamo
+
+643
+00:30:08,600 --> 00:30:13,880
+detto noi, no?
+
+644
+00:30:10,600 --> 00:30:16,960
+del sistema di rifinamento coincide con
+
+645
+00:30:13,880 --> 00:30:18,519
+centro di proiezione
+
+646
+00:30:16,960 --> 00:30:21,360
+e
+
+647
+00:30:18,519 --> 00:30:22,640
+eh
+
+648
+00:30:21,360 --> 00:30:24,240
+sistema di riferimento sul piano
+
+649
+00:30:22,640 --> 00:30:29,279
+immagine
+
+650
+00:30:24,240 --> 00:30:29,279
+costruito esattamente come ho detto io.
+
+651
+00:30:29,640 --> 00:30:36,440
+Ah, piccola domanda che vi faccio.
+
+652
+00:30:35,240 --> 00:30:38,720
+Il sistema di riferimento sul piano
+
+653
+00:30:36,440 --> 00:30:41,440
+immagine lo scegliamo, lo puoi fare
+
+654
+00:30:38,720 --> 00:30:43,240
+pochettino come vuoi.
+
+655
+00:30:41,440 --> 00:30:44,919
+Andiamo su quello che è il sistema di
+
+656
+00:30:43,240 --> 00:30:46,720
+riferimento
+
+657
+00:30:44,919 --> 00:30:47,919
+tridimensionale che è il sistema di
+
+658
+00:30:46,720 --> 00:30:51,320
+riferimento rispetto al quale noi
+
+659
+00:30:47,919 --> 00:30:55,880
+misuriamo le coordinate dei punti nello
+
+660
+00:30:51,320 --> 00:30:58,320
+spazio. Cioè, per riuscire a dire io
+
+661
+00:30:55,880 --> 00:31:00,440
+questo punto lo proietto su questo punto
+
+662
+00:30:58,320 --> 00:31:02,440
+nel piano immagine io ho bisogno di
+
+663
+00:31:00,440 --> 00:31:04,320
+conoscere le coordinate, ho bisogno di
+
+664
+00:31:02,440 --> 00:31:05,679
+avere conoscere i parametri della
+
+665
+00:31:04,320 --> 00:31:08,120
+telecamera che utilizzo. In questo qu
+
+666
+00:31:05,679 --> 00:31:10,720
+abbiamo visto soltanto la focale, ma
+
+667
+00:31:08,120 --> 00:31:12,440
+bisogna anche riconoscere
+
+668
+00:31:10,720 --> 00:31:15,399
+di poter misurare le coordinate
+
+669
+00:31:12,440 --> 00:31:19,960
+dimensionali dell'oggetto del punto, no?
+
+670
+00:31:15,399 --> 00:31:22,600
+Altrimenti non le conosco. Ora, secondo
+
+671
+00:31:19,960 --> 00:31:25,960
+voi è sensato misurarle?
+
+672
+00:31:22,600 --> 00:31:28,080
+rispetto a qualcosa,
+
+673
+00:31:25,960 --> 00:31:30,559
+rispetto a un sistema di riferimento che
+
+674
+00:31:28,080 --> 00:31:32,840
+è centrato,
+
+675
+00:31:30,559 --> 00:31:34,559
+che ha l'origine all'interno della
+
+676
+00:31:32,840 --> 00:31:37,120
+telecamera. Perché se io dico che il
+
+677
+00:31:34,559 --> 00:31:39,720
+centro di proiezione è fondamentalmente
+
+678
+00:31:37,120 --> 00:31:41,679
+il foro da cui passa la luce, è qualcosa
+
+679
+00:31:39,720 --> 00:31:43,240
+che è all'interno della telecamera. In
+
+680
+00:31:41,679 --> 00:31:46,399
+un mondo reale io posso fare una cosa
+
+681
+00:31:43,240 --> 00:31:46,399
+del genere
+
+682
+00:31:46,559 --> 00:31:49,840
+che o no?
+
+683
+00:31:53,440 --> 00:31:59,480
+Cosa potreste fare?
+
+684
+00:31:56,080 --> 00:32:01,360
+Io mi misuro esattamente dov'è questo
+
+685
+00:31:59,480 --> 00:32:03,399
+centro all'interno della telecamera,
+
+686
+00:32:01,360 --> 00:32:06,399
+posiziono lì il sistema di riferimento e
+
+687
+00:32:03,399 --> 00:32:09,159
+mi prendo le misure di un punto nello
+
+688
+00:32:06,399 --> 00:32:11,120
+nello spazio. È fattibile, secondo voi?
+
+689
+00:32:09,159 --> 00:32:12,480
+Sì o no?
+
+690
+00:32:11,120 --> 00:32:14,600
+Non lo è assolutamente perché dovrei
+
+691
+00:32:12,480 --> 00:32:17,720
+distruggere il sistema di acquisizione
+
+692
+00:32:14,600 --> 00:32:19,600
+se solo volessi farlo. E allora che cosa
+
+693
+00:32:17,720 --> 00:32:22,600
+faccio? Cioè, non posso fare niente del
+
+694
+00:32:19,600 --> 00:32:22,600
+genere.
+
+695
+00:32:24,320 --> 00:32:29,159
+Io posso misurare il mio sistema, i miei
+
+696
+00:32:27,600 --> 00:32:32,159
+punti rispetto a un altro sistema di
+
+697
+00:32:29,159 --> 00:32:32,159
+riferimento?
+
+698
+00:32:36,519 --> 00:32:40,360
+Secondo voi
+
+699
+00:32:38,600 --> 00:32:41,720
+rispetto io quindi non posso misurare i
+
+700
+00:32:40,360 --> 00:32:45,120
+punti nello spazio rispetto a nessun
+
+701
+00:32:41,720 --> 00:32:45,120
+sistema di riferimento?
+
+702
+00:32:45,960 --> 00:32:51,519
+Nessun sistema di riferimento.
+
+703
+00:32:49,600 --> 00:32:52,600
+Eh, cioè crolla, cioè siamo all'interno
+
+704
+00:32:51,519 --> 00:32:56,279
+di ingegneria, sta crollando
+
+705
+00:32:52,600 --> 00:32:56,279
+l'ingegneria fondamentalmente.
+
+706
+00:32:58,760 --> 00:33:03,679
+Posso farlo? Io mi piglio un sistema di
+
+707
+00:33:01,399 --> 00:33:05,720
+riferimento che mi piglio, mi posiziono
+
+708
+00:33:03,679 --> 00:33:07,480
+come mi conviene e mi posso modellare
+
+709
+00:33:05,720 --> 00:33:09,440
+tutto rispetto a quel sistema di
+
+710
+00:33:07,480 --> 00:33:11,639
+riferimento. Posso prendere le misure.
+
+711
+00:33:09,440 --> 00:33:14,279
+Io posso prendermi un sistema di
+
+712
+00:33:11,639 --> 00:33:17,399
+riferimento che è centrato qui, asse x,
+
+713
+00:33:14,279 --> 00:33:22,159
+asse y asse z e mi prendo le misure dei
+
+714
+00:33:17,399 --> 00:33:22,159
+punti. Posso farlo questo?
+
+715
+00:33:23,279 --> 00:33:27,760
+Allora, io posso in generale posso avere
+
+716
+00:33:25,039 --> 00:33:31,440
+un sistema di riferimento mondo che mi
+
+717
+00:33:27,760 --> 00:33:33,000
+piglio come gli conviene.
+
+718
+00:33:31,440 --> 00:33:36,799
+E allora a quel punto io ho bisogno di
+
+719
+00:33:33,000 --> 00:33:38,600
+un metodo e questo è fattibile e vedremo
+
+720
+00:33:36,799 --> 00:33:40,279
+come si fa perché fa parte di un
+
+721
+00:33:38,600 --> 00:33:42,200
+meccanismo che si chiama calibrazione
+
+722
+00:33:40,279 --> 00:33:43,600
+nella telecamera perché non vi stupirà
+
+723
+00:33:42,200 --> 00:33:45,200
+il fatto che se io voglio utilizzare la
+
+724
+00:33:43,600 --> 00:33:48,120
+telecamera per fare fondamentalmente
+
+725
+00:33:45,200 --> 00:33:51,440
+delle misure, ho bisogno di calibrare
+
+726
+00:33:48,120 --> 00:33:53,200
+quello strumento.
+
+727
+00:33:51,440 --> 00:33:57,760
+Gli strumenti vanno calibrati sono per
+
+728
+00:33:53,200 --> 00:33:59,600
+fare delle misure, no? Sempit questo.
+
+729
+00:33:57,760 --> 00:34:02,240
+Quello che mi servirà quindi capire ed è
+
+730
+00:33:59,600 --> 00:34:03,840
+quello che vedremo,
+
+731
+00:34:02,240 --> 00:34:05,480
+mi servirà capire quindi come
+
+732
+00:34:03,840 --> 00:34:06,840
+trasformare questo sistema di
+
+733
+00:34:05,480 --> 00:34:09,720
+riferimento mondo in un sistema di
+
+734
+00:34:06,840 --> 00:34:11,879
+riferimento che si chiama che è
+
+735
+00:34:09,720 --> 00:34:15,200
+esattamente quello che utilizziamo noi
+
+736
+00:34:11,879 --> 00:34:19,879
+comodà per comodità per portarle.
+
+737
+00:34:15,200 --> 00:34:22,119
+Quindi avremo un sistema di riferimento
+
+738
+00:34:19,879 --> 00:34:23,720
+nello spazio
+
+739
+00:34:22,119 --> 00:34:25,839
+e quello che avremo bisogno di calcolare
+
+740
+00:34:23,720 --> 00:34:29,399
+è una trasformazione
+
+741
+00:34:25,839 --> 00:34:31,280
+che mi porta questo sistema di
+
+742
+00:34:29,399 --> 00:34:32,960
+riferimento a coincidere con questo
+
+743
+00:34:31,280 --> 00:34:35,200
+sistema di riferimento che stiamo usando
+
+744
+00:34:32,960 --> 00:34:37,399
+per modellare la nostra la nostra la
+
+745
+00:34:35,200 --> 00:34:40,919
+nostra prozione. Secondo voi da che cosa
+
+746
+00:34:37,399 --> 00:34:45,359
+sarà composto questa trasformazione in
+
+747
+00:34:40,919 --> 00:34:45,359
+quanto trasformazione dello spazio?
+
+748
+00:34:50,720 --> 00:34:55,119
+Sarà una matrice perché ha una
+
+749
+00:34:52,560 --> 00:34:58,800
+trasformazione lineare del è una
+
+750
+00:34:55,119 --> 00:35:00,760
+trasformazioneello spazio geometrico,
+
+751
+00:34:58,800 --> 00:35:03,280
+spazi vettoriali
+
+752
+00:35:00,760 --> 00:35:05,960
+torment sarà particolare questa matrice
+
+753
+00:35:03,280 --> 00:35:10,280
+cosa conterrà dal punto di vista
+
+754
+00:35:05,960 --> 00:35:10,280
+geometrico cosa sarà forse
+
+755
+00:35:10,520 --> 00:35:15,400
+ci sarà una traslazione secondo voi?
+
+756
+00:35:13,359 --> 00:35:16,920
+C'è una componente di traslazione,
+
+757
+00:35:15,400 --> 00:35:19,320
+quindi sicuramente c'è una componente di
+
+758
+00:35:16,920 --> 00:35:23,480
+traslazione. Geometria guidea, quale
+
+759
+00:35:19,320 --> 00:35:25,280
+essere può essere l'altra componente
+
+760
+00:35:23,480 --> 00:35:29,760
+rotazione, quindi sarà una rotazione e
+
+761
+00:35:25,280 --> 00:35:29,760
+una traslazione okamente
+
+762
+00:35:31,320 --> 00:35:33,920
+nei considereremo che si fa prima la
+
+763
+00:35:32,560 --> 00:35:35,839
+rotazione, poi la traslazione, quindi la
+
+764
+00:35:33,920 --> 00:35:37,480
+rotazione seguita la traslazione si può
+
+765
+00:35:35,839 --> 00:35:41,920
+fare anche viceversa, però ti vengono
+
+766
+00:35:37,480 --> 00:35:41,920
+fuori matrici ovviamente diversa.
+
+767
+00:35:46,359 --> 00:35:49,680
+Perché scaling
+
+768
+00:35:54,839 --> 00:35:58,359
+dire non ha un'area
+
+769
+00:35:59,240 --> 00:36:05,480
+Allora, lo scaling cosa fa? Lo scaling
+
+770
+00:36:03,240 --> 00:36:07,319
+modifica le dimensioni. Cioè la
+
+771
+00:36:05,480 --> 00:36:09,800
+trasformazione di scala, no?
+
+772
+00:36:07,319 --> 00:36:13,440
+Trasformazione di scala tipicamente è
+
+773
+00:36:09,800 --> 00:36:13,440
+hai un punto
+
+774
+00:36:14,079 --> 00:36:20,119
+X y e lo trasformi in un punto alfa XY
+
+775
+00:36:18,040 --> 00:36:23,839
+dove alfa è il fattore di scala, quindi
+
+776
+00:36:20,119 --> 00:36:23,839
+lo allarghi e lo restringi.
+
+777
+00:36:24,520 --> 00:36:29,800
+Quello che stiamo facendo qui, noi non
+
+778
+00:36:27,000 --> 00:36:30,800
+stiamo trasformando il mondo
+
+779
+00:36:29,800 --> 00:36:32,359
+che è quello che ti fa una
+
+780
+00:36:30,800 --> 00:36:33,880
+trasformazione di scala, stiamo
+
+781
+00:36:32,359 --> 00:36:35,599
+semplicemente trasformando il sistema di
+
+782
+00:36:33,880 --> 00:36:37,560
+riferimento,
+
+783
+00:36:35,599 --> 00:36:39,440
+quindi una trasformazione rigida a tutti
+
+784
+00:36:37,560 --> 00:36:41,119
+gli effetti,
+
+785
+00:36:39,440 --> 00:36:42,800
+va bene? Quindi sarà soltanto una
+
+786
+00:36:41,119 --> 00:36:44,359
+rotazione, rotazione, quindi è una
+
+787
+00:36:42,800 --> 00:36:48,599
+trasformazione che si suol chiamare
+
+788
+00:36:44,359 --> 00:36:48,599
+isometrica. Ok?
+
+789
+00:36:49,760 --> 00:36:53,800
+Allora, dicevamo, facciamo queste cose
+
+790
+00:36:51,680 --> 00:36:58,000
+così, bisogna proiettare lì e in
+
+791
+00:36:53,800 --> 00:36:58,000
+particolare ne possiamo considerare
+
+792
+00:36:58,040 --> 00:37:03,400
+questi triangoli che si vengono a
+
+793
+00:36:59,599 --> 00:37:06,560
+fermare, questi triangoli, diciamo,
+
+794
+00:37:03,400 --> 00:37:08,880
+quadr colorati
+
+795
+00:37:06,560 --> 00:37:11,920
+dove fondamentalmente questa è la U che
+
+796
+00:37:08,880 --> 00:37:13,880
+si viene, questa è la diciamo la
+
+797
+00:37:11,920 --> 00:37:16,079
+proiezione del centro. Questa qua è la
+
+798
+00:37:13,880 --> 00:37:19,280
+U, questa qua è la distanza focale e
+
+799
+00:37:16,079 --> 00:37:22,240
+questa qua è la distanza
+
+800
+00:37:19,280 --> 00:37:25,520
+Fra centro di proiezione, questa qua
+
+801
+00:37:22,240 --> 00:37:28,359
+invece è la Z, questa qua è la
+
+802
+00:37:25,520 --> 00:37:30,280
+coordinata X e questa qua è, diciamo,
+
+803
+00:37:28,359 --> 00:37:32,319
+l'unione
+
+804
+00:37:30,280 --> 00:37:34,520
+e
+
+805
+00:37:32,319 --> 00:37:37,079
+diciamo la proiezione sull'asse Z.
+
+806
+00:37:34,520 --> 00:37:40,599
+Questi due triangoli,
+
+807
+00:37:37,079 --> 00:37:42,000
+secondo voi come sono?
+
+808
+00:37:40,599 --> 00:37:43,760
+Sì. A parte il fatto che c'è scritto là
+
+809
+00:37:42,000 --> 00:37:45,240
+sopra, ma si vede gli angoli sono
+
+810
+00:37:43,760 --> 00:37:47,680
+opposti al vertice, questi lati sono
+
+811
+00:37:45,240 --> 00:37:49,839
+paralleli, quindi sono banalmente,
+
+812
+00:37:47,680 --> 00:37:52,240
+diciamo, sono triangoli rettangoli con
+
+813
+00:37:49,839 --> 00:37:54,480
+angoli opposto per chiaramente sono
+
+814
+00:37:52,240 --> 00:37:58,319
+simili. Cos'hanno di particolare gli
+
+815
+00:37:54,480 --> 00:38:00,720
+esami i triangoli simili? Che sono nelle
+
+816
+00:37:58,319 --> 00:38:02,359
+dimensioni come
+
+817
+00:38:00,720 --> 00:38:05,680
+sono proporzionali. Quindi questo ci
+
+818
+00:38:02,359 --> 00:38:08,240
+permette di scrivere delle proporzioni.
+
+819
+00:38:05,680 --> 00:38:10,839
+E se guardate noi stiamo dicendo che U
+
+820
+00:38:08,240 --> 00:38:13,319
+sta X come f sta Z. U e F sono le
+
+821
+00:38:10,839 --> 00:38:16,880
+dimensioni di questo triangolo e queste
+
+822
+00:38:13,319 --> 00:38:18,720
+sono X e Z sono le corrispondenti
+
+823
+00:38:16,880 --> 00:38:19,960
+dimensioni
+
+824
+00:38:18,720 --> 00:38:22,800
+dell'altro triangolo. Quindi stiamo
+
+825
+00:38:19,960 --> 00:38:24,160
+dicendo che sono proporzionali di che
+
+826
+00:38:22,800 --> 00:38:26,920
+hanno lo stesso coefficiente di
+
+827
+00:38:24,160 --> 00:38:29,040
+proporzionalità. C'è un c segno meno in
+
+828
+00:38:26,920 --> 00:38:32,040
+mezzo. Perché secondo voi c'è un segno
+
+829
+00:38:29,040 --> 00:38:32,040
+meno?
+
+830
+00:38:35,079 --> 00:38:42,839
+per il sistema di riferimento,
+
+831
+00:38:37,960 --> 00:38:45,119
+perché quello che sta a destra si
+
+832
+00:38:42,839 --> 00:38:48,160
+trasforma a sinistra,
+
+833
+00:38:45,119 --> 00:38:51,560
+quello che sta in alto va in basso
+
+834
+00:38:48,160 --> 00:38:54,680
+e questo viene visto proprio col fatto
+
+835
+00:38:51,560 --> 00:38:56,200
+che le coordinate cambiano di segno,
+
+836
+00:38:54,680 --> 00:38:58,720
+quindi una cosa che ha una coordinata
+
+837
+00:38:56,200 --> 00:39:01,280
+positiva diventa negativa perché va
+
+838
+00:38:58,720 --> 00:39:03,040
+dall'altra parte così via. Questo che
+
+839
+00:39:01,280 --> 00:39:04,480
+significa? Ritorna col fatto che
+
+840
+00:39:03,040 --> 00:39:06,720
+probabilmente avete già sentito che le
+
+841
+00:39:04,480 --> 00:39:09,720
+immagini che si formano in realtà sono
+
+842
+00:39:06,720 --> 00:39:12,119
+capovolte.
+
+843
+00:39:09,720 --> 00:39:13,720
+Per la proiezione,
+
+844
+00:39:12,119 --> 00:39:15,079
+questo è il mio piano immagine, questo è
+
+845
+00:39:13,720 --> 00:39:17,240
+il centro di proiezione, questo è un
+
+846
+00:39:15,079 --> 00:39:18,720
+oggetto,
+
+847
+00:39:17,240 --> 00:39:21,640
+è il punto che proietto. Se la
+
+848
+00:39:18,720 --> 00:39:24,079
+proiezione è così, questo va tutt'altra
+
+849
+00:39:21,640 --> 00:39:25,960
+parte. Quello che sta qui, l'altro
+
+850
+00:39:24,079 --> 00:39:27,920
+estremo di questo segmento, sarà
+
+851
+00:39:25,960 --> 00:39:29,680
+proiettato
+
+852
+00:39:27,920 --> 00:39:31,680
+da quest'altra parte. Quindi l'oggetto è
+
+853
+00:39:29,680 --> 00:39:35,400
+totalmente capovolto. Ok? Quindi le
+
+854
+00:39:31,680 --> 00:39:37,160
+immagini si formano capovolte
+
+855
+00:39:35,400 --> 00:39:40,280
+e questo lo traduci proprio nel fatto
+
+856
+00:39:37,160 --> 00:39:40,280
+del campo.
+
+857
+00:39:40,760 --> 00:39:45,839
+Eh, esistono modelli matematici di
+
+858
+00:39:43,800 --> 00:39:47,400
+telecamere che non hanno che non
+
+859
+00:39:45,839 --> 00:39:49,440
+cambiano disegno e il trucco è
+
+860
+00:39:47,400 --> 00:39:52,839
+semplicissimo. invece di fare come
+
+861
+00:39:49,440 --> 00:39:54,720
+fisicamente re come
+
+862
+00:39:52,839 --> 00:39:56,520
+diciamo come abbiamo fatto qui, che è un
+
+863
+00:39:54,720 --> 00:39:57,760
+modello fisicamente plausibile, perché
+
+864
+00:39:56,520 --> 00:40:00,280
+nelle macchine fotografiche
+
+865
+00:39:57,760 --> 00:40:03,520
+eventualmente c'è il foro e poi dietro
+
+866
+00:40:00,280 --> 00:40:05,480
+il sensore, quello che fai è porti il
+
+867
+00:40:03,520 --> 00:40:08,000
+foro dietro il sensore, il centro di
+
+868
+00:40:05,480 --> 00:40:09,800
+pressione dietro il sensore, ok? lo
+
+869
+00:40:08,000 --> 00:40:12,760
+sposti ad in questa maniera ti vengono
+
+870
+00:40:09,800 --> 00:40:14,640
+delle immagini non capovolte ovviamente
+
+871
+00:40:12,760 --> 00:40:17,280
+e togli il segno meno. Sono
+
+872
+00:40:14,640 --> 00:40:19,240
+geogometricamente equivalenti, le regole
+
+873
+00:40:17,280 --> 00:40:21,560
+sono esattamente le stesse e meno
+
+874
+00:40:19,240 --> 00:40:25,480
+fisicamente possibile modello matematico
+
+875
+00:40:21,560 --> 00:40:25,480
+5 gioc stesso.
+
+876
+00:40:25,520 --> 00:40:28,440
+Va bene? e quindi ottieni queste
+
+877
+00:40:26,760 --> 00:40:32,800
+equazioni di proiezione quello che sono
+
+878
+00:40:28,440 --> 00:40:34,480
+patap patapum e riesce a fare le diciamo
+
+879
+00:40:32,800 --> 00:40:36,240
+le proiezioni.
+
+880
+00:40:34,480 --> 00:40:37,359
+Ehm
+
+881
+00:40:36,240 --> 00:40:38,720
+la proiezione ortografica è un
+
+882
+00:40:37,359 --> 00:40:41,400
+pochettino più semplice. Abbiamo visto,
+
+883
+00:40:38,720 --> 00:40:43,720
+siccome sono ortogonali e diciamo x e y
+
+884
+00:40:41,400 --> 00:40:46,200
+rimangono invariati, ottieni e v = x e v
+
+885
+00:40:43,720 --> 00:40:48,640
+= y.
+
+886
+00:40:46,200 --> 00:40:51,280
+Abbiamo già visto, ve lo credo di avervi
+
+887
+00:40:48,640 --> 00:40:53,359
+convinto, che il modello ortografico ha
+
+888
+00:40:51,280 --> 00:40:55,480
+senso proprio utilizzare quando di
+
+889
+00:40:53,359 --> 00:40:57,400
+distan di oggetto che stai guardando è
+
+890
+00:40:55,480 --> 00:40:58,599
+piccolo, in particolare in profondità la
+
+891
+00:40:57,400 --> 00:41:00,079
+variazione di profondità e la scena che
+
+892
+00:40:58,599 --> 00:41:01,760
+stai guardando è piccola rispetto alla
+
+893
+00:41:00,079 --> 00:41:04,880
+distanza a cui la sto osservando.
+
+894
+00:41:01,760 --> 00:41:06,960
+Allora, dico un
+
+895
+00:41:04,880 --> 00:41:09,960
+e questo è sensato perché se guardate
+
+896
+00:41:06,960 --> 00:41:09,960
+qui
+
+897
+00:41:10,560 --> 00:41:15,040
+questa
+
+898
+00:41:12,480 --> 00:41:17,000
+è Z, noi dividiamo sempre per Z. Se la
+
+899
+00:41:15,040 --> 00:41:19,400
+variazione di profondità è piccola
+
+900
+00:41:17,000 --> 00:41:22,400
+rispetto alla distanza, significa che
+
+901
+00:41:19,400 --> 00:41:25,319
+per tutti i punti della mia scena Z
+
+902
+00:41:22,400 --> 00:41:27,200
+varià di poco,
+
+903
+00:41:25,319 --> 00:41:29,200
+quindi posso assimilarla, essere sempre
+
+904
+00:41:27,200 --> 00:41:31,440
+costante, quindi me ne frego e la
+
+905
+00:41:29,200 --> 00:41:34,359
+trascuro totalmente, ad esempio. Oppure
+
+906
+00:41:31,440 --> 00:41:36,599
+esistono altri modelli che sono mettono
+
+907
+00:41:34,359 --> 00:41:38,960
+insieme le due cose che considerano una
+
+908
+00:41:36,599 --> 00:41:41,839
+Z costante, fondamentalmente e dividono
+
+909
+00:41:38,960 --> 00:41:44,680
+per una Z costante. E questi si chiamano
+
+910
+00:41:41,839 --> 00:41:47,720
+modelli che sono prospettici ma
+
+911
+00:41:44,680 --> 00:41:49,359
+debolmente prospettici, nel senso che
+
+912
+00:41:47,720 --> 00:41:51,520
+fondamentalmente lo puoi vedere con una
+
+913
+00:41:49,359 --> 00:41:55,200
+prazione ortografica seguita da una
+
+914
+00:41:51,520 --> 00:41:58,640
+protezione eh prospettica, perché
+
+915
+00:41:55,200 --> 00:42:00,440
+proietti su un piano a distanza Z fissa
+
+916
+00:41:58,640 --> 00:42:03,440
+e poi da lì parti con la prozione
+
+917
+00:42:00,440 --> 00:42:03,440
+prospetti.
+
+918
+00:42:04,400 --> 00:42:07,400
+Ehm,
+
+919
+00:42:07,960 --> 00:42:13,280
+quindi diciamo il modello più sensato,
+
+920
+00:42:09,839 --> 00:42:15,280
+come dicevamo, è il modello eh
+
+921
+00:42:13,280 --> 00:42:18,560
+prospettico, è quello più simile al,
+
+922
+00:42:15,280 --> 00:42:21,040
+diciamo, alla proiezione naturale.
+
+923
+00:42:18,560 --> 00:42:23,880
+Eh, va bene, questo, diciamo, non ci
+
+924
+00:42:21,040 --> 00:42:26,079
+interessa e questo è il concetto che vi
+
+925
+00:42:23,880 --> 00:42:28,119
+dicevo prima.
+
+926
+00:42:26,079 --> 00:42:29,240
+Noi non possiamo utilizzare un modello
+
+927
+00:42:28,119 --> 00:42:30,640
+di un sistema di riferimento
+
+928
+00:42:29,240 --> 00:42:33,119
+tridimensionale centrato nella
+
+929
+00:42:30,640 --> 00:42:35,920
+telecamera, quindi utilizzo un sistema
+
+930
+00:42:33,119 --> 00:42:37,599
+di riferimento moto da qualche parte e
+
+931
+00:42:35,920 --> 00:42:39,040
+mi traslo me lo traslo in qualche
+
+932
+00:42:37,599 --> 00:42:40,559
+maniera e quindi avrò bisogno di un
+
+933
+00:42:39,040 --> 00:42:43,559
+metodo
+
+934
+00:42:40,559 --> 00:42:46,680
+che mi permetterà di calcolare questa R
+
+935
+00:42:43,559 --> 00:42:49,200
+e T dove R è la rotazione e T è la
+
+936
+00:42:46,680 --> 00:42:52,200
+traslazione. La vedete da qualche parte
+
+937
+00:42:49,200 --> 00:42:52,200
+sta
+
+938
+00:42:53,359 --> 00:42:59,119
+ehm questo ci permette di introdurre già
+
+939
+00:42:55,920 --> 00:43:01,000
+un concetto fondamentale che è quello
+
+940
+00:42:59,119 --> 00:43:03,839
+quindi che
+
+941
+00:43:01,000 --> 00:43:06,520
+il nostro sistema di acquisizione ha dei
+
+942
+00:43:03,839 --> 00:43:07,960
+parametri.
+
+943
+00:43:06,520 --> 00:43:13,680
+Uno l'abbiamo già visto la distanza
+
+944
+00:43:07,960 --> 00:43:17,079
+focale, altri li vedremo a tempo debito,
+
+945
+00:43:13,680 --> 00:43:18,119
+ma ha dei parametri che sono legati che
+
+946
+00:43:17,079 --> 00:43:20,119
+potrebbero essere possono essere i
+
+947
+00:43:18,119 --> 00:43:23,599
+fattori di scale, di pixelizzazione.
+
+948
+00:43:20,119 --> 00:43:27,680
+Cos'è di questo tipo? No,
+
+949
+00:43:23,599 --> 00:43:32,680
+eh ha dei parametri che sono legati
+
+950
+00:43:27,680 --> 00:43:34,000
+unicamente al sistema di acquisizione
+
+951
+00:43:32,680 --> 00:43:36,040
+e questi si chiamano parametri
+
+952
+00:43:34,000 --> 00:43:38,240
+intrinseci.
+
+953
+00:43:36,040 --> 00:43:40,119
+Poi esistono altri parametri come questa
+
+954
+00:43:38,240 --> 00:43:42,760
+rotazione e traslazione che non
+
+955
+00:43:40,119 --> 00:43:44,559
+dipendono dal sistema di acquisizione,
+
+956
+00:43:42,760 --> 00:43:47,280
+dipendono dalla scelta che faccio io del
+
+957
+00:43:44,559 --> 00:43:48,880
+sistema di riferimento mondo. Io posso
+
+958
+00:43:47,280 --> 00:43:50,599
+prendere un sistema di riferimento mondo
+
+959
+00:43:48,880 --> 00:43:52,040
+diverso, però una una rotazione, una
+
+960
+00:43:50,599 --> 00:43:54,040
+traslazione diversa, ma questo non
+
+961
+00:43:52,040 --> 00:43:57,319
+inficherà assolutamente sulla proiezione
+
+962
+00:43:54,040 --> 00:43:59,559
+proiezione sempre la stessa.
+
+963
+00:43:57,319 --> 00:44:02,119
+proiezione una telecamera fissa è una
+
+964
+00:43:59,559 --> 00:44:04,079
+scena che è sempre la stessa, quindi la
+
+965
+00:44:02,119 --> 00:44:08,480
+proiezione non cambia, mi cambia la
+
+966
+00:44:04,079 --> 00:44:08,480
+maniera in cui la misuro
+
+967
+00:44:10,119 --> 00:44:15,200
+e questi sist questi parametri rotazione
+
+968
+00:44:13,240 --> 00:44:16,640
+che sono fondamentalmente soltanto
+
+969
+00:44:15,200 --> 00:44:18,359
+rotazione e traslazione si chiamano
+
+970
+00:44:16,640 --> 00:44:20,720
+parametri strinseci perché sono al di
+
+971
+00:44:18,359 --> 00:44:22,119
+fuori del sistema di riferimento, non
+
+972
+00:44:20,720 --> 00:44:25,319
+appartengono al sistema di riferimento,
+
+973
+00:44:22,119 --> 00:44:29,800
+ma sono qualcosa che mi serve
+
+974
+00:44:25,319 --> 00:44:33,400
+per poter poi utilizzare il sistema il
+
+975
+00:44:29,800 --> 00:44:33,400
+meccanismo di acquisizione.
+
+976
+00:44:34,480 --> 00:44:38,000
+Allora, torniamo un pochettino indietro
+
+977
+00:44:36,240 --> 00:44:39,920
+alla proiezione prospettica. Quello che
+
+978
+00:44:38,000 --> 00:44:42,920
+vediamo
+
+979
+00:44:39,920 --> 00:44:42,920
+è
+
+980
+00:44:44,480 --> 00:44:50,280
+il fatto che vediamo che questi,
+
+981
+00:44:48,079 --> 00:44:53,119
+diciamo, rette parallele
+
+982
+00:44:50,280 --> 00:44:54,599
+si interse sono, invece di essere
+
+983
+00:44:53,119 --> 00:44:57,160
+parallele nella trasformazione,
+
+984
+00:44:54,599 --> 00:44:59,680
+nell'immagine, diciamo, ottenuta, sono
+
+985
+00:44:57,160 --> 00:45:02,480
+convergenti, quindi significa che queste
+
+986
+00:44:59,680 --> 00:45:04,680
+rette parallele si intersecheranno da
+
+987
+00:45:02,480 --> 00:45:06,280
+qualche parte.
+
+988
+00:45:04,680 --> 00:45:07,920
+queste due rette parallele si
+
+989
+00:45:06,280 --> 00:45:10,000
+intersecheranno dall'altra parte.
+
+990
+00:45:07,920 --> 00:45:12,480
+Secondo voi, se io nel preidero una
+
+991
+00:45:10,000 --> 00:45:15,760
+terza retta parallela,
+
+992
+00:45:12,480 --> 00:45:20,079
+cioè una terza retta nello spazio
+
+993
+00:45:15,760 --> 00:45:20,079
+che è parallela a queste due,
+
+994
+00:45:22,280 --> 00:45:25,800
+ti intersecherà anche lei nello stesso
+
+995
+00:45:24,280 --> 00:45:28,599
+punto.
+
+996
+00:45:25,800 --> 00:45:30,440
+Esattamente.
+
+997
+00:45:28,599 --> 00:45:32,280
+tutte le rette che diciamo quelle che
+
+998
+00:45:30,440 --> 00:45:35,119
+troviamo su questo piano del ponte
+
+999
+00:45:32,280 --> 00:45:37,880
+convergono tutte nello stesso Allora,
+
+1000
+00:45:35,119 --> 00:45:39,640
+viene fuori il concetto di quello che in
+
+1001
+00:45:37,880 --> 00:45:41,400
+inglese si chiama vanishing point, ma
+
+1002
+00:45:39,640 --> 00:45:46,079
+voi credo che avete già sentito parlare
+
+1003
+00:45:41,400 --> 00:45:48,599
+di qualcosa che si chiama punto
+
+1004
+00:45:46,079 --> 00:45:51,240
+di
+
+1005
+00:45:48,599 --> 00:45:53,400
+fuga. Avete mai sentito parlare di punto
+
+1006
+00:45:51,240 --> 00:45:57,319
+di fuga da qualche parte? Esattamente
+
+1007
+00:45:53,400 --> 00:46:00,720
+questo il fatto. Tu hai
+
+1008
+00:45:57,319 --> 00:46:02,920
+il punto di fuga è quel punto dove
+
+1009
+00:46:00,720 --> 00:46:04,920
+convergono
+
+1010
+00:46:02,920 --> 00:46:08,160
+rette parallele. Quindi, se io considero
+
+1011
+00:46:04,920 --> 00:46:10,440
+un altro insieme di rette parallele
+
+1012
+00:46:08,160 --> 00:46:13,280
+nella mia scena avrò un punto di fuga
+
+1013
+00:46:10,440 --> 00:46:15,319
+diverso, ma tutte le rette parallele
+
+1014
+00:46:13,280 --> 00:46:17,119
+trasformate tramite una trasformazione
+
+1015
+00:46:15,319 --> 00:46:20,119
+prospettica tenderanno a essere
+
+1016
+00:46:17,119 --> 00:46:20,119
+convergenti.
+
+1017
+00:46:23,760 --> 00:46:28,440
+Questo ci dice quindi che io
+
+1018
+00:46:30,160 --> 00:46:34,480
+il tipo di trasformazione che viene
+
+1019
+00:46:32,319 --> 00:46:38,200
+fuori
+
+1020
+00:46:34,480 --> 00:46:39,520
+è un tipo di trasformazione
+
+1021
+00:46:38,200 --> 00:46:41,079
+beh, sicuramente una trasformazione
+
+1022
+00:46:39,520 --> 00:46:42,599
+geometrica, no? Perché quello che stiamo
+
+1023
+00:46:41,079 --> 00:46:43,920
+lo stiamo modellando come trasformazione
+
+1024
+00:46:42,599 --> 00:46:46,400
+nello spazio geometrico, che è il
+
+1025
+00:46:43,920 --> 00:46:48,880
+modello lo spazio tridimensionale,
+
+1026
+00:46:46,400 --> 00:46:50,119
+ha uno spazio geometrico è quello
+
+1027
+00:46:48,880 --> 00:46:51,680
+bidimensionale. Abbiamo delle equazioni
+
+1028
+00:46:50,119 --> 00:46:53,240
+di proiezione e quindi è una
+
+1029
+00:46:51,680 --> 00:46:56,680
+trasformazione nello spazio geometrico
+
+1030
+00:46:53,240 --> 00:46:56,680
+nello spazio geometrico,
+
+1031
+00:46:57,559 --> 00:47:02,440
+ma è uguale è simile a tutte le
+
+1032
+00:47:00,680 --> 00:47:05,839
+trasformazioni geometriche avete visto,
+
+1033
+00:47:02,440 --> 00:47:07,319
+diciamo, quando avete fatto geometria,
+
+1034
+00:47:05,839 --> 00:47:08,839
+quando avete fatto geometria, voi la
+
+1035
+00:47:07,319 --> 00:47:10,559
+trasformazione in uno spazio geometrico,
+
+1036
+00:47:08,839 --> 00:47:12,160
+come l'avete vista? regolata da che
+
+1037
+00:47:10,559 --> 00:47:16,800
+cosa?
+
+1038
+00:47:12,160 --> 00:47:16,800
+Da una matrice tipicamente. No,
+
+1039
+00:47:17,559 --> 00:47:20,680
+qualcuno ha detto sì, però già non era
+
+1040
+00:47:18,960 --> 00:47:24,640
+molto convinto. Mi sembra di ricordare
+
+1041
+00:47:20,680 --> 00:47:26,160
+che ero ricordi vabbè sono
+
+1042
+00:47:24,640 --> 00:47:28,599
+trasformazioni che quindi sono
+
+1043
+00:47:26,160 --> 00:47:33,040
+trasformazioni lineari.
+
+1044
+00:47:28,599 --> 00:47:34,680
+Matrice sono trasformazioni lineari.
+
+1045
+00:47:33,040 --> 00:47:37,359
+Questa proiezione secondo voi è una
+
+1046
+00:47:34,680 --> 00:47:38,880
+trasformazione lineare?
+
+1047
+00:47:37,359 --> 00:47:41,000
+Guardiamo, riguardiamo un attimo le
+
+1048
+00:47:38,880 --> 00:47:44,079
+equazioni. Queste qua sono le equazioni
+
+1049
+00:47:41,000 --> 00:47:44,079
+di trasformazione.
+
+1050
+00:47:44,119 --> 00:47:48,599
+È una trasformazione lineare, secondo
+
+1051
+00:47:45,680 --> 00:47:51,000
+voi?
+
+1052
+00:47:48,599 --> 00:47:54,359
+Sì. No, forse
+
+1053
+00:47:51,000 --> 00:47:54,359
+se no perché
+
+1054
+00:47:55,599 --> 00:47:59,760
+sto dividendo per Z, quindi non è una
+
+1055
+00:47:57,280 --> 00:48:01,440
+trasformazione lineale, quindi non è una
+
+1056
+00:47:59,760 --> 00:48:03,520
+è una trasformazione geometrica, ma non
+
+1057
+00:48:01,440 --> 00:48:06,359
+è una trasformazione non lineare, quindi
+
+1058
+00:48:03,520 --> 00:48:09,000
+le cose non ci stupisce che sta facendo
+
+1059
+00:48:06,359 --> 00:48:10,520
+cose che noi non abbiamo visto mai nella
+
+1060
+00:48:09,000 --> 00:48:12,599
+nelle trasformazioni che abbiamo visto,
+
+1061
+00:48:10,520 --> 00:48:16,160
+perché poi suppongo che avete studiato
+
+1062
+00:48:12,599 --> 00:48:18,800
+le trasformazioni diciamo euclidee,
+
+1063
+00:48:16,160 --> 00:48:20,720
+traslazione e forse avete fatto qualcosa
+
+1064
+00:48:18,800 --> 00:48:23,119
+di geometria fine, le trasformazioni
+
+1065
+00:48:20,720 --> 00:48:26,640
+fini, cioè le trasformazioni che fanno
+
+1066
+00:48:23,119 --> 00:48:29,079
+un minimo di distorsione, però hanno una
+
+1067
+00:48:26,640 --> 00:48:31,800
+proprietà importantissima che è quella
+
+1068
+00:48:29,079 --> 00:48:34,559
+che mantengono il parallelismo.
+
+1069
+00:48:31,800 --> 00:48:36,520
+Quindi ciò che è parallelo rimane
+
+1070
+00:48:34,559 --> 00:48:40,880
+parallelo. Le trasformazioni affini sono
+
+1071
+00:48:36,520 --> 00:48:40,880
+cose che trasformano tipo un quadrato,
+
+1072
+00:48:43,160 --> 00:48:50,520
+trasformano un quadrato
+
+1073
+00:48:45,680 --> 00:48:50,520
+in qualcosa che è tipo questo.
+
+1074
+00:48:51,280 --> 00:48:54,280
+Assumete che questi due sono paralleli
+
+1075
+00:48:52,960 --> 00:48:58,240
+fra di loro, vero detto che conservano
+
+1076
+00:48:54,280 --> 00:49:02,680
+il parallelismo, ok?
+
+1077
+00:48:58,240 --> 00:49:02,680
+lo deforma. Fanno delle deformazioni,
+
+1078
+00:49:04,079 --> 00:49:07,920
+ma mantengono il parallelismo. Quindi
+
+1079
+00:49:05,720 --> 00:49:09,599
+l'oggetto viene deformato, ma mantenendo
+
+1080
+00:49:07,920 --> 00:49:10,960
+il parallelismo, fondamentalmente quello
+
+1081
+00:49:09,599 --> 00:49:12,680
+che facciamo è una trasformazione a
+
+1082
+00:49:10,960 --> 00:49:15,839
+fine, è una fesseria, è una
+
+1083
+00:49:12,680 --> 00:49:18,880
+trasformazione di scala
+
+1084
+00:49:15,839 --> 00:49:20,480
+dove però la scalatura,
+
+1085
+00:49:18,880 --> 00:49:23,760
+noi la trasformazione di scalas abbiamo
+
+1086
+00:49:20,480 --> 00:49:26,119
+visto è alfa * x * y, no? Immaginate di
+
+1087
+00:49:23,760 --> 00:49:28,160
+avere un alfa 1, un alfa x che
+
+1088
+00:49:26,119 --> 00:49:31,119
+moltiplica x e un alfa y che moltiplica
+
+1089
+00:49:28,160 --> 00:49:32,520
+y, quindi chiaramente che la le due
+
+1090
+00:49:31,119 --> 00:49:36,480
+dimensioni si trasformano in maniera
+
+1091
+00:49:32,520 --> 00:49:38,960
+diversa, quindi ciò che è così si
+
+1092
+00:49:36,480 --> 00:49:40,480
+distorce proprio perché non si muovono
+
+1093
+00:49:38,960 --> 00:49:44,319
+più alla stessa dimensione, nella stessa
+
+1094
+00:49:40,480 --> 00:49:45,799
+maniera le due dimensioni. Ok?
+
+1095
+00:49:44,319 --> 00:49:48,799
+E questa è la trasformazione, continua a
+
+1096
+00:49:45,799 --> 00:49:53,200
+essere la trasformazione lineata.
+
+1097
+00:49:48,799 --> 00:49:56,240
+qui non più e ed è un piccolo problema
+
+1098
+00:49:53,200 --> 00:49:59,359
+perché a noi piacciono le cose lineari
+
+1099
+00:49:56,240 --> 00:50:01,000
+che avere cose lineari ci semplifica il
+
+1100
+00:49:59,359 --> 00:50:03,440
+calcolo, ci permette di usare calcolo
+
+1101
+00:50:01,000 --> 00:50:05,200
+matriciale, è tutto molto più elegante.
+
+1102
+00:50:03,440 --> 00:50:08,319
+Quindi quello che vedremo è come
+
+1103
+00:50:05,200 --> 00:50:10,400
+recuperare, trasformare questa linear
+
+1104
+00:50:08,319 --> 00:50:13,400
+non linearità in qualcosa che può essere
+
+1105
+00:50:10,400 --> 00:50:13,400
+lineare.
+
+1106
+00:50:15,880 --> 00:50:20,359
+Ehm
+
+1107
+00:50:18,240 --> 00:50:22,640
+e si sfrutterà per fare questa
+
+1108
+00:50:20,359 --> 00:50:24,880
+costruzione proprio il coscetto di
+
+1109
+00:50:22,640 --> 00:50:28,599
+vanishing point,
+
+1110
+00:50:24,880 --> 00:50:32,720
+perché noi possiamo considerare
+
+1111
+00:50:28,599 --> 00:50:32,720
+questo vanishing point
+
+1112
+00:50:34,079 --> 00:50:37,760
+come
+
+1113
+00:50:35,960 --> 00:50:40,520
+il vanish point dipende fondamentalmente
+
+1114
+00:50:37,760 --> 00:50:43,480
+dalle direzioni delle rette.
+
+1115
+00:50:40,520 --> 00:50:45,440
+Io identifico
+
+1116
+00:50:43,480 --> 00:50:47,079
+una classe di rette parallele dalla loro
+
+1117
+00:50:45,440 --> 00:50:49,240
+direzione. Tutte le rette parallele
+
+1118
+00:50:47,079 --> 00:50:52,559
+hanno la stessa direzione. Quindi ho
+
+1119
+00:50:49,240 --> 00:50:54,079
+tante direzioni quanto sono tutti i
+
+1120
+00:50:52,559 --> 00:50:56,200
+vettori che riesco ad identificare
+
+1121
+00:50:54,079 --> 00:51:01,400
+centrati in
+
+1122
+00:50:56,200 --> 00:51:01,400
+cè nel centro del sistema R³, no?
+
+1123
+00:51:03,520 --> 00:51:09,280
+Mh.
+
+1124
+00:51:06,160 --> 00:51:11,839
+Quindi ogni direzione ha un vanishing
+
+1125
+00:51:09,280 --> 00:51:14,240
+point diverso. Questo vi convince a
+
+1126
+00:51:11,839 --> 00:51:15,799
+naso? Ho sistemi rette parallele
+
+1127
+00:51:14,240 --> 00:51:19,040
+diverse, quindi si intersecheranno in
+
+1128
+00:51:15,799 --> 00:51:19,040
+punti diversi.
+
+1129
+00:51:19,680 --> 00:51:26,760
+Ora il concetto di direzione
+
+1130
+00:51:23,720 --> 00:51:29,119
+nei punti dello spazio noi ce l'abbiamo,
+
+1131
+00:51:26,760 --> 00:51:31,440
+no? è qualcosa che costruiamo, ha questa
+
+1132
+00:51:29,119 --> 00:51:35,119
+direzione che è un vettore, ma non
+
+1133
+00:51:31,440 --> 00:51:36,720
+esistono dei punti che mi rappresentano
+
+1134
+00:51:35,119 --> 00:51:39,440
+direzione.
+
+1135
+00:51:36,720 --> 00:51:41,520
+Quello che si va fondamentalmente è di
+
+1136
+00:51:39,440 --> 00:51:45,400
+arricchire
+
+1137
+00:51:41,520 --> 00:51:47,520
+lo spazio con dei punti che e quindi
+
+1138
+00:51:45,400 --> 00:51:50,280
+vediamo si costruiranno costruiranno
+
+1139
+00:51:47,520 --> 00:51:52,680
+delle trasformazioni geometriche
+
+1140
+00:51:50,280 --> 00:51:55,280
+che i punti normali di mappano i punti
+
+1141
+00:51:52,680 --> 00:51:58,359
+normali ma le direzioni le mappano nei
+
+1142
+00:51:55,280 --> 00:52:01,160
+manishing points. In questa maniera
+
+1143
+00:51:58,359 --> 00:52:02,440
+otteniamo delle formazioni eh che sono
+
+1144
+00:52:01,160 --> 00:52:04,359
+lineari, come vedremo, molto
+
+1145
+00:52:02,440 --> 00:52:06,880
+semplicemente, però un pezzo di
+
+1146
+00:52:04,359 --> 00:52:08,599
+complicarci un pochettino la teoria.
+
+1147
+00:52:06,880 --> 00:52:11,119
+La complicazione sta semplicemente nel
+
+1148
+00:52:08,599 --> 00:52:14,119
+fatto che invece di utilizzare punti che
+
+1149
+00:52:11,119 --> 00:52:15,680
+hanno coordinate
+
+1150
+00:52:14,119 --> 00:52:20,200
+X
+
+1151
+00:52:15,680 --> 00:52:23,079
+Y1 e X y scusate Z,
+
+1152
+00:52:20,200 --> 00:52:27,040
+considereremo punti che hanno coordinate
+
+1153
+00:52:23,079 --> 00:52:27,040
+X, Ygiungiamo
+
+1154
+00:52:28,599 --> 00:52:34,319
+una coordinata
+
+1155
+00:52:31,040 --> 00:52:37,000
+che è strumentale
+
+1156
+00:52:34,319 --> 00:52:40,640
+al fatto di avere
+
+1157
+00:52:37,000 --> 00:52:42,640
+eh di avere aggiunto questo questi punti
+
+1158
+00:52:40,640 --> 00:52:44,359
+in più, perché se aggiungiamo dei punti
+
+1159
+00:52:42,640 --> 00:52:46,280
+in più che non possono essere più
+
+1160
+00:52:44,359 --> 00:52:48,200
+identificati con le tre coordinate,
+
+1161
+00:52:46,280 --> 00:52:50,480
+abbiamo bisogno di aggiungere qualcosa e
+
+1162
+00:52:48,200 --> 00:52:53,240
+aggiungiamo una quarta coordinata che ci
+
+1163
+00:52:50,480 --> 00:52:56,160
+permette di identificare questi punti.
+
+1164
+00:52:53,240 --> 00:52:57,960
+Poi lo faremo bene in maniera formale,
+
+1165
+00:52:56,160 --> 00:53:00,319
+capire, vedrete che fondamentalmente è
+
+1166
+00:52:57,960 --> 00:53:02,119
+una cavolata, però questo ci permetterà
+
+1167
+00:53:00,319 --> 00:53:05,440
+di avere quindi trasformare queste
+
+1168
+00:53:02,119 --> 00:53:07,720
+trasformazioni che sono lineari,
+
+1169
+00:53:05,440 --> 00:53:11,160
+quindi un pochettino pallose da
+
+1170
+00:53:07,720 --> 00:53:12,839
+considerare in trasformazioni che sono
+
+1171
+00:53:11,160 --> 00:53:15,599
+lineamiche,
+
+1172
+00:53:12,839 --> 00:53:17,720
+ok?
+
+1173
+00:53:15,599 --> 00:53:20,680
+E i sistemi di coordinate che si usa è
+
+1174
+00:53:17,720 --> 00:53:22,599
+quello che si chiama coordinate omogene.
+
+1175
+00:53:20,680 --> 00:53:26,319
+Oltre a aggiungere un un numerino c'è un
+
+1176
+00:53:22,599 --> 00:53:27,720
+altro piccolo problemino eh tecnico che
+
+1177
+00:53:26,319 --> 00:53:29,720
+un punto non è identificato non un solo
+
+1178
+00:53:27,720 --> 00:53:30,960
+insieme di coordinate, è identificato
+
+1179
+00:53:29,720 --> 00:53:35,480
+nella classe di equivalenza di
+
+1180
+00:53:30,960 --> 00:53:37,640
+coordinate. Quindi tutti i punti x y z
+
+1181
+00:53:35,480 --> 00:53:40,119
+1,
+
+1182
+00:53:37,640 --> 00:53:43,160
+cioè tutti i punti del tipo a scusate
+
+1183
+00:53:40,119 --> 00:53:46,160
+non vedo dove sto scrivendo. tipo alfa,
+
+1184
+00:53:43,160 --> 00:53:49,319
+x, y z1 rappresentano sempre lo stesso
+
+1185
+00:53:46,160 --> 00:53:52,240
+punto nello spazio. Ok?
+
+1186
+00:53:49,319 --> 00:53:54,280
+È sensato perché altrimenti aumenterei
+
+1187
+00:53:52,240 --> 00:53:57,280
+la quantità di punti che sto
+
+1188
+00:53:54,280 --> 00:53:57,280
+utilizzando.
+
+1189
+00:53:57,440 --> 00:54:01,480
+Va bene? E quindi poi viene fuori,
+
+1190
+00:53:59,040 --> 00:54:03,839
+chiaramente, essendo una trasformazione
+
+1191
+00:54:01,480 --> 00:54:05,920
+geometrica, avremo una una matrice che
+
+1192
+00:54:03,839 --> 00:54:08,319
+ci considera
+
+1193
+00:54:05,920 --> 00:54:10,319
+i ci permette di fare la trasformazione
+
+1194
+00:54:08,319 --> 00:54:11,960
+geometrica e quindi avremo la
+
+1195
+00:54:10,319 --> 00:54:13,400
+trasformazione geometrica dipenderà
+
+1196
+00:54:11,960 --> 00:54:14,799
+sempre dai parametri intrinseci, dai
+
+1197
+00:54:13,400 --> 00:54:17,440
+parametri estrinseci, quindi ci sarà una
+
+1198
+00:54:14,799 --> 00:54:21,200
+parte di rotazione e traslazione e poi
+
+1199
+00:54:17,440 --> 00:54:26,000
+diciamo una cosa K che mi include i
+
+1200
+00:54:21,200 --> 00:54:26,000
+parametri intrinseci. Va bene?
+
+1201
+00:54:30,400 --> 00:54:37,079
+Fiamo 2:30, non le due, giusto?
+
+1202
+00:54:34,079 --> 00:54:37,079
+Allora,
+
+1203
+00:54:40,319 --> 00:54:45,960
+altro elemento che viene considerato
+
+1204
+00:54:43,599 --> 00:54:48,079
+è la lente. Ora, una cosa di cui abbiamo
+
+1205
+00:54:45,960 --> 00:54:50,520
+sempre sentito parlare è il fatto che la
+
+1206
+00:54:48,079 --> 00:54:52,040
+lente introduce una distorsione. La
+
+1207
+00:54:50,520 --> 00:54:54,200
+lente, speriamente se non di buona
+
+1208
+00:54:52,040 --> 00:54:55,799
+qualità,
+
+1209
+00:54:54,200 --> 00:54:57,680
+modifica un pochettino l'immagine.
+
+1210
+00:54:55,799 --> 00:54:59,359
+Quindi abbiamo una cosa che si chiama
+
+1211
+00:54:57,680 --> 00:55:01,720
+fondamentalmente distorsione radiale,
+
+1212
+00:54:59,359 --> 00:55:03,559
+che è quella più tipica che si utilizza.
+
+1213
+00:55:01,720 --> 00:55:06,319
+questa distorsione che aumenta mano che
+
+1214
+00:55:03,559 --> 00:55:08,119
+ti allontani dal centro della lente,
+
+1215
+00:55:06,319 --> 00:55:10,280
+quindi verso e quindi è qualcosa che si
+
+1216
+00:55:08,119 --> 00:55:12,319
+verifica tipicamente ai bordi
+
+1217
+00:55:10,280 --> 00:55:14,359
+dell'immagine.
+
+1218
+00:55:12,319 --> 00:55:18,880
+Più di bassa qualità è la lente,
+
+1219
+00:55:14,359 --> 00:55:18,880
+maggiore è tipicamente la distorsione.
+
+1220
+00:55:19,960 --> 00:55:23,319
+Eh
+
+1221
+00:55:21,520 --> 00:55:25,359
+gli effetti della distorsione, quindi
+
+1222
+00:55:23,319 --> 00:55:28,720
+quali sono? che noi acquisiamo
+
+1223
+00:55:25,359 --> 00:55:32,039
+un'immagine, la proiettiamo,
+
+1224
+00:55:28,720 --> 00:55:34,400
+ma le coordinate che misuriamo
+
+1225
+00:55:32,039 --> 00:55:37,000
+sul piano immagine sono diversi da
+
+1226
+00:55:34,400 --> 00:55:39,720
+quelle che otterremmo se avessimo un
+
+1227
+00:55:37,000 --> 00:55:42,920
+modello teorico
+
+1228
+00:55:39,720 --> 00:55:44,520
+di telecamera, no, con sistema di
+
+1229
+00:55:42,920 --> 00:55:47,400
+acquisizione come l'abbiamo modellato
+
+1230
+00:55:44,520 --> 00:55:49,760
+noi. La distorsione non è introdotta lì
+
+1231
+00:55:47,400 --> 00:55:51,960
+proprio perché non abbiamo
+
+1232
+00:55:49,760 --> 00:55:53,760
+inserito la lente lì in mezzo. Però se
+
+1233
+00:55:51,960 --> 00:55:56,640
+vogliamo fare delle misure accurate
+
+1234
+00:55:53,760 --> 00:55:59,000
+dobbiamo correggere la distorsione.
+
+1235
+00:55:56,640 --> 00:56:01,920
+Esistono dei metodi semplicissimi in
+
+1236
+00:55:59,000 --> 00:56:04,720
+particolare per correggere la
+
+1237
+00:56:01,920 --> 00:56:06,599
+distorsione radiale, ma veramente una
+
+1238
+00:56:04,720 --> 00:56:09,599
+cosa
+
+1239
+00:56:06,599 --> 00:56:09,599
+banalissima.
+
+1240
+00:56:11,119 --> 00:56:17,480
+Eh, ovviamente però l'impatto qual è?
+
+1241
+00:56:13,760 --> 00:56:17,480
+quello che ti l'immagine
+
+1242
+00:56:17,720 --> 00:56:21,319
+ti vede male, anche se a volte viene
+
+1243
+00:56:20,039 --> 00:56:23,039
+utilizzata l'istorsione può essere
+
+1244
+00:56:21,319 --> 00:56:28,720
+utilizzata per creare degli effetti
+
+1245
+00:56:23,039 --> 00:56:31,000
+diciamo un po' leggermente artistici.
+
+1246
+00:56:28,720 --> 00:56:33,839
+Allora, ragioniamo un attimo su quello
+
+1247
+00:56:31,000 --> 00:56:35,920
+che avviene effettivamente con la lente.
+
+1248
+00:56:33,839 --> 00:56:37,599
+Allora, se abbiamo una lente, allora a
+
+1249
+00:56:35,920 --> 00:56:40,079
+questo punto noi stiamo sicuramente
+
+1250
+00:56:37,599 --> 00:56:42,720
+abbandonando l'idea
+
+1251
+00:56:40,079 --> 00:56:44,480
+di eh
+
+1252
+00:56:42,720 --> 00:56:47,119
+Vco dove passa la luce che assimile
+
+1253
+00:56:44,480 --> 00:56:52,160
+abbiamo un punto. La lente copre la
+
+1254
+00:56:47,119 --> 00:56:52,160
+dimensione, diciamo, tutto il gluto. Ok?
+
+1255
+00:56:52,359 --> 00:56:56,359
+Esiste un modello teorico di lente che è
+
+1256
+00:56:54,079 --> 00:56:58,240
+quello che si chiama lente sottile che
+
+1257
+00:56:56,359 --> 00:56:59,880
+semplifica un pochettino le equazioni,
+
+1258
+00:56:58,240 --> 00:57:05,760
+diciamo, che intervengono, no? Questo ci
+
+1259
+00:56:59,880 --> 00:57:05,760
+interessa, diciamo, il non troppo.
+
+1260
+00:57:06,359 --> 00:57:13,400
+Quello che ci interessa in un certo
+
+1261
+00:57:09,240 --> 00:57:17,160
+senso, è capire qual è l'effetto
+
+1262
+00:57:13,400 --> 00:57:17,160
+sulla formazione dell'immagine
+
+1263
+00:57:19,559 --> 00:57:24,440
+eh introdotto dal fatto di avere sia un
+
+1264
+00:57:21,839 --> 00:57:26,920
+buco non più, diciamo, assimilabbile a
+
+1265
+00:57:24,440 --> 00:57:30,039
+un punto e di avere e perché viene
+
+1266
+00:57:26,920 --> 00:57:31,920
+introdotta la lente.
+
+1267
+00:57:30,039 --> 00:57:36,720
+Allora,
+
+1268
+00:57:31,920 --> 00:57:41,200
+senza il buco abbiamo visto che
+
+1269
+00:57:36,720 --> 00:57:41,200
+il mio piano
+
+1270
+00:57:43,520 --> 00:57:46,760
+Ok, sono
+
+1271
+00:57:49,680 --> 00:57:54,160
+il mio piano di immagine,
+
+1272
+00:57:51,960 --> 00:57:55,720
+scusate, non ci riesco, è qualcosa del
+
+1273
+00:57:54,160 --> 00:57:57,599
+genere.
+
+1274
+00:57:55,720 --> 00:58:01,799
+Ok,
+
+1275
+00:57:57,599 --> 00:58:05,400
+senza il buco, se io sto proiettando
+
+1276
+00:58:01,799 --> 00:58:09,680
+un punto qui, tutti i raggi che passano
+
+1277
+00:58:05,400 --> 00:58:13,799
+vanno a finire sul mio sensore, quindi
+
+1278
+00:58:09,680 --> 00:58:13,799
+avrò una serie di punti
+
+1279
+00:58:16,000 --> 00:58:20,880
+che vanno a impattare.
+
+1280
+00:58:18,720 --> 00:58:23,520
+Quindi, fondamentalmente, per ogni punto
+
+1281
+00:58:20,880 --> 00:58:25,200
+io vado a ricoprire tutto il sensore
+
+1282
+00:58:23,520 --> 00:58:28,359
+perché
+
+1283
+00:58:25,200 --> 00:58:32,119
+preso qualsiasi punto sulla superficie
+
+1284
+00:58:28,359 --> 00:58:33,640
+del buco esiste una retta che passa per
+
+1285
+00:58:32,119 --> 00:58:36,119
+quel
+
+1286
+00:58:33,640 --> 00:58:37,799
+per quel
+
+1287
+00:58:36,119 --> 00:58:40,280
+per quel punto e per il punto che voglio
+
+1288
+00:58:37,799 --> 00:58:43,039
+proiettare. Quindi io per un punto mi
+
+1289
+00:58:40,280 --> 00:58:44,680
+spazzolo tutto il sensore
+
+1290
+00:58:43,039 --> 00:58:47,680
+riesco a formare un'immagine in questa
+
+1291
+00:58:44,680 --> 00:58:47,680
+maniera?
+
+1292
+00:58:48,119 --> 00:58:53,000
+Assolutamente no, perché io mischio
+
+1293
+00:58:50,400 --> 00:58:54,799
+l'informazione su ogni elemento
+
+1294
+00:58:53,000 --> 00:58:57,680
+sensibile. Arriverà l'informazione di
+
+1295
+00:58:54,799 --> 00:59:01,559
+tutti i punti della scena.
+
+1296
+00:58:57,680 --> 00:59:01,559
+Quindi è impossibile misurare.
+
+1297
+00:59:04,000 --> 00:59:08,799
+Allora, di cosa ho bisogno? Ho bisogno
+
+1298
+00:59:06,799 --> 00:59:11,640
+di un meccanismo
+
+1299
+00:59:08,799 --> 00:59:14,920
+che faccia in modo
+
+1300
+00:59:11,640 --> 00:59:19,359
+che raccolga i raggi ottici e li faccia
+
+1301
+00:59:14,920 --> 00:59:22,039
+convergere tutti opportunamente.
+
+1302
+00:59:19,359 --> 00:59:24,400
+Ok?
+
+1303
+00:59:22,039 --> 00:59:27,359
+Consideriamo il meccanismo utilizzato da
+
+1304
+00:59:24,400 --> 00:59:30,440
+questa dalla lente sottile.
+
+1305
+00:59:27,359 --> 00:59:35,119
+Allora, se abbiamo un raggio che è
+
+1306
+00:59:30,440 --> 00:59:35,119
+parallelo all'asse, questo
+
+1307
+00:59:35,880 --> 00:59:42,039
+come questo arriverà la lente e poi sarà
+
+1308
+00:59:39,599 --> 00:59:43,799
+andrà a convergere su questo asse
+
+1309
+00:59:42,039 --> 00:59:46,799
+ottico, su questo punto che si chiama
+
+1310
+00:59:43,799 --> 00:59:46,799
+focale.
+
+1311
+00:59:47,319 --> 00:59:53,599
+Se invece attraversa il centro della
+
+1312
+00:59:50,839 --> 00:59:56,960
+lente non viene assolutamente deviato da
+
+1313
+00:59:53,599 --> 00:59:59,799
+niente. Se invece parte passa per questo
+
+1314
+00:59:56,960 --> 01:00:04,920
+punto che si chiama focale
+
+1315
+00:59:59,799 --> 01:00:04,920
+e uscirà parallelo. Ok?
+
+1316
+01:00:05,079 --> 01:00:10,319
+Quindi già abbiamo un meccanismo che
+
+1317
+01:00:07,079 --> 01:00:14,359
+devia i raggi e in qualche maniera li fa
+
+1318
+01:00:10,319 --> 01:00:14,359
+convergere da qualche parte.
+
+1319
+01:00:17,359 --> 01:00:20,359
+Ora,
+
+1320
+01:00:21,680 --> 01:00:27,359
+questo permette quindi di fare in modo
+
+1321
+01:00:24,039 --> 01:00:30,559
+che la maggior parte dei i raggi che
+
+1322
+01:00:27,359 --> 01:00:34,039
+arrivano su un punto e vengono riflessi
+
+1323
+01:00:30,559 --> 01:00:35,760
+dal punto possano quindi poi convergere
+
+1324
+01:00:34,039 --> 01:00:38,000
+tutti sulla stessa zona del piano
+
+1325
+01:00:35,760 --> 01:00:41,240
+immagine,
+
+1326
+01:00:38,000 --> 01:00:43,520
+in maniera tale quindi che ogni parte
+
+1327
+01:00:41,240 --> 01:00:46,079
+della scena
+
+1328
+01:00:43,520 --> 01:00:50,119
+sia
+
+1329
+01:00:46,079 --> 01:00:51,799
+eh rappresentata in maniera più o meno,
+
+1330
+01:00:50,119 --> 01:00:56,599
+rappresent, diciamo, possa essere
+
+1331
+01:00:51,799 --> 01:00:56,599
+catturata in maniera opportuna.
+
+1332
+01:00:57,960 --> 01:01:05,319
+Ehm,
+
+1333
+01:01:00,599 --> 01:01:07,880
+quindi la lente quello che fa corregge
+
+1334
+01:01:05,319 --> 01:01:09,480
+il fatto che
+
+1335
+01:01:07,880 --> 01:01:11,760
+l'apertura
+
+1336
+01:01:09,480 --> 01:01:16,119
+mi fa passare tanti raggi, la lente fa
+
+1337
+01:01:11,760 --> 01:01:16,119
+in modo che questi raggi poi convergano
+
+1338
+01:01:16,440 --> 01:01:21,599
+tutti in maniera opportuna verso i punti
+
+1339
+01:01:20,319 --> 01:01:25,000
+dove può essere rappresentata
+
+1340
+01:01:21,599 --> 01:01:27,240
+l'immagine, la scena.
+
+1341
+01:01:25,000 --> 01:01:30,559
+Però questo non può essere fatto per
+
+1342
+01:01:27,240 --> 01:01:32,720
+tutti i punti. Consideriamo ad esempio,
+
+1343
+01:01:30,559 --> 01:01:34,480
+vediamo se riesco a fare il disegno
+
+1344
+01:01:32,720 --> 01:01:38,400
+fortunamente
+
+1345
+01:01:34,480 --> 01:01:41,720
+consideriamo questo punto di qua, ok?
+
+1346
+01:01:38,400 --> 01:01:46,599
+Del disegno del fatto. Questo punto P,
+
+1347
+01:01:41,720 --> 01:01:48,880
+vedete? Consideriamo il raggio P
+
+1348
+01:01:46,599 --> 01:01:52,920
+Q P Q grande è un raggio parallelo,
+
+1349
+01:01:48,880 --> 01:01:54,720
+quindi viene deviato e va a finire su
+
+1350
+01:01:52,920 --> 01:01:57,000
+questo punto P qua sopra. Ecco, diciamo
+
+1351
+01:01:54,720 --> 01:02:00,160
+questa retta qui mi rappresenta è sul
+
+1352
+01:01:57,000 --> 01:02:00,160
+mio sensore.
+
+1353
+01:02:01,480 --> 01:02:05,960
+Quest'altro raggio viene deviato e va a
+
+1354
+01:02:03,520 --> 01:02:08,039
+finire su P. Quest'altro raggio passa
+
+1355
+01:02:05,960 --> 01:02:10,520
+per il centro, non viene deviato e va a
+
+1356
+01:02:08,039 --> 01:02:13,319
+finire tutto su P. Quindi è esattamente
+
+1357
+01:02:10,520 --> 01:02:16,720
+come vogliamo noi. Questo punto P, tutti
+
+1358
+01:02:13,319 --> 01:02:19,319
+i raggi ottici di questo punto P vengono
+
+1359
+01:02:16,720 --> 01:02:23,440
+proiettati su un unico punto sul mio sul
+
+1360
+01:02:19,319 --> 01:02:26,880
+mio piano di formazione dell'immagine.
+
+1361
+01:02:23,440 --> 01:02:29,000
+Ok? Quello che vediamo.
+
+1362
+01:02:26,880 --> 01:02:31,480
+Ma questo vale per tutti i punti o vale
+
+1363
+01:02:29,000 --> 01:02:33,720
+per tutti qualsiasi posizione del piano
+
+1364
+01:02:31,480 --> 01:02:35,400
+immagine?
+
+1365
+01:02:33,720 --> 01:02:38,400
+Consideriamo un punto un pochettino più
+
+1366
+01:02:35,400 --> 01:02:42,119
+indietro. Mettiamolo qui. Secondo voi
+
+1367
+01:02:38,400 --> 01:02:42,119
+succede la stessa cosa?
+
+1368
+01:02:43,599 --> 01:02:48,440
+Sì. No, forse
+
+1369
+01:02:45,599 --> 01:02:50,839
+no, perché questo sicuramente va a
+
+1370
+01:02:48,440 --> 01:02:52,440
+finire qui perché è parallelo, ma gli
+
+1371
+01:02:50,839 --> 01:02:55,279
+altri invece andando a finire dall'altra
+
+1372
+01:02:52,440 --> 01:02:57,440
+parte. Quello che passa per il centro
+
+1373
+01:02:55,279 --> 01:02:58,559
+andrà a finire un pochettino più in alto
+
+1374
+01:02:57,440 --> 01:03:01,559
+perché è un punto un pochettino più
+
+1375
+01:02:58,559 --> 01:03:01,559
+indietro.
+
+1376
+01:03:01,960 --> 01:03:05,160
+Lo vedete? Perché se devo fare un
+
+1377
+01:03:03,480 --> 01:03:08,880
+disegno io vi confondo le idee, ci
+
+1378
+01:03:05,160 --> 01:03:13,920
+proviamo. Passa per il centro e quindi
+
+1379
+01:03:08,880 --> 01:03:13,920
+va a finire un pochettino più sopra. Ok?
+
+1380
+01:03:15,039 --> 01:03:20,799
+Questo significa che appena mi sposto un
+
+1381
+01:03:16,960 --> 01:03:23,559
+pochettino da questo punto,
+
+1382
+01:03:20,799 --> 01:03:25,440
+questo modello teorico la metto, poi mi
+
+1383
+01:03:23,559 --> 01:03:27,200
+sposto un pochettino, perdo questa
+
+1384
+01:03:25,440 --> 01:03:29,359
+convergenza, quindi questa cosa vale
+
+1385
+01:03:27,200 --> 01:03:31,640
+benissimo per una particolare distanza
+
+1386
+01:03:29,359 --> 01:03:34,079
+della scena.
+
+1387
+01:03:31,640 --> 01:03:34,079
+Ok?
+
+1388
+01:03:34,319 --> 01:03:37,960
+Per questa particolare distanza io avrò
+
+1389
+01:03:36,359 --> 01:03:40,319
+delle immagini che si formano bene,
+
+1390
+01:03:37,960 --> 01:03:44,279
+quindi avrò delle immagini inutile tutto
+
+1391
+01:03:40,319 --> 01:03:46,480
+a fuoco, così soldini. Per il resto avrò
+
+1392
+01:03:44,279 --> 01:03:48,920
+qualcosa di
+
+1393
+01:03:46,480 --> 01:03:51,680
+eh sfocato. L'effetto sarà che sia
+
+1394
+01:03:48,920 --> 01:03:54,200
+sfocato. Questo si collega a un concetto
+
+1395
+01:03:51,680 --> 01:03:58,240
+che credo che avete di cui avete sentito
+
+1396
+01:03:54,200 --> 01:03:58,240
+parlare che è quello di
+
+1397
+01:03:58,480 --> 01:04:05,039
+build
+
+1398
+01:04:01,000 --> 01:04:05,039
+of viewpo
+
+1399
+01:04:05,200 --> 01:04:09,640
+di vista, no?
+
+1400
+01:04:07,279 --> 01:04:11,680
+che ci dice,
+
+1401
+01:04:09,640 --> 01:04:13,119
+dato un settaggio della telecamera,
+
+1402
+01:04:11,680 --> 01:04:15,480
+cos'è quello che riesco a mettere a
+
+1403
+01:04:13,119 --> 01:04:19,319
+fuoco, che chiaramente in un mondo reale
+
+1404
+01:04:15,480 --> 01:04:22,039
+non sarà un pezzettino,
+
+1405
+01:04:19,319 --> 01:04:24,480
+soltanto una retta in piano, ma sarà
+
+1406
+01:04:22,039 --> 01:04:27,160
+tutta una zona,
+
+1407
+01:04:24,480 --> 01:04:30,279
+quindi io posso mettere a fuoco
+
+1408
+01:04:27,160 --> 01:04:31,920
+eh oggetti che sono a particolare range
+
+1409
+01:04:30,279 --> 01:04:33,480
+di distanza, ma quelli più lontani
+
+1410
+01:04:31,920 --> 01:04:37,960
+saranno sfocati e quelli più vicini
+
+1411
+01:04:33,480 --> 01:04:37,960
+saranno sfocati, ok?
+
+1412
+01:04:38,000 --> 01:04:43,559
+E ci convince il fatto,
+
+1413
+01:04:41,279 --> 01:04:47,880
+questo forse lo vediamo anche meglio
+
+1414
+01:04:43,559 --> 01:04:50,240
+qui, ci convince il fatto che maggiore è
+
+1415
+01:04:47,880 --> 01:04:54,279
+l'apertura,
+
+1416
+01:04:50,240 --> 01:04:57,319
+più grande è il buco dove sare la luce,
+
+1417
+01:04:54,279 --> 01:05:01,359
+minore è questa distanza,
+
+1418
+01:04:57,319 --> 01:05:03,400
+più piccola è la lo spazio che ri perché
+
+1419
+01:05:01,359 --> 01:05:05,559
+perché fondamentalmente questi cerchi di
+
+1420
+01:05:03,400 --> 01:05:07,480
+confusione sono che si formano che sono
+
+1421
+01:05:05,559 --> 01:05:11,359
+fondamentalmente
+
+1422
+01:05:07,480 --> 01:05:13,240
+la zona con cui che ricopre un unico
+
+1423
+01:05:11,359 --> 01:05:18,079
+punto, un unico oggetto, un'unica parte
+
+1424
+01:05:13,240 --> 01:05:18,079
+dell'immagine è sempre più grande
+
+1425
+01:05:18,520 --> 01:05:23,079
+e questo è qualcosa che ha un impatto
+
+1426
+01:05:20,200 --> 01:05:27,359
+chiaramente in fotografia.
+
+1427
+01:05:23,079 --> 01:05:30,799
+Se dovete prendere un un'immagine che
+
+1428
+01:05:27,359 --> 01:05:32,480
+sia tutta a fuoco, volete prendere,
+
+1429
+01:05:30,799 --> 01:05:34,440
+diciamo, una scena molto ampia, un
+
+1430
+01:05:32,480 --> 01:05:36,400
+panorama che sia tutto a fuoco, quello
+
+1431
+01:05:34,440 --> 01:05:39,359
+che dovete utilizzare è un'apertura di
+
+1432
+01:05:36,400 --> 01:05:40,839
+diaframma che è piccola,
+
+1433
+01:05:39,359 --> 01:05:43,839
+però qua c'è un problema. Se l'apertura
+
+1434
+01:05:40,839 --> 01:05:46,760
+di diaframma è piccola,
+
+1435
+01:05:43,839 --> 01:05:51,440
+quanta luce passa? Molto poca?
+
+1436
+01:05:46,760 --> 01:05:51,440
+Poca luce. Se passa poca luce
+
+1437
+01:05:53,119 --> 01:05:59,480
+arriva poca luce sul sensore,
+
+1438
+01:05:57,039 --> 01:06:02,839
+non ci sono alternative.
+
+1439
+01:05:59,480 --> 01:06:06,359
+Più piccolo è il buco, meno luce arriva
+
+1440
+01:06:02,839 --> 01:06:10,000
+sul sensore e quindi meno luminosa sarà
+
+1441
+01:06:06,359 --> 01:06:12,039
+l'immagine. E io come faccio a quindi a
+
+1442
+01:06:10,000 --> 01:06:14,000
+mettere insieme le cose? Come faccio a
+
+1443
+01:06:12,039 --> 01:06:17,799
+ricevere un'immagine che è tutta a
+
+1444
+01:06:14,000 --> 01:06:20,599
+fuoco, però che abbia abbastanza luce da
+
+1445
+01:06:17,799 --> 01:06:24,240
+permettere di avere un'immagine nitida.
+
+1446
+01:06:20,599 --> 01:06:24,240
+È chiaro? Eh,
+
+1447
+01:06:24,799 --> 01:06:28,880
+alzare il viso che vuol dire
+
+1448
+01:06:33,240 --> 01:06:37,000
+o cambio
+
+1449
+01:06:34,599 --> 01:06:39,400
+o cambio rullino, che è la stessa cosa,
+
+1450
+01:06:37,000 --> 01:06:41,720
+però l'effetto è lo stesso. Ora, chi vi
+
+1451
+01:06:39,400 --> 01:06:43,839
+ricorda, se qualcuno si ricorda di di
+
+1452
+01:06:41,720 --> 01:06:46,319
+immagini di fotografia chimica,
+
+1453
+01:06:43,839 --> 01:06:50,480
+aumentare gli avevi delle foto un
+
+1454
+01:06:46,319 --> 01:06:50,480
+pochettino più sgranate, no?
+
+1455
+01:06:51,279 --> 01:06:54,599
+Vediamo che cosa vuol dire aumentare
+
+1456
+01:06:52,799 --> 01:06:55,960
+l'ISO nel sensore. Un sensore è un
+
+1457
+01:06:54,599 --> 01:06:58,440
+sensore, no? Quindi alla sua
+
+1458
+01:06:55,960 --> 01:07:00,240
+sensibilità.
+
+1459
+01:06:58,440 --> 01:07:04,039
+Aumentare gli iso che significa?
+
+1460
+01:07:00,240 --> 01:07:07,440
+semplicemente amplificare il segnale.
+
+1461
+01:07:04,039 --> 01:07:08,920
+Ora però noi sappiamo intuitivamente, ne
+
+1462
+01:07:07,440 --> 01:07:11,359
+abbiamo sentito parlare tutti, che i
+
+1463
+01:07:08,920 --> 01:07:13,400
+sensori hanno una cosa, un piccolo
+
+1464
+01:07:11,359 --> 01:07:16,640
+problema, i sensori non sono perfetti,
+
+1465
+01:07:13,400 --> 01:07:19,079
+hanno una cosa che si chiama rumore.
+
+1466
+01:07:16,640 --> 01:07:22,680
+Quindi io non misuro soltanto il
+
+1467
+01:07:19,079 --> 01:07:24,599
+segnale, ma misuro anche il rumore.
+
+1468
+01:07:22,680 --> 01:07:26,839
+Se amplifico
+
+1469
+01:07:24,599 --> 01:07:28,880
+il segnale che ricevo, sto sì
+
+1470
+01:07:26,839 --> 01:07:31,880
+amplificando
+
+1471
+01:07:28,880 --> 01:07:33,559
+il segnale, ma sto anche amplificando
+
+1472
+01:07:31,880 --> 01:07:36,079
+il rumore.
+
+1473
+01:07:33,559 --> 01:07:38,920
+Motivo per cui, e questo lo vedete
+
+1474
+01:07:36,079 --> 01:07:40,559
+sperimentalmente, se usate macchine
+
+1475
+01:07:38,920 --> 01:07:42,119
+nelle macchine fotografiche alzate il
+
+1476
+01:07:40,559 --> 01:07:43,200
+viso al massimo, vedete che i colori
+
+1477
+01:07:42,119 --> 01:07:45,400
+incominciano a essere un pochettino
+
+1478
+01:07:43,200 --> 01:07:46,880
+sporchetti, no? Cose un pochettino
+
+1479
+01:07:45,400 --> 01:07:48,279
+strane. Incominciate ad avere degli
+
+1480
+01:07:46,880 --> 01:07:51,200
+effetti un pochettino strani. Quello
+
+1481
+01:07:48,279 --> 01:07:52,720
+perché staficando il tumore.
+
+1482
+01:07:51,200 --> 01:07:54,000
+Ok?
+
+1483
+01:07:52,720 --> 01:07:57,480
+E questo significa quindi che è
+
+1484
+01:07:54,000 --> 01:08:00,559
+un'immagine di bassa qualità.
+
+1485
+01:07:57,480 --> 01:08:02,599
+Eh, non ci sono altre alternative.
+
+1486
+01:08:00,559 --> 01:08:04,240
+Supponete. Chiaramente, scusatemi, non
+
+1487
+01:08:02,599 --> 01:08:05,960
+vi ho fatto un un mi sono scordato un
+
+1488
+01:08:04,240 --> 01:08:08,960
+dettaglio, volete fotografare una scena
+
+1489
+01:08:05,960 --> 01:08:08,960
+statica.
+
+1490
+01:08:10,480 --> 01:08:14,960
+Esatto. Questo è un scusate, è un
+
+1491
+01:08:11,880 --> 01:08:17,759
+dettaglio che mi ero scordato evitare.
+
+1492
+01:08:14,960 --> 01:08:19,640
+Quindi cosa posso fare? è affento il
+
+1493
+01:08:17,759 --> 01:08:21,359
+tempo di misurazione,
+
+1494
+01:08:19,640 --> 01:08:23,120
+cioè io posso aumentare la quantità di
+
+1495
+01:08:21,359 --> 01:08:26,040
+luce che mi arriva sul sensore o
+
+1496
+01:08:23,120 --> 01:08:28,279
+ampliando il buco o aumentando il tempo
+
+1497
+01:08:26,040 --> 01:08:30,480
+di misurazione che significa aumentare
+
+1498
+01:08:28,279 --> 01:08:32,040
+il tempo di esposizione.
+
+1499
+01:08:30,480 --> 01:08:35,440
+Se aumento il tempo a disposizione, la
+
+1500
+01:08:32,040 --> 01:08:35,440
+scena è statica,
+
+1501
+01:08:36,520 --> 01:08:40,400
+ottengo la stessa quantità di luce che
+
+1502
+01:08:38,159 --> 01:08:42,839
+mi serve e non ho bisogno di alzare gli
+
+1503
+01:08:40,400 --> 01:08:44,600
+ISO, anzi lo posso mantenere al minimo
+
+1504
+01:08:42,839 --> 01:08:48,199
+ISO, che è la cosa migliore in questi
+
+1505
+01:08:44,600 --> 01:08:50,679
+con gli apparati elettronici.
+
+1506
+01:08:48,199 --> 01:08:55,839
+Ok,
+
+1507
+01:08:50,679 --> 01:08:55,839
+va bene. Che sono? Cioè 14:22.
+
+1508
+01:08:56,839 --> 01:09:02,040
+Vabbè, teniamolo qui per oggi. Ci
+
+1509
+01:08:59,040 --> 01:09:02,040
+vediamo.
+
+1510
+01:09:04,759 --> 01:09:08,759
+Vedete? Ok. Chiaramente qua stiamo
+
+1511
+01:09:07,040 --> 01:09:12,520
+facendo tutta una discussione su ste
+
+1512
+01:09:08,759 --> 01:09:14,839
+cose, però eh è chiaro che questa è,
+
+1513
+01:09:12,520 --> 01:09:19,719
+come vi dicevo,
+
+1514
+01:09:14,839 --> 01:09:21,560
+è puramente informativa. Ok? Cioè, se
+
+1515
+01:09:19,719 --> 01:09:23,319
+parliamo di computer vision dobbiamo
+
+1516
+01:09:21,560 --> 01:09:25,199
+avere un minimo di idea di come si
+
+1517
+01:09:23,319 --> 01:09:28,480
+formano le immagini, però come vi ho
+
+1518
+01:09:25,199 --> 01:09:32,960
+detto sono argomenti che vi racconto un
+
+1519
+01:09:28,480 --> 01:09:36,080
+attimo, ma chiaramente diciamo non non
+
+1520
+01:09:32,960 --> 01:09:39,080
+sono il cuore di quello di cui ci
+
+1521
+01:09:36,080 --> 01:09:39,080
+occuperemo.
+
+1522
+01:09:41,000 --> 01:09:44,000
+Ok,
+
+1523
+01:09:44,279 --> 01:09:46,799
+stoptiamo
+

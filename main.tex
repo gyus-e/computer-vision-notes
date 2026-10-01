@@ -2,7 +2,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
-\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{geometry}
 \usepackage{tikz}
 \usepackage{microtype}
@@ -11,6 +11,16 @@
 
 \geometry{margin=2.5cm}
 \usetikzlibrary{arrows.meta,calc}
+
+\theoremstyle{definition}
+\newtheorem{definizione}{Definizione}
+\newtheorem{definition}{Definizione}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vb}{\mathbf{b}}
 
 
 \title{Computer Vision }
@@ -24,7 +34,7 @@
 	
 	\include{lezione01}
 	\include{lezione02}
-	% \include{lezione03}
+	\include{lezione03}
 	
 	
 \end{document}

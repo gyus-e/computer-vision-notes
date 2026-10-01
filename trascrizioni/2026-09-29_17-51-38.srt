@@ -1,0 +1,5024 @@
+1
+00:00:06,839 --> 00:00:10,279
+Eccola qua.
+
+2
+00:00:27,439 --> 00:00:30,760
+Ah, ok.
+
+3
+00:00:36,920 --> 00:00:46,120
+Allora, avevamo eh visto
+
+4
+00:00:41,600 --> 00:00:48,760
+nell'introduzione del fatta la lezioni
+
+5
+00:00:46,120 --> 00:00:52,640
+scorse
+
+6
+00:00:48,760 --> 00:00:54,280
+che quello che andremo a utilizzare
+
+7
+00:00:52,640 --> 00:00:56,559
+è
+
+8
+00:00:54,280 --> 00:00:58,239
+un modello geometrico di telecamera.
+
+9
+00:00:56,559 --> 00:01:02,199
+Abbiamo visto l'equazioni di pressione
+
+10
+00:00:58,239 --> 00:01:02,199
+non lineare eccetera eccetera.
+
+11
+00:01:03,600 --> 00:01:09,240
+Adesso quello che faremo eh in questa in
+
+12
+00:01:07,720 --> 00:01:11,119
+questa lezione o in queste lezioni, non
+
+13
+00:01:09,240 --> 00:01:14,439
+so bene quanto tempo ci vorrà, sarà
+
+14
+00:01:11,119 --> 00:01:16,200
+questo. Tireremo fuori questo modello di
+
+15
+00:01:14,439 --> 00:01:20,400
+telecamera
+
+16
+00:01:16,200 --> 00:01:20,400
+in maniera un pochettino più
+
+17
+00:01:23,200 --> 00:01:28,920
+in maniera un pochettino più sensata.
+
+18
+00:01:26,400 --> 00:01:30,680
+Dopodiché ci vorremo il problema della
+
+19
+00:01:28,920 --> 00:01:33,439
+calibrazione della telecamera, dove
+
+20
+00:01:30,680 --> 00:01:35,040
+calibrare
+
+21
+00:01:33,439 --> 00:01:37,560
+significa
+
+22
+00:01:35,040 --> 00:01:39,079
+conoscere. Allora, noi tiriamo fuori un
+
+23
+00:01:37,560 --> 00:01:40,600
+modello, un modello dipendente da
+
+24
+00:01:39,079 --> 00:01:44,000
+parametri.
+
+25
+00:01:40,600 --> 00:01:46,840
+Calibrare significa stimare quei
+
+26
+00:01:44,000 --> 00:01:48,799
+parametri,
+
+27
+00:01:46,840 --> 00:01:50,640
+alcuni parametri,
+
+28
+00:01:48,799 --> 00:01:53,880
+ok?
+
+29
+00:01:50,640 --> 00:01:56,000
+Significa stimare quei parametri. Questo
+
+30
+00:01:53,880 --> 00:01:57,200
+ci serve quindi a che cosa? in quella
+
+31
+00:01:56,000 --> 00:02:01,200
+maniera, una volta che stiamo i
+
+32
+00:01:57,200 --> 00:02:02,799
+parametri, abbiamo tutti eh eh
+
+33
+00:02:01,200 --> 00:02:04,320
+conosciamo
+
+34
+00:02:02,799 --> 00:02:06,560
+eh
+
+35
+00:02:04,320 --> 00:02:09,360
+tutte le leggi che regolano la
+
+36
+00:02:06,560 --> 00:02:11,560
+proiezione per come le abbiamo modellate
+
+37
+00:02:09,360 --> 00:02:13,040
+e quindi possiamo utilizzare quel
+
+38
+00:02:11,560 --> 00:02:15,800
+modello di telecamera per tutti gli
+
+39
+00:02:13,040 --> 00:02:15,800
+scopi che ci servono.
+
+40
+00:02:34,000 --> 00:02:40,280
+in in maniera come se fosse una
+
+41
+00:02:37,599 --> 00:02:42,000
+qualcosa sul piano. Quindi a questo
+
+42
+00:02:40,280 --> 00:02:44,519
+punto la telecamera, per come l'abbiamo
+
+43
+00:02:42,000 --> 00:02:47,640
+vista l'altra volta, è un piano immagine
+
+44
+00:02:44,519 --> 00:02:49,200
+che vediamo come un segmento,
+
+45
+00:02:47,640 --> 00:02:51,720
+un centro di proiezione che è un punto
+
+46
+00:02:49,200 --> 00:02:54,440
+sul piano e noi proiettiamo i punti sul
+
+47
+00:02:51,720 --> 00:02:56,800
+piano. I punti, i vari punti del piano
+
+48
+00:02:54,440 --> 00:03:00,560
+li proziamo su questa
+
+49
+00:02:56,800 --> 00:03:02,920
+segmento immagine. Ok? Come facciamo?
+
+50
+00:03:00,560 --> 00:03:06,440
+Attraverso i raggi ottici, no? Questa
+
+51
+00:03:02,920 --> 00:03:09,400
+roba così. Quindi questo punto è
+
+52
+00:03:06,440 --> 00:03:11,760
+l'immagine di questo punto P.
+
+53
+00:03:09,400 --> 00:03:13,480
+Però ricordiamoci questo qui è
+
+54
+00:03:11,760 --> 00:03:15,400
+l'immagine di questo punto P, ma è
+
+55
+00:03:13,480 --> 00:03:20,280
+l'immagine di qualsiasi punto che sta su
+
+56
+00:03:15,400 --> 00:03:22,959
+questo raggio ottico, no? Ok?
+
+57
+00:03:20,280 --> 00:03:25,519
+Quindi una volta che io ho un punto
+
+58
+00:03:22,959 --> 00:03:27,120
+sull'immagine, ho un'ambiguità su quale
+
+59
+00:03:25,519 --> 00:03:28,959
+sia effettivamente il punto da cui
+
+60
+00:03:27,120 --> 00:03:31,640
+proviene, perché qualsiasi punto su
+
+61
+00:03:28,959 --> 00:03:34,640
+questo raggio ottico.
+
+62
+00:03:31,640 --> 00:03:34,640
+Però
+
+63
+00:03:34,920 --> 00:03:39,439
+ora calibrare la telecamera significa
+
+64
+00:03:37,280 --> 00:03:41,599
+questo, significa
+
+65
+00:03:39,439 --> 00:03:44,879
+essere in grado di costruire in un certo
+
+66
+00:03:41,599 --> 00:03:48,879
+senso il raggio ottico. Ok? Quindi
+
+67
+00:03:44,879 --> 00:03:48,879
+fondamentalmente significa
+
+68
+00:03:50,400 --> 00:03:55,000
+io parto da questa condizione, c'ho un
+
+69
+00:03:52,519 --> 00:03:56,760
+punto sull'immagine
+
+70
+00:03:55,000 --> 00:03:58,239
+e io c'ho soltanto l'immagine, quindi
+
+71
+00:03:56,760 --> 00:04:01,120
+non c'ho il centro ottico, non lo
+
+72
+00:03:58,239 --> 00:04:02,760
+conosco. L'unica cosa che mi serve in
+
+73
+00:04:01,120 --> 00:04:04,439
+questa direzione, in questo modello
+
+74
+00:04:02,760 --> 00:04:08,120
+schematico semplice della della
+
+75
+00:04:04,439 --> 00:04:10,799
+telecamera, per conoscere il centro
+
+76
+00:04:08,120 --> 00:04:14,000
+ottico, conoscere il raggio di
+
+77
+00:04:10,799 --> 00:04:18,519
+proiezione che è generato questo punto e
+
+78
+00:04:14,000 --> 00:04:20,000
+conoscere il centro ottico. Se a fissare
+
+79
+00:04:18,519 --> 00:04:23,880
+a stimare quindi le coordinate del
+
+80
+00:04:20,000 --> 00:04:25,800
+centro ottico nello spazio, io posso
+
+81
+00:04:23,880 --> 00:04:27,320
+generare questa retta che è il centrgo,
+
+82
+00:04:25,800 --> 00:04:28,600
+il
+
+83
+00:04:27,320 --> 00:04:31,039
+come si chiama il traggio di proiezione,
+
+84
+00:04:28,600 --> 00:04:31,039
+ok?
+
+85
+00:04:32,560 --> 00:04:36,600
+In una telecamera
+
+86
+00:04:34,880 --> 00:04:37,960
+reale. Chiaramente vi rendete conto che
+
+87
+00:04:36,600 --> 00:04:39,600
+il numero di parametri che servono sono
+
+88
+00:04:37,960 --> 00:04:42,320
+un pochettino di più. In una telecamera
+
+89
+00:04:39,600 --> 00:04:43,720
+stilizzata soltanto questa, ma conoscere
+
+90
+00:04:42,320 --> 00:04:45,600
+il centro ottico, quindi significa anche
+
+91
+00:04:43,720 --> 00:04:47,240
+conoscere la distanza, quindi quello che
+
+92
+00:04:45,600 --> 00:04:50,440
+noi abbiamo chiamato focale, così via e
+
+93
+00:04:47,240 --> 00:04:50,440
+così via.
+
+94
+00:04:50,479 --> 00:04:53,639
+Però vediamo da soli che questo non ci
+
+95
+00:04:52,080 --> 00:04:56,720
+basta
+
+96
+00:04:53,639 --> 00:04:58,280
+perché ho calibrato questa mia
+
+97
+00:04:56,720 --> 00:05:00,320
+telecamera, quindi posso ricostruire il
+
+98
+00:04:58,280 --> 00:05:04,160
+centro il raggio ottico, però il raggio
+
+99
+00:05:00,320 --> 00:05:05,960
+ottico non mi basta a capire
+
+100
+00:05:04,160 --> 00:05:08,919
+da dove proviene questa la proiezione di
+
+101
+00:05:05,960 --> 00:05:11,039
+questo punto. Ok?
+
+102
+00:05:08,919 --> 00:05:13,160
+Allora, cosa faccio?
+
+103
+00:05:11,039 --> 00:05:16,800
+Posso fare una cosa di questo tipo.
+
+104
+00:05:13,160 --> 00:05:16,800
+Suppongo di avere
+
+105
+00:05:18,680 --> 00:05:24,440
+un'altra telecamera.
+
+106
+00:05:21,080 --> 00:05:26,319
+calibro anche questa
+
+107
+00:05:24,440 --> 00:05:29,639
+e suppongo di conoscere per qualche
+
+108
+00:05:26,319 --> 00:05:29,639
+motivo arcano
+
+109
+00:05:34,919 --> 00:05:38,479
+che
+
+110
+00:05:36,680 --> 00:05:43,039
+sapere
+
+111
+00:05:38,479 --> 00:05:44,639
+che questo punto per questo punto qui è
+
+112
+00:05:43,039 --> 00:05:46,160
+il corrispondente di questo punto
+
+113
+00:05:44,639 --> 00:05:48,360
+significa si su due punti sono
+
+114
+00:05:46,160 --> 00:05:50,520
+corrispondenti. significa che io posso
+
+115
+00:05:48,360 --> 00:05:53,039
+dire che questo punto e questo punto
+
+116
+00:05:50,520 --> 00:05:54,600
+sono generati
+
+117
+00:05:53,039 --> 00:05:57,280
+come immagine sono generati allo stesso
+
+118
+00:05:54,600 --> 00:05:59,840
+punto spazio. Quindi si dice che questi
+
+119
+00:05:57,280 --> 00:06:01,680
+due punti sono corrispondenti.
+
+120
+00:05:59,840 --> 00:06:03,280
+Problema che noi visibilamente riusciamo
+
+121
+00:06:01,680 --> 00:06:05,199
+a risolvere banalmente se noi abbiamo
+
+122
+00:06:03,280 --> 00:06:09,080
+due immagini riusciamo subito a dire
+
+123
+00:06:05,199 --> 00:06:09,080
+quali sono le parti che corrispondo.
+
+124
+00:06:10,000 --> 00:06:13,199
+Ma se ho questo e ho calibrato pure
+
+125
+00:06:11,759 --> 00:06:16,199
+questa telecamera, posso fare una cosa
+
+126
+00:06:13,199 --> 00:06:16,199
+semplice.
+
+127
+00:06:18,919 --> 00:06:21,880
+Questi due raggi ottici si
+
+128
+00:06:20,120 --> 00:06:23,560
+intersecheranno.
+
+129
+00:06:21,880 --> 00:06:25,599
+Ma dove si intersecheranno? Si
+
+130
+00:06:23,560 --> 00:06:28,400
+intersecheranno nell'unico punto dello
+
+131
+00:06:25,599 --> 00:06:30,280
+spazio che può aver generato le due
+
+132
+00:06:28,400 --> 00:06:32,639
+immagini.
+
+133
+00:06:30,280 --> 00:06:34,520
+Ok? Questo processo si chiama
+
+134
+00:06:32,639 --> 00:06:37,800
+triangolazione
+
+135
+00:06:34,520 --> 00:06:39,880
+perché ho punto perché questo costruisce
+
+136
+00:06:37,800 --> 00:06:41,639
+un triangolo e questi due punti che ci
+
+137
+00:06:39,880 --> 00:06:43,440
+fanno la base questi due raggi che
+
+138
+00:06:41,639 --> 00:06:45,720
+fanno, diciamo, i due lati del
+
+139
+00:06:43,440 --> 00:06:49,240
+triangolo.
+
+140
+00:06:45,720 --> 00:06:51,840
+Quindi la ricostruzione alla fine la
+
+141
+00:06:49,240 --> 00:06:53,880
+otteniamo semplicemente ricostruendo dei
+
+142
+00:06:51,840 --> 00:06:58,479
+raggi ottici idealmente. In realtà si fa
+
+143
+00:06:53,880 --> 00:07:00,319
+una cosa un shortcut ricostruendo
+
+144
+00:06:58,479 --> 00:07:02,840
+dei raggi ottici e calcolando nella loro
+
+145
+00:07:00,319 --> 00:07:05,280
+intersezione. Ok? Questa è la
+
+146
+00:07:02,840 --> 00:07:07,080
+ricostruzione. È chiaro che io posso
+
+147
+00:07:05,280 --> 00:07:10,680
+avere anche più immagini. Io posso avere
+
+148
+00:07:07,080 --> 00:07:10,680
+anche una terza immagine.
+
+149
+00:07:10,800 --> 00:07:17,919
+Messa qui. Vedo la stessa scena.
+
+150
+00:07:15,160 --> 00:07:20,680
+Faccio il contrario, seò non ci riesco.
+
+151
+00:07:17,919 --> 00:07:23,520
+E ricostruisco in questa maniera perché
+
+152
+00:07:20,680 --> 00:07:27,440
+mi potrebbe servivare avere più immagini
+
+153
+00:07:23,520 --> 00:07:27,440
+e non mi accontento di due.
+
+154
+00:07:29,240 --> 00:07:33,960
+Uno è per approssimare meglio
+
+155
+00:07:30,879 --> 00:07:36,879
+sicuramente perché perché è chiaro che
+
+156
+00:07:33,960 --> 00:07:39,199
+idealmente i due raggi si intersecano. È
+
+157
+00:07:36,879 --> 00:07:41,039
+chiaro che io ho stimato i parametri
+
+158
+00:07:39,199 --> 00:07:43,479
+della telecamera, ho stimato i
+
+159
+00:07:41,039 --> 00:07:46,319
+parametri, quindi stima errore,
+
+160
+00:07:43,479 --> 00:07:48,000
+sicuramente c'è un errore di stim
+
+161
+00:07:46,319 --> 00:07:49,680
+punti hanno coordinate discrete, quindi
+
+162
+00:07:48,000 --> 00:07:53,479
+c'è pure un errore indotto alla
+
+163
+00:07:49,680 --> 00:07:57,440
+disizzazione perché lavoro in pixel, no?
+
+164
+00:07:53,479 --> 00:07:59,800
+Tutto questo fa sì che i due raggi
+
+165
+00:07:57,440 --> 00:08:02,479
+non si interseccheranno mai realmente,
+
+166
+00:07:59,800 --> 00:08:04,919
+ma saranno abbastanza vicini. Quindi io
+
+167
+00:08:02,479 --> 00:08:06,960
+che cosa faccio? due. Stimo in qualche
+
+168
+00:08:04,919 --> 00:08:08,759
+maniera quello che mi convince, che
+
+169
+00:08:06,960 --> 00:08:11,960
+minimizza l'errore, che può essere che
+
+170
+00:08:08,759 --> 00:08:13,639
+so piglio il la distanza tra le due le
+
+171
+00:08:11,960 --> 00:08:16,000
+due rette, il punto in mezzo è quello
+
+172
+00:08:13,639 --> 00:08:17,919
+che minimizza l'errore.
+
+173
+00:08:16,000 --> 00:08:19,960
+Ma se ho tre punti posso fare qualcosa
+
+174
+00:08:17,919 --> 00:08:21,639
+di meglio, no? Se ho quattro punti,
+
+175
+00:08:19,960 --> 00:08:24,759
+cinque punti, posso fare qualcosa di
+
+176
+00:08:21,639 --> 00:08:28,039
+meglio. Più stime ho, più posso
+
+177
+00:08:24,759 --> 00:08:30,440
+calcolarmi qualcosa che sia che medi
+
+178
+00:08:28,039 --> 00:08:32,320
+tutti gli errori commenti. Ok? E
+
+179
+00:08:30,440 --> 00:08:33,640
+tipicamente mi viene fuori infatti
+
+180
+00:08:32,320 --> 00:08:35,880
+quella che si chiama una stima ai minimi
+
+181
+00:08:33,640 --> 00:08:41,039
+quadrati che come vedre non so se
+
+182
+00:08:35,880 --> 00:08:41,039
+l'avete già fatto, ma l'avete già fatto.
+
+183
+00:08:41,760 --> 00:08:46,680
+Quindi avete visto stimatore
+
+184
+00:08:44,000 --> 00:08:49,000
+stimatore ottimale nel caso il rumore
+
+185
+00:08:46,680 --> 00:08:50,320
+che siano ti dà la comunque lo rivel un
+
+186
+00:08:49,000 --> 00:08:52,880
+attimo, anche perché poi avremo degli
+
+187
+00:08:50,320 --> 00:08:54,959
+stimatori che non sono eh diciamo che
+
+188
+00:08:52,880 --> 00:08:56,480
+non ritengono l'errore solamente che
+
+189
+00:08:54,959 --> 00:08:58,720
+ossiano, ma ritengono altri tipi di
+
+190
+00:08:56,480 --> 00:09:00,760
+errori.
+
+191
+00:08:58,720 --> 00:09:03,079
+E va bene. Quindi questo è il motivo per
+
+192
+00:09:00,760 --> 00:09:04,720
+cui alla fine ti serve la calibrazione
+
+193
+00:09:03,079 --> 00:09:07,720
+ottenuta in qualsiasi altra in qualsiasi
+
+194
+00:09:04,720 --> 00:09:09,640
+maniera. Una è quella che vedremo
+
+195
+00:09:07,720 --> 00:09:13,880
+insieme a quella quella del laboratorio,
+
+196
+00:09:09,640 --> 00:09:17,680
+cioè tu hai una telecamera e te la cal.
+
+197
+00:09:13,880 --> 00:09:19,920
+Però altra cosa che succede nel mondo è
+
+198
+00:09:17,680 --> 00:09:22,120
+io c'ho una telecamera, acquisisco un
+
+199
+00:09:19,920 --> 00:09:23,880
+poco di immagini e voglio ricostruire la
+
+200
+00:09:22,120 --> 00:09:26,200
+scena.
+
+201
+00:09:23,880 --> 00:09:29,120
+È quello che si fa oramai in America.
+
+202
+00:09:26,200 --> 00:09:32,360
+Questa qua. Allora, io non ho
+
+203
+00:09:29,120 --> 00:09:33,399
+una telecamera calibrata,
+
+204
+00:09:32,360 --> 00:09:35,040
+meccanismi che si chiamano
+
+205
+00:09:33,399 --> 00:09:37,880
+autocalibrazione, quindi uso dei piccoli
+
+206
+00:09:35,040 --> 00:09:41,440
+geometrici che mi aiutano a piano piano
+
+207
+00:09:37,880 --> 00:09:43,519
+a stimare la telecamera e ottenere una
+
+208
+00:09:41,440 --> 00:09:46,480
+ricostruzione che è più possibile
+
+209
+00:09:43,519 --> 00:09:48,040
+veritier accurata, ok? che sono
+
+210
+00:09:46,480 --> 00:09:51,680
+tipicamente quello che succede con tutti
+
+211
+00:09:48,040 --> 00:09:54,839
+gli algoritmi tutti i tool
+
+212
+00:09:51,680 --> 00:09:54,839
+di ricostruzione
+
+213
+00:09:55,240 --> 00:09:59,320
+eh tridimensionale che sono utilizzano
+
+214
+00:09:58,000 --> 00:10:01,920
+ad esempio in architettura, pigliano un
+
+215
+00:09:59,320 --> 00:10:03,839
+drone non calibrato, fanno girare un
+
+216
+00:10:01,920 --> 00:10:05,680
+pochettino all'interno di una chiesa e
+
+217
+00:10:03,839 --> 00:10:07,959
+ricostruiscono la chiesa siano
+
+218
+00:10:05,680 --> 00:10:09,560
+benissimo.
+
+219
+00:10:07,959 --> 00:10:12,200
+Quello che vince è cos'è? Il fatto che
+
+220
+00:10:09,560 --> 00:10:13,800
+hai un sacco di immagini, quindi la
+
+221
+00:10:12,200 --> 00:10:16,600
+stessa cosa la vedi dai punti di vista,
+
+222
+00:10:13,800 --> 00:10:20,079
+quindi riesci a contemporaneamente a
+
+223
+00:10:16,600 --> 00:10:21,560
+minimizzare, a ottimizzare sia sulla
+
+224
+00:10:20,079 --> 00:10:25,200
+ricostruzione dei punti, ma anche sui
+
+225
+00:10:21,560 --> 00:10:25,200
+parametri della telecamera.
+
+226
+00:10:26,000 --> 00:10:33,440
+Ok? Per fare tutto ciò però dobbiamo
+
+227
+00:10:31,120 --> 00:10:35,600
+introdurre
+
+228
+00:10:33,440 --> 00:10:37,079
+una cosa che credo che non avete mai
+
+229
+00:10:35,600 --> 00:10:41,279
+visto geometria, si chiama geometria
+
+230
+00:10:37,079 --> 00:10:41,279
+proiettiva. Ok?
+
+231
+00:10:41,720 --> 00:10:46,000
+Eh,
+
+232
+00:10:44,120 --> 00:10:48,519
+ha apparentemente sembra una cosa
+
+233
+00:10:46,000 --> 00:10:50,480
+complessa, in realtà non lo è
+
+234
+00:10:48,519 --> 00:10:52,519
+particolarmente, ok? È una cosa
+
+235
+00:10:50,480 --> 00:10:54,720
+abbastanza
+
+236
+00:10:52,519 --> 00:10:56,560
+intuitiva
+
+237
+00:10:54,720 --> 00:10:59,560
+e poi la useremo, vedremo anche come
+
+238
+00:10:56,560 --> 00:11:02,360
+usarla, diciamo, come uso. È anche
+
+239
+00:10:59,560 --> 00:11:05,079
+abbastanza abbastanza semplice. Allora,
+
+240
+00:11:02,360 --> 00:11:07,279
+quindi iniziamo con questa breve
+
+241
+00:11:05,079 --> 00:11:08,480
+introduzione alla geometria proiettiva.
+
+242
+00:11:07,279 --> 00:11:10,680
+Intanto perché parliamo di geometria
+
+243
+00:11:08,480 --> 00:11:13,720
+proiettiva? Questo ne abbiamo
+
+244
+00:11:10,680 --> 00:11:17,600
+già parlato l'altra volta. Noi siamo
+
+245
+00:11:13,720 --> 00:11:19,880
+abituati a questi ambienti, no?
+
+246
+00:11:17,600 --> 00:11:22,079
+Voi avete visto nella vostra vita
+
+247
+00:11:19,880 --> 00:11:25,360
+geometria euclidea
+
+248
+00:11:22,079 --> 00:11:27,000
+e sicuramente avete parlato di geometria
+
+249
+00:11:25,360 --> 00:11:30,000
+a fine al corso di geometria,
+
+250
+00:11:27,000 --> 00:11:30,000
+probabilmente
+
+251
+00:11:30,440 --> 00:11:35,839
+da cui partite tipicamente da uno spazio
+
+252
+00:11:32,880 --> 00:11:37,600
+di qualche tipo, tipicamente un RN, ma
+
+253
+00:11:35,839 --> 00:11:41,279
+può essere qualsiasi altra cosa, quindi
+
+254
+00:11:37,600 --> 00:11:44,279
+uno spazio vettoriale qualche
+
+255
+00:11:41,279 --> 00:11:44,279
+E
+
+256
+00:11:46,639 --> 00:11:50,240
+voi avete visto che le trasformazioni
+
+257
+00:11:48,320 --> 00:11:52,560
+che avete visto voi sono tipicamente
+
+258
+00:11:50,240 --> 00:11:55,240
+trasformazioni lineari di questo tipo ax
+
+259
+00:11:52,560 --> 00:11:57,079
++ b, no? Questa è la forma generica di
+
+260
+00:11:55,240 --> 00:11:59,200
+trasformazione a fine, quindi un qualche
+
+261
+00:11:57,079 --> 00:12:01,839
+tipo di trasformazione
+
+262
+00:11:59,200 --> 00:12:04,920
+dallo spazio, qua possiamo vederla lo
+
+263
+00:12:01,839 --> 00:12:09,880
+spazio in sé stesso, ma non importanza,
+
+264
+00:12:04,920 --> 00:12:11,839
+più una traslazione. Ok?
+
+265
+00:12:09,880 --> 00:12:14,959
+E tipicamente
+
+266
+00:12:11,839 --> 00:12:18,959
+A deve essere una matrice non singolare,
+
+267
+00:12:14,959 --> 00:12:18,959
+dove non singolare che significa?
+
+268
+00:12:19,720 --> 00:12:23,360
+Invertibile.
+
+269
+00:12:21,240 --> 00:12:25,160
+Ok?
+
+270
+00:12:23,360 --> 00:12:27,399
+E B è un vettore, diciamo, delle stesse
+
+271
+00:12:25,160 --> 00:12:30,399
+dimensioni dello spazio, un vettore
+
+272
+00:12:27,399 --> 00:12:33,279
+colonna. Ok? Questi qua, scusate, la
+
+273
+00:12:30,399 --> 00:12:35,199
+notazione è questa
+
+274
+00:12:33,279 --> 00:12:39,760
+e che i vettori X nelle matrici li
+
+275
+00:12:35,199 --> 00:12:39,760
+vediamo come vettori colonna. Ok?
+
+276
+00:12:50,880 --> 00:12:53,800
+Allora, quello che si vede, vabbè,
+
+277
+00:12:52,000 --> 00:12:55,760
+lasciamo stare sta cosa dell'SVD che fra
+
+278
+00:12:53,800 --> 00:13:00,320
+l'altro non sapete cos'è, quello che
+
+279
+00:12:55,760 --> 00:13:01,560
+viene fuori è che
+
+280
+00:13:00,320 --> 00:13:05,600
+eh
+
+281
+00:13:01,560 --> 00:13:05,920
+SVD singular value composition Off.
+
+282
+00:13:05,600 --> 00:13:09,519
+Ah,
+
+283
+00:13:05,920 --> 00:13:11,760
+no. Eh, spiega.
+
+284
+00:13:09,519 --> 00:13:13,279
+Ah, l'avete accennata
+
+285
+00:13:11,760 --> 00:13:16,079
+in realtà l'abbiamo fatta.
+
+286
+00:13:13,279 --> 00:13:16,959
+Buono. Quindi come si risolve? No, però
+
+287
+00:13:16,079 --> 00:13:21,399
+lo sap
+
+288
+00:13:16,959 --> 00:13:21,399
+Vabbè, la la riprendiamo un attimo.
+
+289
+00:13:22,399 --> 00:13:28,480
+Ok. To. Allora, eh, quindi vabbè, allora
+
+290
+00:13:26,880 --> 00:13:30,399
+sapete in generale che una matrice,
+
+291
+00:13:28,480 --> 00:13:32,160
+sponiamo il caso 2, può essere
+
+292
+00:13:30,399 --> 00:13:34,560
+decomposta con una matrice U, una
+
+293
+00:13:32,160 --> 00:13:37,800
+matrice D e una matrice V, dove le U e D
+
+294
+00:13:34,560 --> 00:13:37,800
+sono ortogonali
+
+295
+00:13:38,639 --> 00:13:43,959
+e la D invece è quella che si chiama
+
+296
+00:13:40,680 --> 00:13:45,440
+matrice de valori singolari, dove la una
+
+297
+00:13:43,959 --> 00:13:46,680
+qualsiasi matrice significa non
+
+298
+00:13:45,440 --> 00:13:51,959
+necessariamente quadrata, anche una
+
+299
+00:13:46,680 --> 00:13:53,440
+matrice eh rettangolare. Ok?
+
+300
+00:13:51,959 --> 00:13:56,360
+Anzi è importantissimo proprio per la
+
+301
+00:13:53,440 --> 00:13:57,480
+matrice rettangolare. Questa la matrice
+
+302
+00:13:56,360 --> 00:13:59,199
+dei valori singolari è una matrice
+
+303
+00:13:57,480 --> 00:14:02,959
+diagonale.
+
+304
+00:13:59,199 --> 00:14:05,279
+Ora, se io c'ho
+
+305
+00:14:02,959 --> 00:14:07,959
+tipicamente io queste cose le posso
+
+306
+00:14:05,279 --> 00:14:10,399
+vedere come B, le posso vedere come
+
+307
+00:14:07,959 --> 00:14:13,959
+ortogonali, quindi matrici di rotazione,
+
+308
+00:14:10,399 --> 00:14:18,800
+quindi alla fine mi viene fuori che io
+
+309
+00:14:13,959 --> 00:14:20,880
+ho una rotazione, una rotazione, una
+
+310
+00:14:18,800 --> 00:14:22,279
+matrice di questo tipo più un'altra
+
+311
+00:14:20,880 --> 00:14:24,880
+rotazione. Posso vederla in questi
+
+312
+00:14:22,279 --> 00:14:26,680
+termini, se volete. La cosa importante è
+
+313
+00:14:24,880 --> 00:14:28,040
+quello che succede con la matrice D.
+
+314
+00:14:26,680 --> 00:14:31,399
+Allora, a questo punto, perché io ruoto
+
+315
+00:14:28,040 --> 00:14:34,199
+in qualche maniera, faccio cose,
+
+316
+00:14:31,399 --> 00:14:36,040
+però poi qua ho una matrice che mi
+
+317
+00:14:34,199 --> 00:14:38,519
+moltiplica tutti gli elementi x per
+
+318
+00:14:36,040 --> 00:14:40,120
+sigma1 e tutti gli elementi y per sigma
+
+319
+00:14:38,519 --> 00:14:42,880
+2 e tutti gli altri elementi, se una
+
+320
+00:14:40,120 --> 00:14:44,519
+matrice più grande, per degli scalari
+
+321
+00:14:42,880 --> 00:14:47,120
+diversi. Quindi che cosa sto facendo?
+
+322
+00:14:44,519 --> 00:14:51,759
+fondamentalmente sto in una matrice
+
+323
+00:14:47,120 --> 00:14:54,880
+trasformazione a fine sto scalando
+
+324
+00:14:51,759 --> 00:14:58,399
+le coordinate dei punti
+
+325
+00:14:54,880 --> 00:15:02,120
+però comparare con fattori di scala
+
+326
+00:14:58,399 --> 00:15:06,320
+diversi per ogni coordinata. Quindi
+
+327
+00:15:02,120 --> 00:15:10,399
+sigma 1 mi scala x, sigma 2 mi scala xσ3
+
+328
+00:15:06,320 --> 00:15:13,040
+mi scala z e così via e così via. Ok?
+
+329
+00:15:10,399 --> 00:15:16,519
+L'effetto qual è? L'effetto, quindi, è
+
+330
+00:15:13,040 --> 00:15:21,199
+che rotazione ruota,
+
+331
+00:15:16,519 --> 00:15:24,000
+scalatura allarga, ma scalatura eh non
+
+332
+00:15:21,199 --> 00:15:28,079
+eh come si dice uguale per tutte le
+
+333
+00:15:24,000 --> 00:15:28,079
+direzioni. Deforma
+
+334
+00:15:28,680 --> 00:15:33,480
+questo è l'effetto delle trasformazioni
+
+335
+00:15:31,360 --> 00:15:35,360
+deforma
+
+336
+00:15:33,480 --> 00:15:38,360
+cè la struttura su cui stiamo operando.
+
+337
+00:15:35,360 --> 00:15:38,360
+Ok?
+
+338
+00:15:39,000 --> 00:15:45,800
+La cosa importante è che ci sono delle
+
+339
+00:15:43,079 --> 00:15:47,319
+eh queste trasformazioni hanno delle
+
+340
+00:15:45,800 --> 00:15:49,040
+invarianti
+
+341
+00:15:47,319 --> 00:15:52,399
+dove invariante significa una proprietà
+
+342
+00:15:49,040 --> 00:15:53,920
+che non viene mutata,
+
+343
+00:15:52,399 --> 00:15:55,600
+una proprietà dello spazio che
+
+344
+00:15:53,920 --> 00:15:57,000
+all'interno dello spazio che non viene
+
+345
+00:15:55,600 --> 00:15:59,600
+mutata dal fatto che ci sta operando una
+
+346
+00:15:57,000 --> 00:16:04,199
+trasformazione. Una delle invarianti,
+
+347
+00:15:59,600 --> 00:16:06,040
+che per noi è importantissima, è la il
+
+348
+00:16:04,199 --> 00:16:08,160
+parallelismo.
+
+349
+00:16:06,040 --> 00:16:10,399
+Le trasformazioni affini, come vedete,
+
+350
+00:16:08,160 --> 00:16:12,759
+anche insomma evidente dal disegno, ti
+
+351
+00:16:10,399 --> 00:16:17,959
+mantengono scalano, deformano, ma so che
+
+352
+00:16:12,759 --> 00:16:17,959
+è parallelo rimane parallelo. Ok?
+
+353
+00:16:18,399 --> 00:16:22,399
+Quindi con una trasformazione a fini io
+
+354
+00:16:20,199 --> 00:16:26,199
+non potrò mai modellare qualcosa di
+
+355
+00:16:22,399 --> 00:16:27,639
+questo tipo qua a sinistra, no?
+
+356
+00:16:26,199 --> 00:16:30,880
+Perché abbiamo visto che è una
+
+357
+00:16:27,639 --> 00:16:33,759
+trasformazione che manda cose parallele
+
+358
+00:16:30,880 --> 00:16:35,240
+in retta incidenti, quindi una
+
+359
+00:16:33,759 --> 00:16:37,600
+trasformazione a fine non potrà mai
+
+360
+00:16:35,240 --> 00:16:39,399
+modellarla, quindi significa che devo
+
+361
+00:16:37,600 --> 00:16:40,600
+inventarmi qualcosa di nuovo che mi
+
+362
+00:16:39,399 --> 00:16:42,160
+possa modellare questo tipo di
+
+363
+00:16:40,600 --> 00:16:46,399
+trasformazione geometrica perché è una
+
+364
+00:16:42,160 --> 00:16:46,399
+trasformazione geometrica la pressione.
+
+365
+00:16:48,680 --> 00:16:52,120
+Allora,
+
+366
+00:16:50,360 --> 00:16:54,440
+vabbè, sì, fondamentalmente stiamo
+
+367
+00:16:52,120 --> 00:16:57,199
+dicendo questo.
+
+368
+00:16:54,440 --> 00:16:58,639
+Quindi quello che ci si inventa è sta
+
+369
+00:16:57,199 --> 00:17:00,560
+cosa che si chiama spazio proiettivo.
+
+370
+00:16:58,639 --> 00:17:03,000
+Perché quanto spazio proiettivo modella
+
+371
+00:17:00,560 --> 00:17:04,559
+le proiezioni?
+
+372
+00:17:03,000 --> 00:17:07,319
+Allora,
+
+373
+00:17:04,559 --> 00:17:09,480
+avevamo visto, avevo cercato di darvi
+
+374
+00:17:07,319 --> 00:17:12,679
+l'intuizione
+
+375
+00:17:09,480 --> 00:17:14,360
+l'altra volta che
+
+376
+00:17:12,679 --> 00:17:16,199
+considerando i punti di fuga, avevamo
+
+377
+00:17:14,360 --> 00:17:19,199
+parlato dei punti di fuga, no? Ricordate
+
+378
+00:17:16,199 --> 00:17:21,039
+i pun i rag, ciò che è parallelo è
+
+379
+00:17:19,199 --> 00:17:24,079
+convergente, si trasforma in qualcosa di
+
+380
+00:17:21,039 --> 00:17:28,240
+convergente nell'immagine e questo punto
+
+381
+00:17:24,079 --> 00:17:28,240
+dove vanno a convergere si chiama.
+
+382
+00:17:28,319 --> 00:17:33,679
+E quindi vi avevo detto in un certo
+
+383
+00:17:30,240 --> 00:17:35,799
+senso questa roba, questo punto di fuga
+
+384
+00:17:33,679 --> 00:17:37,720
+io lo posso considerare come una la
+
+385
+00:17:35,799 --> 00:17:39,679
+proiezione
+
+386
+00:17:37,720 --> 00:17:41,320
+intuitivamente non di un punto nello
+
+387
+00:17:39,679 --> 00:17:44,520
+spazio,
+
+388
+00:17:41,320 --> 00:17:46,120
+ma della direzione delle rette.
+
+389
+00:17:44,520 --> 00:17:48,440
+Se tutte le rette parallele vanno a
+
+390
+00:17:46,120 --> 00:17:50,360
+finire là sopra, allora significa quella
+
+391
+00:17:48,440 --> 00:17:52,360
+là è la proiezione della direzione della
+
+392
+00:17:50,360 --> 00:17:55,120
+retta, ma la direzione della retta non è
+
+393
+00:17:52,360 --> 00:17:58,480
+un punto nello spazio.
+
+394
+00:17:55,120 --> 00:18:00,039
+Ok? Quindi questo lo intuisco che in un
+
+395
+00:17:58,480 --> 00:18:03,200
+certo senso è legato alla direzione
+
+396
+00:18:00,039 --> 00:18:05,120
+della retta. Quindi
+
+397
+00:18:03,200 --> 00:18:07,600
+se cambio direzione della retta cambio
+
+398
+00:18:05,120 --> 00:18:09,799
+perché di fuga, quindi lo posso
+
+399
+00:18:07,600 --> 00:18:13,559
+considerare l'immagine di qualcosa che
+
+400
+00:18:09,799 --> 00:18:16,320
+mi rappresenta la direzione
+
+401
+00:18:13,559 --> 00:18:18,360
+della reore,
+
+402
+00:18:16,320 --> 00:18:20,760
+ma la direzione della noi siamo abituati
+
+403
+00:18:18,360 --> 00:18:23,120
+appunti ai nostri punti R3 o RN in
+
+404
+00:18:20,760 --> 00:18:25,919
+generale che sono punti finito. La
+
+405
+00:18:23,120 --> 00:18:28,000
+direzione della retta è qualcosa che
+
+406
+00:18:25,919 --> 00:18:30,840
+è legata a una retta che a delle a un
+
+407
+00:18:28,000 --> 00:18:32,400
+insieme di rette che sono infinite.
+
+408
+00:18:30,840 --> 00:18:34,919
+Questo significa quindi che se io voglio
+
+409
+00:18:32,400 --> 00:18:36,760
+tenere questo punto di vista ho bisogno
+
+410
+00:18:34,919 --> 00:18:38,080
+di ampliare il mio spazio. Ho bisogno di
+
+411
+00:18:36,760 --> 00:18:40,960
+considerare il mio spazio dove ci sono
+
+412
+00:18:38,080 --> 00:18:42,440
+tutti punti al finito
+
+413
+00:18:40,960 --> 00:18:44,880
+e ho bisogno di considerare
+
+414
+00:18:42,440 --> 00:18:47,679
+qualcos'altro
+
+415
+00:18:44,880 --> 00:18:49,880
+che vedremo che è un piano a sua volta
+
+416
+00:18:47,679 --> 00:18:52,039
+che mi contiene tutti i punti che posso
+
+417
+00:18:49,880 --> 00:18:53,919
+tutte cose che posso considerare come
+
+418
+00:18:52,039 --> 00:18:56,679
+rappresent come direzioni dirette,
+
+419
+00:18:53,919 --> 00:18:59,039
+quindi ulteriori punti.
+
+420
+00:18:56,679 --> 00:19:00,600
+Ma se devo considerare ulteriori punti,
+
+421
+00:18:59,039 --> 00:19:03,600
+allora le coordinate non mi bastano
+
+422
+00:19:00,600 --> 00:19:03,600
+piùamente
+
+423
+00:19:03,799 --> 00:19:09,120
+perché se io sono mi svobo nello spazio
+
+424
+00:19:06,000 --> 00:19:10,880
+RN tutti i punti, se io considero
+
+425
+00:19:09,120 --> 00:19:12,760
+qualsiasi vettore nello spazio Rn mi
+
+426
+00:19:10,880 --> 00:19:15,159
+considero un punto finito. Se ci devo
+
+427
+00:19:12,760 --> 00:19:18,080
+aggiungere dei punti all'infinito, si
+
+428
+00:19:15,159 --> 00:19:19,880
+chiameranno queste cose qui, ho bisogno
+
+429
+00:19:18,080 --> 00:19:20,960
+di ampliare il sistema di coordinata, ho
+
+430
+00:19:19,880 --> 00:19:22,720
+bisogno di considerare almeno una
+
+431
+00:19:20,960 --> 00:19:24,720
+coordinata in più, no? in qualche
+
+432
+00:19:22,720 --> 00:19:26,840
+maniera
+
+433
+00:19:24,720 --> 00:19:30,520
+perché le coordinate, le n coordinate
+
+434
+00:19:26,840 --> 00:19:32,000
+che c'ho non mi bastano.
+
+435
+00:19:30,520 --> 00:19:35,960
+Ti sto raccontando la favoletta, lo so,
+
+436
+00:19:32,000 --> 00:19:37,360
+però vabbè, spero di convincervi.
+
+437
+00:19:35,960 --> 00:19:39,080
+Vi sembra sensato che ho bisogno di
+
+438
+00:19:37,360 --> 00:19:41,320
+ampliarla la cosa?
+
+439
+00:19:39,080 --> 00:19:42,960
+Non mi sembri convinto.
+
+440
+00:19:41,320 --> 00:19:45,559
+Io ho uno spazio che devo ampliare con
+
+441
+00:19:42,960 --> 00:19:47,159
+qualcosa che non ho e devo trovare una
+
+442
+00:19:45,559 --> 00:19:50,120
+maniera di rappresentarlo. Quindi le n
+
+443
+00:19:47,159 --> 00:19:51,640
+coordinate non mi bastano.
+
+444
+00:19:50,120 --> 00:19:56,440
+Spazio.
+
+445
+00:19:51,640 --> 00:20:03,280
+Esatto. Allora, che cosa si fa?
+
+446
+00:19:56,440 --> 00:20:05,640
+Allora, consideriamo uno spazio RN+. Ok?
+
+447
+00:20:03,280 --> 00:20:07,000
+Perché il fatto di aggiungere una
+
+448
+00:20:05,640 --> 00:20:11,480
+coordinata ti complica un pochettino la
+
+449
+00:20:07,000 --> 00:20:13,280
+vita, perché tu devi dimmi una sola
+
+450
+00:20:11,480 --> 00:20:14,679
+aggiungere una sola coordinata più, però
+
+451
+00:20:13,280 --> 00:20:16,360
+stiamo attenti a una cosa, aggiungere
+
+452
+00:20:14,679 --> 00:20:20,400
+una sola coordinata in più ti complica
+
+453
+00:20:16,360 --> 00:20:22,080
+la vita e ora vedremo perché.
+
+454
+00:20:20,400 --> 00:20:25,520
+Allora,
+
+455
+00:20:22,080 --> 00:20:28,440
+Rn, consideriamo un RN + 1 come uno
+
+456
+00:20:25,520 --> 00:20:32,559
+spazio, diciamo, vettoriale su un campo
+
+457
+00:20:28,440 --> 00:20:36,480
+sul campo R, evidente, in generale
+
+458
+00:20:32,559 --> 00:20:39,039
+un V su un campo K, no?
+
+459
+00:20:36,480 --> 00:20:42,039
+Allora, noi consideriamo
+
+460
+00:20:39,039 --> 00:20:43,799
+ci togliamo lo zero, il vettore nullo,
+
+461
+00:20:42,039 --> 00:20:46,960
+perché ce lo togliamo perché ci dà
+
+462
+00:20:43,799 --> 00:20:50,200
+fastidio, ci complica la vita. Ok,
+
+463
+00:20:46,960 --> 00:20:53,200
+però in un certo senso torniamo alle
+
+464
+00:20:50,200 --> 00:20:53,200
+proiezioni.
+
+465
+00:20:54,440 --> 00:21:00,120
+Noi quando consideriamo una telecamera,
+
+466
+00:20:58,520 --> 00:21:02,320
+noi possiamo proiettare qualsiasi punto
+
+467
+00:21:00,120 --> 00:21:06,039
+nello spazio
+
+468
+00:21:02,320 --> 00:21:06,039
+tranne uno. No,
+
+469
+00:21:09,480 --> 00:21:13,840
+io Allora questa è la mia telecamera,
+
+470
+00:21:12,360 --> 00:21:15,880
+la faccio qui, bella pulita, pulita.
+
+471
+00:21:13,840 --> 00:21:17,880
+Questa è il piano,
+
+472
+00:21:15,880 --> 00:21:20,120
+assumete che sia dritto e questo qua è
+
+473
+00:21:17,880 --> 00:21:22,520
+il mio centro di proiezione.
+
+474
+00:21:20,120 --> 00:21:24,760
+Il mio spazio è il piano.
+
+475
+00:21:22,520 --> 00:21:26,600
+Proiettare che significa? Trovare la
+
+476
+00:21:24,760 --> 00:21:29,320
+proiezione
+
+477
+00:21:26,600 --> 00:21:32,200
+del punto sullo spaz sul piano immagine,
+
+478
+00:21:29,320 --> 00:21:33,640
+sulla retta immagine tramite la retta
+
+479
+00:21:32,200 --> 00:21:36,320
+che unisce il punto che voglio
+
+480
+00:21:33,640 --> 00:21:38,159
+proiettare col centro di proiezione.
+
+481
+00:21:36,320 --> 00:21:40,600
+Io posso proiettare qualsiasi punto sul
+
+482
+00:21:38,159 --> 00:21:43,600
+piano o c'è qualcosa che non posso
+
+483
+00:21:40,600 --> 00:21:43,600
+proiettare?
+
+484
+00:21:46,640 --> 00:21:50,200
+C'è qualcosa che
+
+485
+00:21:52,200 --> 00:21:55,960
+Ma se proprio qualsiasi punto sul piano,
+
+486
+00:21:53,760 --> 00:21:59,840
+no? Qualsiasio. Tu pensi tutti i punti
+
+487
+00:21:55,960 --> 00:22:02,840
+sul piano. Allora, se figlio sto punto
+
+488
+00:21:59,840 --> 00:22:02,840
+come
+
+489
+00:22:02,960 --> 00:22:07,760
+per un per il centro di prezione passano
+
+490
+00:22:05,200 --> 00:22:11,120
+infinite rette. Esatto. Questo proprio
+
+491
+00:22:07,760 --> 00:22:11,120
+questo è il punto.
+
+492
+00:22:13,520 --> 00:22:16,480
+Allora, per due punti te ne passa una
+
+493
+00:22:14,799 --> 00:22:18,320
+sola retta ed è questo che ti permette
+
+494
+00:22:16,480 --> 00:22:20,799
+di proiettare, no? Quindi prendi un
+
+495
+00:22:18,320 --> 00:22:22,880
+punto nel piano, prendi il centro di
+
+496
+00:22:20,799 --> 00:22:26,720
+prezione, esiste un'unica retta che te
+
+497
+00:22:22,880 --> 00:22:26,720
+li che te li
+
+498
+00:22:27,240 --> 00:22:31,080
+che te li
+
+499
+00:22:29,559 --> 00:22:33,159
+che te li contiene, scusate, che li
+
+500
+00:22:31,080 --> 00:22:34,880
+contiene entrambi
+
+501
+00:22:33,159 --> 00:22:38,840
+e
+
+502
+00:22:34,880 --> 00:22:43,840
+l'intersezione fra quella retta e il
+
+503
+00:22:38,840 --> 00:22:45,200
+piano il piano immagine è la proiezione.
+
+504
+00:22:43,840 --> 00:22:48,200
+E io il centro di proiezione dove lo
+
+505
+00:22:45,200 --> 00:22:48,200
+proietto?
+
+506
+00:22:50,520 --> 00:22:53,559
+Eh, ma dove lo proietti? No, no, ma
+
+507
+00:22:52,360 --> 00:22:57,520
+geometricamente qualsiasi cosa puoi
+
+508
+00:22:53,559 --> 00:22:57,520
+proiettare. Io piglio questo punto,
+
+509
+00:22:58,159 --> 00:23:03,080
+un qualsiasi punto dietro posso sempre
+
+510
+00:22:59,720 --> 00:23:06,120
+proiettarlo geometricamente.
+
+511
+00:23:03,080 --> 00:23:07,480
+È chiaro che fisicamente non ha senso
+
+512
+00:23:06,120 --> 00:23:10,320
+perché dietro non lo vedo, ma
+
+513
+00:23:07,480 --> 00:23:13,120
+geometricamente lo posso proiettare.
+
+514
+00:23:10,320 --> 00:23:15,480
+Ok? Quindi esiste un punto che non può
+
+515
+00:23:13,120 --> 00:23:16,960
+che è il centro di proiezione,
+
+516
+00:23:15,480 --> 00:23:19,240
+quindi non ci stupisce che nell'origine
+
+517
+00:23:16,960 --> 00:23:22,760
+la vediamo. No, possiamo anche non
+
+518
+00:23:19,240 --> 00:23:26,640
+considerarla. ci stupisceam. Sì, proprio
+
+519
+00:23:22,760 --> 00:23:28,919
+perché non ci stup Noi vogliamo eh
+
+520
+00:23:26,640 --> 00:23:30,279
+modellare proiezioni,
+
+521
+00:23:28,919 --> 00:23:32,320
+quindi il fatto che partiamo da spazi
+
+522
+00:23:30,279 --> 00:23:33,919
+dove togliamo un punto che quindi non
+
+523
+00:23:32,320 --> 00:23:35,559
+potremmo mai considerare, non ci
+
+524
+00:23:33,919 --> 00:23:38,720
+stupisce perché è proprio quello che
+
+525
+00:23:35,559 --> 00:23:38,720
+viene fisicamente.
+
+526
+00:23:40,640 --> 00:23:46,960
+Allora, quindi togliamo sta roba di qua
+
+527
+00:23:42,720 --> 00:23:51,440
+e consideriamo quindi
+
+528
+00:23:46,960 --> 00:23:53,600
+da una parte consideriamo ritoore nullo,
+
+529
+00:23:51,440 --> 00:23:55,919
+dall'altra parte consideriamo la lo
+
+530
+00:23:53,600 --> 00:23:58,559
+zero. Ok?
+
+531
+00:23:55,919 --> 00:23:59,640
+Allora, in questa maniera noi possiamo
+
+532
+00:23:58,559 --> 00:24:01,360
+un introdurre una relazione di
+
+533
+00:23:59,640 --> 00:24:06,640
+equivalenza nello spazio dell RN + 1
+
+534
+00:24:01,360 --> 00:24:09,400
+dove diciamo che due vettori in Rn + 1
+
+535
+00:24:06,640 --> 00:24:12,640
+sono equivalenti
+
+536
+00:24:09,400 --> 00:24:16,000
+se soltanto se esiste un lambda
+
+537
+00:24:12,640 --> 00:24:22,400
+diverso da 0, quindi appartenente a R
+
+538
+00:24:16,000 --> 00:24:24,880
+segnato, tali che y = lta x.
+
+539
+00:24:22,400 --> 00:24:26,679
+Quindi geometricamente io cosa sto
+
+540
+00:24:24,880 --> 00:24:29,880
+mettendo? La mia classe di equivalenza
+
+541
+00:24:26,679 --> 00:24:29,880
+cosa sarà?
+
+542
+00:24:34,679 --> 00:24:42,559
+R - 0.
+
+543
+00:24:37,880 --> 00:24:42,559
+Cosa significa questa relazione qui?
+
+544
+00:24:44,000 --> 00:24:48,720
+Capisco, non ci vedo questa.
+
+545
+00:24:55,960 --> 00:24:58,200
+No, scusate che c'ho uno schermo
+
+546
+00:24:56,960 --> 00:25:02,360
+oscurissimo, quindi non riesco ad
+
+547
+00:24:58,200 --> 00:25:05,440
+aumentare l'umesità, quindi ogni tanto
+
+548
+00:25:02,360 --> 00:25:07,320
+quindi la relazione mi costurisce
+
+549
+00:25:05,440 --> 00:25:09,600
+le classi di equivalenza è questa. i
+
+550
+00:25:07,320 --> 00:25:11,559
+punti uguali -
+
+551
+00:25:09,600 --> 00:25:13,240
+tutti i punti, quindi fondamentalmente
+
+552
+00:25:11,559 --> 00:25:15,640
+tutta una classe di equivalenza una
+
+553
+00:25:13,240 --> 00:25:17,360
+retta vettoriale, quella che si chiama
+
+554
+00:25:15,640 --> 00:25:20,200
+una retta vettoriale, quindi prendo un
+
+555
+00:25:17,360 --> 00:25:24,600
+vettore quindi che parte dall'origine
+
+556
+00:25:20,200 --> 00:25:26,000
+tutta quella retta si
+
+557
+00:25:24,600 --> 00:25:27,640
+multipli
+
+558
+00:25:26,000 --> 00:25:29,760
+tutti i multipli diettore, quindi tutta
+
+559
+00:25:27,640 --> 00:25:36,840
+una retta chiaramente passeremo per
+
+560
+00:25:29,760 --> 00:25:36,840
+l'origine, no? Eh, è una retta y = x.
+
+561
+00:25:39,240 --> 00:25:42,240
+Ok?
+
+562
+00:25:45,240 --> 00:25:50,799
+Quindi a questo punto cosa facciamo? Noi
+
+563
+00:25:47,600 --> 00:25:54,640
+abbiamo una relazione di equivalenza.
+
+564
+00:25:50,799 --> 00:25:56,360
+Una volta che è una una relazione di
+
+565
+00:25:54,640 --> 00:25:59,080
+equivalenza ti puoi considerare
+
+566
+00:25:56,360 --> 00:26:02,080
+l'insieme delle classi di equivalenza.
+
+567
+00:25:59,080 --> 00:26:02,080
+Ok?
+
+568
+00:26:02,520 --> 00:26:05,840
+Il trucco che si usa sempre per
+
+569
+00:26:04,240 --> 00:26:08,039
+costruire spazi e partire da altri
+
+570
+00:26:05,840 --> 00:26:10,320
+spazio, no? Te definisci una relazione
+
+571
+00:26:08,039 --> 00:26:13,039
+equivalenza e
+
+572
+00:26:10,320 --> 00:26:15,880
+naturali costruisci interi relativi.
+
+573
+00:26:13,039 --> 00:26:18,480
+Fate ste cose forse algebra
+
+574
+00:26:15,880 --> 00:26:23,120
+costruzione dei relativi, dei razionali
+
+575
+00:26:18,480 --> 00:26:23,120
+lo fai sempre tramite relazioni dizza.
+
+576
+00:26:24,760 --> 00:26:29,440
+No,
+
+577
+00:26:25,640 --> 00:26:31,480
+eh, lei ha detto che è naturale per
+
+578
+00:26:29,440 --> 00:26:36,360
+spazi
+
+579
+00:26:31,480 --> 00:26:36,360
+però eh non
+
+580
+00:26:37,640 --> 00:26:41,399
+no vabbè, cioè dai naturali di
+
+581
+00:26:39,799 --> 00:26:42,840
+costruisci i relativi banalmente una
+
+582
+00:26:41,399 --> 00:26:46,799
+relazione dienza in cui la differenza
+
+583
+00:26:42,840 --> 00:26:48,159
+deve essere la stessa. Ok? Alla fine lo
+
+584
+00:26:46,799 --> 00:26:51,080
+fai in termini di somma perché ti
+
+585
+00:26:48,159 --> 00:26:53,440
+definisci la somma, però ci muori
+
+586
+00:26:51,080 --> 00:26:55,399
+a partire ai relativi, ti fai la ti
+
+587
+00:26:53,440 --> 00:26:57,600
+costruisci i razionali come il rapporto
+
+588
+00:26:55,399 --> 00:26:59,279
+deve essere lo stesso. Fondamentalmente
+
+589
+00:26:57,600 --> 00:27:01,080
+è una coppia che ti rappresenta sempre
+
+590
+00:26:59,279 --> 00:27:03,279
+la stessa, quindi lo fai in termini di
+
+591
+00:27:01,080 --> 00:27:07,039
+proporzionalità alla fine
+
+592
+00:27:03,279 --> 00:27:09,919
+c portare
+
+593
+00:27:07,039 --> 00:27:12,159
+insieme spazio
+
+594
+00:27:09,919 --> 00:27:13,520
+in realtà sì, però alla fine lo snaturi
+
+595
+00:27:12,159 --> 00:27:18,000
+perché una cosa totalmente diversa.
+
+596
+00:27:13,520 --> 00:27:19,919
+Quindi il diciamo gli interi non sono i
+
+597
+00:27:18,000 --> 00:27:25,159
+naturali a cui aggiunto altri numeri,
+
+598
+00:27:19,919 --> 00:27:26,960
+sono classi di equivalenza dei naturali
+
+599
+00:27:25,159 --> 00:27:30,960
+costruttivamente e li rappresenti come
+
+600
+00:27:26,960 --> 00:27:32,960
+noi, ma sono classi di equivalenza. Le
+
+601
+00:27:30,960 --> 00:27:37,880
+irrazionali sono classi di equivalenza
+
+602
+00:27:32,960 --> 00:27:37,880
+di numeri di numeri interi relativi.
+
+603
+00:27:38,240 --> 00:27:44,279
+La cosa si complica con i reali, quindi
+
+604
+00:27:40,840 --> 00:27:46,120
+state sia l'unica volta.
+
+605
+00:27:44,279 --> 00:27:48,440
+Perché là c'è la completezza e quindi
+
+606
+00:27:46,120 --> 00:27:52,799
+diciamo non ti basta la relazione
+
+607
+00:27:48,440 --> 00:27:52,799
+violenza. Ehm,
+
+608
+00:27:53,039 --> 00:27:58,320
+Esatto. Esattamente
+
+609
+00:27:55,360 --> 00:28:01,000
+esattamente questo.
+
+610
+00:27:58,320 --> 00:28:03,519
+Quindi vedremo alla fine, quindi cosa se
+
+611
+00:28:01,000 --> 00:28:05,840
+un punto ha una classe di equivalenza,
+
+612
+00:28:03,519 --> 00:28:08,320
+tu ti scegli un rappresentante per noi
+
+613
+00:28:05,840 --> 00:28:13,559
+che cosa abbiamo?
+
+614
+00:28:08,320 --> 00:28:15,880
+tutte le coppie PQ tali che eh
+
+615
+00:28:13,559 --> 00:28:21,559
+P*
+
+616
+00:28:15,880 --> 00:28:21,559
+Q' per il Q' per
+
+617
+00:28:22,320 --> 00:28:25,559
+Qano
+
+618
+00:28:24,039 --> 00:28:26,679
+sempre lo stesso numero. Uguali, sono
+
+619
+00:28:25,559 --> 00:28:28,799
+uguali, ti rappresentano sempre lo
+
+620
+00:28:26,679 --> 00:28:30,840
+stesso numero. Qua fai hai questa tipo
+
+621
+00:28:28,799 --> 00:28:33,240
+di relazione che ti dice che tutti i
+
+622
+00:28:30,840 --> 00:28:35,240
+punti rappresentano alla fine un solo
+
+623
+00:28:33,240 --> 00:28:38,000
+punto. Vedremo che cosa significa questo
+
+624
+00:28:35,240 --> 00:28:43,600
+appuntamento geometricamente. Quindi
+
+625
+00:28:38,000 --> 00:28:45,240
+alla fine il nostro spazio proiettivo
+
+626
+00:28:43,600 --> 00:28:49,279
+sarà l'insieme delle classi di
+
+627
+00:28:45,240 --> 00:28:49,279
+equivalenza e lo indichiamo
+
+628
+00:28:49,440 --> 00:28:55,720
+con PN, non più n + 1, ma PN, perché
+
+629
+00:28:53,840 --> 00:28:57,039
+dobbiamo scendere in una dimensionalità
+
+630
+00:28:55,720 --> 00:29:00,039
+fondamentalmente. Vedremo qual è il
+
+631
+00:28:57,039 --> 00:29:00,039
+motivo.
+
+632
+00:29:00,399 --> 00:29:03,399
+Allora,
+
+633
+00:29:05,000 --> 00:29:08,000
+spazio
+
+634
+00:29:09,519 --> 00:29:12,200
+spazio.
+
+635
+00:29:10,880 --> 00:29:13,840
+Allora, per ora vedilo semplicemente
+
+636
+00:29:12,200 --> 00:29:16,679
+come una costruzione, poi vediamo,
+
+637
+00:29:13,840 --> 00:29:19,240
+vedremo il modello fisico, cioè vi farò
+
+638
+00:29:16,679 --> 00:29:22,960
+vedere fra qualche è lucido questa cosa
+
+639
+00:29:19,240 --> 00:29:22,960
+di qua che è il modello fisico.
+
+640
+00:29:25,039 --> 00:29:29,080
+Quindi che significa? un un qualsiasi
+
+641
+00:29:27,720 --> 00:29:32,799
+punto nello spazio proettivo, quindi
+
+642
+00:29:29,080 --> 00:29:32,799
+nello spazio PN,
+
+643
+00:29:33,720 --> 00:29:38,080
+è identificato
+
+644
+00:29:36,320 --> 00:29:39,559
+da un vettore che non sarà nullo perché
+
+645
+00:29:38,080 --> 00:29:42,799
+abbiamo tolto lo zero per costruire la
+
+646
+00:29:39,559 --> 00:29:45,080
+nostra relativi,
+
+647
+00:29:42,799 --> 00:29:47,440
+diciamo, relazione di relazione di
+
+648
+00:29:45,080 --> 00:29:51,720
+equivalenza
+
+649
+00:29:47,440 --> 00:29:51,720
+che avrà n + 1 coordinate.
+
+650
+00:29:52,080 --> 00:29:57,840
+Inoltre sappiamo
+
+651
+00:29:54,720 --> 00:29:59,600
+che qualsiasi rappresentante, se io
+
+652
+00:29:57,840 --> 00:30:02,159
+piglio due rappresentanti dello stesso
+
+653
+00:29:59,600 --> 00:30:04,360
+punto, siccome c'è una relazione di
+
+654
+00:30:02,159 --> 00:30:06,039
+violenza che è quella questa qui,
+
+655
+00:30:04,360 --> 00:30:09,000
+significa che esiste un lambda che li
+
+656
+00:30:06,039 --> 00:30:11,880
+lega,
+
+657
+00:30:09,000 --> 00:30:16,480
+quindi significa che
+
+658
+00:30:11,880 --> 00:30:18,120
+x1 xn + 1 è, se mi piglio questo come
+
+659
+00:30:16,480 --> 00:30:20,799
+rappresentante, tutti gli altri punti
+
+660
+00:30:18,120 --> 00:30:26,480
+saranno lambda x1, lambda xn + 1 con
+
+661
+00:30:20,799 --> 00:30:26,480
+lambda appartenente r - 0, no? R segal.
+
+662
+00:30:26,720 --> 00:30:32,240
+Allora, possiamo dire
+
+663
+00:30:29,600 --> 00:30:35,399
+che la rappresentazione di questo punto
+
+664
+00:30:32,240 --> 00:30:37,919
+è unica
+
+665
+00:30:35,399 --> 00:30:40,679
+identificata ad Xn Xn + 1 a meno di un
+
+666
+00:30:37,919 --> 00:30:43,640
+fattore di scala.
+
+667
+00:30:40,679 --> 00:30:45,360
+Ok?
+
+668
+00:30:43,640 --> 00:30:47,760
+Sì. No, forse vi convince come
+
+669
+00:30:45,360 --> 00:30:50,360
+linguaggio. Va bene.
+
+670
+00:30:47,760 --> 00:30:52,399
+Allora, questo tipo di coordinate si
+
+671
+00:30:50,360 --> 00:30:57,000
+chiamano per qualche motivo coordinate
+
+672
+00:30:52,399 --> 00:30:58,919
+omogenee, va bene? Quindi quando
+
+673
+00:30:57,000 --> 00:31:01,519
+diremo che usiamo coordinate omogene
+
+674
+00:30:58,919 --> 00:31:04,200
+useremo intenderemo questa cosa qui qua.
+
+675
+00:31:01,519 --> 00:31:06,240
+Quindi abbiamo questo punto che è
+
+676
+00:31:04,200 --> 00:31:09,240
+rappresentato a meno di un fattore di
+
+677
+00:31:06,240 --> 00:31:09,240
+scala.
+
+678
+00:31:09,679 --> 00:31:13,440
+E qua le cose un pochettino si
+
+679
+00:31:11,000 --> 00:31:15,720
+complicano. Complicano perché diciamo
+
+680
+00:31:13,440 --> 00:31:18,480
+siamo in uno spazio geometrico. Uno
+
+681
+00:31:15,720 --> 00:31:21,919
+spazio geometrico serve assolutamente
+
+682
+00:31:18,480 --> 00:31:25,200
+sapere cos'è una base dove una base è un
+
+683
+00:31:21,919 --> 00:31:26,799
+insieme finito di punti la cui
+
+684
+00:31:25,200 --> 00:31:28,639
+combinazioni
+
+685
+00:31:26,799 --> 00:31:31,080
+cui tutte le combinazioni lineari mi
+
+686
+00:31:28,639 --> 00:31:33,120
+generano ottiche. Però qua capite che
+
+687
+00:31:31,080 --> 00:31:34,679
+c'è un problema
+
+688
+00:31:33,120 --> 00:31:35,960
+intuitivamente,
+
+689
+00:31:34,679 --> 00:31:38,399
+non entriamo in dettaglio perché è un
+
+690
+00:31:35,960 --> 00:31:40,519
+po' palloso da vedere, però intuizione
+
+691
+00:31:38,399 --> 00:31:42,760
+si può dare. Combinazione lineare
+
+692
+00:31:40,519 --> 00:31:45,960
+significa moltiplicare un vettore per
+
+693
+00:31:42,760 --> 00:31:45,960
+uno scavale.
+
+694
+00:31:47,039 --> 00:31:50,159
+Allora, io mi piglio che cosa faccio? mi
+
+695
+00:31:48,559 --> 00:31:51,440
+piglio un rappresentante di un punto, mi
+
+696
+00:31:50,159 --> 00:31:53,840
+piglio un rappresentante di un altro
+
+697
+00:31:51,440 --> 00:31:55,799
+punto che unico a meno un fattore di
+
+698
+00:31:53,840 --> 00:31:58,600
+scal, gli moltiplico uno scalare e
+
+699
+00:31:55,799 --> 00:32:00,960
+ottengo faccio tutta sta somma e ottengo
+
+700
+00:31:58,600 --> 00:32:03,960
+un punto. Però io vorrei che quello che
+
+701
+00:32:00,960 --> 00:32:03,960
+ottengo
+
+702
+00:32:04,279 --> 00:32:09,519
+io che voglio che fondamentalmente le
+
+703
+00:32:07,039 --> 00:32:12,559
+coordinate in un punto di un punto le
+
+704
+00:32:09,519 --> 00:32:15,840
+ottengo come
+
+705
+00:32:12,559 --> 00:32:18,120
+i coefficienti che utiliz scusatemi la
+
+706
+00:32:15,840 --> 00:32:19,639
+dicono più facilmente. Le coordinate di
+
+707
+00:32:18,120 --> 00:32:21,159
+un punto io le ho sempre rispetto a una
+
+708
+00:32:19,639 --> 00:32:23,159
+base.
+
+709
+00:32:21,159 --> 00:32:24,840
+Quindi e come le definisci queste
+
+710
+00:32:23,159 --> 00:32:26,279
+coordinate rispetto a una base? Le
+
+711
+00:32:24,840 --> 00:32:28,519
+definisci prendendo i propri
+
+712
+00:32:26,279 --> 00:32:30,679
+coefficienti della combinazione de
+
+713
+00:32:28,519 --> 00:32:34,000
+lineare che genera quel punto. Ricordate
+
+714
+00:32:30,679 --> 00:32:34,000
+queste cose?
+
+715
+00:32:36,360 --> 00:32:43,919
+Standard spieg
+
+716
+00:32:39,279 --> 00:32:47,760
+si considera la base i vettori unitari.
+
+717
+00:32:43,919 --> 00:32:47,760
+Ok? Se ti pigli 10
+
+718
+00:32:48,399 --> 00:32:52,159
+e 001, chiaramente hai quelle
+
+719
+00:32:51,159 --> 00:32:54,880
+coordinate,
+
+720
+00:32:52,159 --> 00:32:56,279
+ma ti tu puoi ti puoi prendere 1 1 1 ti
+
+721
+00:32:54,880 --> 00:33:00,960
+puoi prendere a questo punto le
+
+722
+00:32:56,279 --> 00:33:00,960
+coordinate ti cambiano ovviamente, no?
+
+723
+00:33:01,480 --> 00:33:07,399
+Ehm,
+
+724
+00:33:04,200 --> 00:33:09,240
+che stavo dicendo?
+
+725
+00:33:07,399 --> 00:33:12,159
+Ok, ora però cosa abbiamo? abbiamo due
+
+726
+00:33:09,240 --> 00:33:15,600
+livelli un pochettino complessi perché
+
+727
+00:33:12,159 --> 00:33:18,159
+io vorrei che questa mia queste mie
+
+728
+00:33:15,600 --> 00:33:19,639
+coordinate che ottengo come combinazione
+
+729
+00:33:18,159 --> 00:33:23,120
+dalla combinazione lineare degli
+
+730
+00:33:19,639 --> 00:33:25,080
+elementi della base sia
+
+731
+00:33:23,120 --> 00:33:26,519
+devono essere siccome mi trovo nello
+
+732
+00:33:25,080 --> 00:33:30,720
+spazio proiettivo devono essere uniche
+
+733
+00:33:26,519 --> 00:33:32,240
+almeno un fattore di scala ok
+
+734
+00:33:30,720 --> 00:33:34,200
+però anche i rappresentanti di questi
+
+735
+00:33:32,240 --> 00:33:36,799
+punti sono unici meno un fattore di
+
+736
+00:33:34,200 --> 00:33:38,840
+scala e qua incomincia a saltare la cosa
+
+737
+00:33:36,799 --> 00:33:40,679
+perché se io incomincio a moltip
+
+738
+00:33:38,840 --> 00:33:42,519
+prendere rappresentanti strani, comincia
+
+739
+00:33:40,679 --> 00:33:46,120
+a moltiplicare per differenti lambda
+
+740
+00:33:42,519 --> 00:33:47,880
+tutti i rappresentanti della base.
+
+741
+00:33:46,120 --> 00:33:49,639
+Sto fatto che la rappresentazione che
+
+742
+00:33:47,880 --> 00:33:51,399
+ottengo sia unica a meno un fattore di
+
+743
+00:33:49,639 --> 00:33:54,919
+scala della combinazione lineare un
+
+744
+00:33:51,399 --> 00:33:57,320
+pochettino mi salta perché io ottengo
+
+745
+00:33:54,919 --> 00:34:01,120
+lambda che so un lambda 1 che moltiplica
+
+746
+00:33:57,320 --> 00:34:03,840
+per b1 un lambda n che rà bn + 1 non
+
+747
+00:34:01,120 --> 00:34:06,679
+considerate l'ultimo
+
+748
+00:34:03,840 --> 00:34:09,879
+e io loottengo perché sto considerando
+
+749
+00:34:06,679 --> 00:34:13,280
+certi rappresentanti. Ma se moltiplico
+
+750
+00:34:09,879 --> 00:34:17,399
+il rappresentante del bn + 2 per un
+
+751
+00:34:13,280 --> 00:34:19,320
+gamma, allora lambda n + 1 gamma diventa
+
+752
+00:34:17,399 --> 00:34:22,919
+parte della coordinata, ma non mentre
+
+753
+00:34:19,320 --> 00:34:25,399
+posso tenere fissi tutti gli altri,
+
+754
+00:34:22,919 --> 00:34:27,839
+non cambiando rappresentante. Questo mi
+
+755
+00:34:25,399 --> 00:34:30,000
+fa saltare le cose. Allora, quello che
+
+756
+00:34:27,839 --> 00:34:32,320
+si sono si introduce un piccolo
+
+757
+00:34:30,000 --> 00:34:34,000
+artificio che è quello di introdurre un
+
+758
+00:34:32,320 --> 00:34:35,560
+ulteriore punto che si chiama punto
+
+759
+00:34:34,000 --> 00:34:37,919
+unità,
+
+760
+00:34:35,560 --> 00:34:40,639
+cioè che significa? Fondamentalmente io
+
+761
+00:34:37,919 --> 00:34:42,839
+non mi considero
+
+762
+00:34:40,639 --> 00:34:44,639
+non mi posso considerare tutti i
+
+763
+00:34:42,839 --> 00:34:46,440
+rappresentanti di ognuno degli elementi
+
+764
+00:34:44,639 --> 00:34:49,359
+della base, i primi n + 1, ma mi
+
+765
+00:34:46,440 --> 00:34:52,720
+considero tutti quelli che mi sommano
+
+766
+00:34:49,359 --> 00:34:54,839
+che mi danno 1 1 1 1 1 1 1 sommandoli
+
+767
+00:34:52,720 --> 00:34:57,680
+fondamentalmente, quindi posso
+
+768
+00:34:54,839 --> 00:35:00,320
+moltiplicare sempre per lambda che sono
+
+769
+00:34:57,680 --> 00:35:02,440
+uguali per tutti, ok? Quindi mi me li
+
+770
+00:35:00,320 --> 00:35:03,480
+fisso e posso possibilitare per lambda
+
+771
+00:35:02,440 --> 00:35:05,920
+che sono uguali per tutti. In questa
+
+772
+00:35:03,480 --> 00:35:08,760
+maniera mi mantengo
+
+773
+00:35:05,920 --> 00:35:10,440
+una una rappresentazione che ottengo a
+
+774
+00:35:08,760 --> 00:35:12,640
+meno di fattoria di scala. Ok? Questo è
+
+775
+00:35:10,440 --> 00:35:15,079
+un piccolo artificio che è dovuto al
+
+776
+00:35:12,640 --> 00:35:17,680
+fatto
+
+777
+00:35:15,079 --> 00:35:19,800
+che ho introdotto questa relazione di
+
+778
+00:35:17,680 --> 00:35:22,839
+equivalenza che è meno di un fattore di
+
+779
+00:35:19,800 --> 00:35:25,200
+scale. Ok? Quindi questo porta quindi ad
+
+780
+00:35:22,839 --> 00:35:27,119
+avere che mentre intuitivamente avremmo
+
+781
+00:35:25,200 --> 00:35:29,520
+dovuto avere n + 1 punti nella base,
+
+782
+00:35:27,119 --> 00:35:31,760
+abbiamo bisogno di n + 2 punti perché
+
+783
+00:35:29,520 --> 00:35:33,240
+devo fissare quali quali fattori di
+
+784
+00:35:31,760 --> 00:35:37,200
+scala posso utilizzare, quindi quali
+
+785
+00:35:33,240 --> 00:35:37,200
+rappresentanti posso utilizzare.
+
+786
+00:35:39,640 --> 00:35:45,400
+Ok.
+
+787
+00:35:42,400 --> 00:35:45,400
+Sì.
+
+788
+00:35:52,040 --> 00:35:57,400
+E come ci risolve?
+
+789
+00:35:54,920 --> 00:36:00,040
+Si risolve il problema perché allora il
+
+790
+00:35:57,400 --> 00:36:05,359
+problema è che tu non puoi usare per la
+
+791
+00:36:00,040 --> 00:36:07,520
+combinazione lineare 1 bn + 1 qualsiasi
+
+792
+00:36:05,359 --> 00:36:10,680
+rappresentante di b1 bn + 1 perché ti fa
+
+793
+00:36:07,520 --> 00:36:14,040
+saltare la proporzionalità.
+
+794
+00:36:10,680 --> 00:36:14,040
+Questo ci siamo.
+
+795
+00:36:15,720 --> 00:36:20,400
+Esatto. Se io moltiplico un
+
+796
+00:36:17,240 --> 00:36:24,400
+rappresentante per un gamma, ottengo
+
+797
+00:36:20,400 --> 00:36:27,160
+sempre ottengo qualcosa di diverso,
+
+798
+00:36:24,400 --> 00:36:29,800
+ok? Quindi devo vincolarmi la scelta dei
+
+799
+00:36:27,160 --> 00:36:33,839
+rappresentanti.
+
+800
+00:36:29,800 --> 00:36:37,599
+Ok? Quindi cosa faccio? Mi piglio dei
+
+801
+00:36:33,839 --> 00:36:40,680
+rappresentanti e ne ottengo un 1 1 1.
+
+802
+00:36:37,599 --> 00:36:42,560
+Ok? Rispetto a quelli io posso
+
+803
+00:36:40,680 --> 00:36:46,800
+utilizzare tutti i rappresentanti che
+
+804
+00:36:42,560 --> 00:36:49,680
+ottengo come scalando per la dando che
+
+805
+00:36:46,800 --> 00:36:52,359
+sono multipli di quei rappresentanti, ma
+
+806
+00:36:49,680 --> 00:36:54,680
+secondo lo stesso scalare.
+
+807
+00:36:52,359 --> 00:36:56,760
+Ok? In questa maniera, l'ho detta
+
+808
+00:36:54,680 --> 00:36:59,640
+complicata, si è capita? In questa
+
+809
+00:36:56,760 --> 00:37:01,640
+maniera io tolgo il fatto che posso
+
+810
+00:36:59,640 --> 00:37:03,720
+moltiplicare
+
+811
+00:37:01,640 --> 00:37:06,040
+per scalari diversi rappresentanti, li
+
+812
+00:37:03,720 --> 00:37:08,720
+devo potere moltiplicare sempre per lo
+
+813
+00:37:06,040 --> 00:37:11,480
+stesso rappresent per lo stesso scalare.
+
+814
+00:37:08,720 --> 00:37:13,680
+Eh vabbè del la relazione previvalenza,
+
+815
+00:37:11,480 --> 00:37:16,200
+esatto. No, come conseguenza della
+
+816
+00:37:13,680 --> 00:37:18,079
+relazione violenza.
+
+817
+00:37:16,200 --> 00:37:20,480
+La relazione con violenza mi complica la
+
+818
+00:37:18,079 --> 00:37:22,800
+mi complica la vita.
+
+819
+00:37:20,480 --> 00:37:24,280
+Sì, tu lo dici per fare, ok, per
+
+820
+00:37:22,800 --> 00:37:25,359
+preservare il fatto che continua a
+
+821
+00:37:24,280 --> 00:37:27,079
+mantenere questa relazione di
+
+822
+00:37:25,359 --> 00:37:29,960
+equivalenza, va bene, ok, puoi vederla
+
+823
+00:37:27,079 --> 00:37:33,359
+anche così a tocca.
+
+824
+00:37:29,960 --> 00:37:34,839
+Ad esempio, se usiamo scala diversi per
+
+825
+00:37:33,359 --> 00:37:35,200
+della base.
+
+826
+00:37:34,839 --> 00:37:38,400
+Esatto.
+
+827
+00:37:35,200 --> 00:37:39,680
+Ad esempio, qual è il
+
+828
+00:37:38,400 --> 00:37:41,240
+probabilmente si può vedere con
+
+829
+00:37:39,680 --> 00:37:43,640
+semplicissima semplice.
+
+830
+00:37:41,240 --> 00:37:47,319
+Sì, se tu c'hai Ok, supponiamo che
+
+831
+00:37:43,640 --> 00:37:49,920
+abbiamo due punti, quindi hai B1 e B2 e
+
+832
+00:37:47,319 --> 00:37:54,119
+questi qua sono due rappresentanti, ok?
+
+833
+00:37:49,920 --> 00:37:59,079
+ci faccio la somma, ottengo un punto.
+
+834
+00:37:54,119 --> 00:38:00,599
+Ora, se io considero sigma B2,
+
+835
+00:37:59,079 --> 00:38:02,800
+sono due rappresentanti degli stessi
+
+836
+00:38:00,599 --> 00:38:05,000
+punti, ma la somma mi darà una qualcosa
+
+837
+00:38:02,800 --> 00:38:06,680
+che è totalmente diverso, che non è
+
+838
+00:38:05,000 --> 00:38:11,920
+legato a un fattore di scala, a quello
+
+839
+00:38:06,680 --> 00:38:11,920
+che ottenevo con B1 + B2.
+
+840
+00:38:12,920 --> 00:38:17,720
+Ok? Però se io ti vincolo in qualche
+
+841
+00:38:16,079 --> 00:38:19,240
+maniera al fatto che puoi considerare
+
+842
+00:38:17,720 --> 00:38:21,200
+come rappresentanti soltanto
+
+843
+00:38:19,240 --> 00:38:22,960
+moltiplicando
+
+844
+00:38:21,200 --> 00:38:25,040
+e P2 sempre per lo stesso scalare,
+
+845
+00:38:22,960 --> 00:38:27,079
+allora a questa maniera
+
+846
+00:38:25,040 --> 00:38:29,720
+si torna.
+
+847
+00:38:27,079 --> 00:38:32,319
+Ok?
+
+848
+00:38:29,720 --> 00:38:36,280
+Va bene, allora diciamo lasciato stare,
+
+849
+00:38:32,319 --> 00:38:36,280
+non consideriamo quello che
+
+850
+00:38:36,839 --> 00:38:41,960
+qui abbiamo
+
+851
+00:38:38,839 --> 00:38:46,720
+esempio, abbiamo fatto vedere
+
+852
+00:38:41,960 --> 00:38:49,200
+dobbiamo evitare assolutamente di eh
+
+853
+00:38:46,720 --> 00:38:51,880
+fattori diversi da ciascun della e
+
+854
+00:38:49,200 --> 00:38:57,839
+quindi noi diciamo vabbèamo un solo
+
+855
+00:38:51,880 --> 00:39:00,800
+fattore moltiplicativo per per modo che
+
+856
+00:38:57,839 --> 00:39:03,839
+però A questo punto perché ciamo il
+
+857
+00:39:00,800 --> 00:39:06,160
+vettore un altro vettore? Perché questo
+
+858
+00:39:03,839 --> 00:39:10,040
+qua è quello che ti vincola perché è la
+
+859
+00:39:06,160 --> 00:39:11,800
+somma tu ti prendi un B1 B2 BN e ti
+
+860
+00:39:10,040 --> 00:39:13,839
+consideri
+
+861
+00:39:11,800 --> 00:39:17,319
+eh
+
+862
+00:39:13,839 --> 00:39:17,319
+questo punto
+
+863
+00:39:18,280 --> 00:39:24,680
+come somma di questi B1, B2, BN
+
+864
+00:39:22,800 --> 00:39:26,800
+che hai scelto
+
+865
+00:39:24,680 --> 00:39:29,680
+e quindi diventa il punto di partenza
+
+866
+00:39:26,800 --> 00:39:31,599
+perché voi che ti vincola,
+
+867
+00:39:29,680 --> 00:39:34,200
+cioè il fatto la scelta dei
+
+868
+00:39:31,599 --> 00:39:34,200
+rappresentanti
+
+869
+00:39:34,839 --> 00:39:39,319
+La scelta dei rappresentanti deve essere
+
+870
+00:39:36,960 --> 00:39:41,000
+messa nella base,
+
+871
+00:39:39,319 --> 00:39:44,560
+ma come punti proiettivi, non come
+
+872
+00:39:41,000 --> 00:39:44,560
+scelta dei rappresentanti.
+
+873
+00:39:44,800 --> 00:39:48,280
+Quindi io se ti do dei punti proiettivi
+
+874
+00:39:46,560 --> 00:39:50,599
+e ti do ti posso dare i punti a meno un
+
+875
+00:39:48,280 --> 00:39:51,960
+fattore di scala
+
+876
+00:39:50,599 --> 00:39:53,440
+e questi qua sono tutti a meno un
+
+877
+00:39:51,960 --> 00:39:55,760
+fattore di scala. Se ti do soltanto
+
+878
+00:39:53,440 --> 00:39:57,359
+questi, allora ti devo dire, però mi
+
+879
+00:39:55,760 --> 00:39:59,319
+scegli pure sti rappresentanti, ti do
+
+880
+00:39:57,359 --> 00:40:01,400
+qualcosa e ti devo dare qualcosa in più
+
+881
+00:39:59,319 --> 00:40:03,240
+oltre ai punti proiettivi. In questa
+
+882
+00:40:01,400 --> 00:40:04,440
+maniera invece ti do un punto proiettivo
+
+883
+00:40:03,240 --> 00:40:06,520
+che ti vincola la scelta dei
+
+884
+00:40:04,440 --> 00:40:09,319
+rappresentanti
+
+885
+00:40:06,520 --> 00:40:10,599
+e ho fatto le cose per bene.
+
+886
+00:40:09,319 --> 00:40:13,640
+Ok?
+
+887
+00:40:10,599 --> 00:40:16,240
+Perché altrimentiente se non potrei
+
+888
+00:40:13,640 --> 00:40:19,240
+creare
+
+889
+00:40:16,240 --> 00:40:19,240
+basso
+
+890
+00:40:21,680 --> 00:40:25,720
+combinazione lineari degli elementi
+
+891
+00:40:23,119 --> 00:40:28,560
+della nostra città. Però a quel punto
+
+892
+00:40:25,720 --> 00:40:31,960
+potrei moltiplicare per
+
+893
+00:40:28,560 --> 00:40:33,839
+eh fattori eh fattori diversi, cioè per
+
+894
+00:40:31,960 --> 00:40:35,960
+coefficienti diversi che ci spam
+
+895
+00:40:33,839 --> 00:40:40,119
+perché non è nessun vincolo.
+
+896
+00:40:35,960 --> 00:40:42,599
+Invece qua vincoliamo che che
+
+897
+00:40:40,119 --> 00:40:45,079
+i rappresentanti che uso sono quelli che
+
+898
+00:40:42,599 --> 00:40:48,119
+mi sommano a questo PN2, mi danno sempre
+
+899
+00:40:45,079 --> 00:40:49,400
+questo PN2
+
+900
+00:40:48,119 --> 00:40:53,599
+e quindi devo moltiplicare
+
+901
+00:40:49,400 --> 00:40:57,000
+fondamentalmente per scalare un buoni.
+
+902
+00:40:53,599 --> 00:41:02,359
+Sì, però se non mi è chiaro perché qui
+
+903
+00:40:57,000 --> 00:41:02,359
+due è esattamente la codifica di questa
+
+904
+00:41:04,880 --> 00:41:09,599
+è la codifica, perché tu in questa
+
+905
+00:41:07,359 --> 00:41:11,960
+maniera cosa ti stai prendendo? Ti stai
+
+906
+00:41:09,599 --> 00:41:14,359
+prendendo
+
+907
+00:41:11,960 --> 00:41:17,000
+B1
+
+908
+00:41:14,359 --> 00:41:19,440
++ B2
+
+909
+00:41:17,000 --> 00:41:24,960
++
+
+910
+00:41:19,440 --> 00:41:24,960
+bn + 1. Ok?
+
+911
+00:41:26,040 --> 00:41:31,520
+E tu stai vincolando la scelta dei
+
+912
+00:41:28,720 --> 00:41:34,280
+rappresentanti a quella che ti danno
+
+913
+00:41:31,520 --> 00:41:37,560
+come somma B1, B2, BN + 1, esattamente
+
+914
+00:41:34,280 --> 00:41:40,720
+questo un rappresentante di questo
+
+915
+00:41:37,560 --> 00:41:44,200
+punto BN + 2.
+
+916
+00:41:40,720 --> 00:41:47,400
+Ok? Tu non stai dicendo "Ok, mi scelgo
+
+917
+00:41:44,200 --> 00:41:50,520
+questo a partire dai rappresentanti".
+
+918
+00:41:47,400 --> 00:41:53,280
+Io sto dicendo, mi piglio un punto unità
+
+919
+00:41:50,520 --> 00:41:56,839
+che sono tutti uno,
+
+920
+00:41:53,280 --> 00:41:58,640
+ok? nel mio dal mio spazio di partenza e
+
+921
+00:41:56,839 --> 00:42:01,680
+i rappresentanti che uso sono tutti
+
+922
+00:41:58,640 --> 00:42:03,040
+quelli che sommanti
+
+923
+00:42:01,680 --> 00:42:07,119
+mi garantiscono di darmi un
+
+924
+00:42:03,040 --> 00:42:07,119
+rappresentante di BN + 2.
+
+925
+00:42:15,160 --> 00:42:20,480
+tutti quelli che mi danno qualcosa che
+
+926
+00:42:18,400 --> 00:42:22,559
+significa che tutti quali sono tutti i
+
+927
+00:42:20,480 --> 00:42:24,200
+rappresentanti di PN + 2 tutti quelli
+
+928
+00:42:22,559 --> 00:42:26,000
+che ho un vettore 1 1 moltiplicati per
+
+929
+00:42:24,200 --> 00:42:28,200
+lo stesso scalare. Quindi significa che
+
+930
+00:42:26,000 --> 00:42:29,680
+posso utilizzare
+
+931
+00:42:28,200 --> 00:42:31,119
+rappresentanti che ottengono
+
+932
+00:42:29,680 --> 00:42:33,839
+moltiplicando tutti per lo stesso
+
+933
+00:42:31,119 --> 00:42:36,839
+scalare.
+
+934
+00:42:33,839 --> 00:42:36,839
+Ok?
+
+935
+00:42:38,000 --> 00:42:42,000
+Sono tutti quei punti.
+
+936
+00:42:43,520 --> 00:42:47,680
+Non fare filtro.
+
+937
+00:42:46,079 --> 00:42:51,800
+Eh
+
+938
+00:42:47,680 --> 00:42:51,800
+no, sono io che sto facendo
+
+939
+00:42:51,880 --> 00:42:55,480
+l'ate messo a diso
+
+940
+00:43:02,599 --> 00:43:05,599
+chiaro
+
+941
+00:43:10,119 --> 00:43:15,240
+eh
+
+942
+00:43:12,200 --> 00:43:16,760
+viene più lafica perché
+
+943
+00:43:15,240 --> 00:43:19,760
+è il vettore che si tiene dalla somma di
+
+944
+00:43:16,760 --> 00:43:19,760
+a
+
+945
+00:43:21,720 --> 00:43:26,440
+No, no, ma aspetta, no, scusa un attimo,
+
+946
+00:43:23,160 --> 00:43:28,119
+qua forse l'ho detta in maniera proprie.
+
+947
+00:43:26,440 --> 00:43:31,599
+Non sono tutti i rappresentanti di B.
+
+948
+00:43:28,119 --> 00:43:34,079
+Cioè io ti sto dicendo, io mi piglio mi
+
+949
+00:43:31,599 --> 00:43:36,280
+fissandomi + 2, io mi piglio dei
+
+950
+00:43:34,079 --> 00:43:38,000
+rappresentanti, parto da rappresentanti
+
+951
+00:43:36,280 --> 00:43:42,319
+che mi dà sommati, mi danno un
+
+952
+00:43:38,000 --> 00:43:42,319
+rappresentante di n + 2.
+
+953
+00:43:44,319 --> 00:43:51,800
+Ok? Non è che ti sto dicendo mi scelgo i
+
+954
+00:43:47,240 --> 00:43:51,800
+rappresentanti e ti do BN + 2
+
+955
+00:43:52,680 --> 00:43:57,200
+e sto prendendo la
+
+956
+00:43:56,480 --> 00:43:59,640
+tale che
+
+957
+00:43:57,200 --> 00:44:01,880
+esatto
+
+958
+00:43:59,640 --> 00:44:04,040
+sommar
+
+959
+00:44:01,880 --> 00:44:08,119
+e quindi mi sto vincolando tutti i
+
+960
+00:44:04,040 --> 00:44:11,040
+rappresentanti che posso posso usare dei
+
+961
+00:44:08,119 --> 00:44:13,079
+vari B con i b con E+ sono
+
+962
+00:44:11,040 --> 00:44:16,800
+rappresentanti la cui somma mi rimane
+
+963
+00:44:13,079 --> 00:44:19,800
+fissa di n +2 noi Abbiamo visto
+
+964
+00:44:16,800 --> 00:44:19,800
+che
+
+965
+00:44:20,280 --> 00:44:26,040
+proprio il motivo è che se io uso un
+
+966
+00:44:23,480 --> 00:44:27,839
+qualsiasi tipo qualsiasi rappresentante
+
+967
+00:44:26,040 --> 00:44:30,319
+per ognuno dei biconi, ottengo punti
+
+968
+00:44:27,839 --> 00:44:31,119
+diversi fondamentalmente.
+
+969
+00:44:30,319 --> 00:44:32,760
+Sì.
+
+970
+00:44:31,119 --> 00:44:38,040
+Ok.
+
+971
+00:44:32,760 --> 00:44:38,040
+Ma se adesso abbiamo una base del fermo
+
+972
+00:44:39,119 --> 00:44:43,440
+e per essere una base per essere
+
+973
+00:44:49,480 --> 00:44:53,960
+in più
+
+974
+00:44:51,960 --> 00:44:56,079
+non è
+
+975
+00:44:53,960 --> 00:44:58,800
+combinazione,
+
+976
+00:44:56,079 --> 00:45:00,440
+allora cioè c'è qualcosa che non mi dona
+
+977
+00:44:58,800 --> 00:45:03,920
+perciò
+
+978
+00:45:00,440 --> 00:45:06,200
+tu la usi per generare tutti i punti
+
+979
+00:45:03,920 --> 00:45:09,000
+parti sicuramente da BN + 1 che sono
+
+980
+00:45:06,200 --> 00:45:11,920
+linearmente indipendenti. BN + 2 è
+
+981
+00:45:09,000 --> 00:45:15,040
+qualcosa che usi per vincolare
+
+982
+00:45:11,920 --> 00:45:18,240
+i Era questo che ti? No, potevi dire
+
+983
+00:45:15,040 --> 00:45:19,800
+subito. Dicevo, se Bn + 2 lo usi per
+
+984
+00:45:18,240 --> 00:45:23,160
+vincolarti
+
+985
+00:45:19,800 --> 00:45:25,599
+è qualcosa che ti esce dalla
+
+986
+00:45:23,160 --> 00:45:27,599
+linea dipendenza indipendenza lineare.
+
+987
+00:45:25,599 --> 00:45:29,720
+E quindi noi come costruiamo i punti di
+
+988
+00:45:27,599 --> 00:45:32,040
+questo spazio
+
+989
+00:45:29,720 --> 00:45:33,960
+dimensioni? Non è semplicemente questa
+
+990
+00:45:32,040 --> 00:45:35,480
+combinazioni linear alla base,
+
+991
+00:45:33,960 --> 00:45:39,079
+no? ricostruiamo con la combinazione
+
+992
+00:45:35,480 --> 00:45:41,960
+lineare degli n+1 punti della base più
+
+993
+00:45:39,079 --> 00:45:43,960
+che sfruttando per la scelta dei
+
+994
+00:45:41,960 --> 00:45:45,680
+rappresentanti il punto unità. Il
+
+995
+00:45:43,960 --> 00:45:48,800
+puntoità ti serve soltanto per la scelta
+
+996
+00:45:45,680 --> 00:45:48,800
+dei rappresentanti.
+
+997
+00:45:49,880 --> 00:45:54,160
+Pensavo che tutta l'informazione dei
+
+998
+00:45:51,920 --> 00:45:55,920
+vincoli, eccetera eccetera semplificare
+
+999
+00:45:54,160 --> 00:45:57,839
+sul fatto che abbiamo questa base di
+
+1000
+00:45:55,920 --> 00:46:00,520
+elementi, ma ho scoperto che la base era
+
+1001
+00:45:57,839 --> 00:46:03,520
+sempre
+
+1002
+00:46:00,520 --> 00:46:05,480
+nessun n + 1 per la combinazione
+
+1003
+00:46:03,520 --> 00:46:07,160
+lineare.
+
+1004
+00:46:05,480 --> 00:46:10,040
+Ok?
+
+1005
+00:46:07,160 --> 00:46:12,119
+sia fa chiaro però che ti alla fine
+
+1006
+00:46:10,040 --> 00:46:16,760
+vedre, cioè quello che verrà fuori è che
+
+1007
+00:46:12,119 --> 00:46:19,200
+comunque ti servono sempre questi
+
+1008
+00:46:16,760 --> 00:46:21,559
+tutti questi esempi. tu devi fissare una
+
+1009
+00:46:19,200 --> 00:46:24,559
+trasformazione da uno spazio in se
+
+1010
+00:46:21,559 --> 00:46:24,559
+stesso,
+
+1011
+00:46:24,680 --> 00:46:31,200
+proprio perché c'è questo problema del
+
+1012
+00:46:28,079 --> 00:46:33,200
+fatto che ti ti incasini con i con i
+
+1013
+00:46:31,200 --> 00:46:34,800
+vari scalari, hai sempre bisogno di
+
+1014
+00:46:33,200 --> 00:46:36,680
+conoscere la trasformazione per tutti i
+
+1015
+00:46:34,800 --> 00:46:39,559
+punti della base, cioè per gli n + 2
+
+1016
+00:46:36,680 --> 00:46:41,680
+punti, perché con n + 1 punti soltanto
+
+1017
+00:46:39,559 --> 00:46:43,440
+non te li vincoli. Qui devi vincolare
+
+1018
+00:46:41,680 --> 00:46:45,200
+pure il punto unità fondamentalmente.
+
+1019
+00:46:43,440 --> 00:46:47,200
+Ok?
+
+1020
+00:46:45,200 --> 00:46:49,440
+Quindi ti serve anche per regolare le
+
+1021
+00:46:47,200 --> 00:46:51,040
+trasformazioni. Quindi uno spazio è
+
+1022
+00:46:49,440 --> 00:46:53,800
+identificato
+
+1023
+00:46:51,040 --> 00:46:56,119
+se lo a partire da quattro punti, da
+
+1024
+00:46:53,800 --> 00:46:57,640
+tutti i punti della base, incluso l'
+
+1025
+00:46:56,119 --> 00:46:58,960
+NP2.
+
+1026
+00:46:57,640 --> 00:47:00,960
+Ok?
+
+1027
+00:46:58,960 --> 00:47:01,839
+E però questa cosa strana che è
+
+1028
+00:47:00,960 --> 00:47:04,000
+combinazione
+
+1029
+00:47:01,839 --> 00:47:07,559
+e cioè la cosa strana che è combinazione
+
+1030
+00:47:04,000 --> 00:47:07,559
+ideale. Lo so.
+
+1031
+00:47:07,599 --> 00:47:13,720
+Dobbiamo perciò perciò che abbiamo non è
+
+1032
+00:47:10,480 --> 00:47:16,319
+una base. Quest
+
+1033
+00:47:13,720 --> 00:47:17,960
+è una base di uno spazio proietttivo.
+
+1034
+00:47:16,319 --> 00:47:19,280
+Eh sarà questo,
+
+1035
+00:47:17,960 --> 00:47:21,079
+non è, ricordati, è uno spazio
+
+1036
+00:47:19,280 --> 00:47:23,119
+proietttivo, non siamo più nello spazio
+
+1037
+00:47:21,079 --> 00:47:25,599
+vettoriale.
+
+1038
+00:47:23,119 --> 00:47:30,040
+Ok? Lo spazio vettoriale ce l'hai al di
+
+1039
+00:47:25,599 --> 00:47:33,240
+sotto che è l'RN + 1 e l'RN + 1 è una
+
+1040
+00:47:30,040 --> 00:47:36,079
+base, c'hai le basi quelle che sono e tu
+
+1041
+00:47:33,240 --> 00:47:38,440
+tipicamente le costruisci le basi di PN
+
+1042
+00:47:36,079 --> 00:47:40,280
+le costruisci a partire da basi di RN +
+
+1043
+00:47:38,440 --> 00:47:42,119
+1.
+
+1044
+00:47:40,280 --> 00:47:45,319
+Quindi lo spazio proiettivo è uno spazio
+
+1045
+00:47:42,119 --> 00:47:48,119
+nuovo. Essendo uno spazio nuovo tufisci
+
+1046
+00:47:45,319 --> 00:47:50,880
+la spase come ti serve per quello spazio
+
+1047
+00:47:48,119 --> 00:47:53,119
+nuovo, una struttura geometrica nuova,
+
+1048
+00:47:50,880 --> 00:47:54,559
+ok? che si costruisce a partire dallo
+
+1049
+00:47:53,119 --> 00:47:58,160
+spazio vettoriale per cui è un concetto
+
+1050
+00:47:54,559 --> 00:48:00,359
+di base che non stai snaturando.
+
+1051
+00:47:58,160 --> 00:48:02,680
+Ok?
+
+1052
+00:48:00,359 --> 00:48:04,680
+Devo difendere i matematici come solito.
+
+1053
+00:48:02,680 --> 00:48:07,040
+Devo difendere la matematica. Come sono
+
+1054
+00:48:04,680 --> 00:48:09,800
+ridotto?
+
+1055
+00:48:07,040 --> 00:48:12,359
+Allora,
+
+1056
+00:48:09,800 --> 00:48:16,280
+a questo punto è interessante sapere
+
+1057
+00:48:12,359 --> 00:48:18,119
+come eh
+
+1058
+00:48:16,280 --> 00:48:19,920
+Allora, lo spazio proiettivo chiaramente
+
+1059
+00:48:18,119 --> 00:48:21,079
+lo stiamo costruendo perché vogliamo
+
+1060
+00:48:19,920 --> 00:48:23,000
+estendere lo spazio in cui siamo
+
+1061
+00:48:21,079 --> 00:48:25,720
+partiti, vi ricordate? L'idea era quella
+
+1062
+00:48:23,000 --> 00:48:27,480
+di aggiungerci qualcosa, no?
+
+1063
+00:48:25,720 --> 00:48:30,680
+A questo punto cerchiamo di capire, di
+
+1064
+00:48:27,480 --> 00:48:32,400
+fissare quali sono.
+
+1065
+00:48:30,680 --> 00:48:34,599
+Quindi partiamo da quello che chiamiamo
+
+1066
+00:48:32,400 --> 00:48:36,559
+uno spazio a fine, diciamo quello che è
+
+1067
+00:48:34,599 --> 00:48:39,040
+quello al finito dove abbiamo i punti
+
+1068
+00:48:36,559 --> 00:48:40,920
+l'Rn fondamentalmente dove c'abbiamo x
+
+1069
+00:48:39,040 --> 00:48:43,359
+con xn. Dobbiamo capire qual è
+
+1070
+00:48:40,920 --> 00:48:44,839
+l'immersione del dello spazio a fine
+
+1071
+00:48:43,359 --> 00:48:48,559
+nello spazio proiettivo. Immersione
+
+1072
+00:48:44,839 --> 00:48:53,359
+significa cioè eh
+
+1073
+00:48:48,559 --> 00:48:55,599
+qual è il sottoinsieme dello spazio eh
+
+1074
+00:48:53,359 --> 00:48:57,079
+proiettivo che posso identificare come
+
+1075
+00:48:55,599 --> 00:48:58,599
+immagine dello spazio, come
+
+1076
+00:48:57,079 --> 00:49:01,680
+essenzialmente punti dello spazio a
+
+1077
+00:48:58,599 --> 00:49:03,520
+fine. Ok?
+
+1078
+00:49:01,680 --> 00:49:06,440
+La cosa più naturale che posso fare è
+
+1079
+00:49:03,520 --> 00:49:08,319
+questa. Io c'ho i punti x1 xn.
+
+1080
+00:49:06,440 --> 00:49:11,200
+nello spazio proiettivo c'ho dei punti
+
+1081
+00:49:08,319 --> 00:49:13,400
+x1 xn1 che possono essere rappresentati
+
+1082
+00:49:11,200 --> 00:49:17,119
+da x1 xn1
+
+1083
+00:49:13,400 --> 00:49:18,960
+e io dico che tutti questi punti mi
+
+1084
+00:49:17,119 --> 00:49:22,240
+rappresentano i punti dello spazio a
+
+1085
+00:49:18,960 --> 00:49:26,480
+fine. È chiaro che un qualsiasi lambda
+
+1086
+00:49:22,240 --> 00:49:28,559
+x1 xn1 mi rappresenta lo stesso punto
+
+1087
+00:49:26,480 --> 00:49:31,680
+dello spazio a fine. Quindi
+
+1088
+00:49:28,559 --> 00:49:34,520
+fondamentalmente la cosa cos'è? Io punto
+
+1089
+00:49:31,680 --> 00:49:36,760
+quello spazio fine, ci metto uno come
+
+1090
+00:49:34,520 --> 00:49:39,240
+ennesima
+
+1091
+00:49:36,760 --> 00:49:41,079
+nesima coordinata
+
+1092
+00:49:39,240 --> 00:49:45,400
+e c'ho il corrispondente punto dello
+
+1093
+00:49:41,079 --> 00:49:45,400
+spazio ok
+
+1094
+00:49:51,680 --> 00:49:56,400
+nello spazio protettivo
+
+1095
+00:49:54,119 --> 00:49:57,440
+ciò che
+
+1096
+00:49:56,400 --> 00:49:59,319
+componente
+
+1097
+00:49:57,440 --> 00:50:01,920
+tutto ciò che ha una n piùesima
+
+1098
+00:49:59,319 --> 00:50:04,880
+componente nulla
+
+1099
+00:50:01,920 --> 00:50:07,880
+Tutti i punti che hanno nunesima
+
+1100
+00:50:04,880 --> 00:50:09,599
+componente nulla come rappresentante
+
+1101
+00:50:07,880 --> 00:50:13,440
+continueranno a averla nulla qualsiasi
+
+1102
+00:50:09,599 --> 00:50:13,440
+sia il lambda per cui li moltiplicano.
+
+1103
+00:50:14,359 --> 00:50:17,960
+Quindi non sono punti affini e sono
+
+1104
+00:50:16,280 --> 00:50:19,720
+quelli che noi interpreteremo come
+
+1105
+00:50:17,960 --> 00:50:22,559
+direzioni
+
+1106
+00:50:19,720 --> 00:50:24,079
+eh delle rette fondamentalmente sono
+
+1107
+00:50:22,559 --> 00:50:27,079
+quelli
+
+1108
+00:50:24,079 --> 00:50:27,079
+eh
+
+1109
+00:50:30,480 --> 00:50:34,799
+se io c'ho un rappresentanteo.
+
+1110
+00:50:36,400 --> 00:50:42,319
+Ok, se io c'ho un rappresentante x1 x2
+
+1111
+00:50:42,640 --> 00:50:48,760
+cos'è? xn + 1.
+
+1112
+00:50:45,000 --> 00:50:48,760
+Xn + 1
+
+1113
+00:50:49,280 --> 00:50:57,119
+un qualsiasi lambda x1, x2, xn + 1
+
+1114
+00:50:53,760 --> 00:51:01,160
+rappresenta sempre lo stesso punto.
+
+1115
+00:50:57,119 --> 00:51:01,160
+Se xn + 1 è 0,
+
+1116
+00:51:04,920 --> 00:51:09,319
+un qualsiasi rappresentante di questo
+
+1117
+00:51:07,000 --> 00:51:12,040
+punto avrà sempre l'ennesima n più
+
+1118
+00:51:09,319 --> 00:51:13,599
+coordinata 0, mentre invece un qualsiasi
+
+1119
+00:51:12,040 --> 00:51:16,680
+rappresentante
+
+1120
+00:51:13,599 --> 00:51:19,079
+lambda x1 xn 1,
+
+1121
+00:51:16,680 --> 00:51:21,480
+siccome lambda è sempre diverso da 0,
+
+1122
+00:51:19,079 --> 00:51:23,599
+non ha mai la n piùima coordinata 0.
+
+1123
+00:51:21,480 --> 00:51:26,280
+Quindi i punti al finito non sono mai
+
+1124
+00:51:23,599 --> 00:51:29,079
+rappresentati da punti con l' n + e i
+
+1125
+00:51:26,280 --> 00:51:31,400
+punti, diciamo, dello spazio a fine non
+
+1126
+00:51:29,079 --> 00:51:33,839
+sono mai rappresentati da una nunesima
+
+1127
+00:51:31,400 --> 00:51:35,520
+coordinata uguale a 0. I punti che
+
+1128
+00:51:33,839 --> 00:51:40,400
+rimangono sono tutti quelli che hanno la
+
+1129
+00:51:35,520 --> 00:51:40,400
+nunesima coordinata nulla. Ok?
+
+1130
+00:51:46,720 --> 00:51:54,760
+Va bene, allora proviamo a dare una
+
+1131
+00:51:50,599 --> 00:51:54,760
+spiegazione di questa e poi finiamo.
+
+1132
+00:51:55,400 --> 00:52:00,640
+Allora, supponiamo quindi di S metterci
+
+1133
+00:51:58,599 --> 00:52:03,400
+nel nostro
+
+1134
+00:52:00,640 --> 00:52:06,119
+eh spazio R3 da cui partiamo per
+
+1135
+00:52:03,400 --> 00:52:07,920
+costruire quello che è un P2.
+
+1136
+00:52:06,119 --> 00:52:10,440
+Noi siamo partiti da RN + 1 per
+
+1137
+00:52:07,920 --> 00:52:13,760
+costruire PN. Quindi se noi partiamo da
+
+1138
+00:52:10,440 --> 00:52:17,599
+R3 costruiamo un P2, quindi quello che
+
+1139
+00:52:13,760 --> 00:52:17,599
+si chiama un piano proietttivo.
+
+1140
+00:52:17,920 --> 00:52:22,880
+Allora, quindi consideriamo il nostro le
+
+1141
+00:52:20,880 --> 00:52:27,559
+nostre coordinate, quindi abbiamo x1,
+
+1142
+00:52:22,880 --> 00:52:27,559
+x2, x3, i nostri assi
+
+1143
+00:52:28,160 --> 00:52:33,559
+e prendiamo un qualsiasi piano. Ok?
+
+1144
+00:52:37,839 --> 00:52:40,839
+Allora,
+
+1145
+00:52:44,079 --> 00:52:49,880
+io posso considerare tutti i raggi che
+
+1146
+00:52:47,040 --> 00:52:51,680
+partono, quindi tutti i vettori che sono
+
+1147
+00:52:49,880 --> 00:52:53,880
+tutti i raggi che partono dal
+
+1148
+00:52:51,680 --> 00:52:56,160
+dall'origine. Possiamo vederlo come un
+
+1149
+00:52:53,880 --> 00:52:57,480
+centro di vibrazione.
+
+1150
+00:52:56,160 --> 00:52:59,960
+Allora, che abbiamo che tutti questi
+
+1151
+00:52:57,480 --> 00:53:01,480
+raggi
+
+1152
+00:52:59,960 --> 00:53:07,000
+intersecano
+
+1153
+00:53:01,480 --> 00:53:07,000
+il piano il piano in un punto,
+
+1154
+00:53:08,440 --> 00:53:12,000
+ma non tutti i raggi. Ci sono dei raggi
+
+1155
+00:53:10,440 --> 00:53:15,000
+che non intersecheranno mai, che sono
+
+1156
+00:53:12,000 --> 00:53:15,000
+quelli
+
+1157
+00:53:15,440 --> 00:53:21,400
+paralleli del piano che sono in questo
+
+1158
+00:53:17,119 --> 00:53:21,400
+pi greco ideale.
+
+1159
+00:53:23,000 --> 00:53:27,839
+Allora,
+
+1160
+00:53:24,839 --> 00:53:30,000
+tutti i raggi, ora c'è un altro un'altra
+
+1161
+00:53:27,839 --> 00:53:32,720
+cosa che dobbiamo considerare. Qualsiasi
+
+1162
+00:53:30,000 --> 00:53:34,920
+raggio è identificato a meno di un
+
+1163
+00:53:32,720 --> 00:53:37,200
+fattore di scala, no? Cioè è
+
+1164
+00:53:34,920 --> 00:53:40,079
+identificata da un vettore a meno di un
+
+1165
+00:53:37,200 --> 00:53:41,880
+fattore di scala. Quindi qualsiasi
+
+1166
+00:53:40,079 --> 00:53:44,559
+vettore che prendo qui sopra mi
+
+1167
+00:53:41,880 --> 00:53:47,559
+rappresenterà sempre lo stesso raggio.
+
+1168
+00:53:44,559 --> 00:53:47,559
+Ok?
+
+1169
+00:53:50,079 --> 00:53:54,160
+i punti che mi intersecano, quindi
+
+1170
+00:53:52,400 --> 00:53:57,960
+questi raggi che intersecano, quindi li
+
+1171
+00:53:54,160 --> 00:53:57,960
+posso vedere come i corrispondenti
+
+1172
+00:53:58,040 --> 00:54:04,960
+dei miei punti affini,
+
+1173
+00:54:01,160 --> 00:54:06,640
+ok? Quindi li posso considerare
+
+1174
+00:54:04,960 --> 00:54:09,400
+eh
+
+1175
+00:54:06,640 --> 00:54:11,440
+suppone gli posso considerare posso
+
+1176
+00:54:09,400 --> 00:54:13,640
+sempre considerare una rotazione dello
+
+1177
+00:54:11,440 --> 00:54:15,520
+spazio, vediamola così mi convince di
+
+1178
+00:54:13,640 --> 00:54:19,880
+più, una rotazione dello spazio in cui
+
+1179
+00:54:15,520 --> 00:54:19,880
+il piano XY,
+
+1180
+00:54:20,920 --> 00:54:27,240
+cioè quello, abbiamo tre coordinate X,
+
+1181
+00:54:23,319 --> 00:54:31,359
+Y, Z, no? Il piano X Y
+
+1182
+00:54:27,240 --> 00:54:33,520
+coincide col piano P ideale. Ok? cambio
+
+1183
+00:54:31,359 --> 00:54:36,359
+ruoto in maniera tale di portarmi un,
+
+1184
+00:54:33,520 --> 00:54:38,240
+diciamo, nel sistema di riferimento che
+
+1185
+00:54:36,359 --> 00:54:39,680
+mi conviene. In questa maniera che cosa
+
+1186
+00:54:38,240 --> 00:54:43,040
+c'ho?
+
+1187
+00:54:39,680 --> 00:54:47,480
+che tutti i raggi che intersecano
+
+1188
+00:54:43,040 --> 00:54:52,440
+mi vengono da intersecono
+
+1189
+00:54:47,480 --> 00:54:55,880
+da punti da a non rappresentanti
+
+1190
+00:54:52,440 --> 00:54:58,799
+che hanno zverso da 0
+
+1191
+00:54:55,880 --> 00:55:01,680
+perché il piano dei punti dei raggi
+
+1192
+00:54:58,799 --> 00:55:04,440
+quindi che hanno z = 0 è tutto sul pi
+
+1193
+00:55:01,680 --> 00:55:07,480
+ideale perché coincide col piano x y
+
+1194
+00:55:04,440 --> 00:55:09,160
+quindi z è sempre 0 lì ok
+
+1195
+00:55:07,480 --> 00:55:11,440
+lo posso fare indipendente entemente al
+
+1196
+00:55:09,160 --> 00:55:12,920
+piano che scelgo lo ruoto, mi ruoto la
+
+1197
+00:55:11,440 --> 00:55:14,079
+rappresentazione in maniera tale di
+
+1198
+00:55:12,920 --> 00:55:17,079
+prendermi il sistema di riferimento che
+
+1199
+00:55:14,079 --> 00:55:19,440
+mi contiene. Ok? Quindi cosa abbiamo?
+
+1200
+00:55:17,079 --> 00:55:21,599
+Stiamo costruendo uno spazio in cui i
+
+1201
+00:55:19,440 --> 00:55:23,240
+punti al finito, che sono quelli che
+
+1202
+00:55:21,599 --> 00:55:25,240
+intersecano P greco, perché noi stiamo
+
+1203
+00:55:23,240 --> 00:55:26,799
+prendendo un modello proiettivo di un
+
+1204
+00:55:25,240 --> 00:55:29,440
+piano,
+
+1205
+00:55:26,799 --> 00:55:31,559
+mi intersecano e sono esattamente che mi
+
+1206
+00:55:29,440 --> 00:55:33,799
+intersecano veramente pi greco, quindi
+
+1207
+00:55:31,559 --> 00:55:36,119
+sono punti fisici dello spazio a fine da
+
+1208
+00:55:33,799 --> 00:55:38,079
+cui partiamo, sono esattamente quelli
+
+1209
+00:55:36,119 --> 00:55:40,160
+che abbiamo detto noi, cioè con una
+
+1210
+00:55:38,079 --> 00:55:42,880
+terza coordinata diversa da zero e
+
+1211
+00:55:40,160 --> 00:55:44,960
+quindi possiamo prendere la z =
+
+1212
+00:55:42,880 --> 00:55:47,440
+rappresentante in cui è uguale a 1
+
+1213
+00:55:44,960 --> 00:55:50,319
+perché ci conviene bello
+
+1214
+00:55:47,440 --> 00:55:51,760
+tutti gli altri che non rappresentano,
+
+1215
+00:55:50,319 --> 00:55:54,480
+che non interessa, che non hanno tutti
+
+1216
+00:55:51,760 --> 00:55:56,880
+la terza coordinata zero. Ok? Però un
+
+1217
+00:55:54,480 --> 00:55:59,880
+piano parallelo
+
+1218
+00:55:56,880 --> 00:56:01,960
+al a questo.
+
+1219
+00:55:59,880 --> 00:56:05,039
+Ora, se io piglio una qualsiasi retta
+
+1220
+00:56:01,960 --> 00:56:07,000
+sul piano p gre,
+
+1221
+00:56:05,039 --> 00:56:10,440
+io troverò
+
+1222
+00:56:07,000 --> 00:56:13,000
+un raggio che mi parte dall'origine e
+
+1223
+00:56:10,440 --> 00:56:15,640
+sta tutto su pi gre ideale che è
+
+1224
+00:56:13,000 --> 00:56:18,359
+parallelo a questa retta. sono due piani
+
+1225
+00:56:15,640 --> 00:56:21,480
+paralleli, piglio una retta e ci piglio
+
+1226
+00:56:18,359 --> 00:56:24,839
+due parallele. Ok,
+
+1227
+00:56:21,480 --> 00:56:27,359
+questo lo posso sempre fare. Allora, io
+
+1228
+00:56:24,839 --> 00:56:29,559
+considero quindi che questa re, questo
+
+1229
+00:56:27,359 --> 00:56:33,880
+raggio mi identifica la direzione di
+
+1230
+00:56:29,559 --> 00:56:36,559
+quella retta nel piano. Quindi io c'ho i
+
+1231
+00:56:33,880 --> 00:56:38,200
+raggi con z diverso da 0 che mi
+
+1232
+00:56:36,559 --> 00:56:42,000
+rappresentano i punti fisici di questo
+
+1233
+00:56:38,200 --> 00:56:46,920
+piano p gre. I piani, i punti invece con
+
+1234
+00:56:42,000 --> 00:56:48,559
+z = 0 sono hanno sono rappresentati da
+
+1235
+00:56:46,920 --> 00:56:51,039
+vettori che sono effettivamente
+
+1236
+00:56:48,559 --> 00:56:52,880
+paralleli alle rette di quel piano e c'è
+
+1237
+00:56:51,039 --> 00:56:54,599
+una corrispondenza di univo. Ogni retta
+
+1238
+00:56:52,880 --> 00:56:56,400
+c'è un fascio di rette parallele nel
+
+1239
+00:56:54,599 --> 00:57:00,599
+piano e per ogni fascio di rette
+
+1240
+00:56:56,400 --> 00:57:03,760
+parallele del piano c'è un un vettore
+
+1241
+00:57:00,599 --> 00:57:05,039
+in pi ideale che mi che mi è parallelo a
+
+1242
+00:57:03,760 --> 00:57:08,119
+quella, quindi mi rappresenta quella
+
+1243
+00:57:05,039 --> 00:57:09,680
+direzione. Ok? Quindi ho chiuso ho
+
+1244
+00:57:08,119 --> 00:57:13,039
+chiuso tutto. Quindi ci sto
+
+1245
+00:57:09,680 --> 00:57:15,119
+rappresentando sia i punti, lo faccio
+
+1246
+00:57:13,039 --> 00:57:17,559
+con questi raggi qui che intersecano,
+
+1247
+00:57:15,119 --> 00:57:20,760
+sia le direzioni e lo faccio con questi
+
+1248
+00:57:17,559 --> 00:57:24,280
+piani raggi paralleli. E questo lo posso
+
+1249
+00:57:20,760 --> 00:57:26,640
+fare per qualsiasi piano.
+
+1250
+00:57:24,280 --> 00:57:29,680
+Quindi questo qua è in generale un
+
+1251
+00:57:26,640 --> 00:57:31,920
+modello di piano che mi contiene sia
+
+1252
+00:57:29,680 --> 00:57:35,280
+punti al finito che punti, come vengono
+
+1253
+00:57:31,920 --> 00:57:37,559
+chiamati, all'infinito. Ok,
+
+1254
+00:57:35,280 --> 00:57:41,760
+continuiamo
+
+1255
+00:57:37,559 --> 00:57:41,760
+giovedì. Ok.
+
+1256
+00:57:48,640 --> 00:57:50,760
+Sì.
+

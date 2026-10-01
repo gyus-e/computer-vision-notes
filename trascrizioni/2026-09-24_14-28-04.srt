@@ -1,0 +1,5616 @@
+1
+00:00:00,000 --> 00:00:03,000
+Ok,
+
+2
+00:00:08,880 --> 00:00:14,599
+allora quello che ha iniziato eh l'altra
+
+3
+00:00:12,000 --> 00:00:17,359
+volta era un breve
+
+4
+00:00:14,599 --> 00:00:20,320
+escursus
+
+5
+00:00:17,359 --> 00:00:22,840
+sul provare a capire
+
+6
+00:00:20,320 --> 00:00:24,359
+per diciamo linee chiaramente abbastanza
+
+7
+00:00:22,840 --> 00:00:28,679
+generali
+
+8
+00:00:24,359 --> 00:00:31,080
+e come si formano le immagini che poi
+
+9
+00:00:28,679 --> 00:00:35,440
+andiamo le immagini digitali che poi
+
+10
+00:00:31,080 --> 00:00:38,160
+andiamo a andremo ad elaborare.
+
+11
+00:00:35,440 --> 00:00:41,800
+Abbiamo visto che
+
+12
+00:00:38,160 --> 00:00:43,520
+esistono vari componenti che di cui
+
+13
+00:00:41,800 --> 00:00:45,239
+bisogna
+
+14
+00:00:43,520 --> 00:00:48,360
+tenere conto che sono un aspetto
+
+15
+00:00:45,239 --> 00:00:52,199
+geometrico di cui abbiamo già brevemente
+
+16
+00:00:48,360 --> 00:00:54,079
+discusso la volta scorsa e che comunque
+
+17
+00:00:52,199 --> 00:00:58,199
+riprenderemo a breve quando
+
+18
+00:00:54,079 --> 00:00:58,199
+incominceremo realmente a farezione
+
+19
+00:00:58,320 --> 00:01:03,480
+che serve a modellare la trasformazione
+
+20
+00:01:01,320 --> 00:01:05,720
+dal mondo tridimensionale al mondo
+
+21
+00:01:03,480 --> 00:01:09,000
+bidimensionale in Qui sì, vogliamo le
+
+22
+00:01:05,720 --> 00:01:10,600
+immagini. Eh, abbiamo già detto che
+
+23
+00:01:09,000 --> 00:01:12,799
+quello che succede, quindi essendo una
+
+24
+00:01:10,600 --> 00:01:14,880
+trasformazione da 3D in 2D, c'è perdita
+
+25
+00:01:12,799 --> 00:01:17,119
+di informazione, quindi non possiamo
+
+26
+00:01:14,880 --> 00:01:18,720
+assolut assolutamente immaginarci che
+
+27
+00:01:17,119 --> 00:01:21,040
+pigliamo una fotografia e da quella
+
+28
+00:01:18,720 --> 00:01:23,280
+fotografia
+
+29
+00:01:21,040 --> 00:01:25,680
+si ricostruisce la geometria della
+
+30
+00:01:23,280 --> 00:01:27,040
+scena.
+
+31
+00:01:25,680 --> 00:01:28,240
+Ma secondo voi allora come si fa a
+
+32
+00:01:27,040 --> 00:01:29,799
+costruire, ricostruire la geometria
+
+33
+00:01:28,240 --> 00:01:33,360
+nella scena? Cosa serve per vedere il
+
+34
+00:01:29,799 --> 00:01:33,360
+mondo in tre dimensioni?
+
+35
+00:01:39,000 --> 00:01:44,399
+So
+
+36
+00:01:41,000 --> 00:01:44,399
+piazzare teco,
+
+37
+00:01:46,360 --> 00:01:51,600
+una la formazione in un'immagine è una
+
+38
+00:01:48,360 --> 00:01:54,079
+trasformazione da 3D a 2D, quindi perdi
+
+39
+00:01:51,600 --> 00:01:56,719
+informazione.
+
+40
+00:01:54,079 --> 00:01:58,640
+Perdendo informazione puoi immaginare di
+
+41
+00:01:56,719 --> 00:02:03,399
+ricostruire
+
+42
+00:01:58,640 --> 00:02:03,399
+il mondo tridimensionale da un'immagine?
+
+43
+00:02:08,200 --> 00:02:11,640
+ottenendo cosa?
+
+44
+00:02:13,080 --> 00:02:17,599
+Eh, ma cos'è che perdi?
+
+45
+00:02:15,800 --> 00:02:20,840
+Perdi la profondità. Senza la profondità
+
+46
+00:02:17,599 --> 00:02:26,280
+tu riesci a a capire cosa è grande, cosa
+
+47
+00:02:20,840 --> 00:02:28,400
+è piccolo, la distanza degli oggetti.
+
+48
+00:02:26,280 --> 00:02:31,800
+Riesci ad approssimarla,
+
+49
+00:02:28,400 --> 00:02:31,800
+secondo te?
+
+50
+00:02:32,120 --> 00:02:37,319
+No, perché l'immagine come si si
+
+51
+00:02:35,519 --> 00:02:39,800
+Ok,
+
+52
+00:02:37,319 --> 00:02:41,400
+ricordiamoci che c'abbiamo questo.
+
+53
+00:02:39,800 --> 00:02:44,400
+Abbiamo un oggetto qui che viene
+
+54
+00:02:41,400 --> 00:02:44,400
+proiettato.
+
+55
+00:02:46,800 --> 00:02:53,400
+Esatto. Se lo metto qui dietro,
+
+56
+00:02:51,000 --> 00:02:55,800
+probabilmente riesco a ottenere, vabbè,
+
+57
+00:02:53,400 --> 00:02:57,879
+non così, ma una cosa più grande, riesco
+
+58
+00:02:55,800 --> 00:02:59,480
+a ottenere la stessa proiezione,
+
+59
+00:02:57,879 --> 00:03:02,080
+esattamente la stessa. Come faccio a
+
+60
+00:02:59,480 --> 00:03:03,720
+capire dov'è?
+
+61
+00:03:02,080 --> 00:03:06,760
+E allora come si fa a ricostruire? Cosa
+
+62
+00:03:03,720 --> 00:03:09,239
+serve secondo voi?
+
+63
+00:03:06,760 --> 00:03:10,319
+Cioè, l'immagine mi perde informazione.
+
+64
+00:03:09,239 --> 00:03:12,720
+Come faccio a recuperare
+
+65
+00:03:10,319 --> 00:03:15,720
+quell'informazione al naso?
+
+66
+00:03:12,720 --> 00:03:15,720
+Partire.
+
+67
+00:03:19,120 --> 00:03:24,159
+Perché da secondo te da più immagini ci
+
+68
+00:03:21,159 --> 00:03:24,159
+riusciamo?
+
+69
+00:03:28,040 --> 00:03:32,480
+Quindi hai detto da più immagini, però
+
+70
+00:03:30,040 --> 00:03:33,640
+implicitamente stai dicendo hai detto da
+
+71
+00:03:32,480 --> 00:03:35,080
+più più prospettive, quindi
+
+72
+00:03:33,640 --> 00:03:37,280
+implicitamente non stai dicendo solo due
+
+73
+00:03:35,080 --> 00:03:41,959
+immagini, stai dicendo qualcosa di più.
+
+74
+00:03:37,280 --> 00:03:43,680
+Due immagini più immagini prese come?
+
+75
+00:03:41,959 --> 00:03:44,920
+Da posizioni diverse, che è esattamente
+
+76
+00:03:43,680 --> 00:03:46,920
+quello che facciamo. Noi vediamo in tre
+
+77
+00:03:44,920 --> 00:03:49,400
+dimensioni, la vediamo in tre dimensioni
+
+78
+00:03:46,920 --> 00:03:51,439
+perché abbiamo due occhi e con un occhio
+
+79
+00:03:49,400 --> 00:03:53,400
+solo come facciamo? Se uno ha un occhio
+
+80
+00:03:51,439 --> 00:03:55,519
+solo, che fa? Ci vede perde la
+
+81
+00:03:53,400 --> 00:03:59,159
+bidimensionalità, la tridimensionalità
+
+82
+00:03:55,519 --> 00:04:01,920
+con un occhio solo. Siete sicuri?
+
+83
+00:03:59,159 --> 00:04:03,079
+È esattamente quello che si fa con un
+
+84
+00:04:01,920 --> 00:04:04,560
+occhio solo. A parte il fatto che tu
+
+85
+00:04:03,079 --> 00:04:06,400
+c'hai la conoscenza del mondo che ti va
+
+86
+00:04:04,560 --> 00:04:08,159
+istruendo, motivo per cui noi riusciamo
+
+87
+00:04:06,400 --> 00:04:10,239
+a capire anche le distanze guardando una
+
+88
+00:04:08,159 --> 00:04:12,599
+foto, no? Perché noi interpretiamo
+
+89
+00:04:10,239 --> 00:04:14,159
+quello che guardiamo,
+
+90
+00:04:12,599 --> 00:04:16,759
+ma in realtà con un occhio solo tu
+
+91
+00:04:14,159 --> 00:04:19,519
+riesci muovendoti, ma anche pochissimo,
+
+92
+00:04:16,759 --> 00:04:21,079
+riesci a ricostruire a capire a capire
+
+93
+00:04:19,519 --> 00:04:24,639
+il tuo cervello si adatta e riesce a
+
+94
+00:04:21,079 --> 00:04:24,639
+ricostruire distanze.
+
+95
+00:04:25,160 --> 00:04:29,759
+Ehm,
+
+96
+00:04:28,040 --> 00:04:31,680
+quindi la geometria, quindi modelliamo
+
+97
+00:04:29,759 --> 00:04:35,680
+la trasformazione e questa è quella la
+
+98
+00:04:31,680 --> 00:04:38,560
+parte che ci, diciamo, useremo
+
+99
+00:04:35,680 --> 00:04:40,479
+useremo principalmente. Poi chiaramente
+
+100
+00:04:38,560 --> 00:04:43,039
+esistono altre cose che abbiamo abbiamo
+
+101
+00:04:40,479 --> 00:04:46,560
+iniziato a guardare. L'ottica ovviamente
+
+102
+00:04:43,039 --> 00:04:48,120
+che è una la parte della fisica
+
+103
+00:04:46,560 --> 00:04:49,639
+divertentissima proprio ve la
+
+104
+00:04:48,120 --> 00:04:52,240
+raccomando, come lettura estiva, se
+
+105
+00:04:49,639 --> 00:04:55,160
+volete prendi un libro di ottiche
+
+106
+00:04:52,240 --> 00:04:56,880
+ehm
+
+107
+00:04:55,160 --> 00:04:58,759
+che serve perché perché abbiamo bisogno
+
+108
+00:04:56,880 --> 00:05:01,960
+delle lenti. Perché abbiamo bisogno
+
+109
+00:04:58,759 --> 00:05:05,840
+delle lenti? Perché abbiamo visto,
+
+110
+00:05:01,960 --> 00:05:08,840
+abbiamo cercato di convincervi che se eh
+
+111
+00:05:05,840 --> 00:05:11,280
+la luce deve passare attraverso un foro,
+
+112
+00:05:08,840 --> 00:05:13,960
+se non c'è quel foro tutti i raggi
+
+113
+00:05:11,280 --> 00:05:16,320
+ottici vengono sparati dappertutto sul
+
+114
+00:05:13,960 --> 00:05:18,639
+sensore, mentre la lente serve a fare in
+
+115
+00:05:16,320 --> 00:05:20,759
+modo che i raggi ottici vengono tutti
+
+116
+00:05:18,639 --> 00:05:23,000
+deviati, in maniera tale che vadano a,
+
+117
+00:05:20,759 --> 00:05:25,680
+come dire m
+
+118
+00:05:23,000 --> 00:05:27,319
+terminare, a convergere
+
+119
+00:05:25,680 --> 00:05:28,800
+grosso modo tutti nello stesso punto,
+
+120
+00:05:27,319 --> 00:05:31,280
+quelli che provengono dallo stesso punto
+
+121
+00:05:28,800 --> 00:05:31,280
+della scena.
+
+122
+00:05:31,479 --> 00:05:36,280
+E abbiamo visto che questo
+
+123
+00:05:34,680 --> 00:05:39,080
+la lente può risolvere il problema
+
+124
+00:05:36,280 --> 00:05:42,360
+soltanto localmente, non universalmente.
+
+125
+00:05:39,080 --> 00:05:44,560
+Cioè c'è soltanto una parte dello spazio
+
+126
+00:05:42,360 --> 00:05:46,160
+per cui la lente funziona e riesce
+
+127
+00:05:44,560 --> 00:05:48,919
+quindi a farti avere delle immagini
+
+128
+00:05:46,160 --> 00:05:54,080
+nitide. Tutto ciò che è fuori da quello
+
+129
+00:05:48,919 --> 00:05:56,160
+che si chiama eh campo di vista,
+
+130
+00:05:54,080 --> 00:05:59,080
+le immagini che ottieni sono sfocate.
+
+131
+00:05:56,160 --> 00:06:01,880
+Ok?
+
+132
+00:05:59,080 --> 00:06:04,880
+Eh, c'eramo, mi sembra c'eravamo fermati
+
+133
+00:06:01,880 --> 00:06:04,880
+qui
+
+134
+00:06:07,440 --> 00:06:12,759
+e appunto e avevamo
+
+135
+00:06:13,080 --> 00:06:17,880
+detto che c'è un'altra cosa
+
+136
+00:06:16,360 --> 00:06:20,680
+divertentissima
+
+137
+00:06:17,880 --> 00:06:24,479
+e con un formalismo leggerissimo, come
+
+138
+00:06:20,680 --> 00:06:26,720
+vedremo, che si chiama radiometria.
+
+139
+00:06:24,479 --> 00:06:29,720
+La radiometria cosa fa?
+
+140
+00:06:26,720 --> 00:06:29,720
+modella
+
+141
+00:06:30,080 --> 00:06:34,919
+come la luce, come si comporta la luce
+
+142
+00:06:33,280 --> 00:06:36,639
+fondamentalmente. Quindi, che cosa
+
+143
+00:06:34,919 --> 00:06:38,800
+abbiamo?
+
+144
+00:06:36,639 --> 00:06:41,199
+Ripetiamolo, noi vediamo perché la luce
+
+145
+00:06:38,800 --> 00:06:43,360
+arriva sul soggetto, sul sulla scena,
+
+146
+00:06:41,199 --> 00:06:47,440
+viene riflessa e quindi e arriva ai
+
+147
+00:06:43,360 --> 00:06:49,639
+nostri occhi e o arriva al sensore.
+
+148
+00:06:47,440 --> 00:06:51,680
+Tutta questa parte di arriva la luce,
+
+149
+00:06:49,639 --> 00:06:54,080
+viene riflessa, non è altro che quantità
+
+150
+00:06:51,680 --> 00:06:56,560
+di energia che vi si muove, che diciamo
+
+151
+00:06:54,080 --> 00:07:02,000
+nello spazio, eccetera eccetera. e viene
+
+152
+00:06:56,560 --> 00:07:03,240
+modellata tramite la tramite questa
+
+153
+00:07:02,000 --> 00:07:05,319
+sia sempre fisica che si chiama
+
+154
+00:07:03,240 --> 00:07:06,879
+radiometria dove vengono introdotte
+
+155
+00:07:05,319 --> 00:07:10,039
+tutti questi diciamo concetti di
+
+156
+00:07:06,879 --> 00:07:11,720
+radianza, irradianza, flusso che è la
+
+157
+00:07:10,039 --> 00:07:13,639
+quantità di luce che ti passa per angolo
+
+158
+00:07:11,720 --> 00:07:15,759
+solido, dove angolo solito forse l'avete
+
+159
+00:07:13,639 --> 00:07:19,199
+visto a scuola quando avete fatto i te
+
+160
+00:07:15,759 --> 00:07:21,759
+di GOS, cioè è un hai un angolo,
+
+161
+00:07:19,199 --> 00:07:25,520
+l'angolo ce lo conosciamo sul piano,
+
+162
+00:07:21,759 --> 00:07:29,639
+beh, se hai una sfera prendi un un un
+
+163
+00:07:25,520 --> 00:07:29,639
+cono. Quello è un angolo solido,
+
+164
+00:07:29,759 --> 00:07:34,479
+quindi esattamente lo stesso concetto.
+
+165
+00:07:31,759 --> 00:07:37,199
+Eh, come vedete, diciamo, il formalismo
+
+166
+00:07:34,479 --> 00:07:39,400
+abbastanza
+
+167
+00:07:37,199 --> 00:07:41,080
+pesante, hai delle derivate seconde,
+
+168
+00:07:39,400 --> 00:07:43,680
+riescono un pochettino di cose, non non
+
+169
+00:07:41,080 --> 00:07:45,759
+ci interessa assolutamente entrare in
+
+170
+00:07:43,680 --> 00:07:48,120
+questi in questi concetti. Tutte
+
+171
+00:07:45,759 --> 00:07:49,680
+definizioni, diciamo, che lasciano il
+
+172
+00:07:48,120 --> 00:07:52,759
+campo che trovano dal nostro punto di
+
+173
+00:07:49,680 --> 00:07:55,280
+vista. Ovviamente non le voglio sminuire
+
+174
+00:07:52,759 --> 00:07:57,280
+assolutamente, sia chiaro,
+
+175
+00:07:55,280 --> 00:08:00,680
+però ci interessano relativamente.
+
+176
+00:07:57,280 --> 00:08:02,199
+Quello che ci interessa però
+
+177
+00:08:00,680 --> 00:08:05,879
+è
+
+178
+00:08:02,199 --> 00:08:05,879
+in un certo senso
+
+179
+00:08:06,800 --> 00:08:10,960
+dal punto di vista delle immagini
+
+180
+00:08:11,520 --> 00:08:15,360
+a noi interessa quello che fa la
+
+181
+00:08:13,080 --> 00:08:17,280
+radiometria, quindi è modellare, cercare
+
+182
+00:08:15,360 --> 00:08:20,080
+di capire come la luce viene riflessa e
+
+183
+00:08:17,280 --> 00:08:22,240
+come arriva e quindi ho una sorgente
+
+184
+00:08:20,080 --> 00:08:24,280
+luminosa, questa questa sorgente
+
+185
+00:08:22,240 --> 00:08:26,919
+luminosa arriva sul soggetto, il
+
+186
+00:08:24,280 --> 00:08:31,240
+soggetto riflette la luce e mi arriva
+
+187
+00:08:26,919 --> 00:08:31,240
+arriva sul sensore.
+
+188
+00:08:31,440 --> 00:08:36,839
+Modellare questo cosa mi dice dal punto
+
+189
+00:08:35,200 --> 00:08:38,159
+di vista dell'analisi immagini? dal
+
+190
+00:08:36,839 --> 00:08:41,479
+punto di vista della immagini non mi
+
+191
+00:08:38,159 --> 00:08:44,159
+dice nulla, mi dice molto sulla
+
+192
+00:08:41,479 --> 00:08:47,920
+formazione delle immagini
+
+193
+00:08:44,159 --> 00:08:50,800
+e allora come tale forse è un interesse,
+
+194
+00:08:47,920 --> 00:08:51,839
+come vedremo, che si entra in gioco
+
+195
+00:08:50,800 --> 00:08:55,600
+nella formazione dell'immagine, quindi
+
+196
+00:08:51,839 --> 00:08:57,760
+dobbiamo sapere che esiste, però forse è
+
+197
+00:08:55,600 --> 00:08:59,440
+più interessante non tanto direttamente
+
+198
+00:08:57,760 --> 00:09:01,000
+per la computer vision, ma per un altro
+
+199
+00:08:59,440 --> 00:09:03,680
+ambito
+
+200
+00:09:01,000 --> 00:09:05,720
+che è legato proprio alla formazione
+
+201
+00:09:03,680 --> 00:09:09,079
+delle immagini di cui probabilmente
+
+202
+00:09:05,720 --> 00:09:10,760
+avete sentito parlare che è la computer
+
+203
+00:09:09,079 --> 00:09:13,000
+graphics.
+
+204
+00:09:10,760 --> 00:09:14,760
+Ok? La computer graphics cosa hai? Hai
+
+205
+00:09:13,000 --> 00:09:17,040
+un modello
+
+206
+00:09:14,760 --> 00:09:19,959
+del mondo,
+
+207
+00:09:17,040 --> 00:09:21,800
+cioè la computer vision siamo cosa fai?
+
+208
+00:09:19,959 --> 00:09:24,480
+Hai le immagini acquisite dal mondo e
+
+209
+00:09:21,800 --> 00:09:27,200
+ricostruisci in qualche maniera il mondo
+
+210
+00:09:24,480 --> 00:09:29,079
+tridimensionalmente, interpretazione,
+
+211
+00:09:27,200 --> 00:09:31,480
+riconoscimento, quello che volete, ma
+
+212
+00:09:29,079 --> 00:09:33,640
+dai un'interpretazione del mondo.
+
+213
+00:09:31,480 --> 00:09:35,360
+Computer graphics cosa fa? al contrario
+
+214
+00:09:33,640 --> 00:09:39,040
+c'ha una rappresentazione del mondo
+
+215
+00:09:35,360 --> 00:09:41,000
+sintetica e crea immagini sintetiche.
+
+216
+00:09:39,040 --> 00:09:44,680
+Allora, in questo caso, per creare
+
+217
+00:09:41,000 --> 00:09:46,360
+immagini il più possibile realistiche
+
+218
+00:09:44,680 --> 00:09:48,440
+o per creare immagini in generale hai
+
+219
+00:09:46,360 --> 00:09:51,000
+bisogno di modellare
+
+220
+00:09:48,440 --> 00:09:53,959
+la luce, quindi hai bisogno di capire
+
+221
+00:09:51,000 --> 00:09:55,440
+come definire una sorgente luminosa, che
+
+222
+00:09:53,959 --> 00:09:57,760
+cosa significa avere una sorgente
+
+223
+00:09:55,440 --> 00:10:03,959
+luminosa in una determinata posizione e
+
+224
+00:09:57,760 --> 00:10:05,920
+principalmente la cosa importante è come
+
+225
+00:10:03,959 --> 00:10:08,640
+eh gli oggetti nella scena riflettono la
+
+226
+00:10:05,920 --> 00:10:10,519
+luce.
+
+227
+00:10:08,640 --> 00:10:13,200
+Perché è quello che fa formare le
+
+228
+00:10:10,519 --> 00:10:15,000
+immagini, la luce arriva sul soggetto e
+
+229
+00:10:13,200 --> 00:10:17,360
+la riflette.
+
+230
+00:10:15,000 --> 00:10:20,320
+Quindi la cosa che si vede è che sono
+
+231
+00:10:17,360 --> 00:10:22,279
+stati proposti nel tempo, diciamo,
+
+232
+00:10:20,320 --> 00:10:26,440
+quello che cambia
+
+233
+00:10:22,279 --> 00:10:26,440
+fra i vari, diciamo, approcci
+
+234
+00:10:26,680 --> 00:10:32,640
+la definizione della proprietà
+
+235
+00:10:29,720 --> 00:10:37,200
+riflettenti del materiale. Più accurato
+
+236
+00:10:32,640 --> 00:10:39,200
+sei nella definizione, nel modellare la
+
+237
+00:10:37,200 --> 00:10:41,839
+riflettanza degli oggetti, più la tua
+
+238
+00:10:39,200 --> 00:10:43,160
+immagine sarà realistica.
+
+239
+00:10:41,839 --> 00:10:47,399
+Ok?
+
+240
+00:10:43,160 --> 00:10:50,360
+Il primo modello che eh viene proposto
+
+241
+00:10:47,399 --> 00:10:52,560
+in nella storia è il modello
+
+242
+00:10:50,360 --> 00:10:55,399
+lambertiano. Ora, essendo il primo
+
+243
+00:10:52,560 --> 00:10:57,800
+modello che si propone,
+
+244
+00:10:55,399 --> 00:10:59,959
+viene da sé
+
+245
+00:10:57,800 --> 00:11:02,160
+capire che è qualcosa di particolarmente
+
+246
+00:10:59,959 --> 00:11:05,639
+semplice, no?
+
+247
+00:11:02,160 --> 00:11:07,360
+In realtà è talmente semplice
+
+248
+00:11:05,639 --> 00:11:10,639
+che
+
+249
+00:11:07,360 --> 00:11:13,600
+eh è una prossimazione del mondo reale
+
+250
+00:11:10,639 --> 00:11:15,360
+veramente quasi di
+
+251
+00:11:13,600 --> 00:11:18,200
+come dire
+
+252
+00:11:15,360 --> 00:11:22,240
+eh non molto affidabile. Quello che
+
+253
+00:11:18,200 --> 00:11:25,040
+modella è dice ciò che vedo
+
+254
+00:11:22,240 --> 00:11:27,680
+è lo stesso indipendentemente dalla
+
+255
+00:11:25,040 --> 00:11:29,519
+posizione dell'osservatore.
+
+256
+00:11:27,680 --> 00:11:31,880
+Quindi, se io guardo un oggetto su cui
+
+257
+00:11:29,519 --> 00:11:34,600
+arriva la luce e cambio posizione, io
+
+258
+00:11:31,880 --> 00:11:36,480
+vedrò sempre la stessa quantità di luce
+
+259
+00:11:34,600 --> 00:11:39,160
+per quel per ogni singolo punto della
+
+260
+00:11:36,480 --> 00:11:41,760
+superficie che mi arriva. Questo,
+
+261
+00:11:39,160 --> 00:11:44,279
+diciamo, è abbastanza poco realistico.
+
+262
+00:11:41,760 --> 00:11:48,680
+Voi sapete benissimo che se io cambio ci
+
+263
+00:11:44,279 --> 00:11:52,079
+sono delle specul, diciamo, eh tipico
+
+264
+00:11:48,680 --> 00:11:54,680
+esempio è la eh la pella umana, la
+
+265
+00:11:52,079 --> 00:11:57,360
+fronte. Se cambi posizione, cioè vedi
+
+266
+00:11:54,680 --> 00:12:00,399
+delle luminosità che cambiano a causa
+
+267
+00:11:57,360 --> 00:12:02,480
+del sudore, delle cose e questo cambia
+
+268
+00:12:00,399 --> 00:12:05,360
+nettamente con con la posizione. Quindi
+
+269
+00:12:02,480 --> 00:12:09,079
+è un modello che è semplice, ti permette
+
+270
+00:12:05,360 --> 00:12:10,920
+di fare cose, ma tu permetti realistica.
+
+271
+00:12:09,079 --> 00:12:13,839
+Pian piano le cose, diciamo, si sono un
+
+272
+00:12:10,920 --> 00:12:17,519
+pochettino complicate
+
+273
+00:12:13,839 --> 00:12:20,560
+e eh si sono introdotte superf, diciamo,
+
+274
+00:12:17,519 --> 00:12:23,320
+riflettenze sculari, eh dove
+
+275
+00:12:20,560 --> 00:12:24,920
+fondamentalmente assumi che la
+
+276
+00:12:23,320 --> 00:12:29,160
+superficie si comporta esattamente come
+
+277
+00:12:24,920 --> 00:12:29,160
+uno specchio, ma anche quello
+
+278
+00:12:29,279 --> 00:12:32,360
+più interessante,
+
+279
+00:12:31,120 --> 00:12:34,079
+probabilmente, ma anche quello
+
+280
+00:12:32,360 --> 00:12:35,199
+abbastanza realistico, perché non noi
+
+281
+00:12:34,079 --> 00:12:36,680
+gli oggetti non si comportano
+
+282
+00:12:35,199 --> 00:12:40,399
+esattamente come lo specchio, perché lo
+
+283
+00:12:36,680 --> 00:12:43,720
+specchio cosha è lì. No, perfetto.
+
+284
+00:12:40,399 --> 00:12:46,519
+Quindi non ci sono villaggio arriva e
+
+285
+00:12:43,720 --> 00:12:49,000
+viene riflesso secondo la la direzione,
+
+286
+00:12:46,519 --> 00:12:51,760
+diciamo, opposta. Eh, no, opposta
+
+287
+00:12:49,000 --> 00:12:53,440
+quella, come si dicevo, l'angolo è che
+
+288
+00:12:51,760 --> 00:12:57,000
+si si forma lo stesso tutte e due le
+
+289
+00:12:53,440 --> 00:12:59,160
+parti. Ehm, in realtà le superfici come
+
+290
+00:12:57,000 --> 00:13:01,639
+sono? Le superfici sono ruvide.
+
+291
+00:12:59,160 --> 00:13:04,120
+Nella realtà fatto che le superfici sono
+
+292
+00:13:01,639 --> 00:13:07,560
+rubide significa
+
+293
+00:13:04,120 --> 00:13:10,079
+che la luce cambia direzione a seconda
+
+294
+00:13:07,560 --> 00:13:12,480
+del punto dove stai grattando. Allora
+
+295
+00:13:10,079 --> 00:13:14,399
+iniziano a farsi modelli un pochettino
+
+296
+00:13:12,480 --> 00:13:16,320
+più
+
+297
+00:13:14,399 --> 00:13:18,800
+complessi dove è interessante ad esempio
+
+298
+00:13:16,320 --> 00:13:21,000
+questo qua. Questo è il modello di
+
+299
+00:13:18,800 --> 00:13:22,560
+Torrence Sparrow
+
+300
+00:13:21,000 --> 00:13:27,360
+che fondamentalmente che dice vabbè io
+
+301
+00:13:22,560 --> 00:13:29,639
+localmente lo faccio l'idea qual è? eh
+
+302
+00:13:27,360 --> 00:13:31,440
+in maniera
+
+303
+00:13:29,639 --> 00:13:33,480
+molto semplicistica, malite
+
+304
+00:13:31,440 --> 00:13:35,480
+fondamentalmente quella. Io ho questa
+
+305
+00:13:33,480 --> 00:13:38,240
+superficie che è tutta ruvida, fatta e
+
+306
+00:13:35,480 --> 00:13:39,839
+cose per ogni è fatta da piccole
+
+307
+00:13:38,240 --> 00:13:42,160
+componenti che si comportano esattamente
+
+308
+00:13:39,839 --> 00:13:44,399
+come uno specchio,
+
+309
+00:13:42,160 --> 00:13:46,920
+ok? Quindi ho piccole faccette di
+
+310
+00:13:44,399 --> 00:13:50,160
+specchio che si compongono fra di loro
+
+311
+00:13:46,920 --> 00:13:52,440
+formando una superficie contorta. La
+
+312
+00:13:50,160 --> 00:13:55,519
+luce quindi arriva su ogni punto, viene
+
+313
+00:13:52,440 --> 00:13:57,279
+riflessa specarmente,
+
+314
+00:13:55,519 --> 00:13:59,160
+ma le angolazioni dei vari specchietti
+
+315
+00:13:57,279 --> 00:14:02,440
+sono diverse e quindi simuli in questa
+
+316
+00:13:59,160 --> 00:14:05,440
+maniera una superficie un pochino più
+
+317
+00:14:02,440 --> 00:14:05,440
+naturale.
+
+318
+00:14:07,519 --> 00:14:13,920
+le cose che sono evolute e quello che si
+
+319
+00:14:10,120 --> 00:14:17,880
+è andato a studiare
+
+320
+00:14:13,920 --> 00:14:20,120
+fondamentalmente sono eh
+
+321
+00:14:17,880 --> 00:14:22,320
+quindi l'idea è stata di incominciare a
+
+322
+00:14:20,120 --> 00:14:24,680
+partire da oggetti reali e studiare una
+
+323
+00:14:22,320 --> 00:14:27,240
+cosa che si chiamaf,
+
+324
+00:14:24,680 --> 00:14:29,120
+cioè riflettanza, distribuzione della
+
+325
+00:14:27,240 --> 00:14:31,720
+riflettanza funzionale distribuzione
+
+326
+00:14:29,120 --> 00:14:33,320
+della riflettanza bidirezionale.
+
+327
+00:14:31,720 --> 00:14:35,399
+Fondamentalmente cosai? Ha un poco di
+
+328
+00:14:33,320 --> 00:14:38,199
+oggetti, gli oggetti che vuoi modellare
+
+329
+00:14:35,399 --> 00:14:40,959
+e vai a misurare la luce, come arriva la
+
+330
+00:14:38,199 --> 00:14:45,720
+luce in varie varie parti e da lì puoi
+
+331
+00:14:40,959 --> 00:14:45,720
+ricostruire tutto quello che succede.
+
+332
+00:14:46,040 --> 00:14:50,519
+Tutte queste cose ti permettono quindi
+
+333
+00:14:48,399 --> 00:14:52,519
+misuri quelle che sono le proprietà di
+
+334
+00:14:50,519 --> 00:14:53,920
+riflettanza dell'oggetto, le misuri e
+
+335
+00:14:52,519 --> 00:14:56,160
+poi le ricostruisci in qualche maniera
+
+336
+00:14:53,920 --> 00:14:57,480
+in interpolazioni e cose del genere.
+
+337
+00:14:56,160 --> 00:14:59,440
+Questo ti permette di passare a
+
+338
+00:14:57,480 --> 00:15:01,680
+ricostruzioni,
+
+339
+00:14:59,440 --> 00:15:05,000
+che si capisce qualcosa, da ricostr,
+
+340
+00:15:01,680 --> 00:15:07,680
+diciamo, sintesi che sono tradizionali
+
+341
+00:15:05,000 --> 00:15:10,639
+come questa, abbastanza semplicistiche,
+
+342
+00:15:07,680 --> 00:15:11,920
+ce la posso fare come questa a cose un
+
+343
+00:15:10,639 --> 00:15:13,800
+pochettino più realistiche dove
+
+344
+00:15:11,920 --> 00:15:15,160
+addirittura si vedono gli oggetti,
+
+345
+00:15:13,800 --> 00:15:17,000
+diciamo, riflessi nello specchietto
+
+346
+00:15:15,160 --> 00:15:21,079
+all'interno proprio riesce a capire che
+
+347
+00:15:17,000 --> 00:15:23,399
+le proprietà di riflettanza di una parte
+
+348
+00:15:21,079 --> 00:15:26,320
+della scena è diversa da altre parti,
+
+349
+00:15:23,399 --> 00:15:26,320
+diciamo, dell'oggetto.
+
+350
+00:15:28,440 --> 00:15:33,920
+E questo è stato, diciamo, è arrivato
+
+351
+00:15:31,560 --> 00:15:34,839
+quindi ad, diciamo, pian piano nel tempo
+
+352
+00:15:33,920 --> 00:15:36,240
+si è arrivati a quello che sono,
+
+353
+00:15:34,839 --> 00:15:37,759
+diciamo, quello che vediamo nei nostri
+
+354
+00:15:36,240 --> 00:15:39,959
+giochi oramai quelli che usiamo adesso,
+
+355
+00:15:37,759 --> 00:15:42,480
+quelli che usate per adesso, dove
+
+356
+00:15:39,959 --> 00:15:43,639
+diciamo le immagini sono molte parti,
+
+357
+00:15:42,480 --> 00:15:47,399
+specialmente quelle diciamo più
+
+358
+00:15:43,639 --> 00:15:50,160
+narrative, sono di altissima qualità.
+
+359
+00:15:47,399 --> 00:15:54,399
+Eh, ovviamente
+
+360
+00:15:50,160 --> 00:15:56,440
+non può mancare, diciamo, ormai l'ospite
+
+361
+00:15:54,399 --> 00:15:58,360
+che è ovunque, che è il machine learning
+
+362
+00:15:56,440 --> 00:16:02,319
+o se vogliamo dire per artificial
+
+363
+00:15:58,360 --> 00:16:04,880
+intelligence, me piace chiamarlo oramai,
+
+364
+00:16:02,319 --> 00:16:08,000
+che può fare varie cose, ad esempio, può
+
+365
+00:16:04,880 --> 00:16:11,040
+imparare a eh
+
+366
+00:16:08,000 --> 00:16:13,560
+uno dei problemi è fare
+
+367
+00:16:11,040 --> 00:16:18,600
+che è molto costoso fare il ray rising,
+
+368
+00:16:13,560 --> 00:16:20,440
+cioè hai il modello Eh, e ricostruire
+
+369
+00:16:18,600 --> 00:16:22,759
+l'immagine, come la fai? Proietti i
+
+370
+00:16:20,440 --> 00:16:24,319
+raggi e poi li li ricostruisci, no?
+
+371
+00:16:22,759 --> 00:16:26,399
+raggio che arriva sulla scena, sul
+
+372
+00:16:24,319 --> 00:16:28,680
+modello della della scena e lo lo
+
+373
+00:16:26,399 --> 00:16:30,920
+riproietti all'indietro e ti arriva sul
+
+374
+00:16:28,680 --> 00:16:33,759
+sull'immagine e costruisci l'immagine
+
+375
+00:16:30,920 --> 00:16:35,440
+piano piano. Eh, tenendo conto delle
+
+376
+00:16:33,759 --> 00:16:37,959
+varie hai tutti algoritmi che ti devono
+
+377
+00:16:35,440 --> 00:16:40,480
+tenere conto eventuali,
+
+378
+00:16:37,959 --> 00:16:42,120
+come dire, eh il fatto che alcuni
+
+379
+00:16:40,480 --> 00:16:44,440
+oggetti sono dietro, quindi non puoi
+
+380
+00:16:42,120 --> 00:16:46,959
+vederli da quel punto di vista, quindi
+
+381
+00:16:44,440 --> 00:16:48,480
+costruire tutte queste cose. Retracing.
+
+382
+00:16:46,959 --> 00:16:50,319
+Chiaramente per avere un'immagine
+
+383
+00:16:48,480 --> 00:16:52,560
+altamente
+
+384
+00:16:50,319 --> 00:16:54,319
+realistica hai bisogno di farne parecchi
+
+385
+00:16:52,560 --> 00:16:56,399
+parecchi raggiottici che devono arrivare
+
+386
+00:16:54,319 --> 00:17:00,160
+sulle macchine. È un pochettino
+
+387
+00:16:56,399 --> 00:17:02,600
+complicato, molto è un processo noioso e
+
+388
+00:17:00,160 --> 00:17:04,280
+può essere un pochettino aiutato
+
+389
+00:17:02,600 --> 00:17:05,720
+specialmente in particolare dal per
+
+390
+00:17:04,280 --> 00:17:07,199
+quanto riguarda il denoing e super
+
+391
+00:17:05,720 --> 00:17:09,000
+resolution per machine learning. Quindi
+
+392
+00:17:07,199 --> 00:17:11,360
+tu che cosa fai?
+
+393
+00:17:09,000 --> 00:17:13,160
+ti fai il retracing a una risoluzione un
+
+394
+00:17:11,360 --> 00:17:16,199
+pochettino più bassa e poi fai un
+
+395
+00:17:13,160 --> 00:17:20,000
+upscale della risoluzione utilizzando
+
+396
+00:17:16,199 --> 00:17:22,039
+metodo di DM usando un eh un metodo di
+
+397
+00:17:20,000 --> 00:17:25,439
+apprendimento che è addestrato proprio
+
+398
+00:17:22,039 --> 00:17:27,799
+per ricostruire la più alta risoluzione
+
+399
+00:17:25,439 --> 00:17:32,080
+e in questa maniera parallelamente poi
+
+400
+00:17:27,799 --> 00:17:32,080
+farete nois cioè rimuovere il
+
+401
+00:17:32,400 --> 00:17:38,160
+eh
+
+402
+00:17:34,919 --> 00:17:39,679
+analogamente ritorniamo alla BRTF F
+
+403
+00:17:38,160 --> 00:17:41,400
+miamo detto che la misuri per un poco di
+
+404
+00:17:39,679 --> 00:17:44,720
+punti. Vabbè, allora a questo punto puoi
+
+405
+00:17:41,400 --> 00:17:49,440
+pr provare ad apprenderla, no?
+
+406
+00:17:44,720 --> 00:17:52,919
+A a tre a destri un
+
+407
+00:17:49,440 --> 00:17:56,480
+come si chiama? un regressore per
+
+408
+00:17:52,919 --> 00:18:00,240
+costruire quindi la PRDF da una varie di
+
+409
+00:17:56,480 --> 00:18:01,880
+serie di nulizioni che hai fatto.
+
+410
+00:18:00,240 --> 00:18:04,280
+Ehm,
+
+411
+00:18:01,880 --> 00:18:05,640
+altra cosa
+
+412
+00:18:04,280 --> 00:18:08,799
+che è interessante è quello che si
+
+413
+00:18:05,640 --> 00:18:12,440
+chiama neuronal rendering, cioè ma io
+
+414
+00:18:08,799 --> 00:18:14,600
+invece di
+
+415
+00:18:12,440 --> 00:18:17,039
+questo si riallaccia a quello che è un
+
+416
+00:18:14,600 --> 00:18:18,480
+diciamo a una cosa che si chiamava, cioè
+
+417
+00:18:17,039 --> 00:18:20,799
+priamo prima parliamo di questo più di
+
+418
+00:18:18,480 --> 00:18:23,960
+quest'altro, a una cosa che era molto
+
+419
+00:18:20,799 --> 00:18:26,320
+popolare negli anni inizio inizio di
+
+420
+00:18:23,960 --> 00:18:30,320
+questo secolo fondamentalmente che si
+
+421
+00:18:26,320 --> 00:18:31,799
+chiama Image Base Randering.
+
+422
+00:18:30,320 --> 00:18:33,840
+Allora, obiettivo della Computer
+
+423
+00:18:31,799 --> 00:18:36,919
+Graphics
+
+424
+00:18:33,840 --> 00:18:40,400
+è costruire immagini che sono il più
+
+425
+00:18:36,919 --> 00:18:40,400
+possibile realistiche.
+
+426
+00:18:42,520 --> 00:18:47,320
+E significa quindi io ho una scena, ho
+
+427
+00:18:45,360 --> 00:18:50,559
+delle imm, diciamo, ho questa scena e
+
+428
+00:18:47,320 --> 00:18:52,919
+voglio essere capace a sintetizzare la
+
+429
+00:18:50,559 --> 00:18:55,520
+scena che sto guardando, non soltanto un
+
+430
+00:18:52,919 --> 00:18:57,640
+modello, anche reale, da più possibili
+
+431
+00:18:55,520 --> 00:19:00,039
+punti di vista. Io non posso avere
+
+432
+00:18:57,640 --> 00:19:03,039
+telecamere in ogni posizione, quindi
+
+433
+00:19:00,039 --> 00:19:05,080
+voglio essere capace di ricostruire una
+
+434
+00:19:03,039 --> 00:19:09,039
+carrellata,
+
+435
+00:19:05,080 --> 00:19:09,039
+per esempio, di eh
+
+436
+00:19:09,280 --> 00:19:13,600
+come una una telecamera che si muove
+
+437
+00:19:12,320 --> 00:19:15,760
+continuamente all'interno della scena,
+
+438
+00:19:13,600 --> 00:19:19,600
+però io non ho la telecamera che si
+
+439
+00:19:15,760 --> 00:19:19,600
+muove all'interno della scena.
+
+440
+00:19:20,159 --> 00:19:25,520
+Ehm
+
+441
+00:19:22,440 --> 00:19:29,000
+l'idea qual è? Beh, io da un certo punto
+
+442
+00:19:25,520 --> 00:19:31,039
+di vista quello eravamo al momento in
+
+443
+00:19:29,000 --> 00:19:33,720
+cui il problema della ricostruzione
+
+444
+00:19:31,039 --> 00:19:34,960
+dalle dalle immaginizione
+
+445
+00:19:33,720 --> 00:19:38,120
+tridimensionale che una scena delle
+
+446
+00:19:34,960 --> 00:19:41,640
+immagini era già stato risolto,
+
+447
+00:19:38,120 --> 00:19:42,640
+teoricamente risolto, mancava far
+
+448
+00:19:41,640 --> 00:19:45,320
+funzionare le cose bene
+
+449
+00:19:42,640 --> 00:19:47,760
+fondamentalmente, ma le idee c'erano già
+
+450
+00:19:45,320 --> 00:19:49,280
+tutte.
+
+451
+00:19:47,760 --> 00:19:51,799
+Ehm,
+
+452
+00:19:49,280 --> 00:19:53,960
+e allora però che cosa vedi? Io c'ho una
+
+453
+00:19:51,799 --> 00:19:55,520
+scena reale,
+
+454
+00:19:53,960 --> 00:19:57,640
+c'ho un po' di immagini prese
+
+455
+00:19:55,520 --> 00:19:59,799
+dappertutto.
+
+456
+00:19:57,640 --> 00:20:01,120
+Avere un poco di immagini prese da vari
+
+457
+00:19:59,799 --> 00:20:02,400
+punti di vista mi permette di
+
+458
+00:20:01,120 --> 00:20:04,280
+ricostruire la scena
+
+459
+00:20:02,400 --> 00:20:07,720
+tridimensionalmente. Questa è una cosa
+
+460
+00:20:04,280 --> 00:20:09,640
+che posso fare. Ma se ho ricostruito la
+
+461
+00:20:07,720 --> 00:20:11,400
+scena tridimensionalmente,
+
+462
+00:20:09,640 --> 00:20:14,400
+ho un modello tridimensionale della
+
+463
+00:20:11,400 --> 00:20:14,400
+scena
+
+464
+00:20:14,480 --> 00:20:18,559
+geometrico, mi manca la parte di luce.
+
+465
+00:20:17,080 --> 00:20:20,360
+Ma la parte di luce ce l'ho nelle
+
+466
+00:20:18,559 --> 00:20:23,240
+immagini.
+
+467
+00:20:20,360 --> 00:20:26,120
+Cioè, se io mappo le mie immagini che ho
+
+468
+00:20:23,240 --> 00:20:27,520
+acquisito, che mi danno
+
+469
+00:20:26,120 --> 00:20:29,600
+una tessitura, cioè quello che sto
+
+470
+00:20:27,520 --> 00:20:32,760
+veramente vedendo sui punti
+
+471
+00:20:29,600 --> 00:20:34,400
+tridimensionali che ho ricostruito, io
+
+472
+00:20:32,760 --> 00:20:36,159
+ho
+
+473
+00:20:34,400 --> 00:20:37,640
+sto misurando in qualche maniera la
+
+474
+00:20:36,159 --> 00:20:40,240
+quantità di luce che arriva su ogni
+
+475
+00:20:37,640 --> 00:20:42,400
+punto e allora poi la posso rimappare
+
+476
+00:20:40,240 --> 00:20:44,799
+indietro.
+
+477
+00:20:42,400 --> 00:20:46,799
+C'ho un modello, ho misurato la luce di
+
+478
+00:20:44,799 --> 00:20:48,679
+qualche maniera tramite le immagini. e
+
+479
+00:20:46,799 --> 00:20:53,039
+posso usare metodi di Computer graphics
+
+480
+00:20:48,679 --> 00:20:55,159
+per rimappare, oppure posso dire "Ma io
+
+481
+00:20:53,039 --> 00:20:57,440
+il modello lo ricostruisco dalle
+
+482
+00:20:55,159 --> 00:20:59,080
+immagini.
+
+483
+00:20:57,440 --> 00:21:00,640
+Da questo modello posso riproiettare
+
+484
+00:20:59,080 --> 00:21:03,159
+perché io metto una camera sintetica in
+
+485
+00:21:00,640 --> 00:21:05,400
+ogni posizione e faccio la proiezione.
+
+486
+00:21:03,159 --> 00:21:07,600
+Abbiamo visto l'altra volta, abbiamo
+
+487
+00:21:05,400 --> 00:21:09,400
+siamo nella capacità di calcolare, avere
+
+488
+00:21:07,600 --> 00:21:12,400
+l'equazioni di proiezione, posso fare la
+
+489
+00:21:09,400 --> 00:21:12,400
+riproiezione.
+
+490
+00:21:12,520 --> 00:21:18,080
+Ma allora se io parto dalle immagini,
+
+491
+00:21:15,440 --> 00:21:19,360
+ricostruisco, riproietto,
+
+492
+00:21:18,080 --> 00:21:21,159
+allora forse posso fare le cose
+
+493
+00:21:19,360 --> 00:21:23,520
+direttamente perché tanto l'informazione
+
+494
+00:21:21,159 --> 00:21:25,000
+della Se io dalle immagini posso
+
+495
+00:21:23,520 --> 00:21:27,400
+ricostruire la scena, significa che
+
+496
+00:21:25,000 --> 00:21:30,200
+l'informazione della scena
+
+497
+00:21:27,400 --> 00:21:33,799
+geometrica è all'interno dell'immagine,
+
+498
+00:21:30,200 --> 00:21:36,520
+lo tengo direttamente da lì, è nascosta
+
+499
+00:21:33,799 --> 00:21:38,240
+embedded, direbbe qualcuno,
+
+500
+00:21:36,520 --> 00:21:40,080
+all'interno delle immagini, dalle
+
+501
+00:21:38,240 --> 00:21:42,880
+sequenza di immagini, dalla moltitudine
+
+502
+00:21:40,080 --> 00:21:44,520
+di immagini che ho preso della scena.
+
+503
+00:21:42,880 --> 00:21:46,840
+Più la scena è complessa, chiaramente
+
+504
+00:21:44,520 --> 00:21:50,159
+più immagini ho bisogno. Ma a questo
+
+505
+00:21:46,840 --> 00:21:52,159
+punto posso pensare di mappare di
+
+506
+00:21:50,159 --> 00:21:54,080
+direttamente dalla immagine all'immagine
+
+507
+00:21:52,159 --> 00:21:55,880
+nuova,
+
+508
+00:21:54,080 --> 00:21:58,159
+ok?
+
+509
+00:21:55,880 --> 00:22:01,080
+Sfruttando quell'informazione
+
+510
+00:21:58,159 --> 00:22:03,760
+e fondamentalmente quello che fa è un
+
+511
+00:22:01,080 --> 00:22:06,360
+diciamo uno shortcut per bypassare la
+
+512
+00:22:03,760 --> 00:22:08,799
+ricostruzione, la riproiezione.
+
+513
+00:22:06,360 --> 00:22:10,640
+Riproietti direttamente. Cosa fai? hai
+
+514
+00:22:08,799 --> 00:22:13,600
+le immagini, proietti direttamente sopra
+
+515
+00:22:10,640 --> 00:22:18,080
+una immagine, essenzialmente.
+
+516
+00:22:13,600 --> 00:22:20,360
+E qual è il vantaggio? Che tu proietti
+
+517
+00:22:18,080 --> 00:22:22,559
+pixel per cui hai già l'informazione
+
+518
+00:22:20,360 --> 00:22:26,799
+visiva, quindi non te ne frega niente di
+
+519
+00:22:22,559 --> 00:22:29,919
+misurare la funzione di di riflettanza.
+
+520
+00:22:26,799 --> 00:22:33,799
+Non ti serve niente modellare come la
+
+521
+00:22:29,919 --> 00:22:36,840
+luce si comporta. Ce l'hai già.
+
+522
+00:22:33,799 --> 00:22:38,120
+La realtà è già all'interfini.
+
+523
+00:22:36,840 --> 00:22:40,000
+Ok.
+
+524
+00:22:38,120 --> 00:22:41,559
+e sono usciti un poco di cose abbastanza
+
+525
+00:22:40,000 --> 00:22:44,840
+carine, interessanti che sono anche
+
+526
+00:22:41,559 --> 00:22:44,840
+state utilizzate,
+
+527
+00:22:46,039 --> 00:22:52,760
+ad esempio, penso che tutti avete visto
+
+528
+00:22:47,679 --> 00:22:55,799
+Matrix, no? No, non è non è un film per
+
+529
+00:22:52,760 --> 00:22:57,240
+giovani. Eh,
+
+530
+00:22:55,799 --> 00:23:00,919
+ve lo consiglio. Una trilogia in
+
+531
+00:22:57,240 --> 00:23:00,919
+particolare, il primo è carino,
+
+532
+00:23:01,120 --> 00:23:04,120
+eh,
+
+533
+00:23:04,360 --> 00:23:10,520
+molto cyberpunk, no? Viviamo in le
+
+534
+00:23:07,880 --> 00:23:12,000
+persone sono non vivono realmente, ma
+
+535
+00:23:10,520 --> 00:23:16,120
+immaginano di vivere perché in realtà
+
+536
+00:23:12,000 --> 00:23:17,480
+sono delle batterie che vengono a eh
+
+537
+00:23:16,120 --> 00:23:21,000
+stanno nutrendo l'intelligenza
+
+538
+00:23:17,480 --> 00:23:24,960
+artificiale, un incubo abbastanza
+
+539
+00:23:21,000 --> 00:23:27,880
+reale in questi giorni per volta gente e
+
+540
+00:23:24,960 --> 00:23:29,799
+immagin e quindi loro vivono in una
+
+541
+00:23:27,880 --> 00:23:32,080
+realtà virtuale.
+
+542
+00:23:29,799 --> 00:23:36,080
+Ok?
+
+543
+00:23:32,080 --> 00:23:38,880
+Ehm, molte scene che sono abbastanza
+
+544
+00:23:36,080 --> 00:23:40,440
+accurate sono state ricostruite e
+
+545
+00:23:38,880 --> 00:23:43,039
+facendo image interpolation, quindi
+
+546
+00:23:40,440 --> 00:23:45,600
+avevi una serie di telecamere eh che ti
+
+547
+00:23:43,039 --> 00:23:47,960
+seguivano la scena per avere un frame
+
+548
+00:23:45,600 --> 00:23:49,760
+rate molto più alto perché dovevano lo
+
+549
+00:23:47,960 --> 00:23:52,000
+dovevano rallentare parecchio, dovevano
+
+550
+00:23:49,760 --> 00:23:54,360
+scendevano al di sotto della risoluzione
+
+551
+00:23:52,000 --> 00:23:57,279
+che riuscivi spaziale spaziale e
+
+552
+00:23:54,360 --> 00:23:59,000
+temporale che riuscivi ad avere con
+
+553
+00:23:57,279 --> 00:24:02,000
+un set abbastanza di telecamere hanno
+
+554
+00:23:59,000 --> 00:24:04,320
+dovuto interpolare frame in mezzo e
+
+555
+00:24:02,000 --> 00:24:06,880
+questo l'hanno fatto con tecniche di con
+
+556
+00:24:04,320 --> 00:24:08,960
+tecniche di questo tipo.
+
+557
+00:24:06,880 --> 00:24:12,720
+Quindi questo sono metodi tutti più o
+
+558
+00:24:08,960 --> 00:24:12,720
+meno eh
+
+559
+00:24:13,039 --> 00:24:18,440
+più o meno geometrici, ma poi c'è stato
+
+560
+00:24:16,159 --> 00:24:21,360
+poi l'esplosione
+
+561
+00:24:18,440 --> 00:24:23,360
+del eh
+
+562
+00:24:21,360 --> 00:24:24,799
+delle reti neurali che cominciano a
+
+563
+00:24:23,360 --> 00:24:26,440
+essere hanno incominciato
+
+564
+00:24:24,799 --> 00:24:28,600
+improvvisamente a poter risolvere
+
+565
+00:24:26,440 --> 00:24:32,240
+problemi talmente complessi e si è
+
+566
+00:24:28,600 --> 00:24:35,640
+pensato allora io posso addestrare
+
+567
+00:24:32,240 --> 00:24:38,120
+un mezzo a generare una rete a generare
+
+568
+00:24:35,640 --> 00:24:40,760
+immagini in partire immagini. Faccio una
+
+569
+00:24:38,120 --> 00:24:42,679
+collezione di immagini, dico a partire
+
+570
+00:24:40,760 --> 00:24:43,799
+da queste mi puoi generare questa, a
+
+571
+00:24:42,679 --> 00:24:45,679
+partire da questa mi puoi generare
+
+572
+00:24:43,799 --> 00:24:47,919
+quest'altra e così via e così via e
+
+573
+00:24:45,679 --> 00:24:51,760
+quindi impari a generare generare
+
+574
+00:24:47,919 --> 00:24:54,880
+immagini per quella scena.
+
+575
+00:24:51,760 --> 00:24:54,880
+Va bene?
+
+576
+00:24:55,360 --> 00:25:02,640
+Quindi la luce
+
+577
+00:24:57,520 --> 00:25:08,480
+arriva sul sensore.
+
+578
+00:25:02,640 --> 00:25:08,480
+Arrivando sul sensore,
+
+579
+00:25:09,320 --> 00:25:13,399
+a questo punto diamo un attimo
+
+580
+00:25:10,960 --> 00:25:16,200
+un'occhiata a che cosa succede
+
+581
+00:25:13,399 --> 00:25:18,039
+all'interno del sensore, ma veramente
+
+582
+00:25:16,200 --> 00:25:20,440
+abbastanza
+
+583
+00:25:18,039 --> 00:25:21,880
+ad altissimo livello.
+
+584
+00:25:20,440 --> 00:25:24,880
+Allora, noi cosa abbiamo? Sappiamo che
+
+585
+00:25:21,880 --> 00:25:24,880
+esistono,
+
+586
+00:25:25,200 --> 00:25:30,799
+la fotografia nasce chimica, no? Quindi
+
+587
+00:25:27,760 --> 00:25:34,360
+il daerotti poi il film proprio diciamo
+
+588
+00:25:30,799 --> 00:25:36,559
+vari con varie risoluzioni di
+
+589
+00:25:34,360 --> 00:25:40,520
+sensibilità alla luce.
+
+590
+00:25:36,559 --> 00:25:42,039
+Dopodiché si è passati alla eh
+
+591
+00:25:40,520 --> 00:25:46,039
+all'acquisizione
+
+592
+00:25:42,039 --> 00:25:48,679
+eh elettronica,
+
+593
+00:25:46,039 --> 00:25:52,760
+cioè la luce
+
+594
+00:25:48,679 --> 00:25:55,720
+fa reagire dei sensori di eh che
+
+595
+00:25:52,760 --> 00:25:57,360
+reagiscono alla luce e misura qualcosa,
+
+596
+00:25:55,720 --> 00:26:01,440
+la quantità di luce che arriva.
+
+597
+00:25:57,360 --> 00:26:04,279
+Fondamentalmente che succede? Abbiamo
+
+598
+00:26:01,440 --> 00:26:07,640
+due tipi di sensori
+
+599
+00:26:04,279 --> 00:26:09,120
+eh in commercio al momento, almeno chio
+
+600
+00:26:07,640 --> 00:26:11,360
+sappia.
+
+601
+00:26:09,120 --> 00:26:12,960
+uno che si chiama il CCD, che è quello
+
+602
+00:26:11,360 --> 00:26:14,919
+più, diciamo, più classico, il primo che
+
+603
+00:26:12,960 --> 00:26:17,200
+è stato costruito. Dopodiché, piano
+
+604
+00:26:14,919 --> 00:26:19,159
+piano, per vari motivi, è stato
+
+605
+00:26:17,200 --> 00:26:21,880
+introdotta una cosa che si chiama SIMOS,
+
+606
+00:26:19,159 --> 00:26:23,520
+che era eh al, diciamo, appena stato
+
+607
+00:26:21,880 --> 00:26:25,960
+introdotto era economicamente più
+
+608
+00:26:23,520 --> 00:26:28,159
+vantaggioso per i produttori, la qualità
+
+609
+00:26:25,960 --> 00:26:30,520
+era un pochettino più bassa, però
+
+610
+00:26:28,159 --> 00:26:32,559
+permetteva aveva il vantaggio di
+
+611
+00:26:30,520 --> 00:26:35,320
+permettere dei frame rate molto più alti
+
+612
+00:26:32,559 --> 00:26:39,120
+che per la fotografia o per acquisire
+
+613
+00:26:35,320 --> 00:26:39,120
+video era abbastanza ideale.
+
+614
+00:26:39,279 --> 00:26:42,320
+Col tempo poi i Simus, diciamo, sono
+
+615
+00:26:40,880 --> 00:26:45,159
+migliorati in qualità, adesso sono
+
+616
+00:26:42,320 --> 00:26:48,240
+veramente di ottima qualità.
+
+617
+00:26:45,159 --> 00:26:50,559
+Allora, qual è l'idea?
+
+618
+00:26:48,240 --> 00:26:55,279
+Ora,
+
+619
+00:26:50,559 --> 00:26:58,440
+il eh il sensore che è piccolino
+
+620
+00:26:55,279 --> 00:27:02,159
+ha eh lo potete vedere come una matrice
+
+621
+00:26:58,440 --> 00:27:04,440
+di eh elementi sensibili.
+
+622
+00:27:02,159 --> 00:27:06,279
+C'è un po' di spazio vuoto fra i vari,
+
+623
+00:27:04,440 --> 00:27:08,360
+però diciamo trascuriamoli, è abbastanza
+
+624
+00:27:06,279 --> 00:27:10,840
+traspabile. Una matrice elementi
+
+625
+00:27:08,360 --> 00:27:13,000
+sensibili. Questi elementi sensibili
+
+626
+00:27:10,840 --> 00:27:15,720
+fondamentalmente cosa fanno? Potete
+
+627
+00:27:13,000 --> 00:27:18,559
+pensarlo come un
+
+628
+00:27:15,720 --> 00:27:21,559
+una specie di contatore di fotoni,
+
+629
+00:27:18,559 --> 00:27:25,039
+in un certo senso.
+
+630
+00:27:21,559 --> 00:27:29,480
+Luce, la luce trasporta fotoni, i fotoni
+
+631
+00:27:25,039 --> 00:27:31,000
+arrivano su questi elementi sensibili
+
+632
+00:27:29,480 --> 00:27:34,399
+e l'effetto che fanno è quello di
+
+633
+00:27:31,000 --> 00:27:36,120
+caricarli elettricamente.
+
+634
+00:27:34,399 --> 00:27:37,880
+Ok? A un certo punto chiudiamo la
+
+635
+00:27:36,120 --> 00:27:40,600
+misurazione,
+
+636
+00:27:37,880 --> 00:27:44,600
+significa chiudiamo
+
+637
+00:27:40,600 --> 00:27:46,200
+il lo shutter, dove si chiama il
+
+638
+00:27:44,600 --> 00:27:47,440
+il diaframma
+
+639
+00:27:46,200 --> 00:27:50,240
+e abbiamo finito la posizione
+
+640
+00:27:47,440 --> 00:27:51,840
+dell'immagine.
+
+641
+00:27:50,240 --> 00:27:53,399
+A quel punto facciamo una misurazione.
+
+642
+00:27:51,840 --> 00:27:55,799
+Ma come facciamo a misurare? Beh, è
+
+643
+00:27:53,399 --> 00:27:58,720
+stato caricato elettricamente. Prima era
+
+644
+00:27:55,799 --> 00:28:00,399
+scarico, quindi si è generata una cosa
+
+645
+00:27:58,720 --> 00:28:02,559
+che si chiama differenza di potenziale,
+
+646
+00:28:00,399 --> 00:28:04,360
+no? Prima era carico, poi scarico, c'è
+
+647
+00:28:02,559 --> 00:28:06,279
+una differenza di potenziale fra prima e
+
+648
+00:28:04,360 --> 00:28:11,039
+dopo. Misuri questa differenza di
+
+649
+00:28:06,279 --> 00:28:13,519
+potenziale e più
+
+650
+00:28:11,039 --> 00:28:14,840
+fotoni ci sono arrivati,
+
+651
+00:28:13,519 --> 00:28:17,159
+maggiore è questa differenza di
+
+652
+00:28:14,840 --> 00:28:20,120
+potenziale, no? Ma più fotoni ci sono
+
+653
+00:28:17,159 --> 00:28:22,399
+arrivati, che significa? più luce c'è
+
+654
+00:28:20,120 --> 00:28:25,399
+arrivata, quindi più luminoso, diciamo.
+
+655
+00:28:22,399 --> 00:28:28,399
+Questo è il l'immagine che si forma su
+
+656
+00:28:25,399 --> 00:28:28,399
+quello.
+
+657
+00:28:30,519 --> 00:28:36,120
+Eh, dopodiché, in qualche maniera che eh
+
+658
+00:28:34,000 --> 00:28:39,159
+onestamente mi è totalmente oscura,
+
+659
+00:28:36,120 --> 00:28:41,919
+resetti il
+
+660
+00:28:39,159 --> 00:28:44,600
+riporti tutto al potenziale che non è
+
+661
+00:28:41,919 --> 00:28:46,279
+zero, ovviamente c'è sempre un minimo di
+
+662
+00:28:44,600 --> 00:28:47,600
+di roba. con un potenziale di al
+
+663
+00:28:46,279 --> 00:28:49,760
+potenziale di riferimento rifare la
+
+664
+00:28:47,600 --> 00:28:51,760
+misurazione e così via e così via.
+
+665
+00:28:49,760 --> 00:28:55,000
+Quindi si sci.
+
+666
+00:28:51,760 --> 00:28:57,000
+Ora è chiaro la differenza fra CCD e
+
+667
+00:28:55,000 --> 00:28:58,760
+SIMOS, diciamo, se vogliamo raccontarla,
+
+668
+00:28:57,000 --> 00:29:00,120
+diciamo,
+
+669
+00:28:58,760 --> 00:29:01,679
+eh raccontata da un esperto di
+
+670
+00:29:00,120 --> 00:29:04,720
+ingegneria elettronica come sono io,
+
+671
+00:29:01,679 --> 00:29:07,159
+ovviamente è semplicissima.
+
+672
+00:29:04,720 --> 00:29:09,840
+Eh, la differenza sta nella merina in
+
+673
+00:29:07,159 --> 00:29:13,000
+cui raccogli questa informazioni. Nel
+
+674
+00:29:09,840 --> 00:29:15,120
+CCD eh le raccogli in un certo senso
+
+675
+00:29:13,000 --> 00:29:20,360
+riga per riga e le trasferisci tutte
+
+676
+00:29:15,120 --> 00:29:21,919
+tramite un unico eh chiamiamo dal nostro
+
+677
+00:29:20,360 --> 00:29:24,600
+punto di vista può essere un bass su
+
+678
+00:29:21,919 --> 00:29:26,039
+questo circolano le informazioni. È una
+
+679
+00:29:24,600 --> 00:29:28,080
+cosa molto più complessa di un bass,
+
+680
+00:29:26,039 --> 00:29:32,159
+però l'idea è questa. Quindi le raccogli
+
+681
+00:29:28,080 --> 00:29:32,159
+riga per riga. Ok?
+
+682
+00:29:32,240 --> 00:29:36,840
+Il vantaggio, la cosa buona è che c'ha,
+
+683
+00:29:34,799 --> 00:29:39,399
+diciamo, per come è combinato, siccome
+
+684
+00:29:36,840 --> 00:29:43,240
+c'è poca elettronica
+
+685
+00:29:39,399 --> 00:29:46,919
+per ogni eh elemento sensibile,
+
+686
+00:29:43,240 --> 00:29:50,720
+il rumore non era altissimo.
+
+687
+00:29:46,919 --> 00:29:52,440
+Il SIMOS invece cosa c'ha?
+
+688
+00:29:50,720 --> 00:29:54,320
+Prende la misurazione per ogni elemento
+
+689
+00:29:52,440 --> 00:29:57,320
+sensibile.
+
+690
+00:29:54,320 --> 00:29:59,279
+Ok? Quindi ogni elemento sensibile viene
+
+691
+00:29:57,320 --> 00:30:03,600
+misurato indipendentemente e l'immagine
+
+692
+00:29:59,279 --> 00:30:05,640
+e l'informazione viene trasferita, ok?
+
+693
+00:30:03,600 --> 00:30:08,080
+Che ha un vantaggio. Non devi fare
+
+694
+00:30:05,640 --> 00:30:09,480
+l'acquisizione per riga per riga, no, la
+
+695
+00:30:08,080 --> 00:30:11,440
+fai tutto in una volta, in un certo
+
+696
+00:30:09,480 --> 00:30:14,960
+senso.
+
+697
+00:30:11,440 --> 00:30:17,960
+Quindi ti permette frame rate più alti.
+
+698
+00:30:14,960 --> 00:30:17,960
+Ehm
+
+699
+00:30:22,360 --> 00:30:26,840
+e ha anche eh però lo svantaggio qual è?
+
+700
+00:30:25,440 --> 00:30:28,600
+Per questo la qualità era più bassa. Lo
+
+701
+00:30:26,840 --> 00:30:30,399
+svantaggio era che però per ogni
+
+702
+00:30:28,600 --> 00:30:31,880
+elemento sensibile c'è più elettronica
+
+703
+00:30:30,399 --> 00:30:33,279
+perché c'hai i misuratori
+
+704
+00:30:31,880 --> 00:30:35,640
+fondamentalmente c'è più
+
+705
+00:30:33,279 --> 00:30:37,240
+componentistica.
+
+706
+00:30:35,640 --> 00:30:41,799
+Perché c'è più rumore se c'è più
+
+707
+00:30:37,240 --> 00:30:41,799
+componentistica secondo voi? A naso
+
+708
+00:30:42,080 --> 00:30:45,600
+perché c'è interferenza?
+
+709
+00:30:46,679 --> 00:30:49,919
+Perché ci sono cor se c'hai
+
+710
+00:30:48,080 --> 00:30:51,679
+componentistica c'è corrente elettrica e
+
+711
+00:30:49,919 --> 00:30:53,600
+circola,
+
+712
+00:30:51,679 --> 00:30:55,639
+corrente elettrica del circola crea dei
+
+713
+00:30:53,600 --> 00:30:57,960
+campi elettromagnetici che disturbano la
+
+714
+00:30:55,639 --> 00:31:00,639
+misurazione, quindi è tutto un corrente
+
+715
+00:30:57,960 --> 00:31:02,279
+indotte che si, diciamo, si influenzano
+
+716
+00:31:00,639 --> 00:31:04,200
+a vicenda e quindi generi rumore
+
+717
+00:31:02,279 --> 00:31:06,159
+fondamentalmente.
+
+718
+00:31:04,200 --> 00:31:07,720
+Quindi il problema era incominciare a
+
+719
+00:31:06,159 --> 00:31:09,399
+gestire questa cosa. che le abbiano
+
+720
+00:31:07,720 --> 00:31:11,200
+migliorate, diciamo, funzionino
+
+721
+00:31:09,399 --> 00:31:12,880
+abbastanza bene, però c'avevano il
+
+722
+00:31:11,200 --> 00:31:14,440
+vantaggio che era molto più
+
+723
+00:31:12,880 --> 00:31:16,799
+un'acquisizione molto più semplice,
+
+724
+00:31:14,440 --> 00:31:19,519
+molto più veloce e per quanto riguarda,
+
+725
+00:31:16,799 --> 00:31:22,279
+diciamo, i prodotti potevano quindi
+
+726
+00:31:19,519 --> 00:31:24,679
+garantire dei frame rate abbastanza alti
+
+727
+00:31:22,279 --> 00:31:26,720
+e così via e così via, cosa che non è
+
+728
+00:31:24,679 --> 00:31:29,159
+abbastanza male.
+
+729
+00:31:26,720 --> 00:31:33,480
+E poi c'era un altro problema che però
+
+730
+00:31:29,159 --> 00:31:36,440
+complicava eh chiaramente le cose eh che
+
+731
+00:31:33,480 --> 00:31:39,080
+era questa corsa assolutamente, diciamo,
+
+732
+00:31:36,440 --> 00:31:41,320
+ridicola verso una risoluzione sempre
+
+733
+00:31:39,080 --> 00:31:43,600
+più alta.
+
+734
+00:31:41,320 --> 00:31:48,880
+Noi già nei telefonini c'abbiamo, ti
+
+735
+00:31:43,600 --> 00:31:50,559
+garantiscono 40 megapix, 60 megapix.
+
+736
+00:31:48,880 --> 00:31:53,120
+Eh,
+
+737
+00:31:50,559 --> 00:31:55,279
+con 60 megapixel tu fai delle foto
+
+738
+00:31:53,120 --> 00:31:57,519
+professionali stampi dei poster ad
+
+739
+00:31:55,279 --> 00:32:00,960
+altissima risoluzione,
+
+740
+00:31:57,519 --> 00:32:03,000
+non serve a nessuno ovviamente.
+
+741
+00:32:00,960 --> 00:32:05,320
+Ok?
+
+742
+00:32:03,000 --> 00:32:08,000
+E però c'era un altro però da
+
+743
+00:32:05,320 --> 00:32:11,200
+aggiungerci,
+
+744
+00:32:08,000 --> 00:32:12,519
+avendo pixel sempre più piccoli e la con
+
+745
+00:32:11,200 --> 00:32:16,840
+la componenti avevi sempre più
+
+746
+00:32:12,519 --> 00:32:18,840
+componentistica, quindi da una parte
+
+747
+00:32:16,840 --> 00:32:21,279
+miglioravi
+
+748
+00:32:18,840 --> 00:32:24,679
+il rumore per diciamo per immagine 6
+
+749
+00:32:21,279 --> 00:32:26,519
+megapixel, 7 megapixel che sono ottime,
+
+750
+00:32:24,679 --> 00:32:28,039
+si possono fare foto bellissime anche 6
+
+751
+00:32:26,519 --> 00:32:30,559
+megapixel,
+
+752
+00:32:28,039 --> 00:32:32,240
+però aumentando le dimensioni, quindi
+
+753
+00:32:30,559 --> 00:32:34,000
+aumentando il numero di componenti
+
+754
+00:32:32,240 --> 00:32:36,760
+continuavi a mantenere un rumore molto
+
+755
+00:32:34,000 --> 00:32:39,679
+alto, ovviamente, quindi c'era sta cosa,
+
+756
+00:32:36,760 --> 00:32:42,960
+diciamo, abbastanza ridicolo.
+
+757
+00:32:39,679 --> 00:32:44,480
+Va bene? Eh, quindi Simos oramai,
+
+758
+00:32:42,960 --> 00:32:48,440
+diciamo, è quello, diciamo, quello che
+
+759
+00:32:44,480 --> 00:32:51,519
+si trova molto molto più facilmente.
+
+760
+00:32:48,440 --> 00:32:54,799
+Fino a qualche tempo fa, diciamo, i si
+
+761
+00:32:51,519 --> 00:32:56,440
+preferiva CCD per fare eh diciamo
+
+762
+00:32:54,799 --> 00:32:57,919
+astrofotografia, cosa per cui avevi
+
+763
+00:32:56,440 --> 00:33:00,639
+bisogno di una sensibilità abbastanza
+
+764
+00:32:57,919 --> 00:33:01,840
+alta, ma ora pare che le cose siano
+
+765
+00:33:00,639 --> 00:33:04,840
+vadano abbastanza bene a tutti i
+
+766
+00:33:01,840 --> 00:33:04,840
+livelli.
+
+767
+00:33:13,480 --> 00:33:17,320
+Non ho capito la domanda, scusa.
+
+768
+00:33:23,240 --> 00:33:27,960
+No, tipicamente quello che fai è questo.
+
+769
+00:33:25,559 --> 00:33:29,720
+Eh, questo molte macchine fotografiche
+
+770
+00:33:27,960 --> 00:33:31,039
+ci hanno incorporata sta cosa,
+
+771
+00:33:29,720 --> 00:33:32,799
+probabilmente non i cellulari, ma anche
+
+772
+00:33:31,039 --> 00:33:35,840
+fotografica un pochettino più serie ce
+
+773
+00:33:32,799 --> 00:33:38,720
+l'hanno, eh. E questo è abbastanza
+
+774
+00:33:35,840 --> 00:33:40,559
+dunque se tu devi fare una fotografia
+
+775
+00:33:38,720 --> 00:33:42,519
+normale con condizioni luci normali,
+
+776
+00:33:40,559 --> 00:33:47,519
+quindi è un'esposizione
+
+777
+00:33:42,519 --> 00:33:49,919
+di pochi eh centesimi di secondo
+
+778
+00:33:47,519 --> 00:33:52,080
+un'esposizione veloce, non è un
+
+779
+00:33:49,919 --> 00:33:53,919
+problema.
+
+780
+00:33:52,080 --> 00:33:55,320
+Il problema del rumore incomincia a
+
+781
+00:33:53,919 --> 00:33:56,919
+essere forte quando hai esposizioni
+
+782
+00:33:55,320 --> 00:33:58,080
+lunghe.
+
+783
+00:33:56,919 --> 00:34:02,639
+Allora, in questo caso quello che
+
+784
+00:33:58,080 --> 00:34:04,080
+tipicamente fanno è questo, acquisiscono
+
+785
+00:34:02,639 --> 00:34:07,720
+supponi che devi fare un'esposizione di
+
+786
+00:34:04,080 --> 00:34:11,960
+30 secondi, ok?
+
+787
+00:34:07,720 --> 00:34:13,839
+acquisiscono un'immagine però
+
+788
+00:34:11,960 --> 00:34:16,800
+probabilmente anche della stessa, di
+
+789
+00:34:13,839 --> 00:34:18,399
+diciamo alla stessa eh durata, quindi
+
+790
+00:34:16,800 --> 00:34:20,399
+un'acquisizione fra di 30 secondi, ad
+
+791
+00:34:18,399 --> 00:34:22,240
+esempio, ma probabilmente verranno anche
+
+792
+00:34:20,399 --> 00:34:25,440
+più veloce, ma diciamo almeno 30
+
+793
+00:34:22,240 --> 00:34:29,320
+secondi, a diaframma chiuso, quindi
+
+794
+00:34:25,440 --> 00:34:31,520
+fondamentalmente misurano
+
+795
+00:34:29,320 --> 00:34:33,440
+quello che misura è la quantità di
+
+796
+00:34:31,520 --> 00:34:35,399
+elettricità che misuri a diaframma
+
+797
+00:34:33,440 --> 00:34:37,000
+chiuso, la differenza potenziale che
+
+798
+00:34:35,399 --> 00:34:40,399
+misuri a diaframma chiuso per ogni pixel
+
+799
+00:34:37,000 --> 00:34:43,119
+in 30 secondi e questo ti dà un'idea del
+
+800
+00:34:40,399 --> 00:34:46,159
+rumore punto per punto, pixel per pixel.
+
+801
+00:34:43,119 --> 00:34:50,440
+Dopodiché fai l'acquisizione,
+
+802
+00:34:46,159 --> 00:34:53,159
+la ci sottrai quello che hai misurato
+
+803
+00:34:50,440 --> 00:34:54,480
+prima e d e riesci ad avere un'immagine
+
+804
+00:34:53,159 --> 00:34:57,079
+un pochettino più pulita. un pochettino
+
+805
+00:34:54,480 --> 00:34:58,839
+più pulita, ovviamente,
+
+806
+00:34:57,079 --> 00:35:00,400
+eh,
+
+807
+00:34:58,839 --> 00:35:01,520
+però sempre un pochettino rumorosa
+
+808
+00:35:00,400 --> 00:35:02,720
+perché perché il rumore non è
+
+809
+00:35:01,520 --> 00:35:06,119
+deterministico, non è che una
+
+810
+00:35:02,720 --> 00:35:07,960
+misurazione ti misura il rumore, però ti
+
+811
+00:35:06,119 --> 00:35:09,400
+dà un'idea, insomma, è la cosa migliore
+
+812
+00:35:07,960 --> 00:35:12,400
+che puoi fare senza perdere troppo
+
+813
+00:35:09,400 --> 00:35:12,400
+tempo.
+
+814
+00:35:15,680 --> 00:35:23,400
+Però era questo che volevo Sì,
+
+815
+00:35:18,839 --> 00:35:26,680
+ragioniamo un attimo. Io vi ho detto che
+
+816
+00:35:23,400 --> 00:35:30,440
+i ehm
+
+817
+00:35:26,680 --> 00:35:30,440
+sensori misurano
+
+818
+00:35:33,880 --> 00:35:37,440
+indirettamente
+
+819
+00:35:35,599 --> 00:35:40,440
+quanti fotoni arrivano su ogni elemento
+
+820
+00:35:37,440 --> 00:35:40,440
+sensibile.
+
+821
+00:35:42,119 --> 00:35:46,320
+Quindi per ogni punto ogni pixel
+
+822
+00:35:44,240 --> 00:35:49,000
+misurano grosso modo non la stessa
+
+823
+00:35:46,320 --> 00:35:52,560
+quantità, ma lo stessa, diciamo, nella
+
+824
+00:35:49,000 --> 00:35:52,560
+stessa modalità. Ok?
+
+825
+00:35:53,680 --> 00:35:58,800
+Quindi per ogni
+
+826
+00:35:55,960 --> 00:36:04,359
+pixel io ho un'idea della quantità di
+
+827
+00:35:58,800 --> 00:36:04,359
+luce che ci arriva più o meno luminoso.
+
+828
+00:36:04,720 --> 00:36:09,079
+Seguite?
+
+829
+00:36:06,760 --> 00:36:11,800
+Ma noi le immagini che acquisiamo come
+
+830
+00:36:09,079 --> 00:36:13,400
+le vediamo?
+
+831
+00:36:11,800 --> 00:36:16,640
+Le vediamo a colori. E il colore come
+
+832
+00:36:13,400 --> 00:36:16,640
+viene fuori?
+
+833
+00:36:18,400 --> 00:36:22,079
+colore viene fuori,
+
+834
+00:36:23,119 --> 00:36:27,200
+cioè in generale noi quello che
+
+835
+00:36:25,480 --> 00:36:29,280
+misuriamo
+
+836
+00:36:27,200 --> 00:36:30,720
+è questa componente, quantità di luce
+
+837
+00:36:29,280 --> 00:36:33,960
+che arriva, quindi dovremmo ottenere
+
+838
+00:36:30,720 --> 00:36:36,240
+immagini bianco e nero,
+
+839
+00:36:33,960 --> 00:36:37,720
+eh,
+
+840
+00:36:36,240 --> 00:36:40,720
+perché ci sono i colori che sono più
+
+841
+00:36:37,720 --> 00:36:40,720
+veloci,
+
+842
+00:36:42,640 --> 00:36:47,400
+è una frequenza diversa, ma non misuri
+
+843
+00:36:44,400 --> 00:36:50,440
+quello, però ci sei vicino.
+
+844
+00:36:47,400 --> 00:36:54,520
+Il vostro collega dice
+
+845
+00:36:50,440 --> 00:36:56,440
+i colori hanno frequenze diverse, ok?
+
+846
+00:36:54,520 --> 00:36:59,240
+L'idea
+
+847
+00:36:56,440 --> 00:37:01,280
+è provo a sfruttare questa informazione
+
+848
+00:36:59,240 --> 00:37:03,880
+che non è sulla velocità con cui arriva,
+
+849
+00:37:01,280 --> 00:37:05,280
+perché tu non sai, tu arrivi il fotone
+
+850
+00:37:03,880 --> 00:37:07,720
+non sai a che velocità ti arriva, ti
+
+851
+00:37:05,280 --> 00:37:09,000
+arriva punto.
+
+852
+00:37:07,720 --> 00:37:10,560
+Però l'idea è di sfruttare
+
+853
+00:37:09,000 --> 00:37:13,560
+quell'informazione. Lo fai in questa
+
+854
+00:37:10,560 --> 00:37:18,359
+maniera metti
+
+855
+00:37:13,560 --> 00:37:18,359
+un filtro su ogni elemento sensibile.
+
+856
+00:37:19,560 --> 00:37:25,920
+Allora, l'idea qual è? Eh, tipicamente
+
+857
+00:37:23,200 --> 00:37:29,680
+noi supponiamo che le immagini che
+
+858
+00:37:25,920 --> 00:37:33,440
+vogliamo prendere sono
+
+859
+00:37:29,680 --> 00:37:35,720
+RGB, no? Sappiamo che col rosso il il
+
+860
+00:37:33,440 --> 00:37:37,520
+verde e il blu
+
+861
+00:37:35,720 --> 00:37:39,920
+eh, con le quantità di rosso e di verde
+
+862
+00:37:37,520 --> 00:37:44,000
+e di blu puoi ricostruire qualsiasi
+
+863
+00:37:39,920 --> 00:37:48,839
+colore. Così dico, non ci credo.
+
+864
+00:37:44,000 --> 00:37:48,839
+Ehm, allora cosa fai
+
+865
+00:37:50,240 --> 00:37:54,119
+tutti?
+
+866
+00:37:52,200 --> 00:37:57,400
+Ehm,
+
+867
+00:37:54,119 --> 00:38:00,720
+ottieni una maschera fatta in questa
+
+868
+00:37:57,400 --> 00:38:03,920
+maniera, cioè degli elementi sensibili
+
+869
+00:38:00,720 --> 00:38:05,839
+su cui ci metti un filtro
+
+870
+00:38:03,920 --> 00:38:07,960
+che fa passare il rosso, la banda del
+
+871
+00:38:05,839 --> 00:38:11,200
+rosso, quindi la quantità di luce nella
+
+872
+00:38:07,960 --> 00:38:14,599
+banda del rosso che arriva.
+
+873
+00:38:11,200 --> 00:38:17,319
+Altri elementi sensibili ti passano eh
+
+874
+00:38:14,599 --> 00:38:20,280
+nella banda del blu. Sono quelli che
+
+875
+00:38:17,319 --> 00:38:23,560
+sono, guardate, come riferimento, ce la
+
+876
+00:38:20,280 --> 00:38:26,240
+posso fare questa qui, no?
+
+877
+00:38:23,560 --> 00:38:28,119
+questa scacchiera qui
+
+878
+00:38:26,240 --> 00:38:29,760
+e altri ti passano per il verde e
+
+879
+00:38:28,119 --> 00:38:33,280
+chiaramente li alterni, non le metti
+
+880
+00:38:29,760 --> 00:38:35,839
+tutti, quindi il punto. Quindi significa
+
+881
+00:38:33,280 --> 00:38:39,880
+che se io mi piglio
+
+882
+00:38:35,839 --> 00:38:39,880
+questo punto di qua,
+
+883
+00:38:41,359 --> 00:38:47,079
+io posso avere una misurazione in questa
+
+884
+00:38:44,079 --> 00:38:49,200
+zona piccolina di rosso, verde e blu che
+
+885
+00:38:47,079 --> 00:38:51,280
+non sono tutti nella stessa nello stesso
+
+886
+00:38:49,200 --> 00:38:52,839
+punto ovviamente, però io posso
+
+887
+00:38:51,280 --> 00:38:54,839
+ricostruire
+
+888
+00:38:52,839 --> 00:38:56,680
+la quantità di rosso, di verde e di blu
+
+889
+00:38:54,839 --> 00:38:58,800
+che arriva su ogni punto tramite
+
+890
+00:38:56,680 --> 00:39:00,800
+interpolazione. Ad esempio, esistono
+
+891
+00:38:58,800 --> 00:39:02,720
+anche altri metodi che citeremo
+
+892
+00:39:00,800 --> 00:39:04,680
+brevemente, ma l'idea più semplice fare
+
+893
+00:39:02,720 --> 00:39:06,760
+interpolazione, no? Quindi io che cosa
+
+894
+00:39:04,680 --> 00:39:09,839
+c'ho?
+
+895
+00:39:06,760 --> 00:39:12,160
+Ho questo rosso
+
+896
+00:39:09,839 --> 00:39:13,720
+eh per questo verde qui e devo
+
+897
+00:39:12,160 --> 00:39:14,960
+ricostruire il rosso, mi piglio questo,
+
+898
+00:39:13,720 --> 00:39:16,560
+questo, questo, magari c'è un altro
+
+899
+00:39:14,960 --> 00:39:18,280
+rosso da questa parte, da questa parte.
+
+900
+00:39:16,560 --> 00:39:19,800
+Faccio un'interpolazione binare, ad
+
+901
+00:39:18,280 --> 00:39:21,640
+esempio,
+
+902
+00:39:19,800 --> 00:39:23,440
+che hai bisogno di quattro punti, oppure
+
+903
+00:39:21,640 --> 00:39:25,359
+un'interpolazione lineare, se vogliamo,
+
+904
+00:39:23,440 --> 00:39:28,240
+se la capiamo meglio, prendendo quei due
+
+905
+00:39:25,359 --> 00:39:30,440
+i due vicini e mi misuro tramite
+
+906
+00:39:28,240 --> 00:39:32,319
+interpolazione la quantità di rosso che
+
+907
+00:39:30,440 --> 00:39:34,640
+sarebbe arrivata in quel punto, sto
+
+908
+00:39:32,319 --> 00:39:37,359
+assumendo continuità eccetera eccetera.
+
+909
+00:39:34,640 --> 00:39:39,599
+Ovviamente
+
+910
+00:39:37,359 --> 00:39:43,000
+se ne frega, questi qua sono talmente
+
+911
+00:39:39,599 --> 00:39:46,680
+piccoli, ce la faccio a a studiare in
+
+912
+00:39:43,000 --> 00:39:46,680
+maniera abbastanza ragionevole.
+
+913
+00:39:46,800 --> 00:39:54,520
+Ehm, questo filtro, questo accrocchio di
+
+914
+00:39:50,440 --> 00:39:58,520
+qua si chiama filtro di eh,
+
+915
+00:39:54,520 --> 00:40:00,520
+se non ricordo male, filtro di buyer.
+
+916
+00:39:58,520 --> 00:40:01,760
+Quindi la procedura è quella che si
+
+917
+00:40:00,520 --> 00:40:03,520
+ottiene un'immagine che si viene
+
+918
+00:40:01,760 --> 00:40:05,280
+chiamata mosaicata, proprio perché c'hai
+
+919
+00:40:03,520 --> 00:40:07,319
+per un punto c'è il rosso, per un altro
+
+920
+00:40:05,280 --> 00:40:09,800
+c'è il blu, c'è perro c'è il rosso.
+
+921
+00:40:07,319 --> 00:40:12,400
+Questa procedura di ricostruzione dei
+
+922
+00:40:09,800 --> 00:40:14,319
+livelli di rosso,
+
+923
+00:40:12,400 --> 00:40:18,119
+dei due livelli mancanti per ogni pixel
+
+924
+00:40:14,319 --> 00:40:18,119
+si chiama democying.
+
+925
+00:40:18,440 --> 00:40:22,839
+Eh
+
+926
+00:40:20,319 --> 00:40:28,200
+questo approccioamente gli spessori non
+
+927
+00:40:22,839 --> 00:40:28,200
+essendo nella stessa esattazione
+
+928
+00:40:28,960 --> 00:40:31,960
+una parte luce che arriva in
+
+929
+00:40:30,280 --> 00:40:32,760
+costruziona.
+
+930
+00:40:31,960 --> 00:40:34,359
+Mh.
+
+931
+00:40:32,760 --> 00:40:37,720
+L'obiettivo è quello di questo qui
+
+932
+00:40:34,359 --> 00:40:39,480
+rimangere grande quanto
+
+933
+00:40:37,720 --> 00:40:42,079
+grande quanto
+
+934
+00:40:39,480 --> 00:40:43,760
+tanti elementi sensibili quanti ne hai?
+
+935
+00:40:42,079 --> 00:40:46,760
+Tanti pixel quanti sono gli elementi
+
+936
+00:40:43,760 --> 00:40:46,760
+sensibili?
+
+937
+00:40:47,280 --> 00:40:52,280
+Cioè, poi in realtà puoi costruire
+
+938
+00:40:53,319 --> 00:40:58,280
+il numero di pixel può essere almeno
+
+939
+00:40:56,040 --> 00:41:01,480
+quanti elementi sensibili c'hai in
+
+940
+00:40:58,280 --> 00:41:03,720
+questa direzione e in questa direzione.
+
+941
+00:41:01,480 --> 00:41:06,359
+Diciamo che l'obiettivo del demosyiking
+
+942
+00:41:03,720 --> 00:41:09,599
+è indipendente dalla ricostruzione,
+
+943
+00:41:06,359 --> 00:41:11,200
+dalla immagine. di pensare di avere
+
+944
+00:41:09,599 --> 00:41:12,520
+un'immagine ancora più grande o pensare
+
+945
+00:41:11,200 --> 00:41:14,880
+di acquisire un'immagine ancora più
+
+946
+00:41:12,520 --> 00:41:17,240
+piccola
+
+947
+00:41:14,880 --> 00:41:19,359
+perché che ci puoi lavorare. Qua l'idea
+
+948
+00:41:17,240 --> 00:41:21,720
+è semplicemente di fare una misurazione
+
+949
+00:41:19,359 --> 00:41:26,280
+della quantità di dei due canali
+
+950
+00:41:21,720 --> 00:41:26,280
+mancanti per ogni elemento sensibile.
+
+951
+00:41:27,119 --> 00:41:31,040
+Ok? Una volta che c'hai
+
+952
+00:41:28,640 --> 00:41:32,599
+quell'informazione c'hai puoi
+
+953
+00:41:31,040 --> 00:41:33,960
+considerarlo tutto come un'immagine
+
+954
+00:41:32,599 --> 00:41:35,760
+oppure puoi sottocampionare o
+
+955
+00:41:33,960 --> 00:41:40,000
+sovracampionare,
+
+956
+00:41:35,760 --> 00:41:40,000
+puoi fare uno zoomino, zoomare.
+
+957
+00:41:42,880 --> 00:41:47,040
+No, quella è il metodo di interpolazione
+
+958
+00:41:44,920 --> 00:41:49,040
+che utilizzi. Decidi un metodo di
+
+959
+00:41:47,040 --> 00:41:51,000
+interpolazione. Tipicamente in queste
+
+960
+00:41:49,040 --> 00:41:52,240
+cose quando c'è più punti su una matrice
+
+961
+00:41:51,000 --> 00:41:55,240
+utilizza la cosa più semplice che puoi
+
+962
+00:41:52,240 --> 00:41:57,160
+usare è una interpolazione del lineare.
+
+963
+00:41:55,240 --> 00:41:58,800
+Dove vai? lineare in questa direzione,
+
+964
+00:41:57,160 --> 00:42:01,599
+il lineare in quest'altra le combini e
+
+965
+00:41:58,800 --> 00:42:03,599
+si chiama binare, ok? che sono due
+
+966
+00:42:01,599 --> 00:42:07,520
+coordinate
+
+967
+00:42:03,599 --> 00:42:10,400
+invece di Sì, molto semplice. Quella più
+
+968
+00:42:07,520 --> 00:42:13,160
+classica, più self è più veloce
+
+969
+00:42:10,400 --> 00:42:15,880
+ovviamente. Poi puoi fare cose più puoi
+
+970
+00:42:13,160 --> 00:42:17,440
+smorre che si modelli come una cubica,
+
+971
+00:42:15,880 --> 00:42:21,319
+puoi modelli, insomma, puoi fare tutte
+
+972
+00:42:17,440 --> 00:42:23,680
+le diciamo le cose scombinate che vuoi.
+
+973
+00:42:21,319 --> 00:42:26,599
+Esistono altri meccanismi addirittura
+
+974
+00:42:23,680 --> 00:42:28,640
+che puoi utilizzare.
+
+975
+00:42:26,599 --> 00:42:32,440
+Eh, con quell'idea è sempre quella
+
+976
+00:42:28,640 --> 00:42:34,119
+ricostruire la misurazione
+
+977
+00:42:32,440 --> 00:42:37,880
+osservazione.
+
+978
+00:42:34,119 --> 00:42:40,680
+Eh, c'è qualcosa che non torna nei
+
+979
+00:42:37,880 --> 00:42:43,400
+conti? C'è qualcosa che misurata di più
+
+980
+00:42:40,680 --> 00:42:46,640
+di altre? Secondo voi?
+
+981
+00:42:43,400 --> 00:42:49,079
+Eh, ci sono di più i verdi. È un motivo,
+
+982
+00:42:46,640 --> 00:42:53,760
+questo qua non è chiaramente un motivo,
+
+983
+00:42:49,079 --> 00:42:53,760
+come dire, eh
+
+984
+00:42:54,800 --> 00:42:58,559
+matematico, o cosa del genere,
+
+985
+00:42:56,200 --> 00:43:01,040
+semplicemente è che pare che i nostri
+
+986
+00:42:58,559 --> 00:43:03,880
+occhi siano molto più sensibili
+
+987
+00:43:01,040 --> 00:43:06,480
+all'informazione sul canale verde.
+
+988
+00:43:03,880 --> 00:43:10,160
+Ok? Quindi ho un'informazione più
+
+989
+00:43:06,480 --> 00:43:13,319
+occurata su quel canale,
+
+990
+00:43:10,160 --> 00:43:16,520
+quindi ottengo un'immagine che per noi è
+
+991
+00:43:13,319 --> 00:43:16,520
+più sensata.
+
+992
+00:43:19,720 --> 00:43:25,920
+Può essere, può essere. Non ha
+
+993
+00:43:23,839 --> 00:43:30,680
+Non lo so. che abbiamo tre animali che
+
+994
+00:43:25,920 --> 00:43:32,000
+si cicolare coso. Sì, sì,
+
+995
+00:43:30,680 --> 00:43:33,800
+ma forse a noi ci interessava anche
+
+996
+00:43:32,000 --> 00:43:36,920
+vedere il il leone che ci stava
+
+997
+00:43:33,800 --> 00:43:38,920
+guadendo, però voglio
+
+998
+00:43:36,920 --> 00:43:41,520
+un'altra questione,
+
+999
+00:43:38,920 --> 00:43:44,359
+eh, però sì, siamo sensibili a quello,
+
+1000
+00:43:41,520 --> 00:43:46,079
+quindi eh
+
+1001
+00:43:44,359 --> 00:43:47,599
+e credo che sia lo stesso trucchetto
+
+1002
+00:43:46,079 --> 00:43:51,640
+utilizzato
+
+1003
+00:43:47,599 --> 00:43:54,640
+eh anche quando
+
+1004
+00:43:51,640 --> 00:43:54,640
+eh
+
+1005
+00:43:54,680 --> 00:44:01,480
+quando ti fanno compressione,
+
+1006
+00:43:57,240 --> 00:44:05,240
+nel senso Eh, quando eh
+
+1007
+00:44:01,480 --> 00:44:07,720
+noi qui siamo immagini, si suol dire row
+
+1008
+00:44:05,240 --> 00:44:09,520
+da una telecamera,
+
+1009
+00:44:07,720 --> 00:44:12,240
+in realtà molto spesso non è un row
+
+1010
+00:44:09,520 --> 00:44:13,480
+vero, c'è un minimo di compressione
+
+1011
+00:44:12,240 --> 00:44:16,119
+fatto perché altrimenti sarebbero
+
+1012
+00:44:13,480 --> 00:44:18,000
+enormi, che però molte chiamano
+
+1013
+00:44:16,119 --> 00:44:21,079
+compressione
+
+1014
+00:44:18,000 --> 00:44:22,480
+per compression e penso che sfruttino
+
+1015
+00:44:21,079 --> 00:44:24,400
+proprio questo, quindi magari comprimono
+
+1016
+00:44:22,480 --> 00:44:26,200
+di più su un canale e fanno cose strane
+
+1017
+00:44:24,400 --> 00:44:28,240
+di questo tipo. Quindi comprimono
+
+1018
+00:44:26,200 --> 00:44:30,680
+un'informazione che è meno importante
+
+1019
+00:44:28,240 --> 00:44:34,920
+per l'occhio umano e magari lasciano un
+
+1020
+00:44:30,680 --> 00:44:36,359
+pochettino più eh interessante eh
+
+1021
+00:44:34,920 --> 00:44:38,200
+informazione che è interessante per
+
+1022
+00:44:36,359 --> 00:44:39,960
+l'occhio umano.
+
+1023
+00:44:38,200 --> 00:44:44,680
+Informato
+
+1024
+00:44:39,960 --> 00:44:48,960
+breve per l'audio che taglia fuori tutte
+
+1025
+00:44:44,680 --> 00:44:52,880
+le frequenze che per cui noi abbiamo una
+
+1026
+00:44:48,960 --> 00:44:55,880
+Sì, quello è sensato. Assolutamente. Sì.
+
+1027
+00:44:52,880 --> 00:44:55,880
+Ehm,
+
+1028
+00:44:58,040 --> 00:45:01,040
+ok,
+
+1029
+00:45:02,200 --> 00:45:08,520
+vabbè. Sì, infatti poi ci sono varie
+
+1030
+00:45:05,319 --> 00:45:10,720
+forme di, diciamo, di
+
+1031
+00:45:08,520 --> 00:45:13,559
+eh ricostruzione, diciamo, del segnale,
+
+1032
+00:45:10,720 --> 00:45:16,400
+diciamo, dellosa di cui abamo parlato.
+
+1033
+00:45:13,559 --> 00:45:20,559
+Una cosa abbastanza interessante è
+
+1034
+00:45:16,400 --> 00:45:23,839
+questa, quella che chiamiamo,
+
+1035
+00:45:20,559 --> 00:45:26,240
+aspetta, è aware.
+
+1036
+00:45:23,839 --> 00:45:28,839
+Cos'è legge? legge fondamentalmente una
+
+1037
+00:45:26,240 --> 00:45:30,640
+cosa di questo tipo.
+
+1038
+00:45:28,839 --> 00:45:32,480
+Io ho una
+
+1039
+00:45:30,640 --> 00:45:34,400
+scena.
+
+1040
+00:45:32,480 --> 00:45:36,079
+Gli edge, come vedremo, sono queste
+
+1041
+00:45:34,400 --> 00:45:38,680
+cose, questo contorno che viene fuori,
+
+1042
+00:45:36,079 --> 00:45:40,319
+sono i bordi degli oggetti.
+
+1043
+00:45:38,680 --> 00:45:42,680
+Perché è interessante per una cosa del
+
+1044
+00:45:40,319 --> 00:45:45,920
+genere? Perché sono gli unici punti dove
+
+1045
+00:45:42,680 --> 00:45:48,920
+una variazione di una interpolazione può
+
+1046
+00:45:45,920 --> 00:45:51,000
+creare qualcosa che mi dà fastidio,
+
+1047
+00:45:48,920 --> 00:45:53,400
+perché io misuro,
+
+1048
+00:45:51,000 --> 00:45:56,480
+interpolo valori utilizzando parti che
+
+1049
+00:45:53,400 --> 00:45:59,319
+stanno su una girandola questa si chiama
+
+1050
+00:45:56,480 --> 00:46:01,000
+e parti che stanno sullo sfondo
+
+1051
+00:45:59,319 --> 00:46:06,359
+e questo può creare dei leggerissimi
+
+1052
+00:46:01,000 --> 00:46:09,880
+artefatti. Ok? Quindi sapere dove sono i
+
+1053
+00:46:06,359 --> 00:46:12,760
+contorni mi aiuta magari a guidare
+
+1054
+00:46:09,880 --> 00:46:14,800
+l'interpolazione e a guidare a dare più
+
+1055
+00:46:12,760 --> 00:46:18,240
+peso a certi valori e meno peso ad altri
+
+1056
+00:46:14,800 --> 00:46:18,240
+valori. Ok?
+
+1057
+00:46:18,880 --> 00:46:25,839
+Eh, poi vabbè, basati sul frequenze,
+
+1058
+00:46:22,680 --> 00:46:28,839
+weblet, diciamo, diciamo, le cose più
+
+1059
+00:46:25,839 --> 00:46:31,599
+perverse di questo tipo.
+
+1060
+00:46:28,839 --> 00:46:33,160
+Eh, una cosa comunque su cui volevo fare
+
+1061
+00:46:31,599 --> 00:46:35,440
+riflettere un attimo, diciamo, come
+
+1062
+00:46:33,160 --> 00:46:38,240
+informazione è il concetto di frequenza
+
+1063
+00:46:35,440 --> 00:46:40,000
+per le immagini,
+
+1064
+00:46:38,240 --> 00:46:41,319
+dove il concetto di frequenza non è
+
+1065
+00:46:40,000 --> 00:46:43,680
+tanto il concetto di frequenza della
+
+1066
+00:46:41,319 --> 00:46:45,359
+luce che è un concetto di frequenza che
+
+1067
+00:46:43,680 --> 00:46:46,880
+è spaziale,
+
+1068
+00:46:45,359 --> 00:46:51,800
+cioè
+
+1069
+00:46:46,880 --> 00:46:54,520
+in un certo senso frequenza mi dice
+
+1070
+00:46:51,800 --> 00:46:58,359
+eh intuitivamente quanto velocemente
+
+1071
+00:46:54,520 --> 00:47:01,480
+qualcosa cambia. Ok?
+
+1072
+00:46:58,359 --> 00:47:04,280
+Allora, in un'immagine
+
+1073
+00:47:01,480 --> 00:47:06,000
+intuitivamente vediamo che questa qua è
+
+1074
+00:47:04,280 --> 00:47:08,079
+un'immagine fondamentalmente a
+
+1075
+00:47:06,000 --> 00:47:10,200
+passafrequenza perché c'è dei pattern
+
+1076
+00:47:08,079 --> 00:47:12,599
+cambiamo lentamente. Questa qua è
+
+1077
+00:47:10,200 --> 00:47:14,920
+un'immagine
+
+1078
+00:47:12,599 --> 00:47:18,119
+ad alta frequenza, cioè che informazione
+
+1079
+00:47:14,920 --> 00:47:20,839
+è ad alta frequenza perché c'hai
+
+1080
+00:47:18,119 --> 00:47:23,839
+righe bianche e nere che cambiano
+
+1081
+00:47:20,839 --> 00:47:23,839
+velocemente.
+
+1082
+00:47:25,559 --> 00:47:30,280
+Ora
+
+1083
+00:47:28,240 --> 00:47:36,240
+a naso
+
+1084
+00:47:30,280 --> 00:47:36,240
+secondo la mia immagine si forma
+
+1085
+00:47:38,359 --> 00:47:45,280
+proiettando una scena su una matrice di
+
+1086
+00:47:41,839 --> 00:47:48,000
+elementi sensibili. Ok? Ora la scena è
+
+1087
+00:47:45,280 --> 00:47:51,400
+continua.
+
+1088
+00:47:48,000 --> 00:47:55,640
+La matrice di elementi sensibili
+
+1089
+00:47:51,400 --> 00:47:58,400
+è continua, è discreta, cioè ogni
+
+1090
+00:47:55,640 --> 00:47:59,680
+porzione di spazio mi fa una misurazione
+
+1091
+00:47:58,400 --> 00:48:01,319
+che corrisponde a una porzione, ogni
+
+1092
+00:47:59,680 --> 00:48:02,720
+stagnamento sensibile mi fa una
+
+1093
+00:48:01,319 --> 00:48:05,119
+misurazione che corrisponde a una
+
+1094
+00:48:02,720 --> 00:48:06,720
+porzione di spazio su dove arriva la
+
+1095
+00:48:05,119 --> 00:48:09,599
+luce, ma dove ci arrivano vari dettagli
+
+1096
+00:48:06,720 --> 00:48:13,960
+in realtà.
+
+1097
+00:48:09,599 --> 00:48:13,960
+Ora è abbastanza intuitivo che
+
+1098
+00:48:14,119 --> 00:48:20,280
+non è un grosso problema per un'immagine
+
+1099
+00:48:16,920 --> 00:48:20,280
+a bassa frequenza
+
+1100
+00:48:20,319 --> 00:48:26,240
+dovè la parte a bassa perché
+
+1101
+00:48:23,520 --> 00:48:28,160
+l'informazione varia molto lentamente,
+
+1102
+00:48:26,240 --> 00:48:29,680
+quindi molti pixel mi piglieranno la
+
+1103
+00:48:28,160 --> 00:48:33,319
+stessa scena, la stessa parte della
+
+1104
+00:48:29,680 --> 00:48:36,480
+scena, la parte blu, la parte verde, non
+
+1105
+00:48:33,319 --> 00:48:38,359
+lo so che altro colore sia. Ok? Quando
+
+1106
+00:48:36,480 --> 00:48:41,520
+invece le cose incominciano a diventare
+
+1107
+00:48:38,359 --> 00:48:44,240
+sempre più piccole, alta frequenza,
+
+1108
+00:48:41,520 --> 00:48:45,760
+e allora è un rischio che sullo stesso
+
+1109
+00:48:44,240 --> 00:48:47,280
+pixel mi arrivano sia righe bianche che
+
+1110
+00:48:45,760 --> 00:48:50,119
+righe nere. Informazione sia righe
+
+1111
+00:48:47,280 --> 00:48:53,799
+bianche e righe nere la succede
+
+1112
+00:48:50,119 --> 00:48:55,799
+misuro a metà mentalmente e ho quindi
+
+1113
+00:48:53,799 --> 00:48:58,640
+degli artefatti. La misurazione viene
+
+1114
+00:48:55,799 --> 00:49:00,720
+fatta. Tutto questo per dirvi che esiste
+
+1115
+00:48:58,640 --> 00:49:04,359
+tutta una teoria che si chiama teoria
+
+1116
+00:49:00,720 --> 00:49:07,319
+del campionamento fondamentalmente dove
+
+1117
+00:49:04,359 --> 00:49:10,400
+ci diciamo fa da padrone
+
+1118
+00:49:07,319 --> 00:49:13,040
+questo teorema di questo tipo di qua.
+
+1119
+00:49:10,400 --> 00:49:14,680
+Credo si pronunci Niquist, ma potrebbe
+
+1120
+00:49:13,040 --> 00:49:16,680
+anche pronunciarsi in tutta maniera, non
+
+1121
+00:49:14,680 --> 00:49:20,960
+lo sapremo mai,
+
+1122
+00:49:16,680 --> 00:49:23,839
+che si è posto il problema di capire
+
+1123
+00:49:20,960 --> 00:49:26,119
+qual è la più alta frequenza che si può
+
+1124
+00:49:23,839 --> 00:49:29,119
+capturare in un campionamento
+
+1125
+00:49:26,119 --> 00:49:29,119
+fondamentale.
+
+1126
+00:49:29,760 --> 00:49:38,280
+Quello che viene fuori in pratica è che
+
+1127
+00:49:35,319 --> 00:49:39,799
+ed è abbastanza intuitivo che per
+
+1128
+00:49:38,280 --> 00:49:41,960
+rappresentare
+
+1129
+00:49:39,799 --> 00:49:45,400
+un'alterna,
+
+1130
+00:49:41,960 --> 00:49:48,839
+diciamo, rappresentare correttamente
+
+1131
+00:49:45,400 --> 00:49:50,520
+il il passaggio da una formazione
+
+1132
+00:49:48,839 --> 00:49:51,880
+all'altra, quindi bianco nero, bianco
+
+1133
+00:49:50,520 --> 00:49:54,000
+nero, bianco nero, bisogno che questa
+
+1134
+00:49:51,880 --> 00:49:56,720
+cosa mi arrivi meno su due pixel, perché
+
+1135
+00:49:54,000 --> 00:50:00,960
+almeno uno intuitivamente almeno uno me
+
+1136
+00:49:56,720 --> 00:50:04,079
+lo becco tutto. Ok? Quindi mi
+
+1137
+00:50:00,960 --> 00:50:07,520
+eh come si dice riduco la quantità di
+
+1138
+00:50:04,079 --> 00:50:12,040
+fastidio che posso che posso avere.
+
+1139
+00:50:07,520 --> 00:50:12,040
+Ok? eh diciamo non ha
+
+1140
+00:50:12,480 --> 00:50:20,040
+quando questa eh mh
+
+1141
+00:50:17,880 --> 00:50:21,640
+come dire condizione non è rispettata,
+
+1142
+00:50:20,040 --> 00:50:23,760
+si
+
+1143
+00:50:21,640 --> 00:50:25,880
+eh producono
+
+1144
+00:50:23,760 --> 00:50:29,760
+eh dei disturbi che sono quelli che
+
+1145
+00:50:25,880 --> 00:50:30,799
+vanno chiamati pattern di Moirro, anche
+
+1146
+00:50:29,760 --> 00:50:32,960
+questo non ho mai saputo come si
+
+1147
+00:50:30,799 --> 00:50:34,799
+pronuncia realmente, che fondalmente ti
+
+1148
+00:50:32,960 --> 00:50:39,040
+producono dei colori falsi e dei
+
+1149
+00:50:34,799 --> 00:50:39,040
+disturbi nell'indagine. Ok?
+
+1150
+00:50:39,839 --> 00:50:42,839
+Ehm,
+
+1151
+00:50:46,240 --> 00:50:49,960
+ok.
+
+1152
+00:50:48,040 --> 00:50:53,480
+Altra cosa,
+
+1153
+00:50:49,960 --> 00:50:56,359
+ultima cosa di cui volevo parlare
+
+1154
+00:50:53,480 --> 00:50:58,240
+è invece un altro fenomeno
+
+1155
+00:50:56,359 --> 00:51:00,040
+che è un po' diverso da questo. Quindi
+
+1156
+00:50:58,240 --> 00:51:03,079
+abbiamo parlato di sampling, diciamo
+
+1157
+00:51:00,040 --> 00:51:05,799
+campionamento che mi dice sappi abbiamo
+
+1158
+00:51:03,079 --> 00:51:07,599
+una superficie continua
+
+1159
+00:51:05,799 --> 00:51:09,640
+che teoricamente continua, però andiamo
+
+1160
+00:51:07,599 --> 00:51:12,200
+a campionare le misurazioni su vari
+
+1161
+00:51:09,640 --> 00:51:15,240
+punti, no? Eh, dobbiamo un pochettino
+
+1162
+00:51:12,200 --> 00:51:16,760
+sapere l'idea quanti lontani devono
+
+1163
+00:51:15,240 --> 00:51:19,040
+essere, diciamo, i centri di questi
+
+1164
+00:51:16,760 --> 00:51:22,920
+punti per avere di questi singoli di
+
+1165
+00:51:19,040 --> 00:51:24,880
+queste singoli sezioni per avere una
+
+1166
+00:51:22,920 --> 00:51:27,280
+misurazione
+
+1167
+00:51:24,880 --> 00:51:30,799
+eh che è sensata e mi permette di vedere
+
+1168
+00:51:27,280 --> 00:51:35,000
+bene l'immagine.
+
+1169
+00:51:30,799 --> 00:51:37,880
+Però c'è un altro discorso da fare.
+
+1170
+00:51:35,000 --> 00:51:39,920
+Abbiamo detto che eh per ognuno di
+
+1171
+00:51:37,880 --> 00:51:41,240
+questi elementi sensibili che abbiamo
+
+1172
+00:51:39,920 --> 00:51:43,119
+campionato, diciamo, dove facciamo il
+
+1173
+00:51:41,240 --> 00:51:45,880
+campionamento,
+
+1174
+00:51:43,119 --> 00:51:47,680
+ehm noi misuriamo una differenza di
+
+1175
+00:51:45,880 --> 00:51:48,799
+potenziale.
+
+1176
+00:51:47,680 --> 00:51:52,200
+La differenza di potenziale è una
+
+1177
+00:51:48,799 --> 00:51:54,160
+misurazione analogica,
+
+1178
+00:51:52,200 --> 00:51:57,160
+però poi a noi interessa arrivare al
+
+1179
+00:51:54,160 --> 00:51:57,160
+digitale.
+
+1180
+00:51:57,440 --> 00:52:04,760
+Quindi da questa misurazione analogica
+
+1181
+00:52:00,359 --> 00:52:06,520
+noi la in un certo senso l'approssimiamo
+
+1182
+00:52:04,760 --> 00:52:08,480
+tramite
+
+1183
+00:52:06,520 --> 00:52:10,599
+un procedimento che si chiama
+
+1184
+00:52:08,480 --> 00:52:12,960
+quantizzazione. Io ho questa
+
+1185
+00:52:10,599 --> 00:52:15,240
+misurazione, poi decido, ok, io me la
+
+1186
+00:52:12,960 --> 00:52:18,599
+divido in
+
+1187
+00:52:15,240 --> 00:52:22,559
+che so 256°
+
+1188
+00:52:18,599 --> 00:52:24,960
+o 10 16° a seconda di quanti bit c'ho a
+
+1189
+00:52:22,559 --> 00:52:26,359
+disposizione, no? Ok? Posso avere anche
+
+1190
+00:52:24,960 --> 00:52:29,359
+un solo bit e quindi me la faccio
+
+1191
+00:52:26,359 --> 00:52:31,400
+pinaria totalmente o zero.
+
+1192
+00:52:29,359 --> 00:52:35,440
+E chiaramente a seconda della
+
+1193
+00:52:31,400 --> 00:52:35,440
+quantizzazione che faccio,
+
+1194
+00:52:35,799 --> 00:52:40,520
+siccome passo da un'analogico a un
+
+1195
+00:52:37,799 --> 00:52:43,200
+digitale, perdozione di qualche tipo.
+
+1196
+00:52:40,520 --> 00:52:45,520
+Cioè, se vi faccio vedere il grafico, un
+
+1197
+00:52:43,200 --> 00:52:47,280
+grafico è una cosa di questo tipo. c'ho
+
+1198
+00:52:45,520 --> 00:52:50,000
+un'informazione
+
+1199
+00:52:47,280 --> 00:52:53,000
+analogica che questo grafico blu, ad
+
+1200
+00:52:50,000 --> 00:52:53,000
+esempio,
+
+1201
+00:52:53,960 --> 00:53:02,960
+e volendola fare eh come dire digitale,
+
+1202
+00:52:59,280 --> 00:53:05,280
+io ottengo questa grafico a scalini dove
+
+1203
+00:53:02,960 --> 00:53:07,839
+sto approssimando tramite un numero
+
+1204
+00:53:05,280 --> 00:53:11,720
+finito di valori questa funzione, quindi
+
+1205
+00:53:07,839 --> 00:53:15,160
+perdo dettaglio. Ok? Questo chiaramente
+
+1206
+00:53:11,720 --> 00:53:18,040
+introduce, diciamo, una perdita di
+
+1207
+00:53:15,160 --> 00:53:20,640
+informazione che può essere eh se ho
+
+1208
+00:53:18,040 --> 00:53:25,079
+pochi bit a disposizione
+
+1209
+00:53:20,640 --> 00:53:26,480
+può essere abbastanza eh significativa.
+
+1210
+00:53:25,079 --> 00:53:28,920
+Motivo per cui questa è una cosa che si
+
+1211
+00:53:26,480 --> 00:53:32,200
+faceva anche nell'audio,
+
+1212
+00:53:28,920 --> 00:53:34,680
+eh, dove il campionamento era e la
+
+1213
+00:53:32,200 --> 00:53:36,240
+quantizzazione
+
+1214
+00:53:34,680 --> 00:53:38,280
+una volta che passi a una registrazione
+
+1215
+00:53:36,240 --> 00:53:41,440
+digitale è importante anche per quella,
+
+1216
+00:53:38,280 --> 00:53:43,720
+esiste un fenomen un un un pezzotto che
+
+1217
+00:53:41,440 --> 00:53:46,720
+si fa diciamola così che si chiama
+
+1218
+00:53:43,720 --> 00:53:46,720
+ditering.
+
+1219
+00:53:47,040 --> 00:53:52,119
+Fondamentalmente cosa fai? Supponiamo di
+
+1220
+00:53:48,960 --> 00:53:53,520
+avere due colori a disposizione. Ok?
+
+1221
+00:53:52,119 --> 00:53:55,240
+Allora, se io faccio due colori a
+
+1222
+00:53:53,520 --> 00:53:58,520
+disposizione, ottengo un'immagine di
+
+1223
+00:53:55,240 --> 00:54:01,119
+questo tipo, ok? quantizzo, faccio sta
+
+1224
+00:53:58,520 --> 00:54:03,000
+cosa. Però allora io posso pensare di
+
+1225
+00:54:01,119 --> 00:54:05,079
+fare un'altra cosa, utilizzare sempre
+
+1226
+00:54:03,000 --> 00:54:08,200
+due colori. Quindi un'immagine viene
+
+1227
+00:54:05,079 --> 00:54:10,680
+anche questa a sinistra eh
+
+1228
+00:54:08,200 --> 00:54:13,280
+alla mia destra è un'immagine, cioè
+
+1229
+00:54:10,680 --> 00:54:16,319
+questa qui
+
+1230
+00:54:13,280 --> 00:54:18,920
+è un'immagine binaria, però l'ho tenuta
+
+1231
+00:54:16,319 --> 00:54:22,000
+facendo una cosa diversa,
+
+1232
+00:54:18,920 --> 00:54:24,200
+cioè io per ogni
+
+1233
+00:54:22,000 --> 00:54:26,680
+misurazione
+
+1234
+00:54:24,200 --> 00:54:28,400
+aggiungo del rumore che mi permette di
+
+1235
+00:54:26,680 --> 00:54:30,480
+andare un poco sopra, un poco sotto e
+
+1236
+00:54:28,400 --> 00:54:33,640
+quantizzo quello.
+
+1237
+00:54:30,480 --> 00:54:36,480
+Questo mi permette di creare persone che
+
+1238
+00:54:33,640 --> 00:54:41,520
+sono
+
+1239
+00:54:36,480 --> 00:54:43,839
+che verrebbero, come dire omogenee, una
+
+1240
+00:54:41,520 --> 00:54:46,040
+variazione
+
+1241
+00:54:43,839 --> 00:54:49,040
+di livelli di grigio.
+
+1242
+00:54:46,040 --> 00:54:52,640
+Qua addirittura due valori.
+
+1243
+00:54:49,040 --> 00:54:55,960
+Questo viene fuori il l'effetto è che ti
+
+1244
+00:54:52,640 --> 00:54:59,280
+avviene un'immagine che pur contenendo
+
+1245
+00:54:55,960 --> 00:55:02,400
+sempre quantizzata a due valori ti dà
+
+1246
+00:54:59,280 --> 00:55:04,359
+un'informaz percettualmente
+
+1247
+00:55:02,400 --> 00:55:08,920
+credo che sia in questa maniera è
+
+1248
+00:55:04,359 --> 00:55:10,640
+migliore perché ti permetta di saltare
+
+1249
+00:55:08,920 --> 00:55:13,520
+da livelli
+
+1250
+00:55:10,640 --> 00:55:16,040
+diversi
+
+1251
+00:55:13,520 --> 00:55:18,400
+che stanno vicini e ti crea ti simula
+
+1252
+00:55:16,040 --> 00:55:21,359
+l'informazione che hai vicino. ancora
+
+1253
+00:55:18,400 --> 00:55:25,119
+più evidente è su questa. Questo è il
+
+1254
+00:55:21,359 --> 00:55:27,440
+ritratto di, diciamo, cioè
+
+1255
+00:55:25,119 --> 00:55:30,880
+la ragazza con un orecchino di perla.
+
+1256
+00:55:27,440 --> 00:55:33,440
+Credo che posso Questo è il titolo.
+
+1257
+00:55:30,880 --> 00:55:36,319
+Questa è come la quantizzi direttamente
+
+1258
+00:55:33,440 --> 00:55:40,319
+a
+
+1259
+00:55:36,319 --> 00:55:42,359
+eh due livelli per per RGB, quindi due
+
+1260
+00:55:40,319 --> 00:55:44,039
+livelli per quindi binaria per il rosso,
+
+1261
+00:55:42,359 --> 00:55:46,680
+binaria per il blu e binaria per il
+
+1262
+00:55:44,039 --> 00:55:48,960
+verde.
+
+1263
+00:55:46,680 --> 00:55:50,760
+Se ci giochicchi invece con questo
+
+1264
+00:55:48,960 --> 00:55:52,880
+procedimento, quindi aggiungi rumore
+
+1265
+00:55:50,760 --> 00:55:55,079
+fondamentalmente, poi di nuovo quantizzi
+
+1266
+00:55:52,880 --> 00:55:59,039
+sempre a due valori per RGP, ottieni
+
+1267
+00:55:55,079 --> 00:55:59,039
+un'immagine di questo tipo
+
+1268
+00:55:59,400 --> 00:56:05,760
+che è molto più realistica di quella
+
+1269
+00:56:01,799 --> 00:56:07,880
+ottenuta, diciamo, eh
+
+1270
+00:56:05,760 --> 00:56:10,359
+di quella a sinistra che otterresti
+
+1271
+00:56:07,880 --> 00:56:12,559
+facendo direttamente la quantizzazione.
+
+1272
+00:56:10,359 --> 00:56:15,520
+Ora, questo è significativo soltanto
+
+1273
+00:56:12,559 --> 00:56:19,520
+però quando hai un passo
+
+1274
+00:56:15,520 --> 00:56:21,039
+eh una una bassa
+
+1275
+00:56:19,520 --> 00:56:23,319
+eh quantità di informazione che puoi
+
+1276
+00:56:21,039 --> 00:56:25,000
+registrare.
+
+1277
+00:56:23,319 --> 00:56:28,520
+Noi ad esempio, registriamo un'immagine
+
+1278
+00:56:25,000 --> 00:56:31,440
+a 255, tipicamente a 256 livelli per R
+
+1279
+00:56:28,520 --> 00:56:33,119
+canale RGB. Quelli sono già abbastanza
+
+1280
+00:56:31,440 --> 00:56:36,240
+tanti,
+
+1281
+00:56:33,119 --> 00:56:37,319
+percentualmente non, diciamo, non
+
+1282
+00:56:36,240 --> 00:56:39,280
+riusciamo a riprodurre tutta
+
+1283
+00:56:37,319 --> 00:56:41,280
+l'informazione, quindi a fare un
+
+1284
+00:56:39,280 --> 00:56:44,599
+meccanismo di teing lì potrebbe in
+
+1285
+00:56:41,280 --> 00:56:46,480
+realtà corrompere l'immagine e creare
+
+1286
+00:56:44,599 --> 00:56:48,760
+informazioni che sono totalmente false.
+
+1287
+00:56:46,480 --> 00:56:51,440
+Qua invece
+
+1288
+00:56:48,760 --> 00:56:53,760
+qui diciamo l'idea è fondamentalmente
+
+1289
+00:56:51,440 --> 00:56:55,640
+inganni l'occhio facendoti vedere
+
+1290
+00:56:53,760 --> 00:57:00,720
+informazioni che vengono ricostruite da
+
+1291
+00:56:55,640 --> 00:57:00,720
+colori diversi che stanno vicini. Ok?
+
+1292
+00:57:00,960 --> 00:57:03,960
+Ehm,
+
+1293
+00:57:04,680 --> 00:57:09,480
+vabbè, questo diciamo più o meno
+
+1294
+00:57:06,000 --> 00:57:09,480
+l'avevamo detto
+
+1295
+00:57:15,440 --> 00:57:21,359
+una piccola forse qualcosa sul rumore.
+
+1296
+00:57:24,200 --> 00:57:28,599
+Ok, allora
+
+1297
+00:57:33,359 --> 00:57:38,760
+no, no, aspetta, non è lo fai
+
+1298
+00:57:35,760 --> 00:57:40,960
+preregistrazione, no post registrazione.
+
+1299
+00:57:38,760 --> 00:57:44,119
+Cioè, eh, sia chiaro, non è una cosa che
+
+1300
+00:57:40,960 --> 00:57:47,160
+tu pigli, scusate, non è una cosa che tu
+
+1301
+00:57:44,119 --> 00:57:48,760
+pigli questa immagine a sinistra, la
+
+1302
+00:57:47,160 --> 00:57:51,640
+processi e ottieni quella. Quale
+
+1303
+00:57:48,760 --> 00:57:54,119
+informazione versa?
+
+1304
+00:57:51,640 --> 00:57:55,319
+lo fa in fase di quantizzazione, cioè tu
+
+1305
+00:57:54,119 --> 00:57:57,880
+hai il segnale, una misurazione
+
+1306
+00:57:55,319 --> 00:57:59,559
+analogica, corrompi la segnalazione, la
+
+1307
+00:57:57,880 --> 00:58:01,480
+misurazione analogica contro rumore in
+
+1308
+00:57:59,559 --> 00:58:04,400
+maniera tale che vada un poco più su, un
+
+1309
+00:58:01,480 --> 00:58:06,119
+poco più giù, quindi ti vari localmente
+
+1310
+00:58:04,400 --> 00:58:08,160
+la quantizzazione di qualcosa che
+
+1311
+00:58:06,119 --> 00:58:12,799
+potrebbe essere pres andare a finire
+
+1312
+00:58:08,160 --> 00:58:12,799
+nello stesso nello stesso bimalmente.
+
+1313
+00:58:12,960 --> 00:58:16,039
+E in questa maniera ti produce un
+
+1314
+00:58:14,280 --> 00:58:19,119
+effetto che inganna l'occhio e ti
+
+1315
+00:58:16,039 --> 00:58:23,319
+produce o l'orecchio, facevo audio e ti
+
+1316
+00:58:19,119 --> 00:58:23,319
+produce dei segnali che sono
+
+1317
+00:58:26,359 --> 00:58:31,799
+in un certo senso ottieni un effetto
+
+1318
+00:58:29,119 --> 00:58:33,920
+meno forte della quantizzazione su pixel
+
+1319
+00:58:31,799 --> 00:58:39,000
+vicini, proprio perché pixel vicini
+
+1320
+00:58:33,920 --> 00:58:41,079
+possono andare a finire su su bine.
+
+1321
+00:58:39,000 --> 00:58:42,720
+andando a finire subin diversi ti creano
+
+1322
+00:58:41,079 --> 00:58:44,880
+una variazione dell'informazione e ti
+
+1323
+00:58:42,720 --> 00:58:46,880
+fanno pensare che ci ci sia qualcosa e
+
+1324
+00:58:44,880 --> 00:58:50,920
+ti fanno ricostruire dei colori un po'
+
+1325
+00:58:46,880 --> 00:58:50,920
+più realistici. Ok?
+
+1326
+00:58:51,119 --> 00:58:56,880
+Eh, ultima cosa, diciamo, ehm
+
+1327
+00:59:00,599 --> 00:59:05,160
+eh
+
+1328
+00:59:02,160 --> 00:59:06,720
+problemi di diciamo di di rumore.
+
+1329
+00:59:05,160 --> 00:59:08,640
+Allora, esistono due tipi di rumore, uno
+
+1330
+00:59:06,720 --> 00:59:11,280
+che tipicamente si trascura, che è una
+
+1331
+00:59:08,640 --> 00:59:13,079
+cosa che si chiama short noise.
+
+1332
+00:59:11,280 --> 00:59:14,960
+Shot noise è dovuta al fatto che in
+
+1333
+00:59:13,079 --> 00:59:17,160
+realtà è vero, noi misuriamo quanti
+
+1334
+00:59:14,960 --> 00:59:18,599
+fotoni arrivano su un indirettamente
+
+1335
+00:59:17,160 --> 00:59:21,400
+quanti fotoni arrivano su unento
+
+1336
+00:59:18,599 --> 00:59:23,119
+sensibile, però è chiaro che punti
+
+1337
+00:59:21,400 --> 00:59:25,200
+vicini
+
+1338
+00:59:23,119 --> 00:59:27,000
+dove dovrebbero avere la stessa
+
+1339
+00:59:25,200 --> 00:59:28,480
+luminosità
+
+1340
+00:59:27,000 --> 00:59:31,599
+non misurano la stessa quantità di
+
+1341
+00:59:28,480 --> 00:59:33,720
+fotoni perché è abbastanza casuale anche
+
+1342
+00:59:31,599 --> 00:59:37,400
+la quantità di fotoni che ti arrivano ed
+
+1343
+00:59:33,720 --> 00:59:39,200
+è eh casuale regolata sembra attraverso
+
+1344
+00:59:37,400 --> 00:59:40,760
+una distribuzione di passono. La
+
+1345
+00:59:39,200 --> 00:59:44,400
+situazione di basson è una cosa che va
+
+1346
+00:59:40,760 --> 00:59:46,160
+grosso modo in questa maniera, cioè una
+
+1347
+00:59:44,400 --> 00:59:50,960
+deviazione standard che va per radice di
+
+1348
+00:59:46,160 --> 00:59:53,240
+n dove n è la media della diione.
+
+1349
+00:59:50,960 --> 00:59:55,920
+Eh signal to noise ratio, non so se ne
+
+1350
+00:59:53,240 --> 00:59:59,000
+avete mai sentito parlare, è qualcosa
+
+1351
+00:59:55,920 --> 01:00:01,119
+che ti dice quanta informazione hai
+
+1352
+00:59:59,000 --> 01:00:07,520
+rispetto al rumore. Quindi se hai un
+
+1353
+01:00:01,119 --> 01:00:09,440
+signal toins rocio eh alto
+
+1354
+01:00:07,520 --> 01:00:11,880
+significa il segnale vince sul tumore.
+
+1355
+01:00:09,440 --> 01:00:14,680
+Se è un signal to no rcio basso
+
+1356
+01:00:11,880 --> 01:00:19,760
+significa che il rumore è è alto e
+
+1357
+01:00:14,680 --> 01:00:21,640
+quindi perdi molto segnale. Ok?
+
+1358
+01:00:19,760 --> 01:00:23,920
+Ora quello che viene fuori che la signiz
+
+1359
+01:00:21,640 --> 01:00:27,559
+ratio della diciamo di questa cosa è qua
+
+1360
+01:00:23,920 --> 01:00:31,960
+con radice di n.
+
+1361
+01:00:27,559 --> 01:00:34,280
+Questo significa quindi che
+
+1362
+01:00:31,960 --> 01:00:41,319
+il problema del fatto diciamo dello
+
+1363
+01:00:34,280 --> 01:00:41,319
+short è qualcosa che va è più importante
+
+1364
+01:00:43,760 --> 01:00:54,079
+quando la media è bassa. N è la media
+
+1365
+01:00:49,240 --> 01:00:56,240
+perché ho un signal to noise che cresce
+
+1366
+01:00:54,079 --> 01:00:58,960
+con n va con come radice di n, quindi
+
+1367
+01:00:56,240 --> 01:01:00,599
+cresce con n un certo senso. Questo
+
+1368
+01:00:58,960 --> 01:01:03,039
+significa quindi che se io c'ho colori
+
+1369
+01:01:00,599 --> 01:01:04,680
+brillanti, c'ho molta luce, me ne posso
+
+1370
+01:01:03,039 --> 01:01:07,359
+fregare assolutamente mi arrivano
+
+1371
+01:01:04,680 --> 01:01:11,240
+talmente tanti fotoni che le differenze
+
+1372
+01:01:07,359 --> 01:01:12,960
+sono piccole. In real quando invece la
+
+1373
+01:01:11,240 --> 01:01:14,520
+parte è scura, quindi arrivano pochi
+
+1374
+01:01:12,960 --> 01:01:16,200
+fotoni, beh, allora se arrivano pochi
+
+1375
+01:01:14,520 --> 01:01:18,119
+fotoni
+
+1376
+01:01:16,200 --> 01:01:19,760
+le differenze incominciano a essere
+
+1377
+01:01:18,119 --> 01:01:22,920
+significative, motivo per cui noi
+
+1378
+01:01:19,760 --> 01:01:24,680
+vediamo più rumore percettivamente dove
+
+1379
+01:01:22,920 --> 01:01:28,720
+c'è le scene più scure che le scene più
+
+1380
+01:01:24,680 --> 01:01:28,720
+chiare. Ok?
+
+1381
+01:01:28,839 --> 01:01:33,799
+E poi, e questo grosso modo ci interessa
+
+1382
+01:01:31,559 --> 01:01:35,400
+poco, cioè se c'è qualche correzione
+
+1383
+01:01:33,799 --> 01:01:37,319
+viene fatta a livello strumentale, ma
+
+1384
+01:01:35,400 --> 01:01:38,839
+non interessa poco. Un'altra cosa invece
+
+1385
+01:01:37,319 --> 01:01:41,160
+è la correzione, quello di cui parlavamo
+
+1386
+01:01:38,839 --> 01:01:42,920
+prima che è il gridoutise, che è quello
+
+1387
+01:01:41,160 --> 01:01:45,920
+che viene prodotto proprio dal dallo
+
+1388
+01:01:42,920 --> 01:01:48,640
+strumento. Quello invece tipicamente
+
+1389
+01:01:45,920 --> 01:01:51,760
+viene modellato, lo vedremo e lo useremo
+
+1390
+01:01:48,640 --> 01:01:54,359
+come un rumore gaussiano.
+
+1391
+01:01:51,760 --> 01:01:56,400
+Vedremo poi che cosa vuol dire rumore e
+
+1392
+01:01:54,359 --> 01:01:58,640
+formalmente
+
+1393
+01:01:56,400 --> 01:02:00,880
+ed è quello che ci occuperemo di
+
+1394
+01:01:58,640 --> 01:02:02,760
+rimuovere in qualche maniera. Quindi il
+
+1395
+01:02:00,880 --> 01:02:04,200
+rumore che cercheremo di rimuovere è
+
+1396
+01:02:02,760 --> 01:02:07,640
+quello che si chiama soltanto rumore
+
+1397
+01:02:04,200 --> 01:02:12,400
+ossiano. Ok,
+
+1398
+01:02:07,640 --> 01:02:14,119
+va bene. Direi che eh abbiamo finito per
+
+1399
+01:02:12,400 --> 01:02:16,000
+oggi
+
+1400
+01:02:14,119 --> 01:02:17,559
+15 minuti prima, ma insomma ho finito i
+
+1401
+01:02:16,000 --> 01:02:19,359
+lucidi.
+
+1402
+01:02:17,559 --> 01:02:24,480
+Ci vediamo
+
+1403
+01:02:19,359 --> 01:02:24,480
+martedì all'1. Ok.
+
+1404
+01:02:36,960 --> 01:02:39,920
+Ah, un po' troppo.
+
