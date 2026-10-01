@@ -4,3 +4,5 @@
 *.gz
 *.aux
 *.out
+*.fls
+*.fdb_latexmk

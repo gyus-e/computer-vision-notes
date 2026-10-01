@@ -1,0 +1,2 @@
+#!/bin/bash
+rm -rf *.aux *.log *.out *.toc *.lof *.lot *.fls *.fdb_latexmk *.synctex.gz main.pdf
