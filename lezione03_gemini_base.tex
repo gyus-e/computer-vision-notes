@@ -1,0 +1,154 @@
+\chapter{Lezione 3: Modello Geometrico di Telecamera e Geometria Proiettiva}
+\label{chap:lezione3}
+
+\section{Introduzione e Motivazione}
+Nelle lezioni precedenti è stato introdotto il modello geometrico di una telecamera ed è stata mostrata la natura non lineare delle equazioni di proiezione. In questo capitolo il modello di telecamera viene formalizzato in modo più rigoroso e intuitivo, ponendo le basi per affrontare il problema fondamentale della \textbf{calibrazione}.
+
+Calibrare una telecamera significa stimare i parametri da cui dipende il modello proiettivo. Una volta stimati tali parametri, si conoscono integralmente le leggi che regolano la proiezione ottica. Questo permette di utilizzare il modello per svariate applicazioni di Computer Vision e ricostruzione tridimensionale.
+
+\section{Triangolazione e Ricostruzione 3D}
+Nel modello semplificato su piano, la telecamera è rappresentata da un \textbf{piano immagine} (visto come un segmento), un \textbf{centro di proiezione} (o centro ottico) e dai \textbf{raggi ottici} che connettono i punti dello spazio tridimensionale con il centro ottico passando per il piano immagine.
+
+Se consideriamo un punto $p$ sul piano immagine, esso è la proiezione di un punto $P$ dello spazio tridimensionale. Tuttavia, sussiste un'intrinseca \textbf{ambiguità di profondità}: qualsiasi punto situato lungo il raggio ottico passante per $p$ e per il centro ottico genererà la medesima immagine $p$.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Principio della triangolazione con due telecamere.}
+    \label{fig:triangolazione}
+\end{figure}
+
+Per risolvere tale ambiguità e ricostruire le coordinate 3D del punto $P$, si applica il processo di \textbf{triangolazione}:
+\begin{enumerate}
+    \item Si utilizzano due o più telecamere calibrate di cui si conoscono la posizione e le relazioni geometriche relative.
+    \item Si identificano i \textbf{punti corrispondenti} sulle due immagini, ovvero proiezioni dello stesso punto $P$ dello spazio.
+    \item Si tracciano i due raggi ottici associati ai punti corrispondenti.
+    \item L'intersezione dei due raggi ottici nello spazio definisce in modo univoco il punto 3D $P$.
+\end{enumerate}
+
+\subsection{L'uso di immagini multiple ed errore di stima}
+In condizioni reali, le stime dei parametri di calibrazione contengono imperfezioni e le coordinate dei punti sull'immagine sono discrete (espresse in pixel). A causa di questi errori di discretizzazione e rumore, i due raggi ottici non si intersecano mai perfettamente nello spazio.
+
+Per ovviare a questo problema:
+\begin{itemize}
+    \item \textbf{Caso a due telecamere:} Si stima il punto che minimizza la distanza dai due raggi ottici (ad esempio, il punto medio del segmento di minima distanza tra le due rette).
+    \item \textbf{Caso a più telecamere (3, 4 o più immagini):} Si sfrutta la ridondanza informativa per mediare gli errori. L'aumento del numero di viste permette di formulare un problema di stima ai \textbf{minimi quadrati} (\emph{Least Squares}), ottenendo una stima ottimale in presenza di rumore.
+\end{itemize}
+
+\subsection{Autocalibrazione e Ricostruzione da droni}
+In contesti applicativi moderni (come i rilievi fotogrammetrici in architettura mediante droni), spesso non si dispone di telecamere preventivamente calibrate. Si ricorre quindi a tecniche di \textbf{autocalibrazione} (\emph{Structure from Motion}). 
+
+Avendo a disposizione un'ampia sequenza di immagini dello stesso oggetto/ambiente scattate da molteplici punti di vista, è possibile ottimizzare simultaneamente sia la ricostruzione 3D dei punti della scena sia la stima dei parametri intrinseci ed estrinseci della telecamera.
+
+---
+
+\section{Limiti della Geometria Affine ed Euclidea}
+Nella geometria euclidea e affine (studiata negli spazi vettoriali $\mathbb{R}^n$), le trasformazioni affini generiche hanno la forma:
+\begin{equation}
+    y = A x + b
+\end{equation}
+dove $A$ è una matrice non singolare (invertibile) di dimensione $n \times n$ e $b \in \mathbb{R}^n$ è un vettore di traslazione.
+
+Attraverso la decomposizione ai valori singolari (\textbf{SVD} - \emph{Singular Value Decomposition}), la matrice $A$ può essere espressa come:
+\begin{equation}
+    A = U D V^T
+\end{equation}
+dove $U$ e $V$ sono matrici ortogonali (che rappresentano rotazioni) e $D$ è una matrice diagonale contenente i valori singolari $\sigma_1, \sigma_2, \dots, \sigma_n$.
+
+L'azione della matrice $D$ consiste nello scalare lo spazio lungo gli assi con fattori differenti ($\sigma_1$ scala $x$, $\sigma_2$ scala $y$, ecc.). Questo determina una deformazione della struttura spaziale. 
+
+Tuttavia, le trasformazioni affini conservano alcune importanti \textbf{invarianti geometriche}. Una fondamentale invariante della geometria affine è il \textbf{parallelismo}: rette parallele nello spazio originale rimangono parallele anche dopo una trasformazione affine.
+
+Nelle immagini fotografiche e nella prospettiva reale, rette parallele nello spazio 3D (come i binari del treno) convergono visivamente verso un \textbf{punto di fuga}. Poiché una trasformazione affine non può trasformare rette parallele in rette incidenti, la geometria affine ed euclidea si rivelano insufficienti per modellare matematicamente il processo di proiezione prospettica.
+
+---
+
+\section{Lo Spazio Proiettivo e le Coordinate Omogenee}
+
+\subsection{Intuizione concettuale}
+I punti di fuga possono essere interpretati non come punti finiti dello spazio reale, bensì come proiezioni delle \textbf{direzioni} delle rette. Rette parallele condividono la stessa direzione, per cui convergono verso lo stesso punto di fuga sull'immagine.
+
+Per accogliere formalmente le direzioni all'interno della struttura geometrica, occorre estendere lo spazio affine affiancandovi i cosiddetti \textbf{punti all'infinito} (o punti impropri). Per rappresentare un punto in tale spazio esteso, $n$ coordinate non sono più sufficienti: occorre introdurre una coordinata aggiuntiva.
+
+\subsection{Formalizzazione dello Spazio Proiettivo $\mathbb{P}^n$}
+Si consideri lo spazio vettoriale $\mathbb{R}^{n+1}$ privato dell'origine: $\mathbb{R}^{n+1} \setminus \{\mathbf{0}\}$. L'esclusione del vettore nullo è del tutto coerente con la fisica della proiezione ottica: il centro di proiezione non ha una proiezione definita, in quanto per esso passano infinite rette.
+
+Si definisce su $\mathbb{R}^{n+1} \setminus \{\mathbf{0}\}$ una \textbf{relazione di equivalenza} $\sim$:
+\begin{equation}
+    x \sim y \iff \exists \lambda \in \mathbb{R} \setminus \{0\} \text{ tale che } y = \lambda x
+\end{equation}
+
+Geometricamente, ogni classe di equivalenza corrisponde a una \textbf{retta vettoriale} passante per l'origine in $\mathbb{R}^{n+1}$ (privata dell'origine stessa).
+
+Lo \textbf{Spazio Proiettivo} $n$-dimensionale, indicato con $\mathbb{P}^n$ (o $P_n$), è l'insieme di tutte le classi di equivalenza definite da tale relazione:
+\begin{equation}
+    \mathbb{P}^n = (\mathbb{R}^{n+1} \setminus \{\mathbf{0}\}) / \sim
+\end{equation}
+
+\subsection{Coordinate Omogenee}
+Un punto $P \in \mathbb{P}^n$ è identificato da un vettore colonna di $n+1$ elementi:
+\begin{equation}
+    \mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \\ x_{n+1} \end{pmatrix} \neq \mathbf{0}
+\end{equation}
+Tali coordinate prendono il nome di \textbf{coordinate omogenee}. Due vettori identificano lo stesso punto proiettivo se e solo se differiscono per un fattore di scala non nullo:
+\begin{equation}
+    \begin{pmatrix} x_1 \\ \vdots \\ x_{n+1} \end{pmatrix} \equiv \begin{pmatrix} \lambda x_1 \\ \vdots \\ \lambda x_{n+1} \end{pmatrix}, \quad \forall \lambda \neq 0
+\end{equation}
+
+---
+
+\section{Base di uno Spazio Proiettivo e Punto Unità}
+Negli spazi vettoriali standard, una base è un insieme di $n$ vettori linearmente indipendenti. In uno spazio proiettivo $\mathbb{P}^n$, la presenza del fattore di scala indeterminato $\lambda$ introduce una difficoltà nella definizione delle coordinate rispetto a una base tramite combinazione lineare.
+
+Se si prendessero solo $n+1$ punti proiettivi per formare la base, la scelta arbitraria dei rappresentanti vettoriali per ciascun punto altererebbe la proporzionalità nelle combinazioni lineari, facendo fallire l'univocità delle coordinate a meno di scala.
+
+Per risolvere questa ambiguità e vincolare la scelta dei rappresentanti, una **base per uno spazio proiettivo $\mathbb{P}^n$** richiede **$n+2$ punti** $[B_1, B_2, \dots, B_{n+1}, B_{n+2}]$ in posizione generale:
+\begin{enumerate}
+    \item I primi $n+1$ punti $B_1, \dots, B_{n+1}$ formano l'ossatura fondamentale (rappresentati da vettori linearmente indipendenti in $\mathbb{R}^{n+1}$).
+    \item Il $(n+2)$-esimo punto, indicato come **Punto Unità** ($B_{n+2}$), fissa la scala dei rappresentanti. In coordinate omogenee standard, esso corrisponde al punto rappresentato dal vettore di tutti $1$:
+    \begin{equation}
+        B_{n+2} \equiv \begin{pmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{pmatrix} = \sum_{i=1}^{n+1} B_i
+    \end{equation}
+\end{enumerate}
+
+La presenza del punto unità impone che i rappresentanti vettoriali scelti per i primi $n+1$ punti debbano sommarsi per dare esattamente un rappresentante del punto unità. Questo vincolo forza l'utilizzo di un unico fattore di scala globale $\lambda$ per tutta la base, preservando la consistenza della struttura proiettiva.
+
+---
+
+\section{Immersione dello Spazio Affine nello Spazio Proiettivo}
+
+Per comprendere come lo spazio affine $n$-dimensionale $\mathbb{R}^n$ si integra all'interno dello spazio proiettivo $\mathbb{P}^n$, si analizza il ruolo dell'ultima coordinata omogenea $x_{n+1}$.
+
+\subsection{Punti al Finito e Punti all'Infinito}
+Sia $\mathbf{x} = (x_1, x_2, \dots, x_n, x_{n+1})^T$ un punto in coordinate omogenee in $\mathbb{P}^n$:
+
+\begin{itemize}
+    \item \textbf{Punti Affini (o al Finito):} Corrispondono ai punti con $x_{n+1} \neq 0$. Poiché il punto è definito a meno di scala, è possibile dividere tutte le coordinate per $x_{n+1}$, ottenendo il rappresentante canonico:
+    \begin{equation}
+        \mathbf{x} = \begin{pmatrix} \frac{x_1}{x_{n+1}} \\ \frac{x_2}{x_{n+1}} \\ \vdots \\ \frac{x_n}{x_{n+1}} \\ 1 \end{pmatrix}
+    \end{equation}
+    Le prime $n$ coordinate $(\frac{x_1}{x_{n+1}}, \dots, \frac{x_n}{x_{n+1}})^T$ identificano esattamente le coordinate del punto nello spazio affine $\mathbb{R}^n$.
+    
+    \item \textbf{Punti all'Infinito (o Impropri):} Corrispondono ai punti con $x_{n+1} = 0$:
+    \begin{equation}
+        \mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \\ 0 \end{pmatrix}
+    \end{equation}
+    Essi non possono essere convertiti in forma affine ed esprimono le **direzioni** delle rette dello spazio. L'insieme di tutti i punti all'infinito costituisce l'\emph{iperpiano all'infinito} $\Pi_\infty$.
+\end{itemize}
+
+\subsection{Modello Fisico Intuivo: Il Piano Proiettivo $\mathbb{P}^2$}
+Per visualizzare geometricamente $\mathbb{P}^2$, si considera uno spazio vettoriale 3D $\mathbb{R}^3$ con coordinate $(x_1, x_2, x_3)$ e centro di proiezione posto nell'origine $\mathbf{O}=(0,0,0)$.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Rappresentazione geometrica del piano proiettivo e del piano all'infinito.}
+    \label{fig:piano_proiettivo}
+\end{figure}
+
+\begin{enumerate}
+    \item Un punto di $\mathbb{P}^2$ è rappresentato da una retta passante per l'origine in $\mathbb{R}^3$.
+    \item Si consideri un piano affine $\Pi$ non passante per l'origine, ad esempio il piano d'equazione $x_3 = 1$.
+    \item Quasi tutte le rette per l'origine intersecano il piano $x_3 = 1$ in un unico punto finale $\left(\frac{x_1}{x_3}, \frac{x_2}{x_3}, 1\right)$. Questi sono i **punti al finito**.
+    \item Le uniche rette che non intersecano il piano $x_3 = 1$ sono quelle appartenenti al piano giacente nell'origine $x_3 = 0$ (parallelo a $\Pi$). Ognuna di queste rette rappresenta un **punto all'infinito**, ossia la direzione di un fascio di rette parallele su $\Pi$.
+\end{enumerate}
+
+Attraverso la costruzione proiettiva si ottiene un modello geometrico completo e unificato, capace di rappresentare sia i punti finiti dello spazio sia le direzioni/punti all'infinito, fornendo lo strumento matematico adeguato per la proiezione prospettica in Computer Vision.

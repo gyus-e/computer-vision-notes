@@ -1,364 +1,163 @@
-% ============================================================
-% Lezione 4 - Computer Vision
-% Capitolo da includere in un documento di classe report.
-% Pacchetti richiesti nel preambolo: amsmath, amssymb, booktabs
-% ============================================================
+\chapter{Geometria Proiettiva, Omografie e Modellizzazione della Telecamera}
 
-\chapter{Lezione 4}
-\label{ch:lezione4}
+\section{Richiami sullo Spazio Proiettivo e Basi Proiettive}
+I modelli geometrici classici (come lo spazio affine) non consentono di modellare adeguatamente le proiezioni prospettiche tipiche dei sistemi di visione[cite: 1]. Per superare questo limite viene introdotto lo spazio proiettivo $\mathbb{P}^n$, costruito a partire dallo spazio vettoriale $\mathbb{R}^{n+1} \setminus \{\mathbf{0}\}$ definendo una relazione di equivalenza $\mathcal{R}$[cite: 1]:
+\begin{equation}
+\mathbf{x} \sim \mathbf{y} \iff \exists \lambda \neq 0 \quad \text{tale che} \quad \mathbf{x} = \lambda \mathbf{y}
+\end{equation}
+Lo spazio proiettivo $n$-dimensionale $\mathbb{P}^n$ è lo spazio quoziente delle classi di equivalenza rispetto a tale relazione[cite: 1].
 
-\section{Introduzione e richiami sugli spazi proiettivi}
-\label{sec:l4-richiami}
-
-L'obiettivo di questa lezione è completare il modello matematico che permette di descrivere una telecamera e, in seguito, di \emph{calibrarla}. Nelle lezioni precedenti si era visto che i modelli geometrici noti fino a questo momento, cioè fondamentalmente quello affine, non sono in grado di modellare le proiezioni effettuate da una telecamera. È quindi necessario introdurre qualcosa di nuovo: il concetto di \emph{spazio proiettivo}.
-
-\subsection{Definizione di spazio proiettivo}
-
-Si parte dallo spazio $\mathbb{R}^{n+1}$, quindi si aumenta di uno la dimensione, e si toglie lo zero sia dallo spazio vettoriale sia dal campo su cui lo spazio vettoriale si appoggia. Su $\mathbb{R}^{n+1}\setminus\{0\}$ si introduce una relazione di equivalenza $\sim$ molto semplice: appartengono alla stessa classe di equivalenza tutti i vettori che sono multipli dello stesso vettore,
-\[
-  \mathbf{x} \sim \mathbf{y} \iff \exists\, \lambda \neq 0 \;:\; \mathbf{x} = \lambda \mathbf{y}.
-\]
-Con il meccanismo classico si considera lo \emph{spazio quoziente}, cioè lo spazio delle classi di equivalenza, e lo si assume come nuovo spazio su cui lavorare. Lo spazio proiettivo di dimensione $n$ è quindi
-\[
-  \mathbb{P}^n = \bigl(\mathbb{R}^{n+1}\setminus\{0\}\bigr)\big/\!\sim .
-\]
-Un \emph{punto proiettivo} è dunque una classe di equivalenza: ogni suo rappresentante è definito a meno di un fattore di scala.
-
-\subsection{Base proiettiva}
-
-Si è introdotto anche il concetto di \emph{base proiettiva}. Una base di $\mathbb{P}^n$ è un insieme di $n+1$ punti proiettivi che hanno rappresentanti linearmente indipendenti (l'indipendenza lineare si mantiene perché i rappresentanti sono definiti a meno di un fattore di scala), a cui però, per motivi tecnici, si aggiunge un ulteriore \emph{punto unità}, necessario per fissare i fattori di scala. Di conseguenza:
+\subsection{Base Proiettiva}
+Una base per uno spazio proiettivo di dimensione $n$ ($\mathbb{P}^n$) è composta da $n+2$ punti proiettivi[cite: 1]:
 \begin{itemize}
-  \item uno spazio proiettivo di dimensione $n$ ha una base composta da $n+2$ punti;
-  \item una retta proiettiva ($\mathbb{P}^1$) ha una base di $3$ punti;
-  \item un piano proiettivo ($\mathbb{P}^2$) ha una base di $4$ punti.
-\end{itemize}
-Questa costruzione, in particolare il quarto punto nel caso del piano, può sembrare innaturale e più un artificio tecnico che altro. In realtà, come si vedrà con le trasformazioni proiettive, quattro punti servono davvero.
-
-\subsubsection*{Perché servono quattro punti: confronto con il caso affine}
-
-Una trasformazione lineare tra due spazi è nota se è noto come agisce sui punti di una base: la si definisce sui punti della base e, per linearità, si ricava il comportamento su tutti gli altri punti.
-
-Le trasformazioni \emph{affini} preservano il parallelismo. Si supponga di partire da un quadrato e di conoscere le immagini dei tre punti $P_1$, $P_2$, $P_3$. Il quarto punto si può costruire: non si hanno direttamente i due lati dell'immagine che passano per il quarto vertice, ma li si può tracciare, perché ciascuno deve essere parallelo al lato opposto; l'immagine del quarto vertice è l'intersezione di queste due rette. Per una trasformazione affine tre punti sono quindi sufficienti.
-
-Le trasformazioni \emph{proiettive}, invece, si introducono proprio perché il fenomeno da modellare \emph{non} conserva il parallelismo. Conoscere le immagini di tre punti non basta più a determinare la trasformazione, perché l'immagine del quarto punto può essere qualsiasi. Servono quindi effettivamente quattro punti del piano, che sono esattamente i punti della base proiettiva di $\mathbb{P}^2$.
-
-\section{Immersione dello spazio affine nello spazio proiettivo}
-\label{sec:l4-immersione}
-
-Lo spazio proiettivo si costruisce a partire dallo spazio affine, quindi occorre un modo per \emph{immergere} lo spazio affine $\mathbb{R}^n$ nello spazio proiettivo $\mathbb{P}^n$.
-
-Ogni punto proiettivo è identificato da un rappresentante $(x_1,\dots,x_n,x_{n+1})$ a meno di un fattore di scala. Se ci si limita ai punti con $x_{n+1}\neq 0$, allora esiste sicuramente un rappresentante la cui ultima coordinata vale $1$: basta dividere tutte le coordinate per $x_{n+1}$. Si associa quindi
-\[
-  (x_1,\dots,x_n) \in \mathbb{R}^n \;\longmapsto\; [x_1,\dots,x_n,1] \in \mathbb{P}^n .
-\]
-
-Rimangono fuori i punti con $x_{n+1}=0$, che si indicano come \emph{punti all'infinito} (o \emph{punti ideali}). Nel modello grafico del piano proiettivo, i punti proiettivi (che nel modello sono rette per l'origine di $\mathbb{R}^3$) che intersecano il piano $\pi$ sono quelli che si considerano \emph{al finito}; quelli che giacciono sul piano ideale, cioè rappresentati da vettori paralleli a una direzione del piano $\pi$, sono considerati punti all'infinito. In questo modo si sta fondamentalmente ampliando il piano affine aggiungendo le \emph{direzioni} delle rette.
-
-\section{Rette nel piano proiettivo e dualità}
-\label{sec:l4-dualita}
-
-Ci si concentra ora su $\mathbb{P}^2$, il \emph{piano proiettivo}. Nel piano affine $\mathbb{R}^2$ l'equazione $ax+by+c=0$ rappresenta una retta. Usando le coordinate omogenee $(x,y,1)$, che rappresentano tutti i punti affini, la stessa equazione si scrive come prodotto scalare (ossia prodotto matriciale riga per colonna)
-\[
-  \mathbf{l}^{T}\mathbf{x} = 0,
-  \qquad \mathbf{l} = (a,b,c)^T,\quad \mathbf{x}=(x_1,x_2,x_3)^T .
-\]
-Le due scritture rappresentano la stessa entità, quindi una retta di $\mathbb{P}^2$ può essere rappresentata da un vettore di tre coordinate.
-
-I parametri $(a,b,c)$ non sono univoci: moltiplicando l'equazione per una costante non nulla (ad esempio $63$) i punti della retta non cambiano, quindi i parametri sono identificati \emph{a meno di un fattore di scala}, esattamente come i punti del piano proiettivo. Una retta di $\mathbb{P}^2$ è quindi assimilabile a un punto: c'è una \textbf{dualità} di rappresentazione. Tre numeri (a meno di scala) possono rappresentare sia un punto sia una retta, e i ruoli sono interscambiabili. Nel piano affine, invece, tre numeri identificano una retta e due numeri identificano un punto. La condizione di appartenenza di un punto $\mathbf{x}$ a una retta $\mathbf{l}$ è proprio $\mathbf{l}^T\mathbf{x}=0$.
-
-\subsection{Retta per due punti e intersezione di due rette}
-
-La dualità porta formule interscambiabili.
-\begin{itemize}
-  \item Dati due punti $\mathbf{p},\mathbf{q}$ del piano proiettivo, la retta che passa per entrambi si ottiene con il prodotto vettoriale
-  \[
-    \mathbf{l} = \mathbf{p}\times\mathbf{q}
-  \]
-  (la formula con i determinanti vista a scuola per il prodotto vettoriale in fisica). Il risultato è un vettore di tre numeri, che si interpreta come una retta.
-  \item Dati due rette $\mathbf{l}_1,\mathbf{l}_2$, il loro punto di intersezione si ottiene con lo stesso prodotto vettoriale
-  \[
-    \mathbf{x} = \mathbf{l}_1\times\mathbf{l}_2 ,
-  \]
-  il cui risultato, di tre numeri, si interpreta come un punto proiettivo.
+    \item $n+1$ punti i cui vettori rappresentanti sono linearmente indipendenti in $\mathbb{R}^{n+1}$[cite: 1].
+    \item $1$ punto unità (o di calibrazione) necessario per fissare i fattori di scala dei rappresentanti[cite: 1].
 \end{itemize}
 
-\subsection{La retta all'infinito}
-
-Tra le rette di equazione $a x_1 + b x_2 + c x_3 = 0$ si può considerare il caso in cui $a=b=0$ e $c\neq0$ (vettore $\mathbf{l}_\infty=(0,0,1)^T$). L'equazione si riduce a $x_3 = 0$ (il coefficiente $c$ si può trascurare).
-
-Che tipo di punti hanno la terza coordinata uguale a zero? Non possono essere l'origine, perché lo spazio proiettivo è stato costruito eliminando lo zero. Sono quindi \emph{punti all'infinito}. Tutti i punti all'infinito stanno dunque su un'unica retta, che con molta fantasia viene chiamata \textbf{retta all'infinito}. Essa raccoglie tutte le direzioni delle rette del piano; sul piano affine ce la si immagina come una circonferenza all'infinito, ma in realtà è una varietà lineare assimilabile a una retta del piano proiettivo. (Nello spazio $\mathbb{P}^3$ l'analogo è il \emph{piano all'infinito}.)
-
-\section{Trasformazioni proiettive}
-\label{sec:l4-trasf-proiettive}
-
-Si è visto che servono quattro punti per identificare in modo univoco una trasformazione proiettiva. Bisogna ora definire che cosa sia una trasformazione tra spazi proiettivi.
-
-\subsection{Definizione}
-
-Si considerino due spazi proiettivi $\mathbb{P}^n$ e $\mathbb{P}^m$, costruiti rispettivamente su $\mathbb{R}^{n+1}$ e $\mathbb{R}^{m+1}$, che sono spazi vettoriali per i quali una trasformazione lineare è già definita. Data una trasformazione lineare
-\[
-  f : \mathbb{R}^{n+1} \to \mathbb{R}^{m+1},
-\]
-essa identifica a sua volta una trasformazione $\tilde f : \mathbb{P}^n \to \mathbb{P}^m$.
-
-Perché questo è possibile? Ricordiamo che $f$ è lineare se
-\[
-  f(\alpha\mathbf{x} + \beta\mathbf{y}) = \alpha f(\mathbf{x}) + \beta f(\mathbf{y}).
-\]
-In uno spazio vettoriale ci sono le operazioni interne (la somma) ma anche il prodotto esterno per gli scalari del campo: la linearità fa sì che le proprietà si propaghino dallo spazio di partenza allo spazio di arrivo, usando gli stessi scalari.
-
-Si considerino ora $\mathbf{x}$ e $\mathbf{y}$ come punti proiettivi: sono rappresentanti qualsiasi, identificati a meno di un fattore di scala. Se si cambiano i rappresentanti, sostituendo $\mathbf{x}$ con $\gamma\mathbf{x}$ e $\mathbf{y}$ con $\delta\mathbf{y}$, la linearità si mantiene: gli scalari $\alpha\gamma$ e $\beta\delta$ si comportano come nuovi scalari e si arriva sempre allo stesso punto immagine, perché $f(\gamma\mathbf{x})=\gamma f(\mathbf{x})$ è sempre un rappresentante di $f(\mathbf{x})$, e analogamente per $\mathbf{y}$. Quindi la linearità di una trasformazione da $\mathbb{R}^{n+1}$ a $\mathbb{R}^{m+1}$ si \emph{eredita} sugli spazi proiettivi.
-
-\subsection{Relazione di equivalenza tra trasformazioni}
-
-C'è però una differenza importante. Come trasformazioni da $\mathbb{R}^{n+1}$ a $\mathbb{R}^{m+1}$, tutte le trasformazioni $\lambda f$ (con $\lambda$ scalare non nullo) sono \emph{differenti}: moltiplicare $f$ per uno scalare allarga o restringe l'immagine (ad esempio, se $f$ manda un quadrato in una figura, $\lambda f$ la manda in una figura scalata). Come trasformazioni \emph{proiettive}, invece, lo scalare viene assorbito dagli altri fattori di scala: l'immagine è identificata a meno di un fattore di scala, quindi $\lambda f$ e $f$ identificano un'unica trasformazione proiettiva.
-
-La classe delle trasformazioni proiettive si ottiene quindi introducendo, sulle trasformazioni lineari, la stessa relazione di equivalenza già vista sui punti:
-\[
-  f \sim \lambda f, \qquad \lambda\neq 0 .
-\]
-Per le trasformazioni affini, due trasformazioni uguali a meno di un fattore di scala sono trasformazioni diverse, perché mappano i punti in punti differenti; nello spazio proiettivo invece sono la stessa trasformazione, perché l'immagine è definita a meno di un fattore di scala (si può sempre dividere per $\lambda$, ma l'effetto sul piano affine sarebbe comunque di allargare o restringere).
-
-\subsection{Rappresentazione matriciale}
-
-Le trasformazioni lineari sono identificate da una matrice $(m+1)\times(n+1)$. È particolarmente interessante il caso delle trasformazioni \emph{invertibili}, cioè di uno spazio in se stesso: la matrice deve essere quadrata, quindi $(n+1)\times(n+1)$, e invertibile. Questa rappresentazione viene ereditata dalla trasformazione proiettiva: se $F$ è la matrice della trasformazione lineare $f$, la trasformazione proiettiva $\tilde f$ è identificata dalla matrice $F$ \emph{a meno di un fattore di scala}, perché la trasformazione $\lambda f$ ha matrice $\lambda F$.
-
-\section{La gerarchia delle trasformazioni}
-\label{sec:l4-gerarchia}
-
-Si consideri come una trasformazione dello spazio affine in se stesso può essere scritta come trasformazione proiettiva, tramite una matrice $(n+1)\times(n+1)$ che agisce sul vettore $(x_1,\dots,x_n,x_{n+1})^T$, dove $x_{n+1}$ è la coordinata che distingue i punti al finito dai punti all'infinito (per i punti al finito si pone $x_{n+1}=1$).
-
-La matrice ha la forma a blocchi
-\[
-  \begin{pmatrix}
-    A & \mathbf{t} \\
-    \mathbf{v}^T & v
-  \end{pmatrix},
-\]
-dove $A$ è un blocco $n\times n$ che agisce sulle prime $n$ coordinate, $\mathbf{t}$ è un vettore colonna di $n$ coordinate che viene sommato, $\mathbf{v}^T$ è un vettore riga di $n$ elementi e $v$ è un numero (scalare, in contrapposizione al vettore $\mathbf{v}$ in grassetto). L'ultima riga $(\mathbf{v}^T, v)$ è una riga di $n+1$ coordinate: le prime $n$ agiscono su $x_1,\dots,x_n$, l'ultima su $x_{n+1}$.
-
-\subsection{Isometrie}
-
-Le \textbf{isometrie} sono le trasformazioni che mantengono le distanze: composizioni di una rotazione e di una traslazione, senza scala. Si scrivono come
-\[
-  \begin{pmatrix}
-    R & \mathbf{t} \\
-    \mathbf{0}^T & 1
-  \end{pmatrix}.
-\]
-Se nell'ultima riga i primi $n$ elementi sono nulli e l'ultimo è $1$, l'ultima coordinata dell'immagine è ancora $x_{n+1}$: un punto al finito (coordinata $1$) rimane al finito, e un punto all'infinito (coordinata $0$) rimane all'infinito (perché $0$ moltiplicato per $1$ dà $0$). Questa è quindi una trasformazione dello spazio euclideo in se stesso, scritta in forma proiettiva: non cambia il modo in cui si comporta il piano all'infinito, e mappa punti al finito in punti al finito. In forma affine la stessa isometria si scrive $\mathbf{x}\mapsto R\mathbf{x}+\mathbf{t}$.
-
-Le isometrie sono le trasformazioni con più invarianti: distanze, angoli, aree, parallelismo, tutto è invariante.
-
-\subsection{Similarità}
-
-Una \textbf{similarità} è una trasformazione che porta in un oggetto proporzionale all'originale: si ruota, si scala e si trasla. Anche questa si scrive in forma proiettiva nello stesso modo, con ultima riga $(\mathbf{0}^T,1)$ e blocco $A=sR$.
-
-\subsection{Trasformazioni affini}
-
-Una \textbf{trasformazione affine} è analoga, ma il blocco $A$ è una matrice qualsiasi (invertibile), seguita da una traslazione:
-\[
-  \begin{pmatrix}
-    A & \mathbf{t} \\
-    \mathbf{0}^T & 1
-  \end{pmatrix}.
-\]
-Anche qui l'ultima riga $(\mathbf{0}^T,1)$ lascia invariato il piano all'infinito e mappa punti al finito in punti al finito.
-
-\subsection{Trasformazioni proiettive}
-
-Le cose cambiano quando si arriva a modellare una trasformazione \emph{veramente} proiettiva. Essa perde il vincolo di mappare il piano all'infinito in se stesso e i punti al finito in punti al finito: proprio questa è la proprietà per cui sono state introdotte, perché i punti al finito possono essere mappati all'infinito e viceversa. Nell'ultima riga della matrice non si è più costretti a mettere $\mathbf{0}^T$ e $1$: si può avere un vettore $\mathbf{v}^T$ qualsiasi e un valore $v$ qualsiasi,
-\[
-  \begin{pmatrix}
-    A & \mathbf{t} \\
-    \mathbf{v}^T & v
-  \end{pmatrix}.
-\]
-
-\subsection{Invarianti e birapporto}
-
-La trasformazione proiettiva perde fondamentalmente tutte le invarianti classiche (distanze, angoli, aree, parallelismo), ma ne introduce una nuova, il \textbf{birapporto} (in inglese \emph{cross ratio}). Considerati quattro punti allineati $P_1,P_2,P_3,P_4$, si mantiene il rapporto tra il prodotto di due distanze (al numeratore) e il prodotto di altre due distanze (al denominatore); per questo è un \emph{rapporto}. Nella forma usuale
-\[
-  \frac{d(P_1,P_3)\,d(P_2,P_4)}{d(P_1,P_4)\,d(P_2,P_3)} .
-\]
-\emph{(Nota: la formula completa non è stata dettata per esteso a lezione; qui è riportata la forma standard.)} Dal punto di vista pratico, essendo un invariante qualcuno l'ha sicuramente utilizzato, ma per il corso è poco rilevante: si sappia che esiste, senza perderci tempo a ricordarlo.
-
-\section{Gradi di libertà}
-\label{sec:l4-gradi-liberta}
-
-Per \emph{gradi di libertà} si intende da quanti parametri dipende effettivamente una trasformazione. Il problema si pone per gli spazi naturali: trasformazioni da $\mathbb{P}^2$ in $\mathbb{P}^2$ (caso 2D, matrice $3\times3$, punti con tre coordinate) e da $\mathbb{P}^3$ in $\mathbb{P}^3$ (caso 3D, matrice $4\times4$, punti con quattro coordinate).
-
-\paragraph{Isometrie.}
-Sono abbastanza vincolate, dato che devono essere una rotazione e una traslazione.
+Esempi di dimensioni di basi nei diversi spazi[cite: 1]:
 \begin{itemize}
-  \item 2D: la rotazione dipende da $1$ parametro (l'angolo) e la traslazione, un vettore di due coordinate qualsiasi, da $2$; in totale $3$ gradi di libertà.
-  \item 3D: la traslazione ha $3$ parametri (le coordinate del vettore) e la rotazione altri $3$ (i tre angoli di Eulero); in totale $6$ gradi di libertà.
+    \item \textbf{Retta proiettiva ($\mathbb{P}^1$):} La base richiede $3$ punti[cite: 1].
+    \item \textbf{Piano proiettivo ($\mathbb{P}^2$):} La base richiede $4$ punti[cite: 1].
 \end{itemize}
 
-\paragraph{Similarità.}
-Rispetto alle isometrie c'è un parametro in più, il fattore di scala: $4$ gradi di libertà nel caso del piano e $7$ nel caso dello spazio.
+\subsection{Confronto tra Trasformazioni Affini e Proiettive}
+Nelle trasformazioni affini sul piano, il parallelismo viene preservato[cite: 1]. Pertanto, conoscendo l'immagine di $3$ punti (es. i tre vertici di un quadrato), il quarto punto è vincolato ed è univocamente determinabile tramite l'intersezione delle rette parallele[cite: 1].
 
-\paragraph{Trasformazioni affini.}
-La traslazione dà sempre $2$ (piano) o $3$ (spazio) gradi di libertà. La matrice $A$ è $2\times2$ nel piano, quindi ha $4$ parametri, tutti indipendenti per una trasformazione affine; nello spazio è $3\times3$ e ha $9$ parametri. In totale $4+2=6$ gradi di libertà in 2D e $9+3=12$ in 3D.
+Nelle trasformazioni proiettive, il parallelismo \textbf{non} viene conservato[cite: 1]. Di conseguenza, l'immagine di $3$ punti non è sufficiente a definire la mappa, poiché il quarto punto può trovarsi in una posizione arbitraria[cite: 1]. Sono quindi indispensabili $4$ punti nel piano per identificare univocamente una trasformazione proiettiva (corrispondenti esattamete ai $4$ punti della base proiettiva di $\mathbb{P}^2$)[cite: 1].
 
-\paragraph{Trasformazioni proiettive.}
-Non ci sono più i vincoli sull'ultima riga. In 2D la matrice è $3\times3$ con $9$ numeri, in 3D è $4\times4$ con $16$ numeri. Tuttavia la matrice che rappresenta la trasformazione è unica \emph{solo a meno di un fattore di scala}: ciò costituisce un vincolo, per cui si può sempre fissare a $1$ un elemento diverso da zero. Quindi i gradi di libertà sono uno in meno: $\mathbf{8}$ in 2D e $\mathbf{15}$ in 3D. I numeri non sono tutti indipendenti, perché c'è una dipendenza tra di loro dovuta alla definizione a meno del fattore di scala.
+\section{Immersione dello Spazio Affine e Punti all'Infinito}
+L'immersione dello spazio affine $n$-dimensionale $\mathbb{R}^n$ nello spazio proiettivo $\mathbb{P}^n$ avviene esprimendo i punti in coordinate omogenee $\mathbf{x} = (x_1, x_2, \dots, x_n, x_{n+1})^T$[cite: 1]:
+\begin{enumerate}
+    \item \textbf{Punti al finito:} Se $x_{n+1} \neq 0$, è sempre possibile dividere tutte le coordinate per $x_{n+1}$, ottenendo un rappresentante normalizzato con l'ultima coordinata pari ad $1$: $(x_1/x_{n+1}, \dots, x_n/x_{n+1}, 1)^T$[cite: 1].
+    \item \textbf{Punti all'infinito (o ideali):} Se $x_{n+1} = 0$, il punto ha forma $(x_1, x_2, \dots, x_n, 0)^T$[cite: 1]. Tali punti rappresentano le direzioni delle rette nello spazio e non appartengono allo spazio affine originale[cite: 1].
+\end{enumerate}
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{lcc}
-    \toprule
-    Trasformazione & 2D (matrice $3\times3$) & 3D (matrice $4\times4$) \\
-    \midrule
-    Isometria       & 3 & 6  \\
-    Similarità      & 4 & 7  \\
-    Affinità        & 6 & 12 \\
-    Proiettività    & 8 & 15 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Gradi di libertà delle trasformazioni della gerarchia geometrica.}
-  \label{tab:l4-gdl}
-\end{table}
+\section{Dualità nel Piano Proiettivo $\mathbb{P}^2$}
+In $\mathbb{R}^2$, l'equazione implicita di una retta è $ax + by + c = 0$[cite: 1]. Esprimendo il punto in coordinate omogenee $\mathbf{x} = (x_1, x_2, x_3)^T$, la retta equivale alla condizione di ortogonalità[cite: 1]:
+\begin{equation}
+\mathbf{l}^T \mathbf{x} = 0 \quad \text{con} \quad \mathbf{l} = \begin{pmatrix} a \\ b \\ c \end{pmatrix}
+\end{equation}
+Poiché i parametri $(a, b, c)$ identificano la stessa retta a meno di un fattore di scala non nullo ($\lambda a x + \lambda b y + \lambda c = 0$), il vettore $\mathbf{l}$ appartiene a sua volta a $\mathbb{P}^2$[cite: 1].
 
-\section{Omografie e trasformazione prospettica tra piani}
-\label{sec:l4-omografie}
-
-Si torna alla trasformazione prospettica, quella che modella le telecamere. Si consideri il caso semplice in cui un piano è il piano immagine e si sta guardando una parete, cioè un altro piano. Ci si limita a vedere come si trasforma un piano su un altro piano.
-
-Questa trasformazione è fondamentalmente \emph{biunivoca}: per ogni punto del piano della parete si identifica un punto sul piano immagine, perché c'è un raggio ottico che passa per entrambi; analogamente, per ogni punto del piano immagine si può risalire al punto sulla parete. Come trasformazione tra due insiemi è quindi biunivoca, e in particolare è anche \emph{invertibile}. Poiché i due piani si possono considerare come piani proiettivi, si tratta di una trasformazione lineare invertibile di un piano proiettivo in se stesso.
-
-Le trasformazioni geometriche invertibili si chiamano \emph{isomorfismi}: il nome indica che non cambia la forma dello spazio, non lo snatura; si può modificare un po' la geometria, ma le proprietà fondamentali dello spazio si mantengono. Nel caso degli spazi proiettivi, per un motivo che il docente dichiara di non aver mai indagato, gli isomorfismi si chiamano diversamente: \textbf{omografie}. Un'omografia è quindi un isomorfismo dello spazio proiettivo. In sintesi, l'immagine di un piano su un piano immagine è legata al piano originale da una trasformazione \emph{invertibile}, più semplice della proiezione classica con cui si modella la telecamera, che tipicamente non è invertibile (come si vedrà più avanti, ma è qualcosa già noto).
-
-\subsection{Applicazione: i panorami}
-
-Che cosa significa avere l'immagine di un piano? Se si riprende la parete davanti a sé la cosa è abbastanza semplice. Ma lo stesso vale se la scena è \emph{estremamente lontana}: le differenze di profondità diventano inapprezzabili sull'immagine, e quello che si sta guardando, pur non essendo certamente un piano, è assimilabile a un piano dal punto di vista della telecamera (ad esempio un panorama).
-
-Se la trasformazione è invertibile e si hanno diverse immagini dello stesso panorama, è possibile metterle in relazione e rimapparle tutte sullo stesso piano immagine. Muovendo o ruotando la telecamera si riprendono varie parti della scena, ciascuna su una sezione finita del piano immagine; poiché si può rimappare tutto sullo stesso piano immagine, si può costruire un'immagine molto più grande della scena, che è esattamente ciò che avviene con le \emph{viste panoramiche}.
-
-Le viste panoramiche funzionano perché si guarda qualcosa di talmente lontano che, invece di avere il processo di proiezione classico (non invertibile), si ha un processo invertibile, che permette di costruire un'unica vista abbastanza gradevole. Se invece si ripete lo stesso processo su qualcosa di \emph{vicino}, dove le differenze di profondità sono significative, la scena non è più assimilabile a un piano: la costruzione ottenuta è comunque realizzata, e magari abbastanza bene, ma risulta assolutamente irrealistica e distorta, perché il modello non rispecchia più la realtà.
-
-\section{Modello della telecamera}
-\label{sec:l4-modello-telecamera}
-
-Si inizia a ragionare sui modelli di telecamera, già introdotti nella lezione precedente.
-
-\subsection{Modello di proiezione prospettica}
-
-Si ha un sistema di riferimento $XYZ$ nel quale si fissa un \emph{centro di proiezione} $O$, che è l'origine del sistema, e un piano $\pi$ che è il \emph{piano immagine}. La proiezione $\mathbf{p}$ di un punto $\mathbf{P}$ si ottiene così: la retta che va da $\mathbf{P}$ a $O$ interseca il piano immagine nel punto $\mathbf{p}$, che è la proiezione di $\mathbf{P}$.
-
-Nel sistema di riferimento con asse $x$ parallelo all'asse $X$ e asse $y$ parallelo all'asse $Y$, le coordinate della proiezione sono regolate dalle equazioni non lineari
-\[
-  \hat{x} = f\,\frac{X}{Z}, \qquad \hat{y} = f\,\frac{Y}{Z},
-\]
-dove $f$ è la distanza tra il centro ottico e il piano immagine $\pi$ (\emph{distanza focale}). Il punto $o$, origine del sistema di riferimento sul piano immagine, si chiama \textbf{punto principale}.
-
-\subsection{Sistema di riferimento mondo e sistema di riferimento telecamera}
-
-Questo è il modo più semplice di modellare la proiezione, ma per usarlo servono le coordinate di $\mathbf{P}$ rispetto al sistema di riferimento \emph{della telecamera}, la cui origine è all'interno della telecamera stessa: non c'è speranza di misurarle direttamente.
-
-La soluzione è considerare un \emph{sistema di riferimento mondo}, rispetto al quale si conoscono le coordinate di $\mathbf{P}$, e il \emph{sistema di riferimento telecamera}, ortogonale e orientato nello stesso modo. Esiste sicuramente (anche se non è nota) una rotazione $R$ e una traslazione $\mathbf{t}$ che porta un sistema di riferimento nell'altro, perché si tratta di due sistemi di riferimento nello spazio. Quindi, tramite $(R,\mathbf{t})$, si portano le coordinate di $\mathbf{P}$ dal sistema mondo (noto) al sistema centrato sulla telecamera, e da lì si proietta con le equazioni precedenti. $R$ e $\mathbf{t}$ servono semplicemente a portare le coordinate dei punti nel sistema di riferimento corretto.
-
-\subsection{Punto principale e asse ottico}
-
-Il sistema di riferimento considerato è centrato nel punto principale, ottenuto tracciando la perpendicolare dal centro di proiezione al piano immagine: questa retta è l'\emph{asse ottico} (asse $Z$ uscente dalla telecamera) e il punto principale è la sua intersezione con il piano immagine. Per una telecamera reale, il centro di proiezione si può immaginare al centro dell'obiettivo, e il punto principale è quindi, idealmente, al centro del sensore.
-
-\section{Parametri intrinseci: dalle coordinate continue alle coordinate pixel}
-\label{sec:l4-intrinseci}
-
-Le immagini, però, hanno un sistema di coordinate diverso: l'origine è tipicamente il primo pixel in alto a sinistra. Quindi le coordinate che si misurano non sono quelle date dalle equazioni di proiezione: le equazioni forniscono coordinate sul \emph{continuo}, mentre le misure sono coordinate \emph{discrete}, le \textbf{coordinate pixel}. Esiste quindi una trasformazione sul piano immagine, a priori sconosciuta, che mappa le coordinate $(\hat{x},\hat{y})$ nelle coordinate pixel $(x,y)$. Da che cosa dipende?
+Esiste quindi una perfetta \textbf{dualità} nel piano proiettivo: sia i punti sia le rette sono rappresentati da vettori a $3$ componenti in $\mathbb{P}^2$, e le loro definizioni algebraiche sono interscambiabili[cite: 1]:
 \begin{itemize}
-  \item \textbf{Posizione relativa delle due origini}, cioè un vettore traslazione di due coordinate $(x_0,y_0)$: le coordinate del punto principale rispetto al sistema di riferimento immagine. Dipende dalla dimensione e dal montaggio del sensore, che è fissato: il primo pixel è sempre lo stesso e il punto principale è più o meno sempre lo stesso. (Cambiando obiettivo c'è un minimo di distorsione che sposta un po' il punto principale, ma teoricamente è trascurabile.)
-  \item \textbf{Dimensione dei pixel}. Le misure sono distanze su un piano continuo, quindi la trasformazione dipende dalle dimensioni orizzontale e verticale dei pixel, che non sono uguali: gli elementi sensibili sono tipicamente rettangolari e grandi alcuni micron. Si introducono quindi $k_x$ e $k_y$, il \emph{numero di pixel per unità di distanza} nelle due direzioni. Il fatto che siano definiti così è sensato perché si parte da $\hat{x},\hat{y}$, che sono distanze; sapendo quanti pixel ci sono per unità di distanza, la trasformazione è immediata.
-  \item \textbf{Angolo $\theta$ tra righe e colonne del sensore}. Si assume tipicamente che gli elementi sensibili siano perfettamente allineati, con righe tutte parallele tra loro e ortogonali alle colonne. In realtà può esserci un disallineamento, cioè una leggera distorsione. L'angolo $\theta$ formato tra righe e colonne dovrebbe idealmente essere di $90^\circ$ ma potrebbe essere leggermente diverso; se si richiede estrema precisione va considerato e misurato.
-  \item \textbf{Distanza focale $f$}, già presente nelle equazioni di proiezione.
+    \item \textbf{Retta per due punti:} La retta $\mathbf{l}$ passante per i punti $\mathbf{p}$ e $\mathbf{q}$ è data dal prodotto vettoriale:
+    \begin{equation}
+    \mathbf{l} = \mathbf{p} \times \mathbf{q}
+    \end{equation}
+    \item \textbf{Intersezione di due rette:} Il punto di intersezione $\mathbf{x}$ tra due rette $\mathbf{l}_1$ e $\mathbf{l}_2$ è dato dal prodotto vettoriale:
+    \begin{equation}
+    \mathbf{x} = \mathbf{l}_1 \times \mathbf{l}_2
+    \end{equation}
 \end{itemize}
 
-\subsection{Il caso $\theta = 90^\circ$}
+\subsection{La Retta all'Infinito}
+In $\mathbb{P}^2$, la condizione $x_3 = 0$ individua l'insieme di tutti i punti all'infinito[cite: 1]. Tali punti giacciono su un'unica retta proiettiva, detta \textbf{retta all'infinito} $\mathbf{l}_\infty$[cite: 1]:
+\begin{equation}
+\mathbf{l}_\infty = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
+\end{equation}
 
-Nel caso classico $\theta=90^\circ$ le equazioni si semplificano:
-\[
-  x = f k_x\,\frac{X}{Z} + x_0, \qquad
-  y = f k_y\,\frac{Y}{Z} + y_0 .
-\]
-Si traslano le coordinate rispetto a $(x_0,y_0)$ (come ci si aspettava, perché si sta traslando l'origine), e il fattore di scala diventa diverso per $x$ e per $y$: prima c'era soltanto $f$, ora si scala per $f$ \emph{e} per il numero di pixel per unità di distanza. Il risultato diventa intuitivo se si ragiona su come trasformare una distanza in misura in pixel.
+\section{Gerarchia delle Trasformazioni Geometriche e Gradi di Libertà}
+Le trasformazioni da $\mathbb{P}^n$ in $\mathbb{P}^n$ sono rappresentate da matrici quadrate ordinarie $(n+1) \times (n+1)$ definite a meno di un fattore di scala[cite: 1]. La struttura a blocchi generale di una matrice di trasformazione è:
+\begin{equation}
+H = \begin{bmatrix} A_{n \times n} & \mathbf{t}_{n \times 1} \\ \mathbf{v}^T_{1 \times n} & v \end{bmatrix}
+\end{equation}
 
-Un punto da notare è che $f$ non compare mai da sola: appare sempre moltiplicata per $k_x$ o per $k_y$, e i due fattori non si possono mai separare. Per questo i prodotti $f k_x$ e $f k_y$ sono spesso considerati come unici numeri, indicati con $f_x$ e $f_y$ e chiamati \textbf{distanza focale in pixel}: hanno il ruolo della distanza focale della proiezione classica, ma tengono conto dei pixel.
+Di seguito viene descritta la gerarchia delle trasformazioni, ordinate dal livello più vincolato a quello più generale:
 
-\section{La matrice di proiezione prospettica}
-\label{sec:l4-matrice-proiezione}
+\begin{enumerate}
+    \item \textbf{Isometrie (Euclidee):}
+    \begin{itemize}
+        \item Struttura: $A = R$ (matrice di rotazione ortogonale), $\mathbf{v} = \mathbf{0}$, $v = 1$[cite: 1].
+        \item Invarianti: Distanze, angoli, aree[cite: 1].
+        \item Gradi di Libertà (DoF):
+        \begin{itemize}
+            \item In 2D ($\mathbb{P}^2$): $3$ DoF ($1$ angolo di rotazione + $2$ componenti di traslazione)[cite: 1].
+            \item In 3D ($\mathbb{P}^3$): $6$ DoF ($3$ angoli di Eulero + $3$ componenti di traslazione)[cite: 1].
+        \end{itemize}
+    \end{itemize}
 
-\subsection{Catena di trasformazioni}
+    \item \textbf{Similarità:}
+    \begin{itemize}
+        \item Struttura: $A = sR$ (rotazione scalata di un fattore $s$), $\mathbf{v} = \mathbf{0}$, $v = 1$[cite: 1].
+        \item Invarianti: Rapporti tra distanze, angoli, forme[cite: 1].
+        \item Gradi di Libertà (DoF):
+        \begin{itemize}
+            \item In 2D ($\mathbb{P}^2$): $4$ DoF ($3$ delle isometrie + $1$ fattore di scala $s$)[cite: 1].
+            \item In 3D ($\mathbb{P}^3$): $7$ DoF ($6$ delle isometrie + $1$ fattore di scala $s$)[cite: 1].
+        \end{itemize}
+    \end{itemize}
 
-Si parte dalle coordinate $\mathbf{P}_w=(X_w,Y_w,Z_w)$ nel sistema di riferimento mondo, si applica una rotazione e una traslazione e si ottengono le coordinate nel sistema di riferimento della telecamera:
-\[
-  \begin{pmatrix} X\\Y\\Z \end{pmatrix}
-  =
-  \begin{pmatrix}
-    r_{11} & r_{12} & r_{13}\\
-    r_{21} & r_{22} & r_{23}\\
-    r_{31} & r_{32} & r_{33}
-  \end{pmatrix}
-  \begin{pmatrix} X_w\\Y_w\\Z_w \end{pmatrix}
-  +
-  \begin{pmatrix} t_1\\t_2\\t_3 \end{pmatrix}.
-\]
-Se si esplicitano i parametri della rotazione, mettendo i risultati nelle equazioni di proiezione (le prime due righe per le coordinate $X$ e $Y$, l'ultima per la $Z$ al denominatore) si ottengono espressioni che sembrano complicatissime ma che sono solo il risultato di queste moltiplicazioni matriciali.
+    \item \textbf{Trasformazioni Affini:}
+    \begin{itemize}
+        \item Struttura: $A$ matrice non singolare arbitraria, $\mathbf{v} = \mathbf{0}$, $v = 1$[cite: 1].
+        \item Invarianti: Parallelismo, rapporti tra aree, retta all'infinito (mappa punti al finito in punti al finito)[cite: 1].
+        \item Gradi di Libertà (DoF):
+        \begin{itemize}
+            \item In 2D ($\mathbb{P}^2$): $6$ DoF ($4$ elementi di $A_{2 \times 2}$ + $2$ di $\mathbf{t}$)[cite: 1].
+            \item In 3D ($\mathbb{P}^3$): $12$ DoF ($9$ elementi di $A_{3 \times 3}$ + $3$ di $\mathbf{t}$)[cite: 1].
+        \end{itemize}
+    \end{itemize}
 
-\subsection{Scrittura omogenea}
+    \item \textbf{Trasformazioni Proiettive (Omografie):}
+    \begin{itemize}
+        \item Struttura: Matrice $Q_{(n+1) \times (n+1)}$ completamente generica (nessun vincolo su $\mathbf{v}$ e $v$)[cite: 1].
+        \item Invarianti: Allineamento di punti, \emph{birapporto} (\emph{cross-ratio})[cite: 1]. Mappa punti al finito anche in punti all'infinito e viceversa[cite: 1].
+        \item Gradi di Libertà (DoF): Poiché la matrice è definita a meno di un fattore di scala globale, si sottrae $1$ DoF dal numero totale di elementi[cite: 1]:
+        \begin{itemize}
+            \item In 2D ($\mathbb{P}^2 \to \mathbb{P}^2$): $3 \times 3 - 1 = 8$ DoF[cite: 1].
+            \item In 3D ($\mathbb{P}^3 \to \mathbb{P}^3$): $4 \times 4 - 1 = 15$ DoF[cite: 1].
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
 
-La stessa trasformazione si può scrivere in un'altra maniera. Si considera la matrice $3\times4$ $[\,R\mid\mathbf{t}\,]$, la cui parte sinistra è la rotazione e l'ultima colonna è la traslazione, e il vettore delle coordinate omogenee del punto da ruotare e traslare, $\tilde{\mathbf{P}}_w=(X_w,Y_w,Z_w,1)^T$, rappresentazione proiettiva del punto nello spazio. Allora
-\[
-  [\,R\mid\mathbf{t}\,]\,\tilde{\mathbf{P}}_w = R\mathbf{P}_w + \mathbf{t},
-\]
-perché le prime tre colonne agiscono sulle prime tre coordinate, mentre $\mathbf{t}$ agisce sull'$1$ soltanto: ha lo stesso effetto della trasformazione scritta prima.
+\section{Omografie e Applicazioni Pratiche (Panorami)}
+Un'omografia è un isomorfismo dello spazio proiettivo in sé ($\mathbb{P}^2 \to \mathbb{P}^2$), che rappresenta una trasformazione lineare, biunivoca e invertibile tra due piani proiettivi[cite: 1].
 
-Rimane da modellare il resto come una matrice $3\times3$, una trasformazione del piano in se stesso. Si prende $f k_x$ moltiplicato per $X/Z$ (cioè $\hat{x}$ scalato) e si somma $x_0$; analogamente si prende $f k_y$ moltiplicato per $Y/Z$ e si somma $y_0$. Tutto ciò è esattamente la matrice
-\[
-  A =
-  \begin{pmatrix}
-    f k_x & 0 & x_0\\
-    0 & f k_y & y_0\\
-    0 & 0 & 1
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-    f_x & 0 & x_0\\
-    0 & f_y & y_0\\
-    0 & 0 & 1
-  \end{pmatrix},
-\]
-e seguendo tutti i passi della catena di trasformazioni lineari si ottengono esattamente i numeri delle equazioni scritte sopra. Il risultato è
-\[
-  \tilde{\mathbf{p}} \;\simeq\; A\,[\,R\mid\mathbf{t}\,]\,\tilde{\mathbf{P}}_w
-  \;=\; M\,\tilde{\mathbf{P}}_w ,
-\]
-dove $\simeq$ indica l'uguaglianza a meno di un fattore di scala (proprio quello che permette di eseguire implicitamente la divisione per $Z$).
-
-\paragraph{Conseguenza fondamentale.}
-La trasformazione da $\mathbb{R}^3$ a $\mathbb{R}^2$, vista nello spazio affine, è \emph{non lineare}; vista come trasformazione dallo spazio proiettivo al piano proiettivo diventa una trasformazione \emph{lineare}, con tutti i vantaggi che ne conseguono.
-
-\paragraph{Caso generale con $\theta\neq 90^\circ$.}
-Nella forma presentata si trascura $\theta$. Se si vuole introdurre il parametro $\theta$, la matrice $A$ diventa più contorta; tipicamente si considera $\theta=90^\circ$ e lo si trascura. Per completezza, la forma generale è
-\[
-  A =
-  \begin{pmatrix}
-    f k_x & -f k_x\cot\theta & x_0\\
-    0 & \dfrac{f k_y}{\sin\theta} & y_0\\
-    0 & 0 & 1
-  \end{pmatrix}.
-\]
-\emph{(Nota: questa espressione non è stata dettata a voce a lezione; è riportata in forma standard.)}
-
-\subsection{Parametri estrinseci e intrinseci}
-
-Una telecamera può dunque essere modellata come il prodotto della matrice $A$ per la trasformazione che dipende da rotazione e traslazione.
+\subsection{Generazione di Viste Panoramiche}
+Quando una telecamera ruota attorno al proprio centro ottico o inquadra una scena perfettamente piana/molto lontana, le variazioni di profondità della scena diventano trascurabili[cite: 1]. In questo caso:
 \begin{itemize}
-  \item \textbf{Parametri estrinseci}: sono quelli che dipendono solo da $R$ e $\mathbf{t}$. Rotazione e traslazione nello spazio hanno $6$ gradi di libertà ($3+3$). Non dipendono strettamente dalla telecamera ma dal sistema di riferimento mondo che si introduce per comodo, per poter calibrare la telecamera.
-  \item \textbf{Parametri intrinseci}: sono i $5$ parametri che compaiono in $A$ ($f k_x$, $f k_y$, $x_0$, $y_0$ e $\theta$), legati effettivamente alla telecamera, al sensore e alla lente utilizzata.
+    \item La proiezione geometrica tra le diverse immagini scattate può essere modellata come un'omografia pianare invertibile[cite: 1].
+    \item Tutte le immagini possono essere riproiettate ed allineate su un unico piano immagine comune, consentendo la creazione di mosaici e viste panoramiche[cite: 1].
 \end{itemize}
-In tutto si hanno $6+5=11$ parametri. Il conto torna con un'altra via: $M$ è una matrice $3\times4$, che modella una trasformazione proiettiva dallo spazio al piano, quindi ha $12$ elementi; essendo definita a meno di un fattore di scala, i gradi di libertà sono $12-1=11$.
 
-\subsection{Anticipazione: calibrazione}
+Se il medesimo processo viene applicato ad oggetti vicini con variazioni di profondità significative, il modello piano fallisce: la trasformazione reale non è più invertibile e il mosaico risulterà fortemente distorto ed irrealistico[cite: 1].
 
-Calibrare realmente la telecamera significa misurarne i parametri intrinseci, cioè la matrice $A$, che permette di conoscerla davvero; ma per calcolare $A$ e poterla utilizzare è necessario calcolare anche $R$ e $\mathbf{t}$. Nelle prossime lezioni si vedrà esattamente come calcolare sia $A$ sia $R$ e $\mathbf{t}$. Il procedimento è un'idea abbastanza semplice, niente di complicato; anche la matematica coinvolta è tutta lineare, con sistemi di equazioni lineari un po' sovradimensionati, ma pur sempre sistemi.
+\section{Modello della Telecamera Prospettica e Calibrazione}
 
+\subsection{Proiezione Prospettica Ideale}
+Sia $O$ il centro di proiezione (centro ottico) e $\Pi$ il piano immagine posto a distanza focale $f$ lungo l'asse ottico $Z$[cite: 1]. Un punto 3D $P = (X, Y, Z)^T$ viene proiettato sul piano immagine nel punto $p = (x, y)^T$ secondo le equazioni non lineari[cite: 1]:
+\begin{equation}
+x = f \frac{X}{Z}, \quad y = f \frac{Y}{Z}
+\end{equation}
+L'intersezione dell'asse ottico $Z$ con il piano immagine $\Pi$ definisce il \textbf{punto principale} $O_p = (x_0, y_0)$[cite: 1].
+
+\subsection{Parametri Intrinseci e Coordinate Pixel}
+Nelle telecamere reali, il sistema di riferimento dell'immagine ha l'origine nell'angolo in alto a sinistra del sensore e le coordinate sono misurate discrezionalmente in pixel[cite: 1]. Occorre considerare:
+\begin{itemize}
+    \item $k_x, k_y$: Numero di pixel per unità di lunghezza nelle direzioni orizzontale e verticale[cite: 1].
+    \item $f_x = f \cdot k_x, \; f_y = f \cdot k_y$: Distanze focali espresse direttamente in unità pixel[cite: 1].
+    \item $(x_0, y_0)$: Coordinate del punto principale espressa nel sistema di riferimento dei pixel[cite: 1].
+    \item $\theta$: Angolo tra gli assi dei pixel (se gli elementi sensibili non sono perfettamente ortogonali; idealmente $\theta = 90^\circ$)[cite: 1].
+\end{itemize}
+
+La matrice dei \textbf{parametri intrinseci} $K$ ($3 \times 3$), assumendo $\theta = 90^\circ$, assume la forma[cite: 1]:
+\begin{equation}
+K = \begin{bmatrix} f_x & 0 & x_0 \\ 0 & f_y & y_0 \\ 0 & 0 & 1 \end{bmatrix}
+\end{equation}
+La matrice $K$ contiene $5$ parametri intrinseci liberi ($f_x, f_y, x_0, y_0$ ed eventualmente lo skew $s$)[cite: 1].
+
+\subsection{Parametri Estrinseci e Matrice di Proiezione Completa}
+I punti del mondo reale sono espressi in un sistema di riferimento arbitrario (Mondo)[cite: 1]. Per portarli nel sistema di riferimento della telecamera, si applica una rotazione $R$ ($3 \times 3$) e una traslazione $\mathbf{t}$ ($3 \times 1$), dette \textbf{parametri estrinseci} ($6$ DoF)[cite: 1].
+
+Combinando parametri intrinseci ed estrinseci, la proiezione di un punto 3D espresso in coordinate omogenee $\mathbf{X}_W = (X, Y, Z, 1)^T$ nel punto pixel $\mathbf{x} = (u, v, 1)^T$ diventa una \textbf{trasformazione lineare proiettiva} regolata dalla matrice di proiezione $P$ ($3 \times 4$)[cite: 1]:
+\begin{equation}
+\mathbf{x} \sim P \mathbf{X}_W = K \begin{bmatrix} R & \mathbf{t} \end{bmatrix} \mathbf{X}_W
+\end{equation}
+
+\subsection{Conteggio complessivo dei Gradi di Libertà}
+La matrice di proiezione $P$ ha dimensione $3 \times 4$ ($12$ elementi) ed è definita a meno di un fattore di scala globale, fornendo $11$ gradi di libertà totali[cite: 1]:
+\begin{equation}
+11 \text{ DoF totali} = 5 \text{ parametri intrinseci } (K) + 6 \text{ parametri estrinseci } (R, \mathbf{t})
+\end{equation}
+Il processo di \textbf{calibrazione della telecamera} consiste nello stimare numericamente i parametri della matrice $P$ (e di conseguenza disaccoppiare $K$, $R$ e $\mathbf{t}$) risolvendo opportuni sistemi lineari basati su punti di corrispondenza noti[cite: 1].
